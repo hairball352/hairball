@@ -2,15 +2,15 @@
 
 .side-menu {
     font-size: 20px;
-    margin-left: 90px;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .side-menu-title {
     font-size: 35px;
     margin: 5px;
     font-weight: 500;
-    margin-left: 90px;
+    text-align: center;
 }
 
 #checked-title2 {

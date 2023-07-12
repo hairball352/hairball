@@ -51,10 +51,10 @@
                 </a>
             </li>
             <li class="admin_li">
-                <a href="<%= request.getContextPath() %>/admin/memberList">관리자</a>
+                <a href="<%= request.getContextPath() %>/admin/animalRegistration">관리자</a>
             </li>
             <li class="login_li">
-                <a href="<%= request.getContextPath() %>/member/login">로그인</a>
+                <a href="<%= request.getContextPath() %>/member/memberLogin">로그인</a>
             </li>
             <li class="signup_li">
                 <a href="#">회원가입</a>
