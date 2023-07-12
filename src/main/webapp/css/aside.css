@@ -1,0 +1,13 @@
+/* 사이드바 */
+aside {
+    padding-top: 125px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    bottom: 0;
+    right: 0;
+    margin-right: 60px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}

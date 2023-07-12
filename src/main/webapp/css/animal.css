@@ -1,0 +1,71 @@
+
+
+.animal-container {
+    display: flex;
+    justify-content: space-around
+}
+.animal-detail-section {
+    width: 100%;
+}
+.animal-sidebar {
+    margin-top: 30px;
+    width: 30%;
+    text-align: center;
+}
+.animal-detail-div {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* 테이블 영역 */
+#table-img {
+    width: 500px;
+}
+.table-container {
+    display: flex;
+    justify-content: center;
+}
+.table-container table {
+    width: 630px;
+    table-layout:fixed;
+    margin: 30px;
+    border: 1px solid rgb(116, 116, 116);
+    text-align: center;
+}
+.table-container tr{
+    padding: 30px;
+    border: 1px solid rgb(116, 116, 116);
+}
+.table-container th {
+    background-color: #bcd9d1;
+    border: 1px solid rgb(116, 116, 116);
+    font-weight: 700;
+    padding: 15px;
+}
+
+.side-menu {
+    font-size: 20px;
+    margin: 10px;
+}
+
+#checked-title {
+    margin-top: 29px;
+    margin-left: 130px;
+    font-size: 24px;
+}
+
+.side-hr{
+    border: 0;
+    height: 2.5px;
+    background: #e3e3e3;
+    width: 250px;
+}
+
+.section-hr {
+    background: #b0b0b0;
+    width: 1200px;
+}
