@@ -1,10 +1,12 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
 <%@ include file="/WEB-INF/views/templates/header2.jsp"%>
 
 <h1>동물 등록 폼</h1>
 관리자만 가능
 
+
+<form name="memberEnrollFrm" action="" method="POST">
 <table>
     <tr>
         <th>등록고유번호</th>
@@ -51,19 +53,19 @@
     <tr>
         <th>성별</th>
         <td>
-            <input type="radio" name="male" id="male" value="male">
-            <label for="male">M</label>
-            <input type="radio" name="female" id="female" value="female">
-            <label for="female">F</label>
+            <input type="radio" name="gender" id="gender0" value="M">
+			<label for="gender0">M</label>
+			<input type="radio" name="gender" id="gender1" value="F">
+			<label for="gender1">F</label>
         </td>
     </tr>
     <tr>
         <th>중성화</th>
         <td>
-            <input type="radio" name="IsNeutered" id="IsNeutered" value="Y">
-            <label for="IsNeutered">Y</label>
-            <input type="radio" name="NotisNeutered" id="NotisNeutered" value="N">
-            <label for="NotisNeutered">N</label>
+            <input type="radio" name="IsNeutured" id="IsNeutured0" value="Y">
+			<label for="gender0">Y</label>
+			<input type="radio" name="IsNeutured" id="IsNeutured1" value="N">
+			<label for="gender1">N</label>
         </td>
     </tr>
     <tr>
@@ -73,4 +75,6 @@
         </td>
     </tr>
 </table>
+		<input type="submit" value="등록" >
+</form>
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>

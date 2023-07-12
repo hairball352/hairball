@@ -13,7 +13,7 @@ import com.sh.hairball.board.enrollboard.model.service.EnrollBoardService;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
 
 
-@WebServlet("/Animal/Enroll")
+@WebServlet("/animal/enroll")
 public class AnimalEnrollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final EnrollBoardService enrollBoardService = new EnrollBoardService();
@@ -22,9 +22,8 @@ public class AnimalEnrollServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		List<EnrollBoard> list = enrollBoardService.findAll();
 		
-		req.getRequestDispatcher("/WEB-INF/views/animal/animalList.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/animal/animalEnrollFrm.jsp").forward(req, resp);
 	}
 	
 }
