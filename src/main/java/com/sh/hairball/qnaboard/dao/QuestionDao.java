@@ -50,6 +50,7 @@ public class QuestionDao {
                 while(rset.next()) {
                     QuestionVo question = handleQuestionResultSet(rset);
                     questions.add(question);
+                    System.out.println("케스쳔 : " + question);
                 }
             }
         } catch (SQLException e) {
