@@ -42,20 +42,23 @@ public class QuestionDao {
     public List<QuestionVo> findAll(Connection conn, int start, int end) {
         List<QuestionVo> questions = new ArrayList<>(); // 여러개를 만들때는 ArrayList로 초기화해서 만든다.
         String sql = prop.getProperty("findAll");
-
+//        System.out.println("start" + start);
+//        System.out.println("end" + end);
         try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, start);
             pstmt.setInt(2, end);
             try(ResultSet rset = pstmt.executeQuery()) {
+            	System.out.println(rset.getFetchSize());
                 while(rset.next()) {
+                	System.out.println(rset + " 알셋");
                     QuestionVo question = handleQuestionResultSet(rset);
                     questions.add(question);
-                    System.out.println("케스쳔 : " + question);
                 }
             }
         } catch (SQLException e) {
             throw new QuestionException(e);
         }
+        System.out.println("케스쳔zz 씨발왜안돼 : " + questions);
         return questions;
 
     }
