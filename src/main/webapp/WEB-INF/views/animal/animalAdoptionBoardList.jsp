@@ -6,7 +6,7 @@
 
 <% 
 
-List<AdopBoard> adoptionBoardList = (List<AdopBoard>) session.getAttribute("adoptionBoardList"); 
+List<AdopBoard> adoptionBoardList = (List<AdopBoard>) request.getAttribute("adoptionBoardList");
 
 %>
 
@@ -43,16 +43,16 @@ List<AdopBoard> adoptionBoardList = (List<AdopBoard>) session.getAttribute("adop
             </tr>
             </thead>
             <tbody>
-            <% for(AdopBoard board : adoptionBoardList) { %>
-            <tr>
-              <td><%= board.getId() %></td>
-              <td>
-                <a href="<%= request.getContextPath() %>/animal/animalAdoptionBoard?no=<%=board.getId() %>"><%= board.getMemberId()%>님의 입양신청서 💌</a>
-              </td>
-              <td><%= board.getMemberId() %></td>
-              <td><%= board.getRegDate() %></td>
-            <tr>
-                <% } %>
+	            <% for(AdopBoard board : adoptionBoardList) { %>
+	            <tr>
+	              <td><%= board.getId() %></td>
+	              <td>
+	                <a href="<%= request.getContextPath() %>/animal/animalAdoptionBoardDetail?no=<%=board.getId()%>"><%= board.getMemberId()%>님의 입양신청서 💌</a>
+	              </td>
+	              <td><%= board.getMemberId() %></td>
+	              <td><%= board.getRegDate() %></td>
+	            <tr>
+	             <% } %>
             </tbody>
           </table>
         </div>
