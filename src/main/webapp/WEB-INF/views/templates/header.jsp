@@ -1,8 +1,11 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <%@ page import="com.sh.hairball.member.model.vo.Member"%>
 <%@ page import="java.math.BigInteger" %>
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="java.security.SecureRandom" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +16,12 @@
     <link rel="stylesheet" href="/hairball/css/animal.css" />
     <link rel="stylesheet" href="/hairball/css/aside.css" />
     <link rel="stylesheet" href="/hairball/css/swiper.css" />
+    <link rel="stylesheet" href="/hairball/css/introduce.css" />
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 <%
   String clientId = "9kBGa_4PSPHg5IPpNrhO";//애플리케이션 클라이언트 아이디값
-  String redirectURI = URLEncoder.encode("http://localhost:8080/hairball/oauth/naver", "UTF-8");
+  String redirectURI = URLEncoder.encode("http://localhost:8080/Oauth/naver", "UTF-8");
   SecureRandom random = new SecureRandom();
   String state = new BigInteger(130, random).toString();
   String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
@@ -46,7 +50,9 @@
                     <img width="50" height="20" src="/hairball/images/naver_login_simple/btnW_축약형.png"/>
                 </a>
             </li>
-
+            <li class="admin_li">
+                <a href="<%= request.getContextPath() %>/admin/memberList">관리자</a>
+            </li>
             <li class="login_li">
                 <a href="<%= request.getContextPath() %>/member/login">로그인</a>
             </li>
@@ -64,13 +70,13 @@
                         <a href="<%= request.getContextPath() %>/" class="font">홈</a>
                     </li>
                     <li>
-                        <a href="#section_2" class="font">소개</a>
+                        <a href="<%= request.getContextPath() %>/introduce/introduce1.jsp" class="font">소개</a>
                     </li>
                     <li>
                         <a href="<%= request.getContextPath() %>/animal/list" class="font">보호동물</a>
                     </li>
                     <li>
-                        <a href="<%= request.getContextPath() %>/animal/animalAdoptionList" class="font">입양신청</a>
+                        <a href="#section_4" class="font">입양신청</a>
                     </li>
                     <li>
                         <a href="<%= request.getContextPath() %>/qnaBoard/questionIntro" class="font">참여소통</a>
