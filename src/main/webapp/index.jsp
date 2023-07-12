@@ -28,7 +28,7 @@
     <h2 class="title">
       혼자가 아닌 <span>함께</span>라서 <span>행복</span>한 순간
     </h2>
-    <h3 class="sub_title">사랑스러운 아이들이 기다리고 있어요w</h3>
+    <h3 class="sub_title">사랑스러운 아이들이 기다리고 있어요</h3>
     <div class="go_click">
       <a href="#">
         <img
