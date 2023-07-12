@@ -15,7 +15,7 @@ import com.sh.hairball.qnaboard.model.QuestionVo;
 public class QuestionDao {
     private Properties prop = new Properties();
     public QuestionDao() {
-        String filename = QuestionVo.class.getResource("/sql/question").getPath();;
+        String filename = QuestionVo.class.getResource("/sql/question-query.properties").getPath();;
         try {
             prop.load(new FileReader(filename));
         } catch (IOException e) {
