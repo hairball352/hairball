@@ -1,10 +1,10 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@page import="com.sh.hairball.qnaboard.model.AnswerVo"%>
 <%@page import="com.sh.hairball.member.model.vo.MemberRole"%>
 <%@page import="java.util.List"%>
 <%@page import="com.sh.hairball.qnaboard.model.QuestionVo"%>
 <%@ page import="java.util.ArrayList" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 <%

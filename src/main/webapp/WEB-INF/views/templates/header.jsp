@@ -73,7 +73,7 @@
                         <a href="<%= request.getContextPath() %>/animal/animalAdoptionList" class="font">입양신청</a>
                     </li>
                     <li>
-                        <a href="#section_5" class="font">참여소통</a>
+                        <a href="<%= request.getContextPath() %>/qnaBoard/questionIntro" class="font">참여소통</a>
                     </li>
                 </ul>
             </ul>
