@@ -48,7 +48,7 @@ public class QuestionDao {
             pstmt.setInt(2, end);
             try(ResultSet rset = pstmt.executeQuery()) {
                 while(rset.next()) {
-                    QuestionVo question = handleBoardResultSet(rset);
+                    QuestionVo question = handleQuestionResultSet(rset);
                     questions.add(question);
                 }
             }
@@ -59,11 +59,11 @@ public class QuestionDao {
 
     }
 
-    private QuestionVo handleBoardResultSet(ResultSet rset) throws SQLException {
+    private QuestionVo handleQuestionResultSet(ResultSet rset) throws SQLException {
         QuestionVo question = new QuestionVo();
         question.setId(rset.getInt("id"));
-        question.setTitle(rset.getString("title"));
         question.setMemberId(rset.getString("member_id"));
+        question.setTitle(rset.getString("title"));
         question.setContent(rset.getString("content"));
         question.setRegDate(rset.getDate("reg_date"));
         return question;
@@ -110,7 +110,7 @@ public class QuestionDao {
             pstmt.setInt(1, id);
             try (ResultSet rset = pstmt.executeQuery()) {
                 if (rset.next())
-                    question = handleBoardResultSet(rset);
+                    question = handleQuestionResultSet(rset);
             }
         } catch (SQLException e) {
             throw new QuestionException(e);
