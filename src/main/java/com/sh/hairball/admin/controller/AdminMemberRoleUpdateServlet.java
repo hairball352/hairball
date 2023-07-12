@@ -3,6 +3,7 @@ package com.sh.hairball.admin.controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,7 +13,7 @@ import com.sh.hairball.member.model.vo.MemberRole;
 import java.io.IOException;
 
 @WebServlet("/admim/memberRoleUpdate")
-public class AdminMemberRoleUpdateServlet {
+public class AdminMemberRoleUpdateServlet extends HttpServlet{
     private static final long serialVersionUID = 1L;
     private final MemberService memberService = new MemberService();
 
