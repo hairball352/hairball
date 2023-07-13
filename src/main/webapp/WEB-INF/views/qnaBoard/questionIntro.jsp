@@ -23,13 +23,12 @@
 		</div>
 	</div>
 	<div class="introduce01-detail-section">
+		<div class="checked-title2">입양신청</div>
+      	<hr class="section-hr" />
 		<div class="faq-container">
-			<div class="side-menu">
-				<h1>자주하는질문<h1>
-			</div>
 			<div class="answer-list">
 				<input type="radio" name="accordion" id="answer1" /> <label
-					for="answer1"> 자주하는zzzzzzzzzzzzzzzzzzzzzzzzz질문1번입니까? <i class="fas fa-angle-down"></i>
+					for="answer1"> 자주하는질문1번입니까? <i class="fas fa-angle-down"></i>
 				</label>
 				<div>
 					<p>자주하는질문1에 대한 답변입니다.</p>
