@@ -16,7 +16,7 @@ import com.sh.hairball.member.model.service.MemberService;
 import com.sh.hairball.member.model.vo.Member;
 
 
-    @WebServlet("/member/memberLogin")
+    @WebServlet("/member/login")
     public class MemberLoginServlet extends HttpServlet {
         private static final long serialVersionUID = 1L;
 

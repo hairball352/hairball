@@ -19,13 +19,12 @@ import com.sh.hairball.member.model.vo.Member;
  * Servlet Filter implementation class LoginFilter
  */
 @WebFilter({ 
-//	"/member/memberDetail", 
-//	"/member/memberUpdate",  !! 상훈님이 수정할 것 !!
-//	"/member/memberDelete", 
+	"/member/memberDetail", 
+	"/member/memberUpdate",  
+	"/member/memberDelete", 
 	"/qnaBoard/questionCreate",
 	"/qnaBoard/questionUpdate",
 	"/qnaBoard/questionDelete",
-	
 })
 public class LoginFilter extends HttpFilter implements Filter {
        
