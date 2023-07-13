@@ -8,7 +8,7 @@
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 <%
-	QuestionVo question = new QuestionVo();
+	QuestionVo question = (QuestionVo) request.getAttribute("question");
 	List<AnswerVo> answers = (List<AnswerVo>) request.getAttribute("answers");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
