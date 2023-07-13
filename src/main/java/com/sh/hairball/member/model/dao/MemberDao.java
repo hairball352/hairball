@@ -35,6 +35,7 @@ public class MemberDao {
             try (ResultSet rset = pstmt.executeQuery()) {
                 while (rset.next()) {
                     member = handleMemberResultSet(rset);
+                    System.out.println("memberDao@member = " + member);
                 }
             }
         } catch (SQLException e ){
