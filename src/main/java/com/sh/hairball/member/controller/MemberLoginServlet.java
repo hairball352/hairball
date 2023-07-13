@@ -11,7 +11,7 @@ import com.sh.hairball.member.model.vo.Member;
 
 import java.io.IOException;
 
-    @WebServlet("/member/login")
+    @WebServlet("/member/memberLogin")
     public class MemberLoginServlet extends HttpServlet {
         private static final long serialVersionUID = 1L;
 
@@ -21,6 +21,7 @@ import java.io.IOException;
         	   request.getRequestDispatcher("/WEB-INF/views/member/memberLogin.jsp")
                .forward(request, response);
         }
+
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             // 0. 인코딩처리
             request.setCharacterEncoding("utf-8");
