@@ -51,13 +51,13 @@
                 </a>
             </li>
             <li class="admin_li">
-                <a href="<%= request.getContextPath() %>/admin/memberList">관리자</a>
+                <a href="<%= request.getContextPath() %>/admin/animalRegistration">관리자</a>
             </li>
             <li class="login_li">
-                <a href="<%= request.getContextPath() %>/member/login">로그인</a>
+                <a href="<%= request.getContextPath() %>/member/memberLogin">로그인</a>
             </li>
             <li class="signup_li">
-                <a href="#">회원가입</a>
+                <a href="<%= request.getContextPath() %>/member/memberEnroll">회원가입</a>
             </li>
             <li class="logout_li" style="display: none">
                 <a href="#">로그아웃</a>
@@ -67,7 +67,7 @@
             <ul class="nav">
                 <ul>
                     <li class="on">
-                        <a href="<%= request.getContextPath() %>/" class="font">홈</a>
+                        <a href="<%= request.getContextPath() %>" class="font">홈</a>
                     </li>
                     <li>
                         <a href="<%= request.getContextPath() %>/introduce/introduce1.jsp" class="font">소개</a>
@@ -79,7 +79,7 @@
                         <a href="#section_4" class="font">입양신청</a>
                     </li>
                     <li>
-                        <a href="#section_5" class="font">참여소통</a>
+                        <a href="<%= request.getContextPath() %>/qnaBoard/questionIntro" class="font">참여소통</a>
                     </li>
                 </ul>
             </ul>

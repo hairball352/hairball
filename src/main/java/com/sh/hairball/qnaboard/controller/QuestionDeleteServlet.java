@@ -29,13 +29,12 @@ public class QuestionDeleteServlet extends HttpServlet {
 		
 		// 2.업무로직
 
-		// board행 삭제 - attachment행 삭제 (fk on delete cascade)
 		int result = questionService.deleteQuestion(id);
 
 		
 		// 3. 응답처리
 		request.getSession().setAttribute("msg", "질문을 성공적으로 삭제했습니다.");
-		response.sendRedirect(request.getContextPath() + "/question/questionList");
+		response.sendRedirect(request.getContextPath() + "/qnaBoard/questionList");
 	}
 
 }

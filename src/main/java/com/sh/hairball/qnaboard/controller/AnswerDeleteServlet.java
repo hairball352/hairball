@@ -34,7 +34,7 @@ public class AnswerDeleteServlet extends HttpServlet {
 		
 		// 3. 응답처리
 		request.getSession().setAttribute("msg", "댓글을 삭제했습니다.");
-		response.sendRedirect(request.getContextPath() + "/question/questionDetail?id=" + questionId);
+		response.sendRedirect(request.getContextPath() + "/qnaBoard/questionDetail?id=" + questionId);
 	}
 
 }

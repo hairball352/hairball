@@ -17,7 +17,7 @@ public class QuestionCreateServlet extends HttpServlet {
     private final QuestionService questionService = new QuestionService();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/views/question/questionCreate.jsp")
+        request.getRequestDispatcher("/WEB-INF/views/qnaBoard/questionCreate.jsp")
                 .forward(request, response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,7 +40,7 @@ public class QuestionCreateServlet extends HttpServlet {
 
         // 3. 응답처리 (목록페이지로 redirect)
 		request.getSession().setAttribute("msg", "질문을 등록했습니다..");
-        response.sendRedirect(request.getContextPath() + "/question/questionDetail?no=" + question.getId());
+        response.sendRedirect(request.getContextPath() + "/qnaBoard/questionDetail?no=" + question.getId());
     }
 
 }

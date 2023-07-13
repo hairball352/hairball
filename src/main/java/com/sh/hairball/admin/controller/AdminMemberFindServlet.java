@@ -26,8 +26,9 @@ public class AdminMemberFindServlet extends HttpServlet {
 
 
         List<Member> members = memberService.searchMember(searchType, searchKeyword);
-
-        request.setAttribute("member", members);
+        
+        request.setAttribute("members", members);
+        
         request.getRequestDispatcher("/WEB-INF/views/admin/memberList.jsp")
                 .forward(request,response);
     }

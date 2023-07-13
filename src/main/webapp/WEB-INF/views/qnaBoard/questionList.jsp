@@ -1,12 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
 <%@ page import="com.sh.hairball.qnaboard.model.QuestionVo" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
+<%@ include file="/WEB-INF/views/templates/header2.jsp" %>
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 <%
-	List<QuestionVo> Questions = (List<QuestionVo>) request.getAttribute("Questions");
+	List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
 <section id="question-container">
@@ -29,12 +30,12 @@
 		</thead>
 		<tbody>
 			<% 
-				if(Questions != null && !Questions.isEmpty()){
-					for(QuestionVo question : Questions){
+				if(questions != null && !questions.isEmpty()){
+					for(QuestionVo question : questions){
 			%>
 						<tr>
 							<td><%= question.getId() %></td>
-							<td><%= question.getTitle() %></td>
+							<td><a href="<%= request.getContextPath() %>/question/questionDetail?id=<%= question.getId() %>"><%= question.getTitle() %></a></td>
 							<td><%= question.getMemberId() %></td>
 							<td><%= question.getRegDate() %></td>
 						</tr>

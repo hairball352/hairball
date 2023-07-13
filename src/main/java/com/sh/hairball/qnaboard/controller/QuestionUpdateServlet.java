@@ -30,7 +30,7 @@ public class QuestionUpdateServlet extends HttpServlet {
 		QuestionVo question = questionService.findById(id);
 		request.setAttribute("question", question);
 		// 3. 응답처리
-		request.getRequestDispatcher("/WEB-INF/views/question/questionUpdate.jsp")
+		request.getRequestDispatcher("/WEB-INF/views/qnaBoard/questionUpdate.jsp")
 			.forward(request, response);
 	}
 
@@ -56,7 +56,7 @@ public class QuestionUpdateServlet extends HttpServlet {
 
 
 		// 3. 응답처리 (목록페이지로 redirect) - POST방식 DML처리후 url변경을 위해 redirect처리
-		response.sendRedirect(request.getContextPath() + "/question/questionDetail?id=" + question.getId());
+		response.sendRedirect(request.getContextPath() + "/qnaBoard/questionDetail?id=" + question.getId());
 
 	}
 

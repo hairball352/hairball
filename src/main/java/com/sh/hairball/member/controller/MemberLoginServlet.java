@@ -11,15 +11,17 @@ import com.sh.hairball.member.model.vo.Member;
 
 import java.io.IOException;
 
-    @WebServlet("/member/login")
+    @WebServlet("/member/memberLogin")
     public class MemberLoginServlet extends HttpServlet {
         private static final long serialVersionUID = 1L;
 
         private final MemberService memberService = new MemberService();
 
-        /**
-         * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-         */
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        	   request.getRequestDispatcher("/WEB-INF/views/member/memberLogin.jsp")
+               .forward(request, response);
+        }
+
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             // 0. 인코딩처리
             request.setCharacterEncoding("utf-8");
@@ -73,10 +75,7 @@ import java.io.IOException;
             }
 
             // 3. 응답처리
-//		response.sendRedirect(request.getContextPath() + "/"); // redirect를 통한 url변경
-            String referer = request.getHeader("Referer");
-            System.out.println("referer = " + referer);
-            response.sendRedirect(referer);
+		response.sendRedirect(request.getContextPath() + "/"); // redirect를 통한 url변경
 
         }
 }
