@@ -110,6 +110,10 @@
 			%>
 		</tbody>
 	</table>
+	
+	<div id='pagebar'>
+	<%= request.getAttribute("pagebar") %>
+	</div>
 </section>
 <script>
 $(document).ready(function(){

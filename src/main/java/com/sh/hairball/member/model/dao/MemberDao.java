@@ -57,6 +57,7 @@ public class MemberDao {
         MemberRole memberRole = MemberRole.valueOf(rset.getString("member_role"));
         return new Member(id, memberId, password, name, email, phone, address, memberRole, null);
     }
+    
 
     public int insertMember(Connection conn, Member newMember) {
         int result = 0;
@@ -166,6 +167,42 @@ public class MemberDao {
 
         return members;
     }
+
+    public List<Member> findPage(Connection conn, int start, int end) {
+        List<Member> members = new ArrayList<>();
+        String sql = prop.getProperty("findPage");
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, start);
+            pstmt.setInt(2, end);
+            try (ResultSet rset = pstmt.executeQuery()) {
+                while (rset.next()) {
+                    Member member = handleMemberResultSet(rset);
+                    members.add(member);
+                    System.out.println("member" + member);
+                }
+            }
+        } catch (SQLException e) {
+            throw new MemberException(e);
+        }
+        System.out.println("dao members : " + members);
+        return members;
+    }
+    
+
+	public int getTotalContent(Connection conn) {
+		int totalContent = 0;
+		String sql = prop.getProperty("getTotalContent"); // select count(*) from board
+		
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			try (ResultSet rset = pstmt.executeQuery()) {
+				while(rset.next())
+					totalContent = rset.getInt(1);
+			}
+		} catch (SQLException e) {
+			throw new MemberException(e);
+		}
+		return totalContent;
+	}
 
 
 

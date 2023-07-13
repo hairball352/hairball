@@ -97,4 +97,18 @@ public class MemberService {
         close(conn);
         return members;
     }
+
+	public List<Member> findPage(int start, int end) {
+		Connection conn = getConnection();
+		List<Member> boards = memberDao.findPage(conn, start, end);
+		close(conn);
+		return boards;
+	}
+
+	public int getTotalContent() {
+		Connection conn = getConnection();
+		int totalContent = memberDao.getTotalContent(conn);
+		close(conn);
+		return totalContent;
+	}
 }
