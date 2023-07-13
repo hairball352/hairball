@@ -23,8 +23,8 @@
 		</div>
 	</div>
 	<div class="introduce01-detail-section">
-		<div class="checked-title2">입양신청</div>
-      	<hr class="section-hr" />
+		<div class="checked-title2">FAQ</div>
+		<hr class="section-hr" />
 		<div class="faq-container">
 			<div class="answer-list">
 				<input type="radio" name="accordion" id="answer1" /> <label
