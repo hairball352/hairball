@@ -5,7 +5,7 @@
 <%@ include file="/WEB-INF/views/templates/aside.jsp"%>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/question.css" />
-<section class="animal-section">
+<section class="question-section">
 	<div class="introduce01-container">
 		<div class="introduce01-bar">
 			<div class="side-menu-title">
