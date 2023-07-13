@@ -10,10 +10,10 @@
     <input type="hidden" name="memberId"/>
   </form>
   <form name="memberEnrollFrm" action="" method="POST">
-    <table>
+    <table id="enroll-table">
       <tr>
         <th>아이디<sup>*</sup></th>
-        <td>
+        <td id="login-td">
           <input type="text" placeholder="아이디" name="memberId" id="_memberId" value="" required>
           <input type="button" value="중복검사" onclick="checkIdDuplicate();"/>
           <input type="hidden" id="idValid" value="0"/>
