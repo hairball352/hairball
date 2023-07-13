@@ -5,29 +5,29 @@
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 <%
-	QuestionVo b = (QuestionVo) request.getAttribute("question");
+	QuestionVo q = (QuestionVo) request.getAttribute("question");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
 <section id="question-container">
 <h2>게시판 수정</h2>
-<form action="<%=request.getContextPath() %>/question/questionUpdate"
+<form action="<%=request.getContextPath() %>/qnaBoard/questionUpdate"
 	  method="post" 
 	  enctype="multipart/form-data">
-	<input type="hidden" name="id" value="<%= b.getId() %>" />
-	<table id="tbl-board-view">
+	<input type="hidden" name="id" value="<%= q.getId() %>" />
+	<table id="tbl-question-view">
 	<tr>
 		<th>제 목</th>
-		<td><input type="text" name="title" value="<%= b.getTitle() %>" required></td>
+		<td><input type="text" name="title" value="<%= q.getTitle() %>" required></td>
 	</tr>
 	<tr>
 		<th>작성자</th>
 		<td>
-			<input type="text" name="writer" value="<%= b.getMemberId() %>" readonly/>
+			<input type="text" name="memberId" value="<%= q.getMemberId() %>" readonly/>
 		</td>
 	</tr>
 	<tr>
 		<th>내 용</th>
-		<td><textarea rows="5" cols="50" name="content"><%= b.getContent() %></textarea></td>
+		<td><textarea rows="5" cols="50" name="content"><%= q.getContent() %></textarea></td>
 	</tr>
 	<tr>
 		<th colspan="2">

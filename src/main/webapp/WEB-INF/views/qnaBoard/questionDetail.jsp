@@ -38,6 +38,14 @@
 				<textarea readonly style="resize: none;" rows="10"><%= question.getContent() %></textarea>
 			</td>
 		</tr>
+		<tr>
+			<th colspan="2">
+				<%--게시물 수정 --%>
+				<input type="button" value="수정하기" onclick="updateQuestion()">
+				<input type="button" value="삭제하기" onclick="deleteQuestion()">
+			</th>
+		</tr>
+		
 		<%-- 작성자와 관리자만 마지막행 수정/삭제버튼이 보일수 있게 할 것 --%>
 		<% if (loginMember != null && (loginMember.getMemberRole() == MemberRole.A 
 							|| loginMember.getMemberId().equals(question.getMemberId()) ) ) { %>
