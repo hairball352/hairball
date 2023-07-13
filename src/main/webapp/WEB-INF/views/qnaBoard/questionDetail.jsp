@@ -1,10 +1,10 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@page import="com.sh.hairball.qnaboard.model.AnswerVo"%>
 <%@page import="com.sh.hairball.member.model.vo.MemberRole"%>
 <%@page import="java.util.List"%>
 <%@page import="com.sh.hairball.qnaboard.model.QuestionVo"%>
 <%@ page import="java.util.ArrayList" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 <%
@@ -13,7 +13,12 @@
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
 <section id="question-container">
-	<h2>게시판</h2>
+	<h2>Q&A 게시판</h2>
+	<%	if (loginMember != null) { %>
+		<input 
+			type="button" id="btn-add" value="질문하기" 
+			onclick="location.href = '<%= request.getContextPath() %>/board/boardCreate';"/>
+	<%  } %>
 	<table id="tbl-question-view">
 		<tr>
 			<th>글번호</th>

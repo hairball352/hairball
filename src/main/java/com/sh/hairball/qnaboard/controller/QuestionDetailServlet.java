@@ -43,7 +43,7 @@ public class QuestionDetailServlet extends HttpServlet {
 		// 3. 응답처리 jsp
 		request.setAttribute("question", question);
 		request.setAttribute("answers", answers);
-		request.getRequestDispatcher("/WEB-INF/views/question/questionDetail.jsp")
+		request.getRequestDispatcher("/WEB-INF/views/qnaBoard/questionDetail.jsp")
 			.forward(request, response);
 	}
 

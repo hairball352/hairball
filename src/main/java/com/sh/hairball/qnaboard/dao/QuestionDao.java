@@ -15,7 +15,7 @@ import com.sh.hairball.qnaboard.model.QuestionVo;
 public class QuestionDao {
     private Properties prop = new Properties();
     public QuestionDao() {
-        String filename = QuestionVo.class.getResource("/sql/question").getPath();;
+        String filename = QuestionVo.class.getResource("/sql/question-query.properties").getPath();;
         try {
             prop.load(new FileReader(filename));
         } catch (IOException e) {
@@ -42,13 +42,13 @@ public class QuestionDao {
     public List<QuestionVo> findAll(Connection conn, int start, int end) {
         List<QuestionVo> questions = new ArrayList<>(); // 여러개를 만들때는 ArrayList로 초기화해서 만든다.
         String sql = prop.getProperty("findAll");
-
         try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, start);
             pstmt.setInt(2, end);
             try(ResultSet rset = pstmt.executeQuery()) {
+            	System.out.println(rset.getFetchSize());
                 while(rset.next()) {
-                    QuestionVo question = handleBoardResultSet(rset);
+                    QuestionVo question = handleQuestionResultSet(rset);
                     questions.add(question);
                 }
             }
@@ -59,11 +59,11 @@ public class QuestionDao {
 
     }
 
-    private QuestionVo handleBoardResultSet(ResultSet rset) throws SQLException {
+    private QuestionVo handleQuestionResultSet(ResultSet rset) throws SQLException {
         QuestionVo question = new QuestionVo();
         question.setId(rset.getInt("id"));
-        question.setTitle(rset.getString("title"));
         question.setMemberId(rset.getString("member_id"));
+        question.setTitle(rset.getString("title"));
         question.setContent(rset.getString("content"));
         question.setRegDate(rset.getDate("reg_date"));
         return question;
@@ -110,7 +110,7 @@ public class QuestionDao {
             pstmt.setInt(1, id);
             try (ResultSet rset = pstmt.executeQuery()) {
                 if (rset.next())
-                    question = handleBoardResultSet(rset);
+                    question = handleQuestionResultSet(rset);
             }
         } catch (SQLException e) {
             throw new QuestionException(e);

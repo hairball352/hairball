@@ -40,7 +40,7 @@ public class AnswerCreateServlet extends HttpServlet {
 //		result = notificationService.notifyNewAnswer(question);
 		
 		// 3. 응답처리 - redirect
-		response.sendRedirect(request.getContextPath() + "/question/questionDetail?no=" + questionId);
+		response.sendRedirect(request.getContextPath() + "/qnaBoard/questionDetail?id=" + questionId);
 		
 	}
 

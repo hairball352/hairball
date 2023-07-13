@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
-
 <%
 
 %>
@@ -118,5 +117,6 @@
   </div>
 </div>
 <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a7b86ff96d50db1785b75938758aeb44&redirect_uri=http://localhost:8080/oauth2/kakao"><button>KAKAO LOGIN</button></a>
+
 <a href="<%=apiURL%>"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>
