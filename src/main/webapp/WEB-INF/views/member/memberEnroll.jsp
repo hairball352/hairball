@@ -14,7 +14,7 @@
       <tr>
         <th>아이디<sup>*</sup></th>
         <td>
-          <input type="text" placeholder="4글자이상" name="memberId" id="_memberId" value="sejong" required>
+          <input type="text" placeholder="아이디" name="memberId" id="_memberId" value="" required>
           <input type="button" value="중복검사" onclick="checkIdDuplicate();"/>
           <input type="hidden" id="idValid" value="0"/>
           <%-- id검사여부 확인용: 0-유효하지않음, 1-유효한 아이디 --%>
@@ -23,30 +23,30 @@
       <tr>
         <th>패스워드<sup>*</sup></th>
         <td>
-          <input type="password" name="password" id="_password" value="1234" required><br>
+          <input type="password" placeholder="비밀번호" name="password" id="_password" value="" required><br>
         </td>
       </tr>
       <tr>
         <th>패스워드확인<sup>*</sup></th>
         <td>
-          <input type="password" id="passwordConfirmation" value="1234" required><br>
+          <input type="password" placeholder="비밀번호 확인" id="passwordConfirmation" value="" required><br>
         </td>
       </tr>
       <tr>
         <th>이름<sup>*</sup></th>
         <td>
-          <input type="text"  name="name" id="name" value="세종대왕" required><br>
+          <input type="text" placeholder="이름" name="name" id="name" value="" required><br>
         </td>
       </tr>
         <th>이메일</th>
         <td>
-          <input type="email" placeholder="abc@xyz.com" name="email" id="email" value="sejong@naver.com"><br>
+          <input type="email" placeholder="비밀번호 분실 시 확인용 이메일" name="email" id="email" value=""><br>
         </td>
       </tr>
       <tr>
         <th>휴대폰<sup>*</sup></th>
         <td>
-          <input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11" value="01012341234" required><br>
+          <input type="tel" placeholder="휴대전화번호" name="phone" id="phone" maxlength="11" value="" required><br>
         </td>
       </tr>
     </table>
