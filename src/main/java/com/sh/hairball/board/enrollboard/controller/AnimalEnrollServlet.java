@@ -12,13 +12,11 @@
 //
 //import com.oreilly.servlet.MultipartRequest;
 //import com.oreilly.servlet.multipart.FileRenamePolicy;
-//import com.sh.hairball.animal.model.AnimalService;
 //import com.sh.hairball.animal.model.vo.Animal;
 //import com.sh.hairball.animal.model.vo.AnimalType;
 //import com.sh.hairball.animal.model.vo.Sex;
 //import com.sh.hairball.board.enrollboard.model.service.EnrollBoardService;
 //import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
-//import com.sh.mvc.common.HelloMvcFileRenamePolicy;
 //
 //
 //@WebServlet("/animal/enroll")
