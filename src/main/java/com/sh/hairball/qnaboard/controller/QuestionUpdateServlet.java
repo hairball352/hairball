@@ -41,7 +41,7 @@ public class QuestionUpdateServlet extends HttpServlet {
 		String title = request.getParameter("title");
 		String memberId = request.getParameter("memberId");
 		String content = request.getParameter("content");
-		// db attachment 행삭제, 저장된 파일삭제
+		
 		QuestionVo question = new QuestionVo();
 		question.setId(id);
 		question.setTitle(title);

@@ -26,9 +26,11 @@ public class AnswerCreateServlet extends HttpServlet {
 		int questionId =  Integer.parseInt(request.getParameter("questionId"));
 		String memberId = request.getParameter("memberId");
 		String content = request.getParameter("content");
-		
 		AnswerVo answer = new AnswerVo(0, memberId, content, null, questionId);
 		System.out.println("answer = " + answer);
+		
+		
+		
 		
 		// 2. 업무로직
 		// 댓글 등록

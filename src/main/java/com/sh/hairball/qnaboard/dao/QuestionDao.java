@@ -198,7 +198,7 @@ public class QuestionDao {
             pstmt.setString(1, answer.getMemberId());
             pstmt.setInt(2, answer.getQuestionId());
             pstmt.setString(3, answer.getContent());
-            // setInt에는 0을 추가할수없어서 setObject를 씀
+            
             result = pstmt.executeUpdate();
 
         } catch (SQLException e) {

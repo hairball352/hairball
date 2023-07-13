@@ -70,6 +70,7 @@
 				<% } %>
 			</table>
 			
+			<% if(loginMember.getMemberRole() == MemberRole.A ) { %>
 			<hr style="margin-top:30px;" />	
 		    
 			<div class="answer-container">
@@ -77,7 +78,7 @@
 		            <form
 						action="<%=request.getContextPath()%>/qnaBoard/answerCreate" 
 						method="post" 
-						name="boardanswerFrm">
+						name="questionanswerFrm">
 		                <input type="hidden" name="questionId" value="<%= question.getId() %>" />
 		                <input type="hidden" name="memberId" value="<%= loginMember != null ? loginMember.getMemberId() : "" %>" />
 						<textarea name="content" cols="60" rows="3"></textarea>
@@ -121,6 +122,7 @@
 				<input type="hidden" name="id" />
 				<input type="hidden" name="questionId" value="<%= question.getId() %>"/>
 			</form>
+			<% } %>
 		</section>
 	</div>
 </section>		
@@ -128,7 +130,7 @@
 <script>
 document.querySelectorAll(".btn-delete").forEach((button) => {
 	button.onclick = (e) => {
-		if(confirm("해당 댓글을 삭제하시겠습니까?")){
+		if(confirm("해당 답변을 삭제하시겠습니까?")){
 			const frm = document.answerDelFrm;
 			const {value} = e.target;
 			console.log(value);
@@ -141,7 +143,7 @@ document.querySelectorAll(".btn-delete").forEach((button) => {
 // 이벤트버블링을 이용한 textarea focus핸들러
 // focus, blur 버블링되지 않음. 대신 focusin, focusout 사용.
 document.addEventListener("focusin", (e) => {
-	if(e.target.matches("form[name=boardanswerFrm] textarea")) {
+	if(e.target.matches("form[name=questionanswerFrm] textarea")) {
 		<% 	if (loginMember == null) { %>
 			loginAlert();
 		<% 	} %>
