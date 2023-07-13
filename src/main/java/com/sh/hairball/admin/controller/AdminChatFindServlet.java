@@ -31,10 +31,13 @@ public class AdminChatFindServlet extends HttpServlet {
     	// memberId를 기반으로 채팅 기록 조회
     	List<WebChat> chatHistory = webChatService.getChatHistory(memberId);
 
+        // memberId를 기반으로 채팅 기록 조회
+//        List<WebChat> chatHistory = webChatService.getChatHistory(memberId);
+
         Gson gson = new Gson();
-        String jsonChatHistory = gson.toJson(chatHistory);
+//        String jsonChatHistory = gson.toJson(chatHistory);
 
         response.setContentType("application/json");
-        response.getWriter().write(jsonChatHistory);
+//        response.getWriter().write(jsonChatHistory);
     }
 }
