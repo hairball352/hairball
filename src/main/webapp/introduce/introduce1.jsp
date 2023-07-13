@@ -5,15 +5,6 @@
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
   <section class="introduce01-section">
     <div class="introduce01-container">
-        <div class="introduce01-bar">
-                <div class="side-menu-title"><a href="<%= request.getContextPath() %>/introduce/introduce1.jsp">타이틀</a></div>
-                <hr class="side-hr" />
-                <div class="side-menu"><a href="<%= request.getContextPath() %>/introduce/introduce1.jsp">컨텐츠1</a></div>
-                <hr class="side-hr" />
-                <div class="side-menu"><a href="<%= request.getContextPath() %>/introduce/introduce2.jsp">컨텐츠2</a></div>
-                <hr class="side-hr" />
-            </div>
-        </div>
         <div class="introduce01-detail-section">
             <div id="checked-title2">타이틀</div>
             <hr class="section-hr" />
