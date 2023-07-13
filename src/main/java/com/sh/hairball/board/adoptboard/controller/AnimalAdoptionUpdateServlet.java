@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sh.hairball.board.adoptboard.model.service.AdoptionService;
-import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
+import com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity;
 
 
 @WebServlet("/animal/animalAdoptionUpdate")
@@ -20,7 +20,7 @@ public class AnimalAdoptionUpdateServlet extends HttpServlet {
 		// 수정할 게시글 불러오기 
 		int no = Integer.parseInt(request.getParameter("no"));
 		
-		AdopBoard adopBoard = adoptionService.findById(no);
+		AdopBoardEntity adopBoard = adoptionService.findById(no);
 		request.setAttribute("adopBoard", adopBoard);
 		
 		request.getRequestDispatcher("/WEB-INF/views/animal/animalAdoptionBoardList.jsp").forward(request, response);

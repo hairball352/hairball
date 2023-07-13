@@ -1,13 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<%@ page import="com.sh.hairball.board.adoptboard.model.vo.AdopBoard"%>
+<%@ page import="com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity"%>
 <%@ page import="java.util.List" %>
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
 <%@ include file="/WEB-INF/views/templates/header2.jsp"%>
 
-<% 
+<%
+ 
 
-List<AdopBoard> adoptionBoardList = (List<AdopBoard>) request.getAttribute("adoptionBoardList");
-
+List<AdopBoardEntity> adoptionBoardList = (List<AdopBoardEntity>) request.getAttribute("adoptionBoardList");
 %>
 
 <section class="animal-section">
@@ -28,11 +28,13 @@ List<AdopBoard> adoptionBoardList = (List<AdopBoard>) request.getAttribute("adop
           <img id="table-img" src="../src/img/소개/mong.jpg">
         </div>
         <div class="adoption-container">
-          <% if(loginMember != null) { %>
+          <%
+          
+           if(loginMember != null)
+          %>
           <input
                   type="button" id="btn-add" value="글쓰기"
                   onclick="location.href = '<%= request.getContextPath() %>/animal/animalAdoptionCreate';"/>
-          <% } %>
           <table id="tbl-board">
             <thead>
             <tr>
@@ -43,7 +45,9 @@ List<AdopBoard> adoptionBoardList = (List<AdopBoard>) request.getAttribute("adop
             </tr>
             </thead>
             <tbody>
-	            <% for(AdopBoard board : adoptionBoardList) { %>
+	            <%
+	             for(AdopBoardEntity board : adoptionBoardList) {
+	            %>
 	            <tr>
 	              <td><%= board.getId() %></td>
 	              <td>

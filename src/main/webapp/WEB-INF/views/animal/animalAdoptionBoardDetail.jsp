@@ -1,3 +1,4 @@
+<%@page import="com.sh.hairball.animal.model.vo.Animal"%>
 <%@page import="com.sh.hairball.board.adoptboard.model.vo.AdopBoard"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
@@ -6,6 +7,7 @@
 
 <%
 	AdopBoard adopBoard = (AdopBoard)request.getAttribute("adopBoard");
+	Animal animal = adopBoard.getAnimal();
 %>
 <section class="animal-section">
     <div class="animal-container">
@@ -31,26 +33,26 @@
                         <tbody>
                         <tr>
                             <th colspan="4">나의 입양 번호
-                            <td colspan="6" id=""><%=adopBoard.getId() %>></td>
+                            <td colspan="6" id=""><%=adopBoard.getId() %></td>
                             </th>
-                            <th colspan="4">ㅇㄴㅁㅇㄴㅁ
+                            <th colspan="4">동물 정보
+                            <td colspan="6" id=""><%= animal.getDiscoveryPlace() %></td>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="4">사진
+                            <td colspan="6" id=""></td>
+                            </th>
+                            <th colspan="4">나이
                             <td colspan="6" id=""></td>
                             </th>
                         </tr>
                         <tr>
-                            <th colspan="4">ㅇㅁㄴㅇㅁㅇ
-                            <td colspan="6" id="PBLANC_END_DE"></td>
-                            </th>
-                            <th colspan="4">발견ㅁㄴㅇㄴㅁㅇ장소
-                            <td colspan="6" id="DISCVRY_PLC_INFO"></td>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th colspan="4">ㅁㅇㄴㅇㅁ
-                            <td colspan="6" id="SPECIES_NM"></td>
+                            <th colspan="4">동물 등록 번호
+                            <td colspan="6" id=""></td>
                             </th>
                             <th colspan="4">ㅁㄴㅇㅇㄴ
-                            <td colspan="6" id="SEX_NM"></td>
+                            <td colspan="6" id=""></td>
                             </th>
                         </tr>
                         </tbody>

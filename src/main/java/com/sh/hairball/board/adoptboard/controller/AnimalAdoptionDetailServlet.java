@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sh.hairball.animal.model.service.AnimalService;
 import com.sh.hairball.board.adoptboard.model.service.AdoptionService;
 import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
 
@@ -15,7 +16,7 @@ import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
 public class AnimalAdoptionDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private final AdoptionService adoptionService = new AdoptionService();
-
+    private final AnimalService animalService = new AnimalService();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int no = Integer.parseInt(request.getParameter("no"));
