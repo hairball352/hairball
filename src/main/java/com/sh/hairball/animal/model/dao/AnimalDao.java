@@ -62,4 +62,45 @@ public class AnimalDao {
 		
 		return animal;
 	}
+	
+	public int insertAnimal(Connection conn, Animal animal) {
+		int result = 0;
+		System.out.println(conn);
+		String sql = prop.getProperty("insertAnimal");
+		System.out.println(sql);
+		System.out.println(animal);
+		//insertAnimal = insert into animal (id, age , discvry_plc,animal_type,species,pbl_id , state , sex , neutered) values (seq_animal_id.nextval,?,?,?,?,?,?,?,?,?)
+		try(
+				PreparedStatement preparedStatement = conn.prepareStatement(sql)){
+			preparedStatement.setInt(1, animal.getAge());
+			preparedStatement.setString(2, animal.getDiscoveryPlace());
+			preparedStatement.setString(3, animal.getAnimalType().name());
+			preparedStatement.setString(4, animal.getSpecies());
+			preparedStatement.setString(5, animal.getPblId());
+			preparedStatement.setString(6, animal.getState());
+			preparedStatement.setString(7, animal.getSex().name());
+			preparedStatement.setInt(8, animal.getNeutered());
+			
+			result = preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	public int getLastAnimalId(Connection conn) throws SQLException {
+		int boardNo = 0;
+		String sql = prop.getProperty("getLastAnimalId");
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			try (ResultSet rset = pstmt.executeQuery()) {
+				if(rset.next()) {
+					boardNo = rset.getInt(1);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return boardNo;
+	}
 }

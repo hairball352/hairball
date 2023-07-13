@@ -1,6 +1,8 @@
 package com.sh.hairball.board.enrollboard.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -12,20 +14,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
-import com.sh.hairball.animal.model.AnimalService;
+import com.sh.hairball.animal.model.service.AnimalService;
 import com.sh.hairball.animal.model.vo.Animal;
 import com.sh.hairball.animal.model.vo.AnimalType;
 import com.sh.hairball.animal.model.vo.Sex;
+import com.sh.hairball.attachment.Attachment;
 import com.sh.hairball.board.enrollboard.model.service.EnrollBoardService;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
-import com.sh.mvc.common.HelloMvcFileRenamePolicy;
+import com.sh.hairball.common.MyPolicy;
 
 
 @WebServlet("/animal/enroll")
 public class AnimalEnrollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final EnrollBoardService enrollBoardService = new EnrollBoardService();
-	private final AnimalService animalService =  new AnimalService();
 	
 	
 	@Override
@@ -39,7 +41,7 @@ public class AnimalEnrollServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		ServletContext application = getServletContext();
-		String saveDirectory = application.getRealPath("/upload/board");
+		String saveDirectory = application.getRealPath("/upload/animal");
 		System.out.println("saveDirectory = " + saveDirectory);
 		int maxPostSize = 1024 * 1024 * 10; 
 		String encoding = "utf-8";
@@ -47,7 +49,6 @@ public class AnimalEnrollServlet extends HttpServlet {
 		FileRenamePolicy policy = new MyPolicy();
 		
 		MultipartRequest multiReq = new MultipartRequest(req, saveDirectory, maxPostSize, encoding, policy);
-		
 		
 		String reg_no = multiReq.getParameter("reg_no");
 		String type = multiReq.getParameter("type");
@@ -59,6 +60,21 @@ public class AnimalEnrollServlet extends HttpServlet {
 		String note = multiReq.getParameter("note");
 		String weight = multiReq.getParameter("weight");
 		
+		EnrollBoard enrollBoard = new EnrollBoard();
+		
+		Enumeration<String> filenames = multiReq.getFileNames();
+		
+		
+		while(filenames.hasMoreElements()) {
+			String name = filenames.nextElement();
+			File upFile = multiReq.getFile(name);
+			if(upFile != null) {
+				Attachment attachment = new Attachment();
+				attachment.setOriginal_filename(multiReq.getOriginalFileName(name));
+				attachment.setRenamed_filename(multiReq.getFilesystemName(name)); // renamedFilename
+				enrollBoard.addAttachment(attachment);
+			}
+		}
 		Animal animal = new Animal();
 		animal.setAge(Integer.parseInt(age));
 		animal.setAnimalType(type.equals("고양이") ? AnimalType.C : AnimalType.D);
@@ -69,8 +85,15 @@ public class AnimalEnrollServlet extends HttpServlet {
 		animal.setSex(sex.equals("M") ? Sex.M : Sex.F);
 		animal.setSpecies(species);
 		animal.setWeight(Float.parseFloat(weight));
-		System.out.println(animal.toString());
 		
+		enrollBoard.setAnimal(animal);
+		
+		System.out.println(enrollBoard);
+		
+		int result = enrollBoardService.insertEnrollBoard(enrollBoard);
+		
+		
+		resp.sendRedirect(req.getContextPath() + "/board/boardDetail?no=" + enrollBoard.getId());
 		
 	}
 }
