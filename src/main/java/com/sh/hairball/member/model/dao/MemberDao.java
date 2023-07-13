@@ -20,7 +20,6 @@ public class MemberDao {
     public MemberDao(){
         String filename =
                 MemberDao.class.getResource("/sql/member/member-query.properties").getPath();
-        System.out.println("filename" + filename);
         try {
             prop.load(new FileReader(filename));
         } catch (IOException e) {
@@ -42,7 +41,6 @@ public class MemberDao {
             throw new MemberException(e);
         }
         
-        System.out.println("member findById: " + member);
         return member;
     }
 

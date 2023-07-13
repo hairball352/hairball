@@ -59,14 +59,13 @@ public class WebChatDao {
         } catch (SQLException e ) {
             throw new WebChatException(e);
         }
-        System.out.println("dao webchats: " + webchats);
         return webchats;
     }
 
 	
 	private WebChat handleWebChatResultSet(ResultSet rset) throws SQLException {
 	    WebChat webchat = new WebChat();
-	    webchat.setId(rset.getInt("id"));
+	    webchat.setId(rset.getInt("chat_id"));
 	    webchat.setMemberId(rset.getInt("member_id"));
 	    webchat.setContent(rset.getString("content"));
 	    webchat.setRegDate(rset.getDate("reg_date"));
@@ -95,7 +94,6 @@ public class WebChatDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("dao chatHistory : " + chatHistory);
 		return chatHistory;
 	}
 }

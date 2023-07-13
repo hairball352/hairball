@@ -34,8 +34,6 @@ public class ChatHistoryServlet extends HttpServlet {
         } else {
             int id = member.getId(); // Member 객체의 id를 가져오기
             List<WebChat> chatHistory = webChatService.getChatHistory(id); // id를 이용하여 채팅 기록을 가져오기
-            System.out.println("id : " + id);
-            System.out.println("servlet chatHistory : " + chatHistory);
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
