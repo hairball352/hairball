@@ -30,7 +30,6 @@ public class AnswerCreateServlet extends HttpServlet {
 		AnswerVo answer = new AnswerVo(0, memberId, content, null, questionId);
 		System.out.println("answer = " + answer);
 		
-		
 		// 2. 업무로직
 		// 댓글 등록
 		int result = questionService.insertAnswer(answer);

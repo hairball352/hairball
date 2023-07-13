@@ -42,14 +42,12 @@ public class QuestionUpdateServlet extends HttpServlet {
 		String memberId = request.getParameter("memberId");
 		String content = request.getParameter("content");
 		// db attachment 행삭제, 저장된 파일삭제
-		System.out.println("id 1 = " + id);
 		QuestionVo question = new QuestionVo();
 		question.setId(id);
 		question.setTitle(title);
 		question.setMemberId(memberId);
 		question.setContent(content);
 		System.out.println(question);
-		System.out.println("id 2 = " + id);
 
 
 		// 2. 업무로직
