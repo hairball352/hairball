@@ -36,7 +36,6 @@ public class MemberDao {
             try (ResultSet rset = pstmt.executeQuery()) {
                 while (rset.next()) {
                     member = handleMemberResultSet(rset);
-                    System.out.println("memberDao@member = " + member);
                 }
             }
         } catch (SQLException e ){
@@ -46,6 +45,7 @@ public class MemberDao {
     }
 
     private Member handleMemberResultSet(ResultSet rset) throws SQLException {
+    	int id = rset.getInt("id");
         String memberId = rset.getString("member_id");
         String password = rset.getString("password");
         String name = rset.getString("name");
@@ -53,7 +53,7 @@ public class MemberDao {
         String phone = rset.getString("phone");
         String address = rset.getString("address");
         MemberRole memberRole = MemberRole.valueOf(rset.getString("member_role"));
-        return new Member(0,memberId, password, name, email, phone, address, memberRole, null);
+        return new Member(id, memberId, password, name, email, phone, address, memberRole, null);
     }
 
     public int insertMember(Connection conn, Member newMember) {
