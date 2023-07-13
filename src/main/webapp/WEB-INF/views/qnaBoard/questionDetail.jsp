@@ -8,7 +8,7 @@
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 <%
-	QuestionVo question = new QuestionVo();
+	QuestionVo question = (QuestionVo) request.getAttribute("question");
 	List<AnswerVo> answers = (List<AnswerVo>) request.getAttribute("answers");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
@@ -17,7 +17,7 @@
 	<%	if (loginMember != null) { %>
 		<input 
 			type="button" id="btn-add" value="질문하기" 
-			onclick="location.href = '<%= request.getContextPath() %>/board/boardCreate';"/>
+			onclick="location.href = '<%= request.getContextPath() %>/qnaBoard/questionCreate';"/>
 	<%  } %>
 	<table id="tbl-question-view">
 		<tr>
@@ -96,7 +96,7 @@
 		<% 	} %>
 	</div>
 	<form 
-		action="<%= request.getContextPath() %>/question/answerDelete" 
+		action="<%= request.getContextPath() %>/qnaBoard/answerDelete" 
 		name="answerDelFrm"
 		method="POST">
 		<input type="hidden" name="id" />
@@ -158,19 +158,19 @@
 
 	<form 
 		name="questionDelFrm" 
-		action="<%= request.getContextPath() %>/question/questionDelete" 
+		action="<%= request.getContextPath() %>/qnaBoard/questionDelete" 
 		method="POST">
 		<input type="hidden" name="no" value="<%= question.getId() %>" />
 	</form>
 	
-<sript>
+<script>
 const deleteQuestion = () => {
 	if(confirm("정말 삭제하시겠습니까?"))
 		document.questionDelFrm.submit();
 }
 
 const updateBoard = () => {
-	location.href = "<%= request.getContextPath() %>/question/questionUpdate?id=<%= question.getId() %>";
+	location.href = "<%= request.getContextPath() %>/qnaBoard/questionUpdate?id=<%= question.getId() %>";
 }
-</sript>
+</script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp" %>
