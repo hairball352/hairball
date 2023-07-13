@@ -13,6 +13,7 @@ import java.util.Properties;
 import com.sh.hairball.member.model.exception.MemberException;
 import com.sh.hairball.member.model.vo.Member;
 import com.sh.hairball.member.model.vo.MemberRole;
+import com.sh.hairball.member.model.vo.Provider;
 
 public class MemberDao {
     private Properties prop = new Properties();
@@ -31,12 +32,12 @@ public class MemberDao {
     public Member findById(Connection conn, String memberId) {
         String sql = prop.getProperty("findById"); // select * from member where member_id = ?
         Member member = null;
+        System.out.println(sql);
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, memberId);
             try (ResultSet rset = pstmt.executeQuery()) {
                 while (rset.next()) {
                     member = handleMemberResultSet(rset);
-                    System.out.println("memberDao@member = " + member);
                 }
             }
         } catch (SQLException e ){
@@ -46,6 +47,7 @@ public class MemberDao {
     }
 
     private Member handleMemberResultSet(ResultSet rset) throws SQLException {
+    	int id = rset.getInt("id");
         String memberId = rset.getString("member_id");
         String password = rset.getString("password");
         String name = rset.getString("name");
@@ -53,20 +55,26 @@ public class MemberDao {
         String phone = rset.getString("phone");
         String address = rset.getString("address");
         MemberRole memberRole = MemberRole.valueOf(rset.getString("member_role"));
-        return new Member(0,memberId, password, name, email, phone, address, memberRole, null);
+        return new Member(id, memberId, password, name, email, phone, address, memberRole, null);
     }
 
     public int insertMember(Connection conn, Member newMember) {
         int result = 0;
-        String sql = "insert into member (password, name,member_role, email, phone, provider) value (?, ?, ?, ?, ?, ?)";
-
+        String sql = prop.getProperty("insertMember");
         try (PreparedStatement pstmt = conn.prepareStatement(sql)){
-            pstmt.setString(1,"password");
-            pstmt.setString(2,"name");
-            pstmt.setString(3,"U");
+            pstmt.setString(1,newMember.getMemberId());
+            pstmt.setString(2,newMember.getPassword());
+            pstmt.setString(3,newMember.getName());
             pstmt.setString(4, newMember.getEmail());
             pstmt.setString(5, newMember.getPhone());
-            pstmt.setString(6, newMember.getProvider().toString());
+            pstmt.setString(6, newMember.getAddress());
+            
+            if( newMember.getProvider() != null) {
+            	pstmt.setString(7, newMember.getProvider().toString());
+            } else {
+            	pstmt.setString(7, null);
+            }
+            
 
             result = pstmt.executeUpdate();
         } catch (SQLException e) {
