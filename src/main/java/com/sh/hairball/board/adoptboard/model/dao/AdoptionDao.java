@@ -12,6 +12,7 @@ import java.util.Properties;
 
 import com.sh.hairball.board.adoptboard.model.exception.AdopBoardException;
 import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
+import com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity;
 
 public class AdoptionDao {
 	Properties prop = new Properties();
@@ -28,7 +29,7 @@ public class AdoptionDao {
 	/**
 	 * 게시글 작성
 	 */
-	public int insertBoard(Connection conn, AdopBoard adopBoard) {
+	public int insertBoard(Connection conn, AdopBoardEntity adopBoard) {
 		int result = 0;
 		// insert into adop_board (id, animal_id, member_id, reg_date, visit_date) values (seq_adopt_board_id.nextval, ?, ?, default, ?)
 		String sql = prop.getProperty("insertAdopBoard");
@@ -77,8 +78,8 @@ public class AdoptionDao {
 		return result;
 	}
 
-	public List<AdopBoard> findAll(Connection conn, int start, int end) {
-		List<AdopBoard> adopBoards = new ArrayList<>();
+	public List<AdopBoardEntity> findAll(Connection conn, int start, int end) {
+		List<AdopBoardEntity> adopBoards = new ArrayList<>();
 		String sql = prop.getProperty("findAll");
 		
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -87,7 +88,7 @@ public class AdoptionDao {
 			
 			try(ResultSet rset = pstmt.executeQuery()) {
 				while(rset.next()) {
-					AdopBoard adopBoard = handleAdopBoardResultSet(rset);
+					AdopBoardEntity adopBoard = handleAdopBoardResultSet(rset);
 					adopBoards.add(adopBoard);
 				}
 			}

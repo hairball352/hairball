@@ -2,81 +2,28 @@ package com.sh.hairball.board.adoptboard.model.vo;
 
 import java.sql.Date;
 
-public class AdopBoard { // 입양 게시글 VO
-	int id;
-	int animalId;
-	int memberId;
-	int process; // 입양 진행 상태
-	Date regDate;
-	Date visitDate;
-	
-	public AdopBoard() {	super();	}
+import com.sh.hairball.animal.model.vo.Animal;
 
-	public AdopBoard(int id, int animalId, int memberId, int process, Date regDate, Date visitDate) {
+public class AdopBoard extends AdopBoardEntity{
+	Animal animal; // 입양신청서에 적어낸 동물
+
+	public AdopBoard() {
 		super();
-		this.id = id;
-		this.animalId = animalId;
-		this.memberId = memberId;
-		this.process = process;
-		this.regDate = regDate;
-		this.visitDate = visitDate;
 	}
 
-
-	public int getId() {
-		return id;
+	// getter / setter
+	public Animal getAnimal() {
+		return animal;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public int getAnimalId() {
-		return animalId;
-	}
-
-	public void setAnimalId(int animalId) {
-		this.animalId = animalId;
-	}
-
-	public int getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
-	}
-
-	public int getProcess() {
-		return process;
-	}
-
-	public void setProcess(int process) {
-		this.process = process;
-	}
-
-	public Date getRegDate() {
-		return regDate;
-	}
-
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
-	}
-
-	public Date getVisitDate() {
-		return visitDate;
-	}
-
-	public void setVisitDate(Date visitDate) {
-		this.visitDate = visitDate;
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
 	}
 
 	@Override
 	public String toString() {
-		return "AdopBoard [id=" + id + ", animalId=" + animalId + ", memberId=" + memberId + ", process=" + process
-				+ ", regDate=" + regDate + ", visitDate=" + visitDate + "]";
+		return super.toString() + " [animal=" + animal + "]";
 	}
+	
 
-	
-	
 }
