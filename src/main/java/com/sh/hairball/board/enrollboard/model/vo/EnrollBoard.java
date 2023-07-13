@@ -2,69 +2,62 @@ package com.sh.hairball.board.enrollboard.model.vo;
 
 import java.sql.Date;
 
+import com.sh.hairball.animal.model.vo.Animal;
+import com.sh.hairball.attachment.Attachment;
+
 public class EnrollBoard { // 등록 게시글 VO
 	int id;
 	Date regDate;
-	int animalId;
-	int attachmentId;
+	Animal animal;
+	Attachment attachment;
 	
-	
-	public EnrollBoard() {}
+	public EnrollBoard() {
+		super();
+	}
 
-
-	public EnrollBoard(int id, Date regDate, int animalId, int attachmentId) {
+	public EnrollBoard(int id, Date regDate, Animal animal, Attachment attachment) {
 		super();
 		this.id = id;
 		this.regDate = regDate;
-		this.animalId = animalId;
-		this.attachmentId = attachmentId;
+		this.animal = animal;
+		this.attachment = attachment;
 	}
-
 
 	public int getId() {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public Date getRegDate() {
 		return regDate;
 	}
 
-
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
 
-
-	public int getAnimalId() {
-		return animalId;
+	public Animal getAnimal() {
+		return animal;
 	}
 
-
-	public void setAnimalId(int animalId) {
-		this.animalId = animalId;
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
 	}
 
-
-	public int getAttachmentId() {
-		return attachmentId;
+	public Attachment getAttachment() {
+		return attachment;
 	}
 
-
-	public void setAttachmentId(int attachmentId) {
-		this.attachmentId = attachmentId;
+	public void setAttachment(Attachment attachment) {
+		this.attachment = attachment;
 	}
 
-
-	@Override
-	public String toString() {
-		return "EnrollBoard [id=" + id + ", regDate=" + regDate + ", animalId=" + animalId + ", attachmentId="
-				+ attachmentId + "]";
+	public void addAttachment(Attachment attach) {
+		if(attach != null)
+			this.attachment=attach;
 	}
 
 	

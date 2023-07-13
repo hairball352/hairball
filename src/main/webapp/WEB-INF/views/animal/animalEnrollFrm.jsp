@@ -19,7 +19,8 @@
 <div class="Enroll-Container">
   <div id="checked-title2">타이틀</div>
             <hr class="section-hr" />
-	<form name="memberEnrollFrm" action="" method="POST">
+	<form name="memberEnrollFrm" action="<%=request.getContextPath() %>/animal/enroll" method="POST"
+		enctype="multipart/form-data">
 	<table>
 	    <tr>
 	        <th>등록고유번호</th>

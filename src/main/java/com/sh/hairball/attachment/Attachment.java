@@ -6,9 +6,10 @@ import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
 
 
 
-public class AttachmentVo {
+public class Attachment {
 	private int id;
-	private EnrollBoard enrollBoard;
+	private int enrollBoardid;
+	private int animalId;
 	private String original_filename;
 	private String renamed_filename;
 	private Date reg_date;
@@ -19,11 +20,19 @@ public class AttachmentVo {
 	public void setId (int id) {
 		this.id = id;
 	}
-	public EnrollBoard getEnrollBoardVo() {
-		return enrollBoard;
+	
+	
+	public int getAnimalId() {
+		return animalId;
 	}
-	public void setEnrollBoardVo(EnrollBoard enrollBoardVo) {
-		this.enrollBoard = enrollBoardVo;
+	public void setAnimalId(int animalId) {
+		this.animalId = animalId;
+	}
+	public int getEnrollBoardid() {
+		return enrollBoardid;
+	}
+	public void setEnrollBoardid(int enrollBoardid) {
+		this.enrollBoardid = enrollBoardid;
 	}
 	public String getOriginal_filename() {
 		return original_filename;
