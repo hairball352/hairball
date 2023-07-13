@@ -20,7 +20,7 @@
 ///**
 // * Servlet Filter implementation class AdminFilter
 // */
-//@WebFilter("/admin/*") // admin페이지 전체
+//@WebFilter("/admin/*")
 //public class AdminFilter extends HttpFilter implements Filter {
 //       
 //    /**
@@ -43,16 +43,16 @@
 //	 */
 //	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 //		
-//		HttpServletRequest httpReq = (HttpServletRequest) request; // 다운캐스팅 getAttribute getSession 등 이런메소드는 부모타입에는 없는 메소드라서 다운캐스팅 함
-//		HttpServletResponse httpRes = (HttpServletResponse) response; // 다운캐스팅
+//		HttpServletRequest httpReq = (HttpServletRequest) request; 
+//		HttpServletResponse httpRes = (HttpServletResponse) response; 
 //		
-//		HttpSession session = httpReq.getSession(); // getSession 하려면 다운캐스팅 후에 사용
+//		HttpSession session = httpReq.getSession(); 
 //		Member loginMember = (Member) session.getAttribute("loginMember");
 //		
 //		
 //		if(loginMember == null || loginMember.getMemberRole() != MemberRole.A) {
-//			session.setAttribute("msg", "관리자만 이용하실 수 있습니다."); // msg는 header.jsp에서 미리 선언해둠
-//			httpRes.sendRedirect(httpReq.getContextPath() + "/"); // 홈페이지로 리다이렉트
+//			session.setAttribute("msg", "관리자만 이용하실 수 있습니다."); 
+//			httpRes.sendRedirect(httpReq.getContextPath() + "/"); 
 //			return;
 //		}
 //		

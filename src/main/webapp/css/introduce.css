@@ -13,12 +13,10 @@
     text-align: center;
 }
 
-#checked-title2 {
+.checked-title2 {
     font-size: 35px;
     font-weight: 500;
-    position: absolute; /* 절대적인 위치 지정 */
-    left: 600px; /* 왼쪽에서 50% 위치로 이동 */
-    top: -220px;
+    margin-top: 10px;
 }
 
 .side-hr{
@@ -26,18 +24,14 @@
     height: 3px;
     background: #e3e3e3;
     width: 250px;
-    margin-left: auto; /* 왼쪽 여백을 auto로 설정하여 가운데로 이동 */
-    margin-right: auto; /* 오른쪽 여백도 auto로 설정 */
 }
 
 .section-hr {
     border: 0;
     background: #e3e3e3;
     width: 950px;
-    position: absolute; /* 절대적인 위치 지정 */
-    margin-top: -155px;
-    margin-left: 600px;
     height: 3px;
+    margin-bottom: 40px;
 }
 
 .introduce01-container {
@@ -47,7 +41,8 @@
 
 .introduce01-detail-section {
     margin-left: 50px;
-    position: relative; /* 부모 요소로부터 상대적인 위치 지정 */
+    display:flex;
+    flex-direction: column;
 }
 
 .introduce01-bar {

@@ -35,8 +35,12 @@ public class EnrollBoardService {
 			System.out.println(enrollBoard.getAnimal());
 			result = animalDao.insertAnimal(conn, enrollBoard.getAnimal());
 			int animalId = animalDao.getLastAnimalId(conn);
+			System.out.println("animalId : "+animalId);
 			result = enrollBoardDao.insertEnrollBoard(conn, animalId);
 			int enrollBoardId = enrollBoardDao.getLastEnrollBoardNo(conn);
+			System.out.println("enrollboardId : "+enrollBoardId);
+			
+			
 			enrollBoard.setId(enrollBoardId); 
 			
 			System.out.println("enrollBoardId = " + enrollBoardId);

@@ -14,12 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 public class AdminAnimalRegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/views/admin/animalRegistration.jsp")
-        .forward(request,response);
+		System.out.println("관리자 doGet 호출됨");
+		request.getRequestDispatcher("/WEB-INF/views/admin/animalRegistration.jsp")
+        	.forward(request,response);
 	}
 
 }

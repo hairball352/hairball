@@ -17,6 +17,7 @@ public class MemberService {
     public Member findById(String memberId) {
         Connection conn = getConnection();
         Member member = memberDao.findById(conn, memberId);
+        System.out.println("memberService@member = " + member);
         close(conn);
         return member;
     }

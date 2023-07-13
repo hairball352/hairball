@@ -26,38 +26,19 @@ public class MemberLoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 0. 인코딩처리
 		request.setCharacterEncoding("utf-8");
-		// 1. 사용자입력값 (memberId, password)
 		String memberId = request.getParameter("memberId");
-//            String password = animalUtil.getEncryptedPassword(request.getParameter("password"), memberId);
-//            System.out.println(password);
+
 		String saveId = request.getParameter("saveId");
 		System.out.println("memberId = " + memberId);
-//            System.out.println("password = " + password);
 		System.out.println("saveId = " + saveId);
 
-		// 2. 업무로직 - 로그인확인
-		// 아이디로 db에서 조회 select * from member where member_id = ?
-		// member객체가 null이 아니면서 비밀번호가 일치하면 로그인성공
-		// member객체가 null이거나 비밀번호가 일치하지 않으면 로그인실패
 		Member member = memberService.findById(memberId);
-//		System.out.println("member@servlet = " + member);
 
 		HttpSession session = request.getSession(); // request.getSession(true)와 동일.
-//		System.out.println(session.getId());
-//            && password.equals(member.getPassword())
-		if (member != null) {
-			// 로그인 성공
-			session.setAttribute("loginMember", member);
-			// session.setAttribute("msg", "로그인에 성공했습니다.");
 
-			// 아이디저장 쿠키처리
-			// - Path : 쿠키를 사용할 url. 서버전송시 부모경로만 지정.
-			// - / 설정시 모든 요청에 사용.
-			// - /mvc 설정시 /mvc로 시작하는 모든 요청에 사용
-			// - Session Cookie : setMaxAge설정하지 않은 경우. 접속한 동안만 클라이언트에 보관
-			// - Persistent Cookie : setMaxAge설정한 경우. 지정한 시각까지만 클라이언트에 보관
+		if (member != null) {
+			session.setAttribute("loginMember", member);
 
 			Cookie cookie = new Cookie("saveId", memberId);
 			cookie.setPath(request.getContextPath()); // 쿠키를 사용할 url
@@ -73,8 +54,8 @@ public class MemberLoginServlet extends HttpServlet {
 			// 로그인 실패
 //                session.setAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
 		}
-		
-		System.out.println("member : " + member );
+
+		System.out.println("memberServlet@member = " + member);
 
 		// 3. 응답처리
 		response.sendRedirect(request.getContextPath() + "/"); // redirect를 통한 url변경
