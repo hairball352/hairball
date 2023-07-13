@@ -22,16 +22,16 @@ List<AdopBoardEntity> adoptionBoardList = (List<AdopBoardEntity>) request.getAtt
 			<hr class="side-hr" />
 		</div>
 	</div>
-	<div class="adoption-section">
-		<div id="adoption-section-title">입양신청</div>
-		<hr id="adoption-section-hr" />
+	<div class="introduce01-detail-section">
+		<div class="checked-title2">입양신청</div>
+		<hr class="section-hr" />
 		<div class="animal-detail-div">
 			<div class="adoption-container">
 				<%
 				if (loginMember != null)
 				%>
 				<input type="button" id="btn-add" value="글쓰기"
-					onclick="location.href = '<%=request.getContextPath()%>/animal/animalAdoptionCreate';" />
+					onclick="location.href = '<%=request.getContextPath()%>/animal/animalAdoptionBoardCreate';" />
 				<table id="tbl-adopboard">
 					<thead>
 						<tr>

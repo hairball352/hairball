@@ -16,7 +16,7 @@ import com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity;
 /**
  * Servlet implementation class AnimalAdoptionCreateServlet
  */
-@WebServlet("/animal/animalAdoptionCreate")
+@WebServlet("/animal/animalAdoptionBoardCreate")
 public class AnimalAdoptionCreateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private final AdoptionService adoptionService = new AdoptionService();
@@ -30,7 +30,7 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
 		int animalId = Integer.parseInt(request.getParameter("animalId"));
 		int memberId = Integer.parseInt(request.getParameter("memberId"));
 		String _visitDate = request.getParameter("visitDate");
-		Date visitDate = Date.valueOf("visitDate");
+		Date visitDate = Date.valueOf(_visitDate);
 		
 		AdopBoard adopBoard = new AdopBoard();
 		
@@ -40,7 +40,7 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
 		
 		int result = adoptionService.insertBoard(adopBoard);
 	
-		response.sendRedirect(request.getContextPath() + "/animal/animalAdoptionBoardCreate?no=" + adopBoard.getId());
+		response.sendRedirect(request.getContextPath() + "/animal/animalAdoptionBoardDetail?no=" + adopBoard.getId());
 	}
 
 }
