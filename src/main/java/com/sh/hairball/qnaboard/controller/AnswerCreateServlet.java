@@ -13,7 +13,7 @@ import com.sh.hairball.qnaboard.model.QuestionVo;
 import com.sh.hairball.qnaboard.notification.service.NotificationService;
 import com.sh.hairball.qnaboard.service.QuestionService;
 
-@WebServlet("/question/answerCreate")
+@WebServlet("/qnaBoard/answerCreate")
 public class AnswerCreateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final QuestionService questionService = new QuestionService();

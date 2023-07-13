@@ -177,7 +177,7 @@ const deleteQuestion = () => {
 		document.questionDelFrm.submit();
 }
 
-const updateBoard = () => {
+const updateQuestion = () => {
 	location.href = "<%= request.getContextPath() %>/qnaBoard/questionUpdate?id=<%= question.getId() %>";
 }
 </script>

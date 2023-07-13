@@ -15,7 +15,7 @@ import com.sh.hairball.qnaboard.service.QuestionService;
 /**
  * Servlet implementation class NoticeDeleteServlet
  */
-@WebServlet("/question/questionDelete")
+@WebServlet("/qnaBoard/questionDelete")
 public class QuestionDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private final QuestionService questionService = new QuestionService();

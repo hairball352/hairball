@@ -12,7 +12,7 @@ import com.sh.hairball.qnaboard.model.AnswerVo;
 import com.sh.hairball.qnaboard.service.QuestionService;
 
 
-@WebServlet("/question/answerDelete")
+@WebServlet("/qnaBoard/answerDelete")
 public class AnswerDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final QuestionService questionService = new QuestionService();

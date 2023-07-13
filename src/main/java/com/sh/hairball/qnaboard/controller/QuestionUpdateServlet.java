@@ -16,7 +16,7 @@ import com.sh.hairball.qnaboard.service.QuestionService;
 /**
  * Servlet implementation class BoardCreateServlet
  */
-@WebServlet("/question/questionUpdate")
+@WebServlet("/qnaBoard/questionUpdate")
 public class QuestionUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final QuestionService questionService = new QuestionService();

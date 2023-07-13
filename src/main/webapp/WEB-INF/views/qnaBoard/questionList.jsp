@@ -16,7 +16,7 @@
 	<%	if (loginMember != null) { %>
 		<input 
 			type="button" id="btn-add" value="글쓰기" 
-			onclick="location.href = '<%= request.getContextPath() %>/question/questionCreate';"/>
+			onclick="location.href = '<%= request.getContextPath() %>/qnaBoard/questionCreate';"/>
 	<%  } %>
 	
 	<table id="tbl-question">
@@ -35,7 +35,7 @@
 			%>
 						<tr>
 							<td><%= question.getId() %></td>
-							<td><a href="<%= request.getContextPath() %>/question/questionDetail?id=<%= question.getId() %>"><%= question.getTitle() %></a></td>
+							<td><a href="<%= request.getContextPath() %>/qnaBoard/questionDetail?id=<%= question.getId() %>"><%= question.getTitle() %></a></td>
 							<td><%= question.getMemberId() %></td>
 							<td><%= question.getRegDate() %></td>
 						</tr>

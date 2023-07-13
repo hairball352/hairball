@@ -46,7 +46,6 @@ public class QuestionDao {
             pstmt.setInt(1, start);
             pstmt.setInt(2, end);
             try(ResultSet rset = pstmt.executeQuery()) {
-            	System.out.println(rset.getFetchSize());
                 while(rset.next()) {
                     QuestionVo question = handleQuestionResultSet(rset);
                     questions.add(question);
