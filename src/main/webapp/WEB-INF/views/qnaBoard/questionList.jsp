@@ -45,7 +45,7 @@
 				else { 
 			%>
 				<tr>
-					<td colspan="5">조회된 질문이 없습니다.</td>
+					<td colspan="4">조회된 질문이 없습니다.</td>
 				</tr>
 			<% } %>
 		</tbody>

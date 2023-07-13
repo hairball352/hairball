@@ -8,7 +8,7 @@
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 <%
-	QuestionVo question = new QuestionVo();
+	QuestionVo question = (QuestionVo) request.getAttribute("question");
 	List<AnswerVo> answers = (List<AnswerVo>) request.getAttribute("answers");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
@@ -17,7 +17,7 @@
 	<%	if (loginMember != null) { %>
 		<input 
 			type="button" id="btn-add" value="질문하기" 
-			onclick="location.href = '<%= request.getContextPath() %>/board/boardCreate';"/>
+			onclick="location.href = '<%= request.getContextPath() %>/qnaBoard/questionCreate';"/>
 	<%  } %>
 	<table id="tbl-question-view">
 		<tr>
@@ -38,6 +38,13 @@
 				<textarea readonly style="resize: none;" rows="10"><%= question.getContent() %></textarea>
 			</td>
 		</tr>
+		<tr>
+			<th colspan="2">
+				<%--게시물 수정 --%>
+				<input type="button" value="수정하기" onclick="updateQuestion()">
+				<input type="button" value="삭제하기" onclick="deleteQuestion()">
+			</th>
+		</tr>
 		<%-- 작성자와 관리자만 마지막행 수정/삭제버튼이 보일수 있게 할 것 --%>
 		<% if (loginMember != null && (loginMember.getMemberRole() == MemberRole.A 
 							|| loginMember.getMemberId().equals(question.getMemberId()) ) ) { %>
@@ -56,7 +63,7 @@
 	<div class="answer-container">
         <div class="answer-editor">
             <form
-				action="<%=request.getContextPath()%>/question/answerCreate" 
+				action="<%=request.getContextPath()%>/qnaBoard/answerCreate" 
 				method="post" 
 				name="boardanswerFrm">
                 <input type="hidden" name="questionId" value="<%= question.getId() %>" />
@@ -96,7 +103,7 @@
 		<% 	} %>
 	</div>
 	<form 
-		action="<%= request.getContextPath() %>/question/answerDelete" 
+		action="<%= request.getContextPath() %>/qnaBoard/answerDelete" 
 		name="answerDelFrm"
 		method="POST">
 		<input type="hidden" name="id" />
@@ -158,12 +165,12 @@
 
 	<form 
 		name="questionDelFrm" 
-		action="<%= request.getContextPath() %>/question/questionDelete" 
+		action="<%= request.getContextPath() %>/qnaBoard/questionDelete" 
 		method="POST">
-		<input type="hidden" name="no" value="<%= question.getId() %>" />
+		<input type="hidden" name="id" value="<%= question.getId() %>" />
 	</form>
 	
-<sript>
+<script>
 const deleteQuestion = () => {
 	if(confirm("정말 삭제하시겠습니까?"))
 		document.questionDelFrm.submit();
@@ -172,5 +179,5 @@ const deleteQuestion = () => {
 const updateQuestion = () => {
 	location.href = "<%= request.getContextPath() %>/qnaBoard/questionUpdate?id=<%= question.getId() %>";
 }
-</sript>
+</script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp" %>
