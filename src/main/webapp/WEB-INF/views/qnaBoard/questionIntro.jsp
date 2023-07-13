@@ -29,7 +29,7 @@
 			</div>
 			<div class="answer-list">
 				<input type="radio" name="accordion" id="answer1" /> <label
-					for="answer1"> 자주하는질문1번입니까? <i class="fas fa-angle-down"></i>
+					for="answer1"> 자주하는zzzzzzzzzzzzzzzzzzzzzzzzz질문1번입니까? <i class="fas fa-angle-down"></i>
 				</label>
 				<div>
 					<p>자주하는질문1에 대한 답변입니다.</p>

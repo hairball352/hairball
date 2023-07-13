@@ -84,6 +84,10 @@ table#tbl-comment tr:hover button.btn-delete{display:inline;}
 	padding: 0 40 px;
 }
 
+.answer-list{
+	width: 1000px;
+}
+
 input[id*="answer"]{
 	display: none;
 }
@@ -194,3 +198,7 @@ input[id*="answer"]:checked + label i{
     margin-left: 605px;
     border: 0;
   }
+  
+.question-section{
+	display: flex;
+}

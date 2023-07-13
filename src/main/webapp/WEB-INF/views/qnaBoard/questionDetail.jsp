@@ -6,6 +6,7 @@
 <%@page import="com.sh.hairball.qnaboard.model.QuestionVo"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
+<%@ include file="/WEB-INF/views/templates/header2.jsp" %>
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 <%
 	QuestionVo question = (QuestionVo) request.getAttribute("question");
