@@ -120,9 +120,9 @@ public class QuestionDao {
 
     public int updateQuestion(Connection conn, QuestionVo question) {
         int result = 0;
-        String query = prop.getProperty("updateQuestion");
+        String sql = prop.getProperty("updateQuestion");
         // update question set title = ?, content = ? where id = ?
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, question.getTitle());
             pstmt.setString(2, question.getContent());
             pstmt.setInt(3, question.getId());
