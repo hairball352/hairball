@@ -70,11 +70,13 @@ public class EnrollBoardDao {
 	public int insertAttachment(Connection conn, Attachment attach) throws SQLException {
 		int result = 0;
 		String sql = prop.getProperty("insertAttachment");
-		// insert into attachment(no, board_no, original_filename, renamed_filename) values(seq_attachment_no.nextval, ?, ?, ?)
+		// insertAttachment = insert into attachment values(seq_attachment_no.nextval, ?, ?, ? , ? ,default)
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setInt(1, attach.getEnrollBoardid());
-			pstmt.setString(2, attach.getOriginal_filename());
-			pstmt.setString(3, attach.getRenamed_filename());
+			pstmt.setInt(2, attach.getAnimalId());
+			pstmt.setString(3, attach.getOriginal_filename());
+			pstmt.setString(4, attach.getRenamed_filename());
+			
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
