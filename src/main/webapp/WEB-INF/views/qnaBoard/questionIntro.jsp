@@ -54,7 +54,7 @@ input[id*="answer"]:checked + label i{
 </style>
 
 <div class="faq-container">
-	<h2>자주하는 질문</h2>
+	<h1>자주하는 질문</h1>
 	<div class="answer-list">
 		<input type="radio" name="accordion" id="answer1"/>
 		<label for="answer1">

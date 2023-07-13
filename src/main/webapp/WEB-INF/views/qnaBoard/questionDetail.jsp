@@ -167,7 +167,7 @@
 		name="questionDelFrm" 
 		action="<%= request.getContextPath() %>/qnaBoard/questionDelete" 
 		method="POST">
-		<input type="hidden" name="no" value="<%= question.getId() %>" />
+		<input type="hidden" name="id" value="<%= question.getId() %>" />
 	</form>
 	
 <script>
