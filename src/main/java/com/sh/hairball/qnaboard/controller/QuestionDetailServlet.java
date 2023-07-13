@@ -14,7 +14,7 @@ import com.sh.hairball.qnaboard.model.AnswerVo;
 import com.sh.hairball.qnaboard.model.QuestionVo;
 import com.sh.hairball.qnaboard.service.QuestionService;
 
-@WebServlet("/question/questionDetail")
+@WebServlet("/qnaBoard/questionDetail")
 public class QuestionDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final QuestionService questionService = new QuestionService();

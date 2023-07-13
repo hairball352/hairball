@@ -30,29 +30,25 @@
   apiURL += "&state=" + state;
   session.setAttribute("state", state);
   
-  
+  String msg = (String) session.getAttribute("msg"); 
+	if(msg != null){ 
+		session.removeAttribute("msg"); // msg해야 로그인필터 거쳐서 "로그인 후 이용해주세요"가 뜹니다 아시겠죠
+	}
   Member loginMember = (Member)session.getAttribute("loginMember");
-%>
-
-<%
-	String msg = (String) session.getAttribute("msg");
-	if(msg != null) session.removeAttribute("msg"); // 1회용
-	// System.out.println("msg = " + msg);
-	
-	
-	Cookie[] cookies = request.getCookies();
+		
+  Cookie[] cookies = request.getCookies(); 
 	String saveId = null;
-	if(cookies != null) {
-		for(Cookie cookie : cookies) {
-			String name = cookie.getName();
+	if(cookies != null){ 					 
+		for(Cookie cookie : cookies){
+			String name = cookie.getName();  
 			String value = cookie.getValue();
-			// System.out.println("[Cookie] " + name + " = " + value);
-			if ("saveId".equals(name))
-				saveId = value;
+			if("saveId".equals(name))
+				saveId = value;	
 		}
 	}
-	
 %>
+
+	
 <body>
 <header>
     <div class="header">

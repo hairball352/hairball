@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sh.hairball.qnaboard.model.QuestionVo;
 import com.sh.hairball.qnaboard.service.QuestionService;
 
-@WebServlet("/question/questionCreate")
+@WebServlet("/qnaBoard/questionCreate")
 public class QuestionCreateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final QuestionService questionService = new QuestionService();

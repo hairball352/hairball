@@ -169,8 +169,8 @@ const deleteQuestion = () => {
 		document.questionDelFrm.submit();
 }
 
-const updateBoard = () => {
-	location.href = "<%= request.getContextPath() %>/question/questionUpdate?id=<%= question.getId() %>";
+const updateQuestion = () => {
+	location.href = "<%= request.getContextPath() %>/qnaBoard/questionUpdate?id=<%= question.getId() %>";
 }
 </sript>
 <%@ include file="/WEB-INF/views/templates/footer.jsp" %>

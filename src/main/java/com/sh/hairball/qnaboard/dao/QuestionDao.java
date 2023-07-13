@@ -15,7 +15,7 @@ import com.sh.hairball.qnaboard.model.QuestionVo;
 public class QuestionDao {
     private Properties prop = new Properties();
     public QuestionDao() {
-        String filename = QuestionVo.class.getResource("/sql/question-query.properties").getPath();;
+        String filename = QuestionVo.class.getResource("/sql/question/question-query.properties").getPath();;
         try {
             prop.load(new FileReader(filename));
         } catch (IOException e) {
@@ -46,7 +46,6 @@ public class QuestionDao {
             pstmt.setInt(1, start);
             pstmt.setInt(2, end);
             try(ResultSet rset = pstmt.executeQuery()) {
-            	System.out.println(rset.getFetchSize());
                 while(rset.next()) {
                     QuestionVo question = handleQuestionResultSet(rset);
                     questions.add(question);
@@ -120,9 +119,9 @@ public class QuestionDao {
 
     public int updateQuestion(Connection conn, QuestionVo question) {
         int result = 0;
-        String query = prop.getProperty("updateQuestion");
+        String sql = prop.getProperty("updateQuestion");
         // update question set title = ?, content = ? where id = ?
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, question.getTitle());
             pstmt.setString(2, question.getContent());
             pstmt.setInt(3, question.getId());

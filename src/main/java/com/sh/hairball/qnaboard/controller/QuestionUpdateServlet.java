@@ -16,7 +16,7 @@ import com.sh.hairball.qnaboard.service.QuestionService;
 /**
  * Servlet implementation class BoardCreateServlet
  */
-@WebServlet("/question/questionUpdate")
+@WebServlet("/qnaBoard/questionUpdate")
 public class QuestionUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final QuestionService questionService = new QuestionService();
@@ -39,16 +39,17 @@ public class QuestionUpdateServlet extends HttpServlet {
 		// 1. 사용자 입력값 처리
 		int id = Integer.parseInt(request.getParameter("id"));
 		String title = request.getParameter("title");
-		String memberId = request.getParameter("writer");
+		String memberId = request.getParameter("memberId");
 		String content = request.getParameter("content");
 		// db attachment 행삭제, 저장된 파일삭제
-
+		System.out.println("id 1 = " + id);
 		QuestionVo question = new QuestionVo();
 		question.setId(id);
 		question.setTitle(title);
 		question.setMemberId(memberId);
 		question.setContent(content);
 		System.out.println(question);
+		System.out.println("id 2 = " + id);
 
 
 		// 2. 업무로직

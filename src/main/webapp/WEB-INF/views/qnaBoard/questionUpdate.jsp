@@ -10,11 +10,15 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
 <section id="question-container">
 <h2>게시판 수정</h2>
-<form action="<%=request.getContextPath() %>/question/questionUpdate"
-	  method="post" 
-	  enctype="multipart/form-data">
-	<input type="hidden" name="id" value="<%= b.getId() %>" />
-	<table id="tbl-board-view">
+<form action="<%=request.getContextPath() %>/qnaBoard/questionUpdate"
+	  method="post">
+	<table id="tbl-question-view">
+	<tr>
+		<th>번호</th>
+		<td>
+			<input type="text" name="id" value="<%= q.getId() %>" readonly/>
+		</td>
+	</tr>
 	<tr>
 		<th>제 목</th>
 		<td><input type="text" name="title" value="<%= b.getTitle() %>" required></td>
