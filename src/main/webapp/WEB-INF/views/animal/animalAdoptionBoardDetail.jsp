@@ -10,55 +10,47 @@
 	Animal animal = adopBoard.getAnimal();
 %>
 <section class="animal-section">
-    <div class="animal-container">
-        <div class="animal-sidebar">
-            <aside id="side-bar">
-                <div class="side-menu"><a href="">보호동물</a></div>
-                <hr class="side-hr" />
-                <div class="side-menu"><a href="">입양절차</a></div>
-                <hr class="side-hr" />
-                <div class="side-menu"><a href="">보호동물</a></div>
-            </aside>
-        </div>
-        <div class="animal-detail-section">
-            <div id="checked-title">보호동물</div>
-            <hr class="section-hr" />
-            <div class="animal-detail-div">
-                <div>
-                    <img id="table-img" src="../src/img/소개/mong.jpg">
-                </div>
-                <div class="table-container">
-                    <table>
-                        <thead></thead>
-                        <tbody>
-                        <tr>
-                            <th colspan="4">나의 입양 번호
-                            <td colspan="6" id=""><%=adopBoard.getId() %></td>
-                            </th>
-                            <th colspan="4">동물 정보
-                            <td colspan="6" id=""><%= animal.getDiscoveryPlace() %></td>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th colspan="4">사진
-                            <td colspan="6" id=""></td>
-                            </th>
-                            <th colspan="4">나이
-                            <td colspan="6" id=""></td>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th colspan="4">동물 등록 번호
-                            <td colspan="6" id=""></td>
-                            </th>
-                            <th colspan="4">ㅁㄴㅇㅇㄴ
-                            <td colspan="6" id=""></td>
-                            </th>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="introduce01-container">
+		<div class="introduce01-bar">
+			<div class="side-menu-title">
+				<a href="<%=request.getContextPath()%>/animal/animalAdoptionList">입양신청</a>
+			</div>
+			<hr class="side-hr" />
+			<div class="side-menu">
+				<a href="<%=request.getContextPath()%>/animal/animalAdoptionList">입양신청</a>
+			</div>
+			<hr class="side-hr" />
+		</div>
+	</div>
+	<div class="introduce01-detail-section">
+		<div class="checked-title2">입양신청내역</div>
+		<hr class="section-hr" />
+		<div class="animal-detail-div">
+			<div class="adoption-container">
+				<%
+				if (loginMember != null)
+				%>
+				<table id="adoption-detail-board">
+					<thead>
+						<tr>
+							<td><img src="">동물이미지 넣어야함</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>진행단계</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>등록번호</td>
+							<td><%= animal.getId() %></td>
+						</tr>
+						<tr>
+							<td colspan="2"><a href="">상세 동물 페이지로 이동하기</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </section>
