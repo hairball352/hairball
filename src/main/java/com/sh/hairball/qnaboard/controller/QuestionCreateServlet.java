@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sh.hairball.qnaboard.model.QuestionVo;
 import com.sh.hairball.qnaboard.service.QuestionService;
 
-@WebServlet("/qnaBoard/questionCreate")
+@WebServlet("qnaBoard/questionCreate")
 public class QuestionCreateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final QuestionService questionService = new QuestionService();
@@ -26,7 +26,10 @@ public class QuestionCreateServlet extends HttpServlet {
         String title = request.getParameter("title");
         String memberId = request.getParameter("memberId");
         String content = request.getParameter("content");
-
+        
+        System.out.println("타이틀" + title);
+        System.out.println("타이틀3" + content);
+        System.out.println("타이틀2" + memberId);
         // insert into board (no,title,writer,content) values (seq_board_no.nextval, ?, ?, ?)
         QuestionVo question = new QuestionVo();
         question.setTitle(title);
@@ -40,7 +43,7 @@ public class QuestionCreateServlet extends HttpServlet {
 
         // 3. 응답처리 (목록페이지로 redirect)
 		request.getSession().setAttribute("msg", "질문을 등록했습니다..");
-        response.sendRedirect(request.getContextPath() + "/qnaBoard/questionDetail?no=" + question.getId());
+        response.sendRedirect(request.getContextPath() + "/qnaBoard/questionDetail?id=" + question.getId());
     }
 
 }

@@ -19,8 +19,8 @@ public class AnimalUtil {
             md = MessageDigest.getInstance("SHA-512");
             byte[] input = rawPassword.getBytes("utf-8");
             byte[] saltBytes = salt.getBytes("utf-8");
-            md.update(saltBytes); // salt 추가
-            output = md.digest(input); // 평문 비밀번호 전달 digest()가 암호문만듦
+            md.update(saltBytes); 
+            output = md.digest(input); 
         } catch(NoSuchAlgorithmException | UnsupportedEncodingException e){
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ public class AnimalUtil {
     }
 
     public static String getPagebar(int cpage, int limit, int totalContent, String url) {
-        StringBuilder pagebar = new StringBuilder(); // 문자열 더하기 연산에 최적화
+        StringBuilder pagebar = new StringBuilder(); 
         int totalPage = (int)Math.ceil((double)totalContent / limit);
         url += "?cpage=";
         int pagebarSize = 5;
