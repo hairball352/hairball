@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sh.hairball.board.adoptboard.model.service.AdoptionService;
 import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
+import com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity;
 
 /**
  * Servlet implementation class AnimalAdoptionCreateServlet
@@ -21,8 +22,7 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
     private final AdoptionService adoptionService = new AdoptionService();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/animal/animalAdoptionCreate.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("/WEB-INF/views/animal/animalAdoptionBoardCreate.jsp").forward(request, response);
 	}
 
 
@@ -40,7 +40,7 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
 		
 		int result = adoptionService.insertBoard(adopBoard);
 	
-		response.sendRedirect(request.getContextPath() + "/animal/animalAdoptionBoardList?no=" + adopBoard.getId());
+		response.sendRedirect(request.getContextPath() + "/animal/animalAdoptionBoardCreate?no=" + adopBoard.getId());
 	}
 
 }
