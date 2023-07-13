@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/hairball/css/aside.css" />
     <link rel="stylesheet" href="/hairball/css/swiper.css" />
     <link rel="stylesheet" href="/hairball/css/introduce.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 <%

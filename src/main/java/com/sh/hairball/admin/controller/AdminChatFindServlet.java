@@ -18,23 +18,21 @@ import com.sh.hairball.webchat.model.WebChatService;
 /**
  * Servlet implementation class AdminChatFindServlet
  */
-@WebServlet("/admin/getChatHistory")
+@WebServlet("/admin/webChatList")
 public class AdminChatFindServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    private final WebChatService webChatService = new WebChatService();
+	private static final long serialVersionUID = 1L;
+    private final MemberService memberService = new MemberService();
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	// 요청 파라미터에서 memberId 가져오기
-    	String memberIdString = request.getParameter("memberId");
-    	int memberId = Integer.parseInt(memberIdString);
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+        List<Member> members = memberService.findAll();
+        request.setAttribute("members", members);
+        
+        request.getRequestDispatcher("/WEB-INF/views/admin/webChatList.jsp")
+        .forward(request,response);
+	}
 
-    	// memberId를 기반으로 채팅 기록 조회
-    	List<WebChat> chatHistory = webChatService.getChatHistory(memberId);
-
-        Gson gson = new Gson();
-        String jsonChatHistory = gson.toJson(chatHistory);
-
-        response.setContentType("application/json");
-        response.getWriter().write(jsonChatHistory);
-    }
 }

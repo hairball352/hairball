@@ -23,7 +23,7 @@ public class JdbcTemplate {
         try {
             String filename = JdbcTemplate.class.getResource("/datasource.properties").getPath();
             prop.load(new FileReader(filename));
-            driverClass = prop.getProperty("classDriver");
+            driverClass = prop.getProperty("driverClass");
             url = prop.getProperty("url");
             user = prop.getProperty("user");
             password = prop.getProperty("password");

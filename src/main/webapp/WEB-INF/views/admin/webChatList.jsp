@@ -12,6 +12,7 @@
 	List<Member> members = (List<Member>) request.getAttribute("members"); 
 	WebChatService webChatService = new WebChatService();
 	List<WebChat> chatHistory = webChatService.webChatfindAll();
+	System.out.println("jsp chatHistory : " + chatHistory);
 
 	// 검색관련 
 	String searchType = request.getParameter("searchType");
@@ -112,25 +113,33 @@
 	</table>
 </section>
 <script>
-  const memberRows = document.querySelectorAll('.member-row');
-  memberRows.forEach((row) => {
-    row.addEventListener('click', () => {
-      const chatRow = row.nextElementSibling;
-      const chatContainer = chatRow.querySelector('.chat-container');
-      const memberId = chatContainer.dataset.memberId;
+$(document).ready(function(){
+    $(".member-row").click(function(){
+        var $chatRow = $(this).next(".chat-row");
+        var memberId = $chatRow.find(".chat-container").data("member-id");
 
-      // 서비스를 통해 채팅 기록을 가져옴
-      fetch(`/admin/getChatHistory?memberId=${memberId}`)
-        .then((response) => response.json())
-        .then((chatHistory) => {
-          // 받아온 채팅 기록을 삽입
-          chatContainer.innerHTML = chatHistory
-            .map((chat) => `<div>${chat.content}</div>`)
-            .join('');
-          // 아코디언 효과
-          chatRow.style.display = chatRow.style.display === 'none' ? 'table-row' : 'none';
-        });
+        if ($chatRow.is(":visible")) {
+            $chatRow.hide();
+        } else {
+            // Ajax로 서버에서 채팅 내역 가져오기
+            $.ajax({
+                url: '<%=request.getContextPath()%>/admin/getChatHistory', 
+                type: 'GET',
+                data: {memberId: memberId},
+                success: function(chatHistory) {
+                    var chatHtml = '';
+                    for (var i = 0; i < chatHistory.length; i++) {
+                        chatHtml += '<p>' + chatHistory[i].content + '</p>';
+                    }
+                    $chatRow.find(".chat-container").html(chatHtml);
+                    $chatRow.show();
+                },
+                error: function(error) {
+                    console.log('error', error);
+                }
+            });
+        }
     });
-  });
+});
 </script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp" %>

@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.sh.hairball.member.model.vo.Member;
 
-public class Chat extends WebChat {
+public class Chat {
 	
 	private List<WebChat> contents = new ArrayList<>();
 

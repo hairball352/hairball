@@ -41,6 +41,8 @@ public class MemberDao {
         } catch (SQLException e ){
             throw new MemberException(e);
         }
+        
+        System.out.println("member findById: " + member);
         return member;
     }
 

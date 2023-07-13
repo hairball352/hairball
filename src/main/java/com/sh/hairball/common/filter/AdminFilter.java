@@ -20,7 +20,7 @@ import com.sh.hairball.member.model.vo.MemberRole;
 /**
  * Servlet Filter implementation class AdminFilter
  */
-@WebFilter("/admin/*") // admin페이지 전체
+@WebFilter("") // admin페이지 전체
 public class AdminFilter extends HttpFilter implements Filter {
        
     /**
