@@ -48,25 +48,7 @@
 	}
 %>
 
-<%
-	String msg = (String) session.getAttribute("msg");
-	if(msg != null) session.removeAttribute("msg"); // 1회용
-	// System.out.println("msg = " + msg);
 	
-	
-	Cookie[] cookies = request.getCookies();
-	String saveId = null;
-	if(cookies != null) {
-		for(Cookie cookie : cookies) {
-			String name = cookie.getName();
-			String value = cookie.getValue();
-			// System.out.println("[Cookie] " + name + " = " + value);
-			if ("saveId".equals(name))
-				saveId = value;
-		}
-	}
-	
-%>
 <body>
 <header>
     <div class="header">
