@@ -13,7 +13,12 @@
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
 <section id="question-container">
-	<h2>게시판</h2>
+	<h2>Q&A 게시판</h2>
+	<%	if (loginMember != null) { %>
+		<input 
+			type="button" id="btn-add" value="질문하기" 
+			onclick="location.href = '<%= request.getContextPath() %>/board/boardCreate';"/>
+	<%  } %>
 	<table id="tbl-question-view">
 		<tr>
 			<th>글번호</th>

@@ -35,7 +35,7 @@
 			%>
 						<tr>
 							<td><%= question.getId() %></td>
-							<td><%= question.getTitle() %></td>
+							<td><a href="<%= request.getContextPath() %>/question/questionDetail?id=<%= question.getId() %>"><%= question.getTitle() %></a></td>
 							<td><%= question.getMemberId() %></td>
 							<td><%= question.getRegDate() %></td>
 						</tr>
