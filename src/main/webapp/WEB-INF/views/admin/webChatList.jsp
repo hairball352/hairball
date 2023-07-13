@@ -12,7 +12,6 @@
 	List<Member> members = (List<Member>) request.getAttribute("members"); 
 	WebChatService webChatService = new WebChatService();
 	List<WebChat> chatHistory = webChatService.webChatfindAll();
-	System.out.println("jsp chatHistory : " + chatHistory);
 
 	// 검색관련 
 	String searchType = request.getParameter("searchType");

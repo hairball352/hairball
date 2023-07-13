@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+import com.sh.hairball.common.util.AnimalUtil;
 import com.sh.hairball.member.model.service.MemberService;
 import com.sh.hairball.member.model.vo.Member;
 import com.sh.hairball.webchat.model.WebChat;
@@ -22,14 +23,19 @@ import com.sh.hairball.webchat.model.WebChatService;
 public class AdminChatFindServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private final MemberService memberService = new MemberService();
+    private final WebChatService webChatService = new WebChatService();
+	private final int LIMIT = 5; // 한페이지당 게시물수
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
         List<Member> members = memberService.findAll();
+        
         request.setAttribute("members", members);
+        
         
         request.getRequestDispatcher("/WEB-INF/views/admin/webChatList.jsp")
         .forward(request,response);

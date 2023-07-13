@@ -107,6 +107,10 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 			%>
 		</tbody>
 	</table>
+	
+	<div id='pagebar'>
+	<%= request.getAttribute("pagebar") %>
+	</div>
 </section>
 <form 
 	name="memberRoleUpdateFrm" 

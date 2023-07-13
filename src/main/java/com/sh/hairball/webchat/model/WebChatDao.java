@@ -72,6 +72,16 @@ public class WebChatDao {
 	    
 	    return webchat;
 	}
+	
+	private WebChat handleWebChatListResultSet(ResultSet rset) throws SQLException {
+	    WebChat webchat = new WebChat();
+	    webchat.setId(rset.getInt("id"));
+	    webchat.setMemberId(rset.getInt("member_id"));
+	    webchat.setContent(rset.getString("content"));
+	    webchat.setRegDate(rset.getDate("reg_date"));
+	    
+	    return webchat;
+	}
 
 
 	public List<WebChat> findChatByMemberId(Connection conn, int memberId) {
