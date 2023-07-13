@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+.side-menu {
+    font-size: 20px;
+    margin-left: 90px;
+    margin-bottom: 15px;
+}
+
+.side-menu-title {
+    font-size: 35px;
+    margin: 5px;
+    font-weight: 500;
+    margin-left: 90px;
+}
+
+#checked-title2 {
+    font-size: 35px;
+    font-weight: 500;
+    position: absolute; /* 절대적인 위치 지정 */
+    left: 600px; /* 왼쪽에서 50% 위치로 이동 */
+    top: -220px;
+}
+
+.side-hr{
+    border: 0;
+    height: 3px;
+    background: #e3e3e3;
+    width: 250px;
+    margin-left: auto; /* 왼쪽 여백을 auto로 설정하여 가운데로 이동 */
+    margin-right: auto; /* 오른쪽 여백도 auto로 설정 */
+}
+
+.section-hr {
+    border: 0;
+    background: #e3e3e3;
+    width: 950px;
+    position: absolute; /* 절대적인 위치 지정 */
+    margin-top: -155px;
+    margin-left: 600px;
+    height: 3px;
+}
+
+.introduce01-container {
+    display: flex;
+    
+}
+
+.introduce01-detail-section {
+    margin-left: 50px;
+    position: relative; /* 부모 요소로부터 상대적인 위치 지정 */
+}
+
+.introduce01-bar {
+    margin-top: 60px;
+    margin-left: 270px;
+    flex-direction: column;
+    align-items: center; /* 가로 방향 가운데 정렬 */
+}
+
+.vertical-line {
+    position: absolute;
+    width: 5px; /* 세로 선의 너비 */
+    height: 150px; /* 세로 선의 높이 */
+    background-color: rgb(172, 172, 172); /* 세로 선의 색상 */
+    margin-left: 605px;
+    border: 0;
+  }
+
+/* 테이블 영역 */
+
+#table-img {
+    width: 400px;
+    float: right; /* 오른쪽으로 띄움 */
+    margin-right: 321px;
+    margin-top: -100px;
+}
+
+.table-container2 {
+    display: flex;
+    justify-content: center; /* 가로 방향 가운데 정렬 */
+    align-items: center; /* 세로 방향 가운데 정렬 */
+  }
+  
+  .table-container2 p {
+    font-size: 20px;
+    text-align: center; /* 텍스트를 가운데 정렬 */
+    margin-left: 480px;
+  }

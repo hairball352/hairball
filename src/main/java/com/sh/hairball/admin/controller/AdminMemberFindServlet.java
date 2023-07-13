@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,7 +14,7 @@ import com.sh.hairball.member.model.vo.Member;
 
 
 @WebServlet("/admin/memberFinder")
-public class AdminMemberFindServlet {
+public class AdminMemberFindServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final MemberService memberService = new MemberService();
 
