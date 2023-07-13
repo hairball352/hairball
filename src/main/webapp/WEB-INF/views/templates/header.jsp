@@ -57,7 +57,7 @@
                 <a href="<%= request.getContextPath() %>/member/memberLogin">로그인</a>
             </li>
             <li class="signup_li">
-                <a href="#">회원가입</a>
+                <a href="<%= request.getContextPath() %>/member/memberEnroll">회원가입</a>
             </li>
             <li class="logout_li" style="display: none">
                 <a href="#">로그아웃</a>
@@ -67,7 +67,7 @@
             <ul class="nav">
                 <ul>
                     <li class="on">
-                        <a href="<%= request.getContextPath() %>/" class="font">홈</a>
+                        <a href="<%= request.getContextPath() %>" class="font">홈</a>
                     </li>
                     <li>
                         <a href="<%= request.getContextPath() %>/introduce/introduce1.jsp" class="font">소개</a>

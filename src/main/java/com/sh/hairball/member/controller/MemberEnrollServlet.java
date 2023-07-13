@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sh.hairball.common.util.AnimalUtil;
 import com.sh.hairball.member.model.service.MemberService;
 
 import java.io.IOException;
@@ -37,7 +38,7 @@ import java.io.IOException;
             request.setCharacterEncoding("utf-8");
             // 1. 사용자입력값 처리
             String memberId = request.getParameter("memberId");
-//            String password = AnimalUtil.getEncryptedPassword(request.getParameter("password"), memberId);
+            String password = AnimalUtil.getEncryptedPassword(request.getParameter("password"), memberId);
             String name = request.getParameter("name");
             String email = request.getParameter("email");
             String phone = request.getParameter("phone");

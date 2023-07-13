@@ -3,61 +3,65 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Insert title here</title>
 </head>
 <body>
 <div id="container" class="container">
     <!-- FORM SECTION -->
     <div class="row">
     
-      <!-- SIGN IN -->
-      <div class="col align-items-center flex-col sign-in">
+       <!-- SIGN UP -->
+      <div class="col align-items-center flex-col sign-up">
         <div class="form-wrapper align-items-center">
-          <div class="form sign-in">
+          <div class="form sign-up">
             <div class="input-group">
               <i class='bx bxs-user'></i>
               <input type="text" placeholder="Username">
             </div>
             <div class="input-group">
+              <i class='bx bx-mail-send'></i>
+              <input type="email" placeholder="Email">
+            </div>
+            <div class="input-group">
               <i class='bx bxs-lock-alt'></i>
               <input type="password" placeholder="Password">
             </div>
+            <div class="input-group">
+              <i class='bx bxs-lock-alt'></i>
+              <input type="password" placeholder="Confirm password">
+            </div>
             <button>
-              털뭉치들 로그인
+              Sign up
             </button>
             <p>
-              <b>
-                Forgot password?
-              </b>
-            </p>
-            <p>
               <span>
-                Don't have an account?
+                Already have an account?
               </span>
               <b onclick="toggle()" class="pointer">
-                Sign up here
+                Sign in here
               </b>
             </p>
           </div>
         </div>
-        <div class="form-wrapper">
-    
+      
+      </div>
+      <!-- END SIGN UP -->
+           <!-- SIGN UP CONTENT -->
+      <div class="col align-items-center flex-col">
+        <div class="img sign-up">
+        
+        </div>
+        <div class="text sign-up">
+          <h2>
+            Join with us
+          </h2>
+  
         </div>
       </div>
-      <!-- END SIGN IN -->
-        </div>
-    <!-- END FORM SECTION -->
-      <script>
-      let container = document.getElementById('container')
-
-      toggle = () => {
-        container.classList.toggle('sign-in')
-        container.classList.toggle('sign-up')
-      }
-
-      setTimeout(() => {
-        container.classList.add('sign-in')
-      }, 200)
-      </script>
+      <!-- END SIGN UP CONTENT -->
+    </div>
+    <!-- END CONTENT SECTION -->
+  </div>
 </body>
 </html>
 <%@ include file="/WEB-INF/views/templates/footer.jsp" %>
