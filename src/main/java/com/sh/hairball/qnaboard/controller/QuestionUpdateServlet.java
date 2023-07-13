@@ -39,7 +39,7 @@ public class QuestionUpdateServlet extends HttpServlet {
 		// 1. 사용자 입력값 처리
 		int id = Integer.parseInt(request.getParameter("id"));
 		String title = request.getParameter("title");
-		String memberId = request.getParameter("writer");
+		String memberId = request.getParameter("memberId");
 		String content = request.getParameter("content");
 		// db attachment 행삭제, 저장된 파일삭제
 

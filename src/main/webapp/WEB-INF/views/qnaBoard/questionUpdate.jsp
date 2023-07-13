@@ -13,8 +13,13 @@
 <form action="<%=request.getContextPath() %>/qnaBoard/questionUpdate"
 	  method="post" 
 	  enctype="multipart/form-data">
-	<input type="hidden" name="id" value="<%= q.getId() %>" />
 	<table id="tbl-question-view">
+	<tr>
+		<th>번호</th>
+		<td>
+			<input type="text" name="id" value="<%= q.getId() %>" readonly/>
+		</td>
+	</tr>
 	<tr>
 		<th>제 목</th>
 		<td><input type="text" name="title" value="<%= q.getTitle() %>" required></td>
