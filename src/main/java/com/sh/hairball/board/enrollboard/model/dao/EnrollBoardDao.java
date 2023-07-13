@@ -11,9 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import com.sh.hairball.attachment.Attachment;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
 
 public class EnrollBoardDao {
+	
 	private Properties prop = new Properties();
 	
 	public EnrollBoardDao() {
@@ -25,8 +27,6 @@ public class EnrollBoardDao {
 			e.printStackTrace();
 		}
 	}
-	
-		
 	
 
 	public List<EnrollBoard> findAll(Connection connection) throws SQLException {
@@ -51,9 +51,51 @@ public class EnrollBoardDao {
 		EnrollBoard board = new EnrollBoard();
 		board.setId(resultSet.getInt("id"));
 		board.setRegDate(resultSet.getDate("reg_date"));
-		board.setAttachmentId(resultSet.getInt("attachment_id"));
-		board.setAnimalId(resultSet.getInt("animal_id"));
 		return board;
+	}
+	
+	public int insertEnrollBoard(Connection conn, int animalId) throws SQLException {
+		int result = 0;
+		String sql = prop.getProperty("insertEnrollBoard");
+//		insertEnrollBoard = insert into enroll_board (id, animal_id, reg_date) values (seq_board_no.nextval, ?, default)
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, animalId);
+			result = pstmt.executeUpdate(); 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public int insertAttachment(Connection conn, Attachment attach) throws SQLException {
+		int result = 0;
+		String sql = prop.getProperty("insertAttachment");
+		// insert into attachment(no, board_no, original_filename, renamed_filename) values(seq_attachment_no.nextval, ?, ?, ?)
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, attach.getEnrollBoardid());
+			pstmt.setString(2, attach.getOriginal_filename());
+			pstmt.setString(3, attach.getRenamed_filename());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	public int getLastEnrollBoardNo(Connection conn) throws SQLException {
+		int boardNo = 0;
+		String sql = prop.getProperty("getLastEnrollBoardNo");
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			try (ResultSet rset = pstmt.executeQuery()) {
+				if(rset.next()) {
+					boardNo = rset.getInt(1);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return boardNo;
 	}
 
 }

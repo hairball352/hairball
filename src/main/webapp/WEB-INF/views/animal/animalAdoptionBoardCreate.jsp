@@ -15,7 +15,7 @@
 	            </aside>
 	        </div>
 	        <div class="animal-detail-section">
-	            <div id="checked-title">입양신청</div>
+	            <div id="">입양신청</div>
 	            <hr class="section-hr" />
 	            <div>
 	                <p>게시글 작성해주시면 순차적으로 연락드리겠습니다.</p>
