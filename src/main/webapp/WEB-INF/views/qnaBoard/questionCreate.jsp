@@ -7,7 +7,7 @@
 	<h2>게시판 작성</h2>
 	<form
 		name="questionCreateFrm"
-		action="<%=request.getContextPath() %>/question/questionCreate"
+		action="<%=request.getContextPath() %>/qnaBoard/questionCreate"
 		method="post"
 		enctype="multipart/form-data">
 		<table id="tbl-question-view">
@@ -18,14 +18,7 @@
 		<tr>
 			<th>작성자</th>
 			<td>
-				<input type="text" name="writer" value="<%= loginMember.getMemberId() %>" readonly/>
-			</td>
-		</tr>
-		<tr>
-			<th>첨부파일</th>
-			<td>			
-				<input type="file" name="upFile1">
-				<input type="file" name="upFile2">
+				<input type="text" name="memberId" value="<%= loginMember.getMemberId() %>" readonly/>
 			</td>
 		</tr>
 		<tr>

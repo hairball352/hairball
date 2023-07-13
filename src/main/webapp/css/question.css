@@ -71,3 +71,52 @@ table#tbl-comment button.btn-comment-enroll2{width:60px; height:23px; color:whit
 /* 삭제버튼관련 */
 table#tbl-comment button.btn-delete{background:red; color:white; display:none;}
 table#tbl-comment tr:hover button.btn-delete{display:inline;}
+
+/* 아코디언 */
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.faq-container{
+	width: 80%;
+	box-shadow: 0 0 20 px #e5e5e5;
+	padding: 0 40 px;
+}
+input[id*="answer"]{
+	display: none;
+}
+input[id*="answer"] + label {
+	font-size: 1.5em;
+	display: flex;
+	line-height: 4em;
+	justify-content: space-between;
+	position: relative;
+	border-bottom: 1px solid #d5d5d5;
+	cursor: pointer;
+}
+input[id*="answer"] + label i{
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+	transition: all .3s;
+}
+input[id*="answer"] + label + div{
+	overflow: hidden;
+	height: 0;
+	display: flex;
+	align-items: center;
+	transition: all .3s;
+}
+input[id*="answer"] + label div p{
+	position: inline-block;
+	padding: 20px 0;
+}
+input[id*="answer"]:checked + label + div{
+	height: 150px;
+	border-bottom: 2px solid #d5d5d5;
+}
+input[id*="answer"]:checked + label i{
+	fransform: rotate(180deg);
+}
