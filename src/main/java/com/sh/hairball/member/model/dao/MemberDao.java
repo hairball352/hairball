@@ -36,6 +36,8 @@ public class MemberDao {
             try (ResultSet rset = pstmt.executeQuery()) {
                 while (rset.next()) {
                     member = handleMemberResultSet(rset);
+                    
+                    System.out.println("memberDao 에서의 member : " + member);
                 }
             }
         } catch (SQLException e ){

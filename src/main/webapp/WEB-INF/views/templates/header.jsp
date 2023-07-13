@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/hairball/css/aside.css" />
     <link rel="stylesheet" href="/hairball/css/swiper.css" />
     <link rel="stylesheet" href="/hairball/css/introduce.css" />
+    <link rel="stylesheet" href="/hairball/css/memberLogin.css" />
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 <%
@@ -70,7 +71,7 @@
                 <a href="<%= request.getContextPath() %>/admin/animalRegistration">관리자</a>
             </li>
             <li class="login_li">
-                <a href="<%= request.getContextPath() %>/member/memberLogin">로그인</a>
+                <a href="<%= request.getContextPath() %>/member/login">로그인</a>
             </li>
             <li class="signup_li">
                 <a href="<%= request.getContextPath() %>/member/memberEnroll">회원가입</a>
