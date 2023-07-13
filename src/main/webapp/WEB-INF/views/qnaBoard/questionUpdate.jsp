@@ -5,7 +5,7 @@
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 <%
-	QuestionVo q = (QuestionVo) request.getAttribute("question");
+	QuestionVo b = (QuestionVo) request.getAttribute("question");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
 <section id="question-container">
@@ -21,17 +21,17 @@
 	</tr>
 	<tr>
 		<th>제 목</th>
-		<td><input type="text" name="title" value="<%= q.getTitle() %>" required></td>
+		<td><input type="text" name="title" value="<%= b.getTitle() %>" required></td>
 	</tr>
 	<tr>
 		<th>작성자</th>
 		<td>
-			<input type="text" name="memberId" value="<%= q.getMemberId() %>" readonly/>
+			<input type="text" name="writer" value="<%= b.getMemberId() %>" readonly/>
 		</td>
 	</tr>
 	<tr>
 		<th>내 용</th>
-		<td><textarea rows="5" cols="50" name="content"><%= q.getContent() %></textarea></td>
+		<td><textarea rows="5" cols="50" name="content"><%= b.getContent() %></textarea></td>
 	</tr>
 	<tr>
 		<th colspan="2">

@@ -17,40 +17,55 @@
 <!-- 관리자용 admin.css link -->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/admin.css" />
 <style>
-div#search-container 	{width: 100%; margin:0 0 10px 0; padding:3px; background-color: rgba(0, 188, 212, 0.3);}
+div#search-container 	{width: 100%; margin:0 0 10px 0; padding:3px; background-color: 5fab95;}
 div#search-memberId 	{display: <%= searchType == null || "member_id".equals(searchType) ? "inline-block" : "none" %>;}
 div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "none" %>;}
 </style>
 
-<section id="memberList-container">
-	<h2>회원관리</h2>
-	
-	<div id="search-container">
-        <label for="searchType">검색타입 :</label> 
-        <select id="searchType">
-            <option value="memberId" <%= "member_id".equals(searchType) ? "selected" : "" %>>아이디</option>		
-            <option value="name" <%= "name".equals(searchType) ? "selected" : "" %>>회원명</option>
-        </select>
-        <div id="search-memberId" class="search-type">
-            <form action="<%=request.getContextPath()%>/admin/memberFinder">
-                <input type="hidden" name="searchType" value="member_id"/>
-                <input 
-                	type="text" name="searchKeyword"  size="25" placeholder="검색할 아이디를 입력하세요." 
-                	value="<%= "member_id".equals(searchType) ? searchKeyword : "" %>"/>
-                <button type="submit">검색</button>			
-            </form>	
+    <div class="introduce01-container">
+        <div class="introduce01-bar">
+                <div class="side-menu-title"><a href="<%= request.getContextPath() %>/admin/animalRegistration">관리자페이지</a></div>
+                <hr class="side-hr" />
+               	<div class="side-menu"><a href="<%= request.getContextPath() %>/admin/animalRegistration">동물등록</a></div>
+                <hr class="side-hr" />
+                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/memberList">회원목록조회</a></div>
+                <hr class="side-hr" />
+                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/webChatList">채팅기록조회</a></div>
+                <hr class="side-hr" />
+            </div>
         </div>
-        <div id="search-name" class="search-type">
-            <form action="<%=request.getContextPath()%>/admin/memberFinder">
-                <input type="hidden" name="searchType" value="name"/>
-                <input 
-                	type="text" name="searchKeyword" size="25" placeholder="검색할 이름을 입력하세요."
-                	value="<%= "name".equals(searchType) ? searchKeyword : "" %>"/>
-                <button type="submit">검색</button>			
-            </form>	
-        </div>
-    </div>
-	
+        <div class="introduce01-detail-section">
+            <div id="checked-title2">회원목록조회</div>
+            <hr class="section-hr" />
+    <section id="memberList-container">
+    <div class="memberList-container2">
+		<h2>회원관리</h2>
+		<div id="search-container">
+	        <label for="searchType">검색타입 :</label> 
+	        <select id="searchType">
+	            <option value="memberId" <%= "member_id".equals(searchType) ? "selected" : "" %>>아이디</option>		
+	            <option value="name" <%= "name".equals(searchType) ? "selected" : "" %>>회원명</option>
+	        </select>
+	        <div id="search-memberId" class="search-type">
+	            <form action="<%=request.getContextPath()%>/admin/memberFinder">
+	                <input type="hidden" name="searchType" value="member_id"/>
+	                <input 
+	                	type="text" name="searchKeyword"  size="25" placeholder="검색할 아이디를 입력하세요." 
+	                	value="<%= "member_id".equals(searchType) ? searchKeyword : "" %>"/>
+	                <button type="submit">검색</button>			
+	            </form>	
+	        </div>
+	        <div id="search-name" class="search-type">
+	            <form action="<%=request.getContextPath()%>/admin/memberFinder">
+	                <input type="hidden" name="searchType" value="name"/>
+	                <input 
+	                	type="text" name="searchKeyword" size="25" placeholder="검색할 이름을 입력하세요."
+	                	value="<%= "name".equals(searchType) ? searchKeyword : "" %>"/>
+	                <button type="submit">검색</button>			
+	            </form>	
+	        </div>
+	    </div>
+	</div>
 	<table id="tbl-member">
 		<thead>
 			<tr>

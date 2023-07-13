@@ -1,46 +1,50 @@
-package com.sh.hairball.board.enrollboard.controller;
-
-import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.FileRenamePolicy;
-import com.sh.hairball.animal.model.vo.Animal;
-import com.sh.hairball.animal.model.vo.AnimalType;
-import com.sh.hairball.animal.model.vo.Sex;
-import com.sh.hairball.board.enrollboard.model.service.EnrollBoardService;
-import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
-
-
-@WebServlet("/animal/enroll")
-public class AnimalEnrollServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	private final EnrollBoardService enrollBoardService = new EnrollBoardService();
-	
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		req.getRequestDispatcher("/WEB-INF/views/animal/animalEnrollFrm.jsp").forward(req, resp);
-	}
-
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+//package com.sh.hairball.board.enrollboard.controller;
+//
+//import java.io.IOException;
+//import java.util.List;
+//
+//import javax.servlet.ServletContext;
+//import javax.servlet.ServletException;
+//import javax.servlet.annotation.WebServlet;
+//import javax.servlet.http.HttpServlet;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+//
+//import com.oreilly.servlet.MultipartRequest;
+//import com.oreilly.servlet.multipart.FileRenamePolicy;
+//import com.sh.hairball.animal.model.AnimalService;
+//import com.sh.hairball.animal.model.vo.Animal;
+//import com.sh.hairball.animal.model.vo.AnimalType;
+//import com.sh.hairball.animal.model.vo.Sex;
+//import com.sh.hairball.board.enrollboard.model.service.EnrollBoardService;
+//import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
+//import com.sh.mvc.common.HelloMvcFileRenamePolicy;
+//
+//
+//@WebServlet("/animal/enroll")
+//public class AnimalEnrollServlet extends HttpServlet {
+//	private static final long serialVersionUID = 1L;
+//	private final EnrollBoardService enrollBoardService = new EnrollBoardService();
+//	private final AnimalService animalService =  new AnimalService();
+//	
+//	
+//	@Override
+//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		
+//		req.getRequestDispatcher("/WEB-INF/views/animal/animalEnrollFrm.jsp").forward(req, resp);
+//	}
+//
+//
+//	@Override
+//	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//
 //		ServletContext application = getServletContext();
 //		String saveDirectory = application.getRealPath("/upload/board");
 //		System.out.println("saveDirectory = " + saveDirectory);
 //		int maxPostSize = 1024 * 1024 * 10; 
 //		String encoding = "utf-8";
 //		
+//		FileRenamePolicy policy = new MyPolicy();
 //		
 //		MultipartRequest multiReq = new MultipartRequest(req, saveDirectory, maxPostSize, encoding, policy);
 //		
@@ -66,7 +70,7 @@ public class AnimalEnrollServlet extends HttpServlet {
 //		animal.setSpecies(species);
 //		animal.setWeight(Float.parseFloat(weight));
 //		System.out.println(animal.toString());
-		
-		
-	}
-}
+//		
+//		
+//	}
+//}

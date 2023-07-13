@@ -8,7 +8,7 @@
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 <%
-	QuestionVo question = (QuestionVo) request.getAttribute("question");
+	QuestionVo question = new QuestionVo();
 	List<AnswerVo> answers = (List<AnswerVo>) request.getAttribute("answers");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
@@ -17,7 +17,7 @@
 	<%	if (loginMember != null) { %>
 		<input 
 			type="button" id="btn-add" value="질문하기" 
-			onclick="location.href = '<%= request.getContextPath() %>/qnaBoard/questionCreate';"/>
+			onclick="location.href = '<%= request.getContextPath() %>/board/boardCreate';"/>
 	<%  } %>
 	<table id="tbl-question-view">
 		<tr>
@@ -38,14 +38,6 @@
 				<textarea readonly style="resize: none;" rows="10"><%= question.getContent() %></textarea>
 			</td>
 		</tr>
-		<tr>
-			<th colspan="2">
-				<%--게시물 수정 --%>
-				<input type="button" value="수정하기" onclick="updateQuestion()">
-				<input type="button" value="삭제하기" onclick="deleteQuestion()">
-			</th>
-		</tr>
-		
 		<%-- 작성자와 관리자만 마지막행 수정/삭제버튼이 보일수 있게 할 것 --%>
 		<% if (loginMember != null && (loginMember.getMemberRole() == MemberRole.A 
 							|| loginMember.getMemberId().equals(question.getMemberId()) ) ) { %>
@@ -104,7 +96,7 @@
 		<% 	} %>
 	</div>
 	<form 
-		action="<%= request.getContextPath() %>/qnaBoard/answerDelete" 
+		action="<%= request.getContextPath() %>/question/answerDelete" 
 		name="answerDelFrm"
 		method="POST">
 		<input type="hidden" name="id" />
@@ -166,12 +158,12 @@
 
 	<form 
 		name="questionDelFrm" 
-		action="<%= request.getContextPath() %>/qnaBoard/questionDelete" 
+		action="<%= request.getContextPath() %>/question/questionDelete" 
 		method="POST">
 		<input type="hidden" name="no" value="<%= question.getId() %>" />
 	</form>
 	
-<script>
+<sript>
 const deleteQuestion = () => {
 	if(confirm("정말 삭제하시겠습니까?"))
 		document.questionDelFrm.submit();
@@ -180,5 +172,5 @@ const deleteQuestion = () => {
 const updateQuestion = () => {
 	location.href = "<%= request.getContextPath() %>/qnaBoard/questionUpdate?id=<%= question.getId() %>";
 }
-</script>
+</sript>
 <%@ include file="/WEB-INF/views/templates/footer.jsp" %>

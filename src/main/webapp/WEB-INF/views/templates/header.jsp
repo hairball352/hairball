@@ -47,6 +47,26 @@
 		}
 	}
 %>
+
+<%
+	String msg = (String) session.getAttribute("msg");
+	if(msg != null) session.removeAttribute("msg"); // 1회용
+	// System.out.println("msg = " + msg);
+	
+	
+	Cookie[] cookies = request.getCookies();
+	String saveId = null;
+	if(cookies != null) {
+		for(Cookie cookie : cookies) {
+			String name = cookie.getName();
+			String value = cookie.getValue();
+			// System.out.println("[Cookie] " + name + " = " + value);
+			if ("saveId".equals(name))
+				saveId = value;
+		}
+	}
+	
+%>
 <body>
 <header>
     <div class="header">
@@ -65,10 +85,10 @@
                 </a>
             </li>
             <li class="admin_li">
-                <a href="<%= request.getContextPath() %>/admin/memberList">관리자</a>
+                <a href="<%= request.getContextPath() %>/admin/animalRegistration">관리자</a>
             </li>
             <li class="login_li">
-                <a href="<%= request.getContextPath() %>/member/login">로그인</a>
+                <a href="<%= request.getContextPath() %>/member/memberLogin">로그인</a>
             </li>
             <li class="signup_li">
                 <a href="<%= request.getContextPath() %>/member/memberEnroll">회원가입</a>
