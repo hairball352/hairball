@@ -26,14 +26,16 @@ public class ChatHistoryServlet extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String memberId = request.getParameter("memberId"); // memberId 문자열
-        
+        System.out.println("servlet memberId : " + memberId);
         Member member = memberService.findById(memberId); // Member 객체
+        System.out.println("servlet member : " + member);
         
         if (member == null) {
             // memberId에 해당하는 Member가 없는 경우 에러 처리
         } else {
             int id = member.getId(); // Member 객체의 id를 가져오기
             List<WebChat> chatHistory = webChatService.getChatHistory(id); // id를 이용하여 채팅 기록을 가져오기
+            System.out.println("servlet chatHistory : " + chatHistory);
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
