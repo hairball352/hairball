@@ -11,8 +11,7 @@
 <section id="question-container">
 <h2>게시판 수정</h2>
 <form action="<%=request.getContextPath() %>/qnaBoard/questionUpdate"
-	  method="post" 
-	  enctype="multipart/form-data">
+	  method="post">
 	<table id="tbl-question-view">
 	<tr>
 		<th>번호</th>
