@@ -40,10 +40,11 @@
 }
 
 
-input[type=checkbox] {
+#input singup-btn,saveId,btn1{
 	width: 130px;
 	margin: 150px;
 	justify-content: center;
+	style: transform;
 }
 
 ​

@@ -18,7 +18,6 @@
 					<td><input colspan="2"type="text" name="memberId" id="memberId"
 						placeholder="아이디" tabindex="1"
 						value="<%=saveId != null ? saveId : ""%>"></td>
-
 				</tr>
 				<tr>
 					<td colspan="2"><input type="password" name="password" id="password"
@@ -26,10 +25,11 @@
 				</tr>
 				<tr>
 					<td colspan="2"><input type="checkbox" name="saveId"
-						id="saveId" <%=saveId != null ? "checked" : ""%> /> <label
+						id="saveId" <%=saveId != null ? "checked" : ""%> /> 
+						<label
 						for="saveId">아이디저장</label>&nbsp;&nbsp; 
 						<br/>
-						<input style="zoom:2.0" id="btn1"type="submit" tabindex="3" value="털뭉치들로그인">
+						<input  id="btn1" type="submit" tabindex="3" value="털뭉치들로그인">
 					</td>
 				</tr>
 			</table>
