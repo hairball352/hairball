@@ -44,7 +44,7 @@ public class AnimalUtil {
         int totalPage = (int)Math.ceil((double)totalContent / limit);
         url += "?cpage=";
         int pagebarSize = 5;
-        int pageStart = ((cpage -1) / pagebarSize) * pagebarSize + 1;
+        int pageStart = (cpage - 1) / pagebarSize * pagebarSize + 1;
         int pageEnd = pageStart + pagebarSize -1;
         int pageNo = pageStart;
 
