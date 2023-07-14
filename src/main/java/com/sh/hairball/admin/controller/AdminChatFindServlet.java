@@ -27,9 +27,9 @@ public class AdminChatFindServlet extends HttpServlet {
         System.out.println("serchKeyword = " + searchKeyword);
 
 
-        List<Member> members = memberService.searchMember(searchType, searchKeyword);
+        List<Member> memberList = memberService.searchMember(searchType, searchKeyword);
         
-        request.setAttribute("members", members);
+        request.setAttribute("memberList", memberList);
         
         request.getRequestDispatcher("/WEB-INF/views/admin/webChatList.jsp")
                 .forward(request,response);

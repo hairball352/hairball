@@ -8,6 +8,7 @@
 <%
 	
 	List<Member> members = (List<Member>) request.getAttribute("members"); 
+	System.out.println("members" + members);
 
 	// 검색관련 
 	String searchType = request.getParameter("searchType");
