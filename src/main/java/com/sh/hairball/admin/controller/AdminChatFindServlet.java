@@ -9,35 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
 import com.sh.hairball.member.model.service.MemberService;
 import com.sh.hairball.member.model.vo.Member;
-import com.sh.hairball.webchat.model.WebChat;
-import com.sh.hairball.webchat.model.WebChatService;
 
 /**
  * Servlet implementation class AdminChatFindServlet
  */
-@WebServlet("/admin/getChatHistory")
+@WebServlet("/admin/webChatFinder")
 public class AdminChatFindServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    private final WebChatService webChatService = new WebChatService();
+	private static final long serialVersionUID = 1L;
+    private final MemberService memberService = new MemberService();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	// 요청 파라미터에서 memberId 가져오기
-    	String memberIdString = request.getParameter("memberId");
-    	int memberId = Integer.parseInt(memberIdString);
+        String searchType = request.getParameter("searchType");
+        String searchKeyword = request.getParameter("searchKeyword");
+        System.out.println("webChat serchType = " + searchType);
+        System.out.println("webChat serchKeyword = " + searchKeyword);
 
-    	// memberId를 기반으로 채팅 기록 조회
-    	List<WebChat> chatHistory = webChatService.getChatHistory(memberId);
 
-        // memberId를 기반으로 채팅 기록 조회
-//        List<WebChat> chatHistory = webChatService.getChatHistory(memberId);
-
-        Gson gson = new Gson();
-//        String jsonChatHistory = gson.toJson(chatHistory);
-
-        response.setContentType("application/json");
-//        response.getWriter().write(jsonChatHistory);
+        List<Member> memberList = memberService.searchMember(searchType, searchKeyword);
+        
+        request.setAttribute("memberList", memberList);
+        
+        request.getRequestDispatcher("/WEB-INF/views/admin/webChatList.jsp")
+                .forward(request,response);
     }
 }
