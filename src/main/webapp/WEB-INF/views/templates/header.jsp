@@ -75,7 +75,7 @@
                 <a href="<%= request.getContextPath() %>/member/login">로그인</a>
             </li>
             <li class="signup_li">
-                <a href="<%= request.getContextPath() %>/member/memberEnroll">회원가입</a>
+                <a href="<%= request.getContextPath() %>/member/terms">회원가입</a>
             </li>
             <li class="logout_li" style="display: none">
                 <a href="#">로그아웃</a>

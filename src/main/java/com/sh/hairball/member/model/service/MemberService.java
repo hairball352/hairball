@@ -21,6 +21,7 @@ public class MemberService {
         return member;
     }
 
+   
     public int insertMember(Member newMember) {
         int result = 0;
 

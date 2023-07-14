@@ -26,7 +26,9 @@ import java.util.Set;
          * - 회원가입 폼페이지 응답
          */
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            request.getRequestDispatcher("/WEB-INF/views/member/memberEnroll.jsp")
+            
+        	
+        	request.getRequestDispatcher("/WEB-INF/views/member/memberEnroll.jsp")
                     .forward(request, response);
         }
 

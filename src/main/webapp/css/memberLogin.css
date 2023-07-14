@@ -90,7 +90,7 @@
    border-bottom: none;
    border-right: none;
    border-left: none;
-   	margin-left: 50px;
+   margin-left: 50px;
 }
   
 .saveId3 {
@@ -106,5 +106,50 @@
 
 /* 회원가입 관련 css*/
 #enroll-table {
-   background: red;
+	
 }
+
+
+.enroll-title {
+	text-align: center;
+	font-size: 20px;
+	margin: 50px;
+}
+
+memberEnrollFrm{
+	width: 100%;
+	text-align: center;
+}
+
+.enroll-div {
+	display: flex;
+	justify-content: center;
+	margin: 50px;
+}
+
+.enroll-div th{
+	font-size : 15px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+.enroll-div td{
+	
+	margin: 10px;
+}	
+.enroll-button {
+	border: none;
+	width: 70px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.duplicate-button {
+	border: none;
+	width: 70px;
+}
+.enroll-div th,td {
+	height: 20px;
+}
+
+
+

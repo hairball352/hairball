@@ -1,58 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/templates/header.jsp" %>
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/templates/header.jsp"%>
 
-<section id=enroll-container>
-  <h2>회원 가입 정보 입력</h2>
-  <form
-          name="checkIdDuplicateFrm"
-          action="<%= request.getContextPath() %>/member/checkIdDuplicate">
-    <input type="hidden" name="memberId"/>
-  </form>
-  <form name="memberEnrollFrm" action="" method="POST">
-    <table id="enroll-table">
-      <tr>
-        <th>아이디<sup>*</sup></th>
-        <td id="login-td">
-          <input type="text" placeholder="아이디" name="memberId" id="_memberId" value="" required>
-          <input type="button" value="중복검사" onclick="checkIdDuplicate();"/>
-          <input type="hidden" id="idValid" value="0"/>
-          <%-- id검사여부 확인용: 0-유효하지않음, 1-유효한 아이디 --%>
-        </td>
-      </tr>
-      <tr>
-        <th>패스워드<sup>*</sup></th>
-        <td>
-          <input type="password" placeholder="비밀번호" name="password" id="_password" value="" required><br>
-        </td>
-      </tr>
-      <tr>
-        <th>패스워드확인<sup>*</sup></th>
-        <td>
-          <input type="password" placeholder="비밀번호 확인" id="passwordConfirmation" value="" required><br>
-        </td>
-      </tr>
-      <tr>
-        <th>이름<sup>*</sup></th>
-        <td>
-          <input type="text" placeholder="이름" name="name" id="name" value="" required><br>
-        </td>
-      </tr>
-        <th>이메일</th>
-        <td>
-          <input type="email" placeholder="비밀번호 분실 시 확인용 이메일" name="email" id="email" value=""><br>
-        </td>
-      </tr>
-      <tr>
-        <th>휴대폰<sup>*</sup></th>
-        <td>
-          <input type="tel" placeholder="휴대전화번호" name="phone" id="phone" maxlength="11" value="" required><br>
-        </td>
-      </tr>
-    </table>
-    <input type="submit" value="가입" >
-    <input type="reset" value="취소">
-  </form>
+<section id="enroll-section">
+	<div>
+		<div class="enroll-title">
+			<h2>회원 가입 정보 입력</h2>
+		</div>
+		<div class="enroll-container">
+			<form
+				name="checkIdDuplicateFrm" action="<%=request.getContextPath()%>/member/checkIdDuplicate">
+				<input type="hidden" name="memberId" />
+			</form>
+			<div class="enroll-div">
+				<form name="memberEnrollFrm" action="" method="POST">
+					<table id="enroll-table">
+						<tr>
+							<th>아이디<sup>*</sup></th>
+							<td id="login-td"><input type="text" placeholder="아이디"
+								name="memberId" id="_memberId" value="" required> <input
+								class="duplicate-button" type="button" value="중복검사"
+								onclick="checkIdDuplicate();" /> <input type="hidden"
+								id="idValid" value="0" /> <%-- id검사여부 확인용: 0-유효하지않음, 1-유효한 아이디 --%>
+							</td>
+						</tr>
+						<tr>
+							<th>패스워드<sup>*</sup></th>
+							<td><input type="password" placeholder="비밀번호"
+								name="password" id="_password" value="" required><br>
+							</td>
+						</tr>
+						<tr>
+							<th>패스워드확인<sup>*</sup></th>
+							<td><input type="password" placeholder="비밀번호 확인"
+								id="passwordConfirmation" value="" required><br></td>
+						</tr>
+						<tr>
+							<th>이름<sup>*</sup></th>
+							<td><input type="text" placeholder="이름" name="name"
+								id="name" value="" required><br></td>
+						</tr>
+						<th>이메일</th>
+						<td><input type="email" placeholder="비밀번호 분실 시 확인용 이메일"
+							name="email" id="email" value=""><br></td>
+						</tr>
+						<tr>
+							<th>휴대폰<sup>*</sup></th>
+							<td><input type="tel" placeholder="휴대전화번호" name="phone"
+								id="phone" maxlength="11" value="" required><br></td>
+						</tr>
+					</table>
+					<div class="enroll-btn-div">
+						<input class="enroll-button" type="submit" value="가입">
+						<input class="enroll-button" type="reset" value="취소">
+					</div>	
+				</form>
+			</div>
+		</div>
+	</div>
 </section>
 <script>
   /**
@@ -132,4 +137,4 @@
 
 
 </script>
-<%@ include file="/WEB-INF/views/templates/footer.jsp" %>
+<%@ include file="/WEB-INF/views/templates/footer.jsp"%>
