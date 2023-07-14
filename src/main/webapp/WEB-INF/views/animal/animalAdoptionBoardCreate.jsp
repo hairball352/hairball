@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
-<%@ include file="/WEB-INF/views/templates/header2.jsp"%>
 <%-- 입양 신청 게시글 작성하는 jsp --%>
 <section class="adoption-board-section">
 	<div class="introduce01-container">
