@@ -10,8 +10,10 @@ import javax.servlet.http.HttpSession;
 
 import com.sh.hairball.common.util.AnimalUtil;
 import com.sh.hairball.member.model.service.MemberService;
+import com.sh.hairball.member.model.vo.Member;
 
 import java.io.IOException;
+import java.util.Set;
 
 @WebServlet("/member/memberEnroll")
     public class MemberEnrollServlet extends HttpServlet {
@@ -44,11 +46,18 @@ import java.io.IOException;
             String phone = request.getParameter("phone");
             String address = request.getParameter("address");
 
-//            MemberVo newMember = new MemberVo(memberId, password, name, email, phone, address);
-//            System.out.println(newMember);
+            Member newMember = new Member();
+            newMember.setAddress(address);
+            newMember.setEmail(email);
+            newMember.setMemberId(memberId);
+            newMember.setName(name);
+            newMember.setPassword(password);
+            newMember.setPhone(phone);
+            System.out.println();
+            
 
             // 2. 업무로직 - db저장 요청
-//            int result = memberService.insertMember(newMember);
+            int result = memberService.insertMember(newMember);
 //            System.out.println("result = " + result);
 
             // 결과 메세지 속성 등록 : 성공적으로 회원등록 했습니다.

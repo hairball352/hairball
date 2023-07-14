@@ -13,6 +13,7 @@ import java.util.Properties;
 import com.sh.hairball.member.model.exception.MemberException;
 import com.sh.hairball.member.model.vo.Member;
 import com.sh.hairball.member.model.vo.MemberRole;
+import com.sh.hairball.member.model.vo.Provider;
 
 public class MemberDao {
     private Properties prop = new Properties();
@@ -20,7 +21,6 @@ public class MemberDao {
     public MemberDao(){
         String filename =
                 MemberDao.class.getResource("/sql/member/member-query.properties").getPath();
-        System.out.println("filename" + filename);
         try {
             prop.load(new FileReader(filename));
         } catch (IOException e) {
@@ -31,6 +31,7 @@ public class MemberDao {
     public Member findById(Connection conn, String memberId) {
         String sql = prop.getProperty("findById"); // select * from member where member_id = ?
         Member member = null;
+        System.out.println(sql);
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, memberId);
             try (ResultSet rset = pstmt.executeQuery()) {
@@ -41,6 +42,7 @@ public class MemberDao {
         } catch (SQLException e ){
             throw new MemberException(e);
         }
+        
         return member;
     }
 
@@ -55,18 +57,25 @@ public class MemberDao {
         MemberRole memberRole = MemberRole.valueOf(rset.getString("member_role"));
         return new Member(id, memberId, password, name, email, phone, address, memberRole, null);
     }
+    
 
     public int insertMember(Connection conn, Member newMember) {
         int result = 0;
-        String sql = "insert into member (password, name,member_role, email, phone, provider) value (?, ?, ?, ?, ?, ?)";
-
+        String sql = prop.getProperty("insertMember");
         try (PreparedStatement pstmt = conn.prepareStatement(sql)){
-            pstmt.setString(1,"password");
-            pstmt.setString(2,"name");
-            pstmt.setString(3,"U");
+            pstmt.setString(1,newMember.getMemberId());
+            pstmt.setString(2,newMember.getPassword());
+            pstmt.setString(3,newMember.getName());
             pstmt.setString(4, newMember.getEmail());
             pstmt.setString(5, newMember.getPhone());
-            pstmt.setString(6, newMember.getProvider().toString());
+            pstmt.setString(6, newMember.getAddress());
+            
+            if( newMember.getProvider() != null) {
+            	pstmt.setString(7, newMember.getProvider().toString());
+            } else {
+            	pstmt.setString(7, null);
+            }
+            
 
             result = pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -142,7 +151,6 @@ public class MemberDao {
         List<Member> members = new ArrayList<>();
         String sql = prop.getProperty("searchMember"); // select * from member where # like ?
         sql = sql.replace("#", searchType);
-        System.out.println("sql@dao = " + sql);
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, "%" + searchKeyword + "%");
@@ -158,6 +166,42 @@ public class MemberDao {
 
         return members;
     }
+
+    public List<Member> findPage(Connection conn, int start, int end) {
+        List<Member> members = new ArrayList<>();
+        String sql = prop.getProperty("findPage");
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, start);
+            pstmt.setInt(2, end);
+            try (ResultSet rset = pstmt.executeQuery()) {
+                while (rset.next()) {
+                    Member member = handleMemberResultSet(rset);
+                    members.add(member);
+                    System.out.println("member" + member);
+                }
+            }
+        } catch (SQLException e) {
+            throw new MemberException(e);
+        }
+        System.out.println("dao members : " + members);
+        return members;
+    }
+    
+
+	public int getTotalContent(Connection conn) {
+		int totalContent = 0;
+		String sql = prop.getProperty("getTotalContent"); // select count(*) from board
+		
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			try (ResultSet rset = pstmt.executeQuery()) {
+				while(rset.next())
+					totalContent = rset.getInt(1);
+			}
+		} catch (SQLException e) {
+			throw new MemberException(e);
+		}
+		return totalContent;
+	}
 
 
 

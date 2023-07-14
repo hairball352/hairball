@@ -8,6 +8,7 @@
 <%
 	
 	List<Member> members = (List<Member>) request.getAttribute("members"); 
+	System.out.println("members" + members);
 
 	// 검색관련 
 	String searchType = request.getParameter("searchType");
@@ -107,6 +108,10 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 			%>
 		</tbody>
 	</table>
+	
+	<div id='pagebar'>
+	<%= request.getAttribute("pagebar") %>
+	</div>
 </section>
 <form 
 	name="memberRoleUpdateFrm" 
