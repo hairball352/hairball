@@ -68,7 +68,7 @@ table#tbl-adopboard {
 }
 
 table#tbl-adopboard td{
-	border-bottom: 3px solid #e3e3e3;
+	border-bottom: 1px solid #e3e3e3;
 }
 
 table#tbl-adopboard tr td{
@@ -101,7 +101,7 @@ table#tbl-adopboard tr td{
 }
 .adoption-container{
 	display:flex;
-	align-content: center
+	margin-left:130px;
 }
 
 #guide-text {
@@ -121,4 +121,28 @@ table#tbl-adopboard tr td{
 }
 .adoption-board-table td {
     font-weight: 700;
+}
+
+.adop-bottom-div {
+	display: flex;
+	margin-top: 10px;
+	margin-bottom : 10px;
+	margin-left:200px;
+}
+
+#adop-btn {
+    margin-left: 400px;
+    width: 60px;
+    height: 23px;
+    background: rgb(95, 171, 149);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(80, 152, 131);
+    border-image: initial;
+}
+
+
+/* 입양신청서 상세보기 페이지 */
+#adoption-detail-table {
+	
 }

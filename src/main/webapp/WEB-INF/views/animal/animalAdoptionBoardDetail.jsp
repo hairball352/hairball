@@ -8,6 +8,7 @@
 <%
 	AdopBoard adopBoard = (AdopBoard)request.getAttribute("adopBoard");
 	Animal animal = adopBoard.getAnimal();
+	
 %>
 <section class="animal-section">
 	<div class="introduce01-container">
@@ -30,10 +31,10 @@
 				<%
 				if (loginMember != null)
 				%>
-				<table id="adoption-detail-board">
+				<table id="adoption-detail-table">
 					<thead>
 						<tr>
-							<td><img src="">동물이미지 넣어야함</td>
+							<td><img src="">동물사진</td>
 						</tr>
 					</thead>
 					<tbody>

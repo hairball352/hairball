@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.sh.hairball.attachment.Attachment;
+import com.sh.hairball.attachment.model.vo.Attachment;
+import com.sh.hairball.board.adoptboard.model.exception.AdopBoardException;
+import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
 
 public class EnrollBoardDao {
@@ -100,4 +102,40 @@ public class EnrollBoardDao {
 		return boardNo;
 	}
 
+
+	public Attachment findById(Connection conn, int attachmentId) {
+		Attachment attach = null;
+		String sql = prop.getProperty("findById");
+		
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, attachmentId);
+			try (ResultSet rset = pstmt.executeQuery()) {
+				if (rset.next())
+					attach = handleAttachmentResultSet(rset);
+			}
+		} catch (SQLException e) {
+			throw new AdopBoardException("게시글 조회 실패", e);
+		}
+		
+		return attach;
+	}
+
+
+	private Attachment handleAttachmentResultSet(ResultSet rset) throws SQLException {
+		Attachment attach = new Attachment();
+		
+		int id = rset.getInt("id");
+		int enrollBoardid = rset.getInt("enroll_board_id");
+		String originFileName = rset.getString("original_filename");
+		String renamedFileName = rset.getString("renamed_filename");
+		Date regDate = rset.getDate("reg_date");
+		
+		attach.setEnrollBoardid(enrollBoardid);
+		attach.setId(id);
+		attach.setOriginal_filename(originFileName);
+		attach.setRenamed_filename(renamedFileName);
+		attach.setReg_date(regDate);
+		
+		return attach;
+	}
 }
