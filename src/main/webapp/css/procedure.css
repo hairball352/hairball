@@ -1,0 +1,37 @@
+@charset "EUC-KR";
+
+
+img.proc-img {
+	width: 100px;
+}
+
+.procedure1, .procedure2 {
+	display:flex;
+}
+
+.procedure1 div, .procedure2 div {
+	width: 230px;
+	height: 150px;
+	border: 1px solid #d2d2d2;
+	border-radius : 5%;
+	text-align: center;
+	margin: 10px;
+}
+.procedure2 div {
+	margin-bottom: 50px;	
+}
+
+.arrow {
+	width:30px;
+	height: 30px;
+	margin-top: 70px;
+}
+
+.procedure-div {
+	margin-left:50px;
+}
+
+.procedure-container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}

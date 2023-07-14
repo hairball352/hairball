@@ -151,7 +151,6 @@ public class MemberDao {
         List<Member> members = new ArrayList<>();
         String sql = prop.getProperty("searchMember"); // select * from member where # like ?
         sql = sql.replace("#", searchType);
-        System.out.println("sql@dao = " + sql);
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, "%" + searchKeyword + "%");

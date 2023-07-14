@@ -17,8 +17,10 @@
     <link rel="stylesheet" href="/hairball/css/aside.css" />
     <link rel="stylesheet" href="/hairball/css/swiper.css" />
     <link rel="stylesheet" href="/hairball/css/introduce.css" />
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/hairball/css/memberLogin.css" />
+    <link rel="stylesheet" href="/hairball/css/procedure.css" />
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 <%
@@ -55,7 +57,7 @@
 <header>
     <div class="header">
         <div class="logo_img">
-            <img src="/hairball/images/로고/메뉴바_로고.png" alt=""/>
+            <a href="<%= request.getContextPath() %>"><img src="/hairball/images/로고/메뉴바_로고.png" alt=""/></a>
         </div>
         <ul class="utility">
             <li>
@@ -91,7 +93,7 @@
                         <a href="<%= request.getContextPath() %>/introduce/introduce1.jsp" class="font">소개</a>
                     </li>
                     <li>
-                        <a href="<%= request.getContextPath() %>/animal/list" class="font">보호동물</a>
+                        <a href="<%= request.getContextPath() %>/animal/procedure" class="font">보호동물</a>
                     </li>
                     <li>
                         <a href="<%= request.getContextPath() %>/animal/animalAdoptionList" class="font">입양신청</a>
@@ -104,4 +106,6 @@
         </div>
     </div>
 </header>
+<%@ include file="/WEB-INF/views/templates/header2.jsp" %>
+<%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 

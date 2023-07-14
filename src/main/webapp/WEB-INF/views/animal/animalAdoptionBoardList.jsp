@@ -3,7 +3,6 @@
 	import="com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity"%>
 <%@ page import="java.util.List"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
-<%@ include file="/WEB-INF/views/templates/header2.jsp"%>
 
 <%
 List<AdopBoardEntity> adoptionBoardList = (List<AdopBoardEntity>) request.getAttribute("adoptionBoardList");
