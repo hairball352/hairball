@@ -10,6 +10,7 @@
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 <%
 	QuestionVo question = (QuestionVo) request.getAttribute("question");
+	AnswerVo answer = (AnswerVo) request.getAttribute("answer");
 	List<AnswerVo> answers = (List<AnswerVo>) request.getAttribute("answers");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
@@ -25,7 +26,7 @@
 			</div>
 			<hr class="side-hr" />
 			<div class="side-menu">
-				<a href="<%=request.getContextPath()%>/qnaBoard/questionList">QnA</a>
+				<a href="<%=request.getContextPath()%>/qnaBoard/questionList">Q&A</a>
 			</div>
 			<hr class="side-hr" />
 		</div>
@@ -73,44 +74,43 @@
 			<hr style="margin-top:30px;" />	
 		    
 			<div class="answer-container">
+				<% if(loginMember.getMemberRole() == MemberRole.A ) { %>
 		        <div class="answer-editor">
 		            <form
 						action="<%=request.getContextPath()%>/qnaBoard/answerCreate" 
 						method="post" 
-						name="boardanswerFrm">
+						name="questionanswerFrm">
 		                <input type="hidden" name="questionId" value="<%= question.getId() %>" />
-		                <input type="hidden" name="memberId" value="<%= loginMember != null ? loginMember.getMemberId() : "" %>" />
+		                <input type="hidden" name="adminName" value="<%= loginMember.getName() %>" />
 						<textarea name="content" cols="60" rows="3"></textarea>
 		                <button type="submit" id="btn-answer-enroll1">등록</button>
 		            </form>
 		        </div>
+		        <%
+					}	
+				%>
 				<!--table#tbl-answer-->
 				<%	if(answers != null && !answers.isEmpty()) { %>
 					<table id="tbl-answer">
 						<%
 							for(AnswerVo as : answers) {
 								boolean canRemove = 
-										loginMember != null && 
-										(loginMember.getMemberId().equals(as.getMemberId())
-										  || MemberRole.A == loginMember.getMemberRole());
+										loginMember != null && (MemberRole.A == loginMember.getMemberRole());
 						%>
 									<tr class="level1">
 										<td>
-											<sub class=answer-MemberId><%= as.getMemberId() %></sub>
+											<sub class=answer-adminName><%= as.getAdminName() %></sub>
 											<sub class=answer-date><%= as.getRegDate() %></sub>
 											<br />
 											<%= as.getContent() %>
 										</td>
 										<td>
 											<% 	if (canRemove) { %>
-											<%-- 로그인하고, 작성자본인 또는 관리자인 경우만 노출 --%>
+											<%-- 로그인하고 관리자인 경우만 노출 --%>
 											<button class="btn-delete" value="<%= as.getId() %>">삭제</button>
 											<%  } %>
 										</td>
 									</tr>
-						<%
-								}	
-						%>
 					</table>
 				<% 	} %>
 			</div>
@@ -121,6 +121,7 @@
 				<input type="hidden" name="id" />
 				<input type="hidden" name="questionId" value="<%= question.getId() %>"/>
 			</form>
+			<% } %>
 		</section>
 	</div>
 </section>		
@@ -128,7 +129,7 @@
 <script>
 document.querySelectorAll(".btn-delete").forEach((button) => {
 	button.onclick = (e) => {
-		if(confirm("해당 댓글을 삭제하시겠습니까?")){
+		if(confirm("해당 답변을 삭제하시겠습니까?")){
 			const frm = document.answerDelFrm;
 			const {value} = e.target;
 			console.log(value);
@@ -141,7 +142,7 @@ document.querySelectorAll(".btn-delete").forEach((button) => {
 // 이벤트버블링을 이용한 textarea focus핸들러
 // focus, blur 버블링되지 않음. 대신 focusin, focusout 사용.
 document.addEventListener("focusin", (e) => {
-	if(e.target.matches("form[name=boardanswerFrm] textarea")) {
+	if(e.target.matches("form[name=questionanswerFrm] textarea")) {
 		<% 	if (loginMember == null) { %>
 			loginAlert();
 		<% 	} %>
