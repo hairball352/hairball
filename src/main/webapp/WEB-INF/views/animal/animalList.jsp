@@ -1,11 +1,11 @@
-<%@page import="com.sh.hairball.board.enrollboard.model.vo.EnrollBoard"%>
+<%@page import="com.sh.hairball.board.enrollboard.model.vo.EnrollBoardDto"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <%
-List<EnrollBoard> animalBoardList= (ArrayList) request.getAttribute("animalList");
+List<EnrollBoardDto> animalBoardList= (ArrayList) request.getAttribute("EnrollBaordList");
 %>
 <main>
 <div class="animal-list-container" >
@@ -25,18 +25,16 @@ List<EnrollBoard> animalBoardList= (ArrayList) request.getAttribute("animalList"
     	}%>
     	
     	<li>
-    	<img src= />
-    	<p>고유번호 : <%= %></p>
-    	<p>성별 : <%= %></p>
-    	<p>나이 : <%= %></p>
+    	<img src="<%= request.getContextPath() %>/upload/animal/<%= animalBoardList.get(i).getRenamedFileName() %>" />
+    	<p>고유번호 : <%= animalBoardList.get(i).getPbl_id() %></p>
+    	<p>성별 : <%= animalBoardList.get(i).getSex() %></p>
+    	<p>나이 : <%= animalBoardList.get(i).getAge() %></p>
     	</li>
     	
-    	<%if(i%3==0){
-    		%>
+    	<%if(i%3==2){%>
     		</ul>
-    		<%
-    	}
-    %>
+    		
+    		<%}%>
     <%} %>
 </div>
 </main>
