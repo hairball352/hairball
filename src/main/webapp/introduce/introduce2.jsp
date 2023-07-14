@@ -23,7 +23,7 @@
 		<hr class="section-hr2" />
 		<div class="introduce-board">
 			<div class="vertical-line2"></div>
-		<div class="table-container2">
+		<div class="table-container4">
 				<table>
 					<tbody>
 						<tr>
