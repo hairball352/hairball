@@ -3,7 +3,6 @@ package com.sh.hairball.board.enrollboard.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.Enumeration;
-import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
-import com.sh.hairball.animal.model.service.AnimalService;
 import com.sh.hairball.animal.model.vo.Animal;
 import com.sh.hairball.animal.model.vo.AnimalType;
 import com.sh.hairball.animal.model.vo.Sex;
