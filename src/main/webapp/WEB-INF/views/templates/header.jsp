@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/hairball/css/aside.css" />
     <link rel="stylesheet" href="/hairball/css/swiper.css" />
     <link rel="stylesheet" href="/hairball/css/introduce.css" />
+    <link rel="stylesheet" href="/hairball/css/procedure.css" />
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 <%
@@ -89,7 +90,7 @@
                         <a href="<%= request.getContextPath() %>/introduce/introduce1.jsp" class="font">소개</a>
                     </li>
                     <li>
-                        <a href="<%= request.getContextPath() %>/animal/list" class="font">보호동물</a>
+                        <a href="<%= request.getContextPath() %>/animal/procedure" class="font">보호동물</a>
                     </li>
                     <li>
                         <a href="<%= request.getContextPath() %>/animal/animalAdoptionList" class="font">입양신청</a>
@@ -102,4 +103,6 @@
         </div>
     </div>
 </header>
+<%@ include file="/WEB-INF/views/templates/header2.jsp" %>
+<%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 

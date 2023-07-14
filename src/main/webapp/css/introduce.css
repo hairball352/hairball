@@ -74,10 +74,10 @@
     display: flex;
     justify-content: center; /* 가로 방향 가운데 정렬 */
     align-items: center; /* 세로 방향 가운데 정렬 */
-  }
-  
+  }  
   .table-container2 p {
     font-size: 20px;
     text-align: center; /* 텍스트를 가운데 정렬 */
     margin-left: 480px;
   }
+  
