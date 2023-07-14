@@ -8,14 +8,14 @@ import java.util.List;
 
 import com.sh.hairball.animal.model.dao.AnimalDao;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
+import com.sh.hairball.board.enrollboard.model.vo.EnrollBoardDto;
 
 public class AnimalService {
 	private final AnimalDao animalDao = new AnimalDao();
 
-	public List<EnrollBoard> findList(int start, int end) {
-
-		
-		List<EnrollBoard> result = animalDao.findList(start, end);
+	public List<EnrollBoardDto> findList(int start, int end) {
+		Connection conn = getConnection();
+		List<EnrollBoardDto> result = animalDao.findList(conn,start, end);
 		return result;
 	}
 
