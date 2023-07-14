@@ -4,8 +4,7 @@
 <%@page import="java.util.List"%>
 <%@ page import="com.sh.hairball.qnaboard.model.QuestionVo"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
-<%@ include file="/WEB-INF/views/templates/header2.jsp"%>
-<%@ include file="/WEB-INF/views/templates/aside.jsp"%>
+
 <%
 List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions");
 %>
