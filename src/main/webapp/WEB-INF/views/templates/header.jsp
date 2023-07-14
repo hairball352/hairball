@@ -54,7 +54,7 @@
 <header>
     <div class="header">
         <div class="logo_img">
-            <img src="/hairball/images/로고/메뉴바_로고.png" alt=""/>
+            <a href="<%= request.getContextPath() %>"><img src="/hairball/images/로고/메뉴바_로고.png" alt=""/></a>
         </div>
         <ul class="utility">
             <li>
