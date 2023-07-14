@@ -3,7 +3,7 @@ package com.sh.hairball.board.enrollboard.model.vo;
 import java.sql.Date;
 
 import com.sh.hairball.animal.model.vo.Animal;
-import com.sh.hairball.attachment.Attachment;
+import com.sh.hairball.attachment.model.vo.Attachment;
 
 public class EnrollBoard { // 등록 게시글 VO
 	int id;
