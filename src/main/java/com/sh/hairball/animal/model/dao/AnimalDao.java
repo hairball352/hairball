@@ -38,6 +38,7 @@ public class AnimalDao {
 			try (ResultSet rset = pstmt.executeQuery()) {
 				if (rset.next())
 					animal = handleAnimalResultSet(rset);
+					System.out.println(animal);
 			}
 		} catch (SQLException e) {
 			throw new AnimalException(e);
@@ -53,7 +54,6 @@ public class AnimalDao {
 		
 		animal.setAge(rset.getInt("age"));
 		animal.setAnimalType(AnimalType.valueOf(rset.getString("animal_type")));
-		animal.setAttachmentId(rset.getInt("attachment_id"));
 		animal.setDiscoveryPlace(rset.getString("discvry_plc"));
 		animal.setId(rset.getInt("id"));
 		animal.setNeutered(rset.getInt("neutered"));

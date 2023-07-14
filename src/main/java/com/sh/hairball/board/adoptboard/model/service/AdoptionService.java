@@ -6,13 +6,17 @@ import java.util.List;
 
 import com.sh.hairball.animal.model.dao.AnimalDao;
 import com.sh.hairball.animal.model.vo.Animal;
+import com.sh.hairball.attachment.model.vo.Attachment;
 import com.sh.hairball.board.adoptboard.model.dao.AdoptionDao;
 import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
 import com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity;
+import com.sh.hairball.board.enrollboard.model.dao.EnrollBoardDao;
 
 public class AdoptionService {
 	private final AdoptionDao adoptionDao = new AdoptionDao();
 	private final AnimalDao animalDao = new AnimalDao();
+	private final EnrollBoardDao enrollBoardDao = new EnrollBoardDao();
+	
 	/**
 	 * 입양 게시글 추가 (INSERT)
 	 */
@@ -73,8 +77,13 @@ public class AdoptionService {
 		Connection conn = getConnection();
 		AdopBoard adopBoard = adoptionDao.findById(conn, no);
 		
+		System.out.println(adopBoard);
+		
 		Animal animal = animalDao.findById(conn, adopBoard.getAnimalId()); // 입양 동물 정보 추가
+		//Attachment attach = enrollBoardDao.findById(conn, animal.getAttachmentId());
+		
 		adopBoard.setAnimal(animal);
+		//attach.setAnimalId(no);
 
 		close(conn);
 		return adopBoard;
