@@ -10,6 +10,7 @@
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 <%
 	QuestionVo question = (QuestionVo) request.getAttribute("question");
+	AnswerVo answer = (AnswerVo) request.getAttribute("answer");
 	List<AnswerVo> answers = (List<AnswerVo>) request.getAttribute("answers");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
@@ -70,48 +71,46 @@
 				<% } %>
 			</table>
 			
-			<% if(loginMember.getMemberRole() == MemberRole.A ) { %>
 			<hr style="margin-top:30px;" />	
 		    
 			<div class="answer-container">
+				<% if(loginMember.getMemberRole() == MemberRole.A ) { %>
 		        <div class="answer-editor">
 		            <form
 						action="<%=request.getContextPath()%>/qnaBoard/answerCreate" 
 						method="post" 
 						name="questionanswerFrm">
 		                <input type="hidden" name="questionId" value="<%= question.getId() %>" />
-		                <input type="hidden" name="memberId" value="<%= loginMember != null ? loginMember.getMemberId() : "" %>" />
+		                <input type="hidden" name="adminName" value="<%= loginMember.getName() %>" />
 						<textarea name="content" cols="60" rows="3"></textarea>
 		                <button type="submit" id="btn-answer-enroll1">등록</button>
 		            </form>
 		        </div>
+		        <%
+					}	
+				%>
 				<!--table#tbl-answer-->
 				<%	if(answers != null && !answers.isEmpty()) { %>
 					<table id="tbl-answer">
 						<%
 							for(AnswerVo as : answers) {
 								boolean canRemove = 
-										loginMember != null && 
-										(loginMember.getMemberId().equals(as.getMemberId())
-										  || MemberRole.A == loginMember.getMemberRole());
+										loginMember != null && (MemberRole.A == loginMember.getMemberRole());
 						%>
 									<tr class="level1">
 										<td>
-											<sub class=answer-MemberId><%= as.getMemberId() %></sub>
+											<sub class=answer-adminName><%= as.getAdminName() %></sub>
 											<sub class=answer-date><%= as.getRegDate() %></sub>
 											<br />
 											<%= as.getContent() %>
 										</td>
 										<td>
 											<% 	if (canRemove) { %>
-											<%-- 로그인하고, 작성자본인 또는 관리자인 경우만 노출 --%>
+											<%-- 로그인하고 관리자인 경우만 노출 --%>
 											<button class="btn-delete" value="<%= as.getId() %>">삭제</button>
 											<%  } %>
 										</td>
 									</tr>
-						<%
-								}	
-						%>
 					</table>
 				<% 	} %>
 			</div>

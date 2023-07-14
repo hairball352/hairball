@@ -148,18 +148,17 @@ public class QuestionDao {
         } catch (SQLException e) {
             throw new QuestionException(e);
         }
-
         return answers;
     }
 
     private AnswerVo handleAnswerResultSet(ResultSet rset) throws SQLException {
         int id = rset.getInt("id");
-        String memberId = rset.getString("member_id");
+        String adminName = rset.getString("admin_name");
         String content = rset.getString("content");
         int questionId = rset.getInt("question_id");
         Date regDate = rset.getDate("reg_date");
 
-        return new AnswerVo(id, memberId, content, regDate, questionId);
+        return new AnswerVo(id, adminName, content, regDate, questionId);
     }
 
     public int deleteQuestion(Connection conn, int id) {
@@ -193,11 +192,10 @@ public class QuestionDao {
     public int insertAnswer(Connection conn, AnswerVo answer) {
         int result = 0;
         String sql = prop.getProperty("insertAnswer");
-        // insert into answer values(seq_answer_id.nextval, ?, ?, ?, default)
+        // insert into answer values(seq_answer_id.nextval, default, ?, ?, default)
         try(PreparedStatement pstmt = conn.prepareStatement(sql)){
-            pstmt.setString(1, answer.getMemberId());
-            pstmt.setInt(2, answer.getQuestionId());
-            pstmt.setString(3, answer.getContent());
+            pstmt.setInt(1, answer.getQuestionId());
+            pstmt.setString(2, answer.getContent());
             
             result = pstmt.executeUpdate();
 
