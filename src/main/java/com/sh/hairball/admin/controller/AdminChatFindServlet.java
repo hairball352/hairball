@@ -43,12 +43,13 @@ public class AdminChatFindServlet extends HttpServlet {
 		// 2. 업무로직
 		List<Member> memberList = memberService.findPage(start, end);
 		System.out.println("members = " + memberList);
+		
         List<Member> members = memberService.findAll();
         
         // 페이지바영역 처리
  		int totalContent = memberService.getTotalContent();
  		System.out.println("totalContent = " + totalContent);
- 		String url = request.getRequestURI(); // /mvc/board/boardList
+ 		String url = request.getRequestURI(); 
  		String pagebar = AnimalUtil.getPagebar(cpage, LIMIT, totalContent, url);
  		System.out.println("pagebar = " + pagebar);
      		
