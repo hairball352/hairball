@@ -33,24 +33,24 @@
   session.setAttribute("state", state);
   
   String msg = (String) session.getAttribute("msg"); 
-	if(msg != null){ 
-		session.removeAttribute("msg"); // msg해야 로그인필터 거쳐서 "로그인 후 이용해주세요"가 뜹니다 아시겠죠
-	}
+   if(msg != null){ 
+      session.removeAttribute("msg"); // msg해야 로그인필터 거쳐서 "로그인 후 이용해주세요"가 뜹니다 아시겠죠
+   }
   Member loginMember = (Member)session.getAttribute("loginMember");
-		
+      
   Cookie[] cookies = request.getCookies(); 
-	String saveId = null;
-	if(cookies != null){ 					 
-		for(Cookie cookie : cookies){
-			String name = cookie.getName();  
-			String value = cookie.getValue();
-			if("saveId".equals(name))
-				saveId = value;	
-		}
-	}
+   String saveId = null;
+   if(cookies != null){                 
+      for(Cookie cookie : cookies){
+         String name = cookie.getName();  
+         String value = cookie.getValue();
+         if("saveId".equals(name))
+            saveId = value;   
+      }
+   }
 %>
 
-	
+   
 <body>
 
 <script>
@@ -59,6 +59,8 @@
 	alert('<%= msg %>');
   <% 	} %>
 }
+</script>
+
 <header>
     <div class="header">
         <div class="logo_img">
@@ -113,4 +115,3 @@
 </header>
 <%@ include file="/WEB-INF/views/templates/header2.jsp" %>
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
-
