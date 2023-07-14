@@ -12,7 +12,7 @@ import com.sh.hairball.oauth.model.service.OAuth2Service;
 /**
  * Servlet implementation class KakaoLoginServlet
  */
-@WebServlet("/oauth2/kakao")
+@WebServlet("/oauth/kakao")
 public class KakaoLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

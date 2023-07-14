@@ -33,8 +33,8 @@ public class AdoptionBoardListServlet extends HttpServlet {
 		int end = cpage * LIMIT;
 		 
 		List<AdopBoardEntity> adopBoards = adoptionService.findAll(start, end);
-		
 		int totalContent = adoptionService.getTotalContent(); // 전체 게시글 수
+		
 		String url = request.getRequestURI();
 		String pagebar = AnimalUtil.getPagebar(cpage, LIMIT, totalContent, url);
 		
