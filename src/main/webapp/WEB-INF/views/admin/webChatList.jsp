@@ -11,6 +11,7 @@
 	
 	List<Member> members = (List<Member>) request.getAttribute("members"); 
 	List<Member> memberList = (List<Member>) request.getAttribute("memberList");
+	System.out.println("memberList" + memberList);
 	WebChatService webChatService = new WebChatService();
 	List<WebChat> chatHistory = webChatService.webChatfindAll();
 
@@ -23,20 +24,9 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/admin.css" />
 <style>
-div#search-container {
-	width: 100%;
-	margin: 0 0 10px 0;
-	padding: 3px;
-	background-color: 5fab95;
-}
-
-div#search-memberId {
-	display: <%= searchType == null || "member_id" .equals ( searchType) ? 
-		"inline-block" : "none" %>;
-}
-
-div#search-name {
-	display: <%= "name" .equals ( searchType) ? "inline-block" : "none" %>;
+div#search-container 	{width: 100%; margin:0 0 10px 0; padding:3px; background-color: 5fab95;}
+div#search-memberId 	{display: <%= searchType == null || "member_id".equals(searchType) ? "inline-block" : "none" %>;}
+div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "none" %>;}
 }
 </style>
 <section class="adminPage-section">
@@ -103,7 +93,7 @@ div#search-name {
 			</thead>
 			<tbody>
 				<%
-				if (members == null || members.isEmpty()) {
+				if (memberList == null || memberList.isEmpty()) {
 				%>
 				<tr>
 					<td colspan="10">조회 결과가 없습니다.</td>
