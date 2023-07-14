@@ -74,12 +74,52 @@
     display: flex;
     justify-content: center; /* 가로 방향 가운데 정렬 */
     align-items: center; /* 세로 방향 가운데 정렬 */
+
   }  
   .table-container2 p {
     font-size: 20px;
     text-align: center; /* 텍스트를 가운데 정렬 */
     margin-left: 480px;
   }
+  
+  
+.table-container4 {
+    justify-content: center; /* 가로 방향 가운데 정렬 */
+    align-items: center; /* 세로 방향 가운데 정렬 */
+    width: 400px;
+    margin-top: -135px;
+    
+ }
+  
+.table-container2 p {
+    font-size: 20px;
+    margin-left: -480px;
+    margin-top: 265px;
+    margin-bottom: 170px;
+	
+  }
+  
+  .table-container4 p {
+    font-size: 20px;
+    margin-left: -480px;
+    margin-top: 60px;
+    margin-bottom: 170px;
+	
+  }
+  
+  
+.table-container3{
+	font-size : 35px;
+	font-family: 'PyeongChangPeace-Bold';
+    margin-top: 150px;
+    margin-left: -220px;
+}
+
+.table-container3 span {
+	color: #5fab95;
+	font-weight: 500;
+}
+
   
 /*페이지바*/
 #pagebar {
