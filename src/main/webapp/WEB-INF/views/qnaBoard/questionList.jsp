@@ -8,6 +8,9 @@
 <%@ include file="/WEB-INF/views/templates/aside.jsp"%>
 <%
 List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions");
+
+
+
 %>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/question.css" />
@@ -58,7 +61,16 @@ List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions"
 					<tr>
 						<td><%=question.getId()%></td>
 						<td><a
-							href="<%=request.getContextPath()%>/qnaBoard/questionDetail?id=<%=question.getId()%>"><%=question.getTitle()%></a></td>
+							href="<%=request.getContextPath()%>/qnaBoard/questionDetail?id=<%=question.getId()%>">
+							<%=question.getTitle()%>
+							<% 
+							System.out.println("댓글 갯수" + question.getAnswerCnt());
+							
+							if(question.getAnswerCnt() > 0) { %>
+							<span>[답변완료]</span>
+							<%  }  %>
+							</a>
+						</td>
 						<td><%=question.getMemberId()%></td>
 						<td><%=question.getRegDate()%></td>
 					</tr>

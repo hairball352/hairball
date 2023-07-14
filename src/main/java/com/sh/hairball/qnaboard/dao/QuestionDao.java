@@ -48,6 +48,7 @@ public class QuestionDao {
             try(ResultSet rset = pstmt.executeQuery()) {
                 while(rset.next()) {
                     QuestionVo question = handleQuestionResultSet(rset);
+                    question.setAnswerCnt(rset.getInt("answer_cnt"));
                     questions.add(question);
                 }
             }
@@ -65,6 +66,7 @@ public class QuestionDao {
         question.setTitle(rset.getString("title"));
         question.setContent(rset.getString("content"));
         question.setRegDate(rset.getDate("reg_date"));
+        question.setAnswerCnt(rset.getInt("answer_cnt"));
         return question;
     }
 

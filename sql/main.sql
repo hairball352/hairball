@@ -248,6 +248,20 @@ INSERT INTO question VALUES (seq_question_id.nextval, 'member11', '결제 오류
 INSERT INTO question VALUES (seq_question_id.nextval, 'member12', '킹킹킹', '요132231요', default);
 INSERT INTO question VALUES (seq_question_id.nextval, 'member6', '아이디 변경요청', '요', default);
 INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '김다미가 안알려줘요', 'ㅡ ㅡ', default);
+--
+INSERT INTO question VALUES (seq_question_id.nextval, 'member10', '있다', '요ㅚ르ㅏ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member1', '입양케함', '요ㅂㅂ거요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member13', '강아지', '요바요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '고양이', '요ㅂ비ㅣ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member5', '김담희 입양절차', '요ㄴㄹㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member7', '김상훈 vs 전예라', 'ㄴㅇㄹㅇㄹ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member8', '김상훈파양절차', '요ㅎㄴㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '전예라입양절차', '요ㅁㅁㅁ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member4', '결제문의', '요5ㅎㅎ5요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member11', '결제 오류?', '요555요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member12', '문의문의', '요132231요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member6', '고양이 문의합니다', '요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '답변해주세요ㅡㅡ', 'ㅡ ㅡ', default);
 select * from question;
 
 --=============================
@@ -271,19 +285,16 @@ select * from animal;
 --===========================================
 -- 연습장입니다
 --===========================================
-select * from answer;
-insert into answer values(seq_answer_id.nextval, default, 25, '좆까세요 ㅋㅋㅋㅋ', default);
+select * from question;
+select * from answer where question_id = 38;
+
+
+insert into answer values(seq_answer_id.nextval, default, 38, '뒤지세요 ㅋㅋㅋㅋ',default );
 insert into answer values(seq_answer_id.nextval, default, ?, ?, default);
 delete answer where id = 4;
 -- select * from (select row_number() over (order by q.id desc) rnum, q.* from question q) where rnum between 1 and 10;
 
-
-
-
-
-
-
-
+select * from (select row_number() over (order by q.id desc) rnum, q.*, (select count(*) from answer where question_id = q.id) answer_cnt from question q) where rnum between 1 and 10;
 
 
 
