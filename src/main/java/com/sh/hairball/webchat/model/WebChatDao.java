@@ -29,14 +29,14 @@ public class WebChatDao {
         }
     }
     
-    public int insertWebChat(Connection conn, Chat chat) {
+    public int insertWebChat(Connection conn, WebChat webchat) {
         int result = 0;
         String sql = prop.getProperty("insertWebChat");
         try (
             PreparedStatement pstmt = conn.prepareStatement(sql)){
-            pstmt.setInt(1, chat.getMemberId());
-            pstmt.setString(2, chat.getContent());
-            pstmt.setDate(3, (Date) chat.getRegDate());
+            pstmt.setInt(1, webchat.getMemberId());
+            pstmt.setString(2, webchat.getContent());
+            pstmt.setDate(3, (Date) webchat.getRegDate());
             result = pstmt.executeUpdate();
         } catch(SQLException e) {
             throw new WebChatException(e);
@@ -61,50 +61,50 @@ public class WebChatDao {
         }
         return webchats;
     }
-	
-	public int getLastMemberId(Connection conn) {
-		int memberId = 0;
-		String sql = prop.getProperty("getLastMemberId");
-		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			try (ResultSet rset = pstmt.executeQuery()) {
-				if(rset.next()) {
-					memberId = rset.getInt(1);
-				}
-			}
-		} catch (SQLException e) {
-			throw new WebChatException(e);
-		}
-		
-		return memberId;
-	}
 
 	
 	private WebChat handleWebChatResultSet(ResultSet rset) throws SQLException {
-        String memberId = rset.getString("member_id");
-        String contents = rset.getString("content");
-        Date regDate = rset.getDate("reg_date");
-		return new WebChat(0, 0, null, regDate);
+	    WebChat webchat = new WebChat();
+	    webchat.setId(rset.getInt("chat_id"));
+	    webchat.setMemberId(rset.getInt("member_id"));
+	    webchat.setContent(rset.getString("content"));
+	    webchat.setRegDate(rset.getDate("reg_date"));
+	    
+	    return webchat;
+	}
+	
+	private WebChat handleWebChatListResultSet(ResultSet rset) throws SQLException {
+	    WebChat webchat = new WebChat();
+	    webchat.setId(rset.getInt("id"));
+	    webchat.setMemberId(rset.getInt("member_id"));
+	    webchat.setContent(rset.getString("content"));
+	    webchat.setRegDate(rset.getDate("reg_date"));
+	    
+	    return webchat;
 	}
 
-	public List<WebChat> getChatHistory(Connection conn, int memberId) throws SQLException {
-	    List<WebChat> chatHistory = new ArrayList<>();
-	    String sql = prop.getProperty("getChatHistory");
 
-	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-	        pstmt.setInt(1, memberId);
-	        try (ResultSet rs = pstmt.executeQuery()) {
-	            while (rs.next()) {
-	                WebChat webChat = new WebChat();
-	                webChat.setId(rs.getInt("id"));
-	                webChat.setMemberId(rs.getInt("member_id"));
-	                webChat.setContent(rs.getString("content"));
-	                webChat.setRegDate(rs.getDate("reg_date"));
-	                chatHistory.add(webChat);
-	            }
-	        }
-	    }
-
-	    return chatHistory;
+	public List<WebChat> findChatByMemberId(Connection conn, int memberId) {
+		List<WebChat> chatHistory = new ArrayList<>();
+		String sql = prop.getProperty("getLastMemberId");
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, memberId);
+			try (ResultSet rset = pstmt.executeQuery()) {
+				while (rset.next()) {
+					WebChat webChat = new WebChat();
+					webChat.setId(rset.getInt("id"));
+					webChat.setMemberId(rset.getInt("member_id"));
+					webChat.setContent(rset.getString("content"));
+					
+					chatHistory.add(webChat);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return chatHistory;
 	}
 }
     

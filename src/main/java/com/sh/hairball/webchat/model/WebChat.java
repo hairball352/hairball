@@ -10,7 +10,6 @@ public class WebChat {
     private Date regDate;
 
     public WebChat() {
-        super();
     }
 
     public WebChat(int id, int memberId, String content, Date regDate) {
@@ -54,7 +53,7 @@ public class WebChat {
 
     @Override
     public String toString() {
-        return "WebChatVo{" +
+        return "WebChat{" +
                 "id=" + id +
                 ", memberId=" + memberId +
                 ", content='" + content + '\'' +
