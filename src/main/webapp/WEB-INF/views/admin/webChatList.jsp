@@ -72,7 +72,7 @@ div#search-name {
 						<%="name".equals(searchType) ? "selected" : ""%>>회원명</option>
 				</select>
 				<div id="search-memberId" class="search-type">
-					<form action="<%=request.getContextPath()%>/admin/memberFinder">
+					<form action="<%=request.getContextPath()%>/admin/webChatFinder">
 						<input type="hidden" name="searchType" value="member_id" /> <input
 							type="text" name="searchKeyword" size="25"
 							placeholder="검색할 아이디를 입력하세요."
@@ -81,7 +81,7 @@ div#search-name {
 					</form>
 				</div>
 				<div id="search-name" class="search-type">
-					<form action="<%=request.getContextPath()%>/admin/memberFinder">
+					<form action="<%=request.getContextPath()%>/admin/webChatFinder">
 						<input type="hidden" name="searchType" value="name" /> <input
 							type="text" name="searchKeyword" size="25"
 							placeholder="검색할 이름을 입력하세요."
