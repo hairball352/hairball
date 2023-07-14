@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.sh.hairball.animal.model.dao.AnimalDao;
 import com.sh.hairball.animal.model.service.AnimalService;
-import com.sh.hairball.attachment.Attachment;
+import com.sh.hairball.attachment.model.vo.Attachment;
 import com.sh.hairball.board.enrollboard.model.dao.EnrollBoardDao;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
 

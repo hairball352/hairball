@@ -3,7 +3,6 @@
 	import="com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity"%>
 <%@ page import="java.util.List"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
-<%@ include file="/WEB-INF/views/templates/header2.jsp"%>
 
 <%
 List<AdopBoardEntity> adoptionBoardList = (List<AdopBoardEntity>) request.getAttribute("adoptionBoardList");
@@ -25,13 +24,11 @@ List<AdopBoardEntity> adoptionBoardList = (List<AdopBoardEntity>) request.getAtt
 	<div class="introduce01-detail-section">
 		<div class="checked-title2">입양신청</div>
 		<hr class="section-hr" />
-		<div class="animal-detail-div">
+		<div class="adop-detail-div">
 			<div class="adoption-container">
 				<%
 				if (loginMember != null)
 				%>
-				<input type="button" id="btn-add" value="글쓰기"
-					onclick="location.href = '<%=request.getContextPath()%>/animal/animalAdoptionBoardCreate';" />
 				<table id="tbl-adopboard">
 					<thead>
 						<tr>
@@ -61,9 +58,15 @@ List<AdopBoardEntity> adoptionBoardList = (List<AdopBoardEntity>) request.getAtt
 				</table>
 			</div>
 		</div>
-	</div>
-	<div id='pagebar'>
-		<%=request.getAttribute("pagebar")%>
+		<div class="adop-bottom-div">
+			<div id='pagebar'>
+				<%=request.getAttribute("pagebar")%>
+			</div>
+			<div>
+				<input type="button" id="adop-btn" value="글쓰기"
+					onclick="location.href = '<%=request.getContextPath()%>/animal/animalAdoptionBoardCreate';" />
+			</div>
+		</div>
 	</div>
 </section>
 

@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
-<%@ include file="/WEB-INF/views/templates/header2.jsp"%>
 
 <main>
 <div class="introduce01-bar">

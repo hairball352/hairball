@@ -1,9 +1,6 @@
-package com.sh.hairball.attachment;
+package com.sh.hairball.attachment.model.vo;
 
 import java.sql.Date;
-
-import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
-
 
 
 public class Attachment {
@@ -14,6 +11,21 @@ public class Attachment {
 	private String renamed_filename;
 	private Date reg_date;
 	
+	
+	public Attachment(int id, int enrollBoardid, int animalId, String original_filename, String renamed_filename,
+			Date reg_date) {
+		super();
+		this.id = id;
+		this.enrollBoardid = enrollBoardid;
+		this.animalId = animalId;
+		this.original_filename = original_filename;
+		this.renamed_filename = renamed_filename;
+		this.reg_date = reg_date;
+	}
+	
+	public Attachment() {
+		super();
+	}
 	public int getId() {
 		return id;
 	}
