@@ -22,7 +22,6 @@ public class AdminMemberFindServlet extends HttpServlet {
         String searchType = request.getParameter("searchType");
         String searchKeyword = request.getParameter("searchKeyword");
 
-
         List<Member> members = memberService.searchMember(searchType, searchKeyword);
         
         request.setAttribute("members", members);

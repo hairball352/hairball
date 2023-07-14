@@ -11,7 +11,6 @@
 	
 	List<Member> members = (List<Member>) request.getAttribute("members"); 
 	List<Member> memberList = (List<Member>) request.getAttribute("memberList");
-	System.out.println("memberList" + memberList);
 	WebChatService webChatService = new WebChatService();
 	List<WebChat> chatHistory = webChatService.webChatfindAll();
 
@@ -54,33 +53,32 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 		<div class="checked-title2">채팅기록조회</div>
 		<hr class="section-hr" />
 		<div class="adminPage-board">
-			<div id="search-container">
-				<label for="searchType"></label> <select id="searchType">
-					<option value="memberId"
-						<%="member_id".equals(searchType) ? "selected" : ""%>>아이디</option>
-					<option value="name"
-						<%="name".equals(searchType) ? "selected" : ""%>>회원명</option>
-				</select>
-				<div id="search-memberId" class="search-type">
-					<form action="<%=request.getContextPath()%>/admin/webChatFinder">
-						<input type="hidden" name="searchType" value="member_id" /> <input
-							type="text" name="searchKeyword" size="25"
-							placeholder="검색할 아이디를 입력하세요."
-							value="<%="member_id".equals(searchType) ? searchKeyword : ""%>" />
-						<button type="submit">검색</button>
-					</form>
-				</div>
-				<div id="search-name" class="search-type">
-					<form action="<%=request.getContextPath()%>/admin/webChatFinder">
-						<input type="hidden" name="searchType" value="name" /> <input
-							type="text" name="searchKeyword" size="25"
-							placeholder="검색할 이름을 입력하세요."
-							value="<%="name".equals(searchType) ? searchKeyword : ""%>" />
-						<button type="submit">검색</button>
-					</form>
-				</div>
-			</div>
-		</div>
+		<div id="search-container">
+	        <label for="searchType"></label> 
+	        <select id="searchType">
+	            <option value="memberId" <%= "member_id".equals(searchType) ? "selected" : "" %>>아이디</option>		
+	            <option value="name" <%= "name".equals(searchType) ? "selected" : "" %>>회원명</option>
+	        </select>
+	        <div id="search-memberId" class="search-type">
+	            <form action="<%=request.getContextPath()%>/admin/webChatFinder">
+	                <input type="hidden" name="searchType" value="member_id"/>
+	                <input 
+	                	type="text" name="searchKeyword"  size="25" placeholder="검색할 아이디를 입력하세요." 
+	                	value="<%= "member_id".equals(searchType) ? searchKeyword : "" %>"/>
+	                <button type="submit">검색</button>			
+	            </form>	
+	        </div>
+	        <div id="search-name" class="search-type">
+	            <form action="<%=request.getContextPath()%>/admin/webChatFinder">
+	                <input type="hidden" name="searchType" value="name"/>
+	                <input 
+	                	type="text" name="searchKeyword" size="25" placeholder="검색할 이름을 입력하세요."
+	                	value="<%= "name".equals(searchType) ? searchKeyword : "" %>"/>
+	                <button type="submit">검색</button>			
+	            </form>	
+	        </div>
+	    </div>
+	</div>
 		<table id="tbl-member">
 			<thead>
 				<tr>
@@ -157,5 +155,16 @@ $(document).ready(function(){
         }
     });
 });
+</script>
+<script>
+document.querySelector("select#searchType").onchange = (e) => {
+	console.log(e.target.value);
+	document.querySelectorAll(".search-type").forEach((elem) => {
+		elem.style.display = "none";
+	});
+	
+	document.querySelector(`#search-\${e.target.value}`).style.display = "inline-block";
+};
+
 </script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>

@@ -22,20 +22,6 @@ section#memberList-container div#numPerPage-container{float:right; margin-top: 1
 section#memberList-container form#numPerPageFrm{display:inline;}
 .memberList-container2 {margin-left: -350px;}
 
-/*페이지바*/
-div#pagebar span.cPage{margin-right: 5px;}
-div#pagebar a{margin-right: 5px;}
-
-#pagebar {
-	text-align:center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: -430px;
-    margin-top:20px; 
-    padding-bottom: 20px;
-    gap: 10px;
-}
 
 .adminPage-section {
 	display : flex;

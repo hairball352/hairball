@@ -8,11 +8,11 @@
 <%
 	
 	List<Member> members = (List<Member>) request.getAttribute("members"); 
-	System.out.println("members" + members);
 
 	// 검색관련 
 	String searchType = request.getParameter("searchType");
 	String searchKeyword = request.getParameter("searchKeyword");
+
 
 %>
 <!-- 관리자용 admin.css link -->
@@ -42,7 +42,7 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
     <div class="memberList-container2">
 		<h2>회원관리</h2>
 		<div id="search-container">
-	        <label for="searchType">검색타입 :</label> 
+	        <label for="searchType"></label> 
 	        <select id="searchType">
 	            <option value="memberId" <%= "member_id".equals(searchType) ? "selected" : "" %>>아이디</option>		
 	            <option value="name" <%= "name".equals(searchType) ? "selected" : "" %>>회원명</option>
