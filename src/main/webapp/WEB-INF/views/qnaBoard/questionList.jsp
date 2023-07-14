@@ -8,9 +8,6 @@
 <%@ include file="/WEB-INF/views/templates/aside.jsp"%>
 <%
 List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions");
-
-
-
 %>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/question.css" />
@@ -64,8 +61,6 @@ List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions"
 							href="<%=request.getContextPath()%>/qnaBoard/questionDetail?id=<%=question.getId()%>">
 							<%=question.getTitle()%>
 							<% 
-							System.out.println("댓글 갯수" + question.getAnswerCnt());
-							
 							if(question.getAnswerCnt() > 0) { %>
 							<span>[답변완료]</span>
 							<%  }  %>
@@ -93,4 +88,6 @@ List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions"
 		</section>
 	</div>
 </section>
+
+
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>

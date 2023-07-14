@@ -262,6 +262,35 @@ INSERT INTO question VALUES (seq_question_id.nextval, 'member11', '결제 오류
 INSERT INTO question VALUES (seq_question_id.nextval, 'member12', '문의문의', '요132231요', default);
 INSERT INTO question VALUES (seq_question_id.nextval, 'member6', '고양이 문의합니다', '요', default);
 INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '답변해주세요ㅡㅡ', 'ㅡ ㅡ', default);
+--
+INSERT INTO question VALUES (seq_question_id.nextval, 'member10', '호호호', '요ㅚ르ㅏ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member1', '입양하하하함', '요ㅂㅂ거요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member13', '강아지멍멍이', '요바요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '고양이야옹이', '요ㅂ비ㅣ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member5', '김담희 파양절차', '요ㄴㄹㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member7', '김상훈파양좀 제발', 'ㄴㅇㄹㅇㄹ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member8', '김상훈파양절차', '요ㅎㄴㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '전예라파양절차', '요ㅁㅁㅁ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member4', '결제문의입니다요', '요5ㅎㅎ5요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member11', '젤리사주세요', '요555요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member12', '문의 나문의', '요132231요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member6', '고양이 나눔합니다', '요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '강아지 무료나눔합니다', 'ㅡ ㅡ', default);
+--
+INSERT INTO question VALUES (seq_question_id.nextval, 'member10', '키키키', '요ㅚ르ㅏ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member1', '헤헤헤하하하함', '요ㅂㅂ거요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member13', '멍멍이', '요바요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '야옹이', '요ㅂ비ㅣ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member5', '강아지 파양절차', '요ㄴㄹㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member7', '고양이파양좀 제발', 'ㄴㅇㄹㅇㄹ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member8', '호랑이파양절차', '요ㅎㄴㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '파양파파양절차', '요ㅁㅁㅁ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member4', '젤리입니다요', '요5ㅎㅎ5요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member11', '표범사주세요', '요555요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member12', '개구리 입양절차', '요132231요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member6', '작은소피참진드기 입양절차', '요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '작은소피참진드기한테 물렸어요', 'ㅡ ㅡ', default);
+
 select * from question;
 
 --=============================
@@ -295,7 +324,6 @@ delete answer where id = 4;
 -- select * from (select row_number() over (order by q.id desc) rnum, q.* from question q) where rnum between 1 and 10;
 
 select * from (select row_number() over (order by q.id desc) rnum, q.*, (select count(*) from answer where question_id = q.id) answer_cnt from question q) where rnum between 1 and 10;
-
 
 
 

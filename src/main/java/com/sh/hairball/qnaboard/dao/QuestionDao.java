@@ -66,7 +66,6 @@ public class QuestionDao {
         question.setTitle(rset.getString("title"));
         question.setContent(rset.getString("content"));
         question.setRegDate(rset.getDate("reg_date"));
-        question.setAnswerCnt(rset.getInt("answer_cnt"));
         return question;
     }
 

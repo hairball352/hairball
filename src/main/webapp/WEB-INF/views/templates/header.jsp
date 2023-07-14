@@ -51,6 +51,15 @@
 
 	
 <body>
+
+<script>
+window.onload = () => {
+<% 	if(msg != null) { %>
+	alert('<%= msg %>');
+<% 	} %>
+}
+</script>
+
 <header>
     <div class="header">
         <div class="logo_img">

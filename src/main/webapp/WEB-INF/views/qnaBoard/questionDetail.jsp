@@ -26,7 +26,7 @@
 			</div>
 			<hr class="side-hr" />
 			<div class="side-menu">
-				<a href="<%=request.getContextPath()%>/qnaBoard/questionList">QnA</a>
+				<a href="<%=request.getContextPath()%>/qnaBoard/questionList">Q&A</a>
 			</div>
 			<hr class="side-hr" />
 		</div>
