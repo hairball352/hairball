@@ -26,9 +26,11 @@
 				<tr>
 					<td colspan="2"><input type="checkbox" name="saveId"
 						id="saveId" <%=saveId != null ? "checked" : ""%> /> 
+						<span class="saveId3">
 						<label
+						id="saveId2"
 						for="saveId">아이디저장</label>&nbsp;&nbsp; 
-						<br/>
+						<br/></span>
 						<input  id="btn1" type="submit" tabindex="3" value="털뭉치들로그인">
 					</td>
 				</tr>
