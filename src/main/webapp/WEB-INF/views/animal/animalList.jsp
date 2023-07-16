@@ -25,7 +25,7 @@ List<EnrollBoardDto> animalBoardList= (ArrayList) request.getAttribute("EnrollBa
     	}%>
     	<a href="<%= request.getContextPath() %>/animal/animalDetail?animalId=<%= animalBoardList.get(i).getAnimalId()%>">
     	<li>
-    	<img src="<%= request.getContextPath() %>/upload/animal/<%= animalBoardList.get(i).getRenamedFileName() %>" />
+    	<a href="<%=request.getContextPath() %>/animal/animalDetail"><img src="<%= request.getContextPath() %>/upload/animal/<%= animalBoardList.get(i).getRenamedFileName() %>" style="width:100px"/></a>
     	<p>고유번호 : <%= animalBoardList.get(i).getPbl_id() %></p>
     	<p>성별 : <%= animalBoardList.get(i).getSex() %></p>
     	<p>나이 : <%= animalBoardList.get(i).getAge() %></p>

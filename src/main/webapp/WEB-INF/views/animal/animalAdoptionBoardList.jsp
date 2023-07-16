@@ -44,7 +44,7 @@ List<AdopBoardEntity> adoptionBoardList = (List<AdopBoardEntity>) request.getAtt
 						%>
 						<tr>
 							<td><%=board.getId()%></td>
-							<td><a
+							<td class="list-title"><a
 								href="<%=request.getContextPath()%>/animal/animalAdoptionBoardDetail?no=<%=board.getId()%>"><%=board.getMemberId()%>님의
 									입양신청서 💌</a></td>
 							<td><%=board.getMemberId()%></td>
@@ -53,7 +53,6 @@ List<AdopBoardEntity> adoptionBoardList = (List<AdopBoardEntity>) request.getAtt
 							<%
 							}
 							%>
-						
 					</tbody>
 				</table>
 			</div>
