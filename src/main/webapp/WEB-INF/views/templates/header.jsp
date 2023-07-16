@@ -68,7 +68,7 @@
         </div>
         <ul class="utility">
             <li>
-                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a7b86ff96d50db1785b75938758aeb44&redirect_uri=http://localhost:8080/oauth2/kakao">
+                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a7b86ff96d50db1785b75938758aeb44&redirect_uri=http://localhost:8080/hairball/oauth/kakao">
                     <img width="50" height="20" src="../../../images/kakao_login_simple/ko/kakao_login_large.png"/>
                 </a>
             </li>
