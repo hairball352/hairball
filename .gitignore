@@ -104,3 +104,5 @@ build/classes/sql/enrollBoard/EnrollBoard-query.properties
 build/classes/com/sh/hairball/animal/controller/AnimalDetail.class
 build/classes/com/sh/hairball/oauth/model/service/OAuth2Service.class
 build/classes/com/sh/hairball/oauth/controller/KakaoLoginServlet.class
+build/classes/com/sh/hairball/oauth/controller/KakaoLoginServlet.class
+build/classes/com/sh/hairball/oauth/model/service/OAuth2Service.class

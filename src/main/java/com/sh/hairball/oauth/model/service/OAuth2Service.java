@@ -25,6 +25,7 @@ public class OAuth2Service {
         Map<String, String> requestHeaders = new HashMap<>();
         requestHeaders.put("Content-type", "application/x-www-form-urlencoded");
         String responseBody = get(reqURL,requestHeaders , code);
+        System.out.println("respBody"+responseBody);
 
         JSONParser parsing = new JSONParser();
         JSONObject jsonObj = null;
@@ -38,14 +39,14 @@ public class OAuth2Service {
         String refresh_token = (String)jsonObj.get("refresh_token");
         String scope = (String)jsonObj.get("scope");
 
-        System.out.println(access_token);
-        System.out.println(refresh_token);
-        System.out.println(scope);
+        System.out.println("accToken"+access_token);
+        System.out.println("refresh_token"+refresh_token);
+        System.out.println("scope"+scope);
 
         requestHeaders.put("Authorization", "Bearer "+access_token);
 
         String responseUserInfo = getUserInfo("https://kapi.kakao.com/v2/user/me", requestHeaders );
-        System.out.println(responseUserInfo);
+        System.out.println("Resp User Info @"+responseUserInfo);
 
 
         Object obj = null;
