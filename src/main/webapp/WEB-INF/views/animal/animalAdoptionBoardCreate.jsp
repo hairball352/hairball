@@ -23,16 +23,19 @@
 				<p>게시글 작성해주시면 순차적으로 연락드리겠습니다.</p>
 			</div>
 			<div>
-				<img src="/hairball/images/1687851928029.png" alt="" style="width:500px" />
-				<form
-					name="adoptionFrm"
-					action="<%=request.getContextPath() %>/animal/animalAdoptionBoardCreate" 
-					method="post"
-				>
+				<img src="/hairball/images/1687851928029.png" alt=""
+					style="width: 500px" />
+				<form name="adoptionFrm"
+					action="<%=request.getContextPath()%>/animal/animalAdoptionBoardCreate"
+					method="post">
 					<table class="adoption-board-table">
 						<tr>
 							<td>등록 동물 번호</td>
-							<td><input type="text" name="animalId" /></td>
+							<td>
+								<div class="ui-widget">
+									<label for="animalList">동물 친구들 : </label><input id="animalList">
+								</div>
+							</td>
 						</tr>
 						<tr>
 							<td>아이디</td>
@@ -55,7 +58,7 @@
 <script>
 	const backbtn = () => {
 		window.history.back();
-	}
+	};
 	
 	const adoptionFrmSubmit = (e) => {
 		const frm = document.forms.adoptionFrm;;
@@ -65,7 +68,36 @@
 		}
 		alert('작성을 취소하였습니다.');
 		return false;
-	}
+	};
 	
+	$("#animalList").autocomplete({
+	    source: function(request, response) {
+	        const { term } = request;
+
+	        $.ajax({
+	            url: "<%=request.getContextPath()%>/animal/autocomplete",
+	            method: "GET",
+	            dataType: "text",
+	            data: {
+	                term
+	            },
+	            success: function(animals) {
+	                if (animals === '') return;
+	                console.log(animals);
+
+	                const temp = animals.split(",");
+	                const arr = temp.map((no) => ({
+	                    label: no,
+	                    value: no
+	                }));
+	                console.log(arr);
+	                response(arr);
+	            }
+	        });
+	    },
+	    select: function(event, selected) {
+	        const { temp: { label } } = selected;
+	    }
+	});
 </script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>

@@ -91,7 +91,7 @@ public class AnimalEnrollServlet extends HttpServlet {
 		int result = enrollBoardService.insertEnrollBoard(enrollBoard);
 		
 		
-		resp.sendRedirect(req.getContextPath() + "/board/boardDetail?no=" + enrollBoard.getId());
+		resp.sendRedirect(req.getContextPath() + "/animal/animalDetail?no=" + enrollBoard.getId());
 		
 	}
 }
