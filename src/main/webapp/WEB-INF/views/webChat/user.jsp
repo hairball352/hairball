@@ -6,6 +6,7 @@
 <title>Web Socket Example</title>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/webchat.css" />
+	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
 </head>
 <body>
 	<!-- 채팅 영역 -->
@@ -40,7 +41,6 @@
 		};
 		// 접속이 끝기는 경우는 브라우저를 닫는 경우이기 때문에 이 이벤트는 의미가 없음.
 		webSocket.onclose = function(message) {
-		    saveChatHistoryToDB(); // 웹 소켓이 닫힐 때, 채팅 기록을 데이터베이스에 저장하는 함수를 호출
 		};
 
 		//창을 닫을 때 웹소켓 연결을 종료
@@ -94,14 +94,19 @@
 		}
 		// 이 함수는 chatHistory 배열을 서버에 전송하고, 서버는 이 배열을 데이터베이스에 저장
 		function saveChatHistoryToDB() {
-			let xhr = new XMLHttpRequest();
-			xhr.open("POST", "/saveChatHistory", true);
-			xhr.setRequestHeader("Content-Type", "application/json");
-			
-			// 배열을 서버로 전송
-			xhr.send(JSON.stringify(chatHistoryAll));
-			console.log(chatHistoryAll);
-			chatHistoryAll = []; // 채팅 기록이 서버에 저장된 후에는 배열을 비워준다.
+			$.ajax({
+				url: "/hairball/saveChatHistory",
+				type: "POST",
+				data: JSON.stringify(chatHistoryAll),
+				contentType: "application/json",
+				success: function(response) {
+					console.log("db 저장 성공!");
+					chatHistoryAll = []; // 채팅 기록이 서버에 저장된 후에는 배열을 비워준다.
+				},
+				error: function(xhr, status, error) {
+					console.log("db 저장 실패ㅠㅠ: " + status, error);
+				}
+			});
 		}
 	</script>
 </body>

@@ -30,7 +30,6 @@ public class ChatHistoryServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("post 호출!");
 		// 저장할 본문을 읽는다
 		BufferedReader reader = request.getReader();
 		String line;
@@ -39,15 +38,13 @@ public class ChatHistoryServlet extends HttpServlet {
 			builder.append(line);
 		}
 
-		// 세션에서 로그인한 사용자의 Member 객체를 가져온다
+		// 로그인한 사용자의 Member 객체를 가져온다
 		HttpSession session = request.getSession();
 		Member loginMember = (Member) session.getAttribute("loginMember");
 		System.out.println("loginMember : " + loginMember);
 
 		// 로그인한 사용자의 회원 ID를 가져온다
-		String memberIdString  = loginMember.getMemberId();
-		int memberId = Integer.parseInt(memberIdString);
-		System.out.println("memberIdString : " + memberIdString);
+		int memberId  = loginMember.getId();
 		System.out.println("memberId : " + memberId);
 
 		// 본문을 JSON 문자열로 파싱
