@@ -38,9 +38,6 @@
     	<div style="clear: both;"></div>
     </div>
     <br/>   <br/>   <br/>     <br/>     <br/>
-    
-	pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/templates/header.jsp"%>
 <section class="introduce-section">
 	<div class="introduce01-container">
 		<div class="introduce01-bar">

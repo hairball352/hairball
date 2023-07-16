@@ -9,12 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sh.hairball.animal.model.service.AnimalService;
+import com.sh.hairball.animal.model.vo.Animal;
+
 @WebServlet("/animal/animalDetail")
 public class AnimalDetail extends HttpServlet {
-
+	private final AnimalService animalService = new AnimalService();
+	
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
+    	int animalId = Integer.parseInt(req.getParameter("no"));
+    	
+    	Animal animal = animalService.findById(animalId);
+    	
+    	req.setAttribute("animal", animal);
+    	req.getRequestDispatcher("/WEB-INF/views/animal/animalDetail.jsp")
+			.forward(req, resp);
     }
 
     @Override
@@ -60,6 +70,8 @@ public class AnimalDetail extends HttpServlet {
 //
 //        req.setAttribute("animal", jsonBody);
 //        req.setAttribute("animalMapo", animal);
+    	
+    	
         
     	req.getRequestDispatcher("/WEB-INF/views/animal/animalDetail.jsp").forward(req,resp);
     }
