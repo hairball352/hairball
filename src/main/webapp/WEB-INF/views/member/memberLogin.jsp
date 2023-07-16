@@ -12,6 +12,7 @@
 		<form id="loginFrm" name="loginFrm" action="<%=request.getContextPath()%>/member/login" method="post">
 			<table id="login-table">
 				<tr>
+					<img src="/hairball/images/login.gif" alt="login">
 					<td><input colspan="2" type="text" name="memberId" id="memberId" placeholder="아이디" tabindex="1" value="<%=saveId != null ? saveId : ""%>"></td>
 				</tr>
 				<tr>

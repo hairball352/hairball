@@ -10,7 +10,7 @@
 
 .login-container {
 	margin-left: 300px;
-	margin-top: 90px;
+	margin-top: 50px;
 }
 
 #login-table {
@@ -25,6 +25,14 @@
    margin-left: 20px;
 }
 
+.login_btn {
+	margin-left: -30px;
+	margin-top: 30px;
+	margin-bottom: 50px;
+	position: relative;
+	gap : 10px;
+
+}
 
 #btn1 {
    margin-top: 30px;
@@ -47,13 +55,6 @@
    font-size: 5px;
 }
 
-.login_btn {
-	margin-left: -30px;
-	margin-top: 30px;
-	position: relative;
-	gap : 10px;
-
-}
 
 #btn1:hover {
    border: black;
@@ -68,8 +69,6 @@
    width: 200px;
    height: 30px;
 }
-
-
 ​
 #singup-btn {
    background: #5fab95;
@@ -103,6 +102,11 @@
 	margin-left: 40px;
 }
 
+#loginFrm img {
+	width: 150px;
+	margin-bottom: 60px;
+	margin-left: 45px;
+}
 
 /* 회원가입 관련 css*/
 #enroll-table {

@@ -21,6 +21,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/hairball/css/memberLogin.css" />
     <link rel="stylesheet" href="/hairball/css/procedure.css" />
+        <link rel="stylesheet" href="/hairball/css/animation.css" />
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 <%
