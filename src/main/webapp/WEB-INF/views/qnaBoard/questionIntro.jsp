@@ -4,7 +4,7 @@
 <%@ include file="/WEB-INF/views/templates/aside.jsp"%>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/question.css" />
-<section class="question-section">
+<section class="animal-section">
 	<div class="introduce01-container">
 		<div class="introduce01-bar">
 			<div class="side-menu-title">
@@ -22,30 +22,34 @@
 		</div>
 	</div>
 	<div class="introduce01-detail-section">
-		<div class="checked-title2">FAQ</div>
+		<div class="checked-title2">FAQ</div>	
 		<hr class="section-hr" />
 
 		<div id="Accordion_wrap">
-			<h2>자주묻는 질문</h2>
 			<button type="button" class="collapsible" onclick="collapse(this);">자주묻는 질문1</button>
 			<div class="content">
 				<p>내용 1 입니다.</p>
+				<p></p>
 			</div>
 			<button type="button" class="collapsible" onclick="collapse(this);">자주묻는 질문2</button>
 			<div class="content">
 				<p>내용 2 입니다.</p>
+				<p></p>
 			</div>
 			<button type="button" class="collapsible" onclick="collapse(this);">자주묻는 질문3</button>
 			<div class="content">
 				<p>내용 3 입니다.</p>
+				<p></p>
 			</div>
 			<button type="button" class="collapsible" onclick="collapse(this);">자주묻는 질문4</button>
 			<div class="content">
 				<p>내용 3 입니다.</p>
+				<p></p>
 			</div>
 			<button type="button" class="collapsible" onclick="collapse(this);">자주묻는 질문5</button>
 			<div class="content">
 				<p>내용 3 입니다.</p>
+				<p></p>
 			</div>
 		</div>
 	</div>
@@ -61,6 +65,7 @@
 		element.classList.toggle("active"); // 활성화 여부 toggle
 
 		var content = element.nextElementSibling;
+		console.dir(content)
 		if (content.style.maxHeight != 0) { // 버튼 다음 요소가 펼쳐져 있으면
 			content.style.maxHeight = null; // 접기
 		} else {

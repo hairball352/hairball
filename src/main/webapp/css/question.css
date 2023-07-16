@@ -201,7 +201,7 @@ table#tbl-answer tr:hover button.btn-delete {
 
 .content {
 	padding: 0 18px;
-	height: 10px;
+	height: 25px;
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.2s ease-out;

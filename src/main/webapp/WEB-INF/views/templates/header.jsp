@@ -82,7 +82,7 @@
                 </a>
             </li>
             <li class="admin_li">
-                <a href="<%= request.getContextPath() %>/admin/animalRegistration">관리자</a>
+                <a href="<%= request.getContextPath() %>/animal/enroll">관리자</a>
             </li>
             <li class="login_li">
                 <a href="<%= request.getContextPath() %>/member/login">로그인</a>

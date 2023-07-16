@@ -127,7 +127,9 @@ a {
     text-decoration: none;
     color: #000;
 }
-
+footer{
+	margin-top: 20px; 
+}
 /* style */
 
 /* 폰트 */

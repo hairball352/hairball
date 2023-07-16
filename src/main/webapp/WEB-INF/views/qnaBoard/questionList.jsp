@@ -10,7 +10,7 @@ List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions"
 %>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/question.css" />
-<section class="question-section">
+<section class="animal-section">
 	<div class="introduce01-container">
 		<div class="introduce01-bar">
 			<div class="side-menu-title">

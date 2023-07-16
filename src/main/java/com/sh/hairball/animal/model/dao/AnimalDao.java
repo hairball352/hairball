@@ -75,13 +75,14 @@ public class AnimalDao {
 		String sql = prop.getProperty("insertAnimal");
 		System.out.println(sql);
 		System.out.println(animal);
-		//insertAnimal = insert into animal (id, age , discvry_plc,animal_type,species,pbl_id , state , sex , neutered) values (seq_animal_id.nextval,?,?,?,?,?,?,?,?,?)
+		//insertAnimal = insert into animal (id, age , discvry_plc,animal_type,species,weight,pbl_id , state , sex , neutered) values (seq_animal_id.nextval,?,?,?,?,?,?,?,?,?,?)
 		try(
 				PreparedStatement preparedStatement = conn.prepareStatement(sql)){
 			preparedStatement.setInt(1, animal.getAge());
 			preparedStatement.setString(2, animal.getDiscoveryPlace());
 			preparedStatement.setString(3, animal.getAnimalType().name());
 			preparedStatement.setString(4, animal.getSpecies());
+			preparedStatement.setFloat(4, (float)animal.getWeight());
 			preparedStatement.setString(5, animal.getPblId());
 			preparedStatement.setString(6, animal.getState());
 			preparedStatement.setString(7, animal.getSex().name());
