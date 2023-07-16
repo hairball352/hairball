@@ -23,6 +23,7 @@ public class KakaoLoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Member member = ouath2Service.kakaoLogin(req.getParameter("code"));
+        System.out.println(req.getParameter("code"));
         String saveId = req.getParameter("saveId"); 
         		
         HttpSession session = req.getSession(); // request.getSession(true)와 동일.
