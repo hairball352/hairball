@@ -129,6 +129,7 @@ $(document).ready(function(){
     $(".member-row").click(function(){
         var $chatRow = $(this).next(".chat-row");
         var memberId = $chatRow.find(".chat-container").data("member-id");
+        console.log(memberId);
 
         if ($chatRow.is(":visible")) {
             $chatRow.hide();

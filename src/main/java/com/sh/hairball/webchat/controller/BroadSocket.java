@@ -82,6 +82,8 @@ public class BroadSocket {
 			try {
 				// 유저 Session으로 socket을 취득한 후 메시지를 전송한다.
 				user.session.getBasicRemote().sendText(message);
+				//여기에 채팅 디비 저장 함수를 넣는다. 
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

@@ -1,11 +1,15 @@
 package com.sh.hairball.webchat.controller;
 
 import java.io.IOException;
+import java.sql.Connection;
+
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
+
+import com.sh.hairball.webchat.model.WebChat;
 //운영자 유저에서 서버간의 웹 소켓 url
 @ServerEndpoint("/admin")
 public class Admin {

@@ -31,7 +31,6 @@ public class MemberDao {
     public Member findById(Connection conn, String memberId) {
         String sql = prop.getProperty("findById"); // select * from member where member_id = ?
         Member member = null;
-        System.out.println(sql);
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, memberId);
             try (ResultSet rset = pstmt.executeQuery()) {
@@ -177,13 +176,11 @@ public class MemberDao {
                 while (rset.next()) {
                     Member member = handleMemberResultSet(rset);
                     members.add(member);
-                    System.out.println("member" + member);
                 }
             }
         } catch (SQLException e) {
             throw new MemberException(e);
         }
-        System.out.println("dao members : " + members);
         return members;
     }
     
