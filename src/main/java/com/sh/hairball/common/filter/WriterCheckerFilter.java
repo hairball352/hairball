@@ -1,6 +1,8 @@
 package com.sh.hairball.common.filter;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -14,22 +16,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sh.hairball.member.model.vo.Member;
+import com.sh.hairball.member.model.vo.MemberRole;
+import com.sh.hairball.qnaboard.model.QuestionVo;
+import com.sh.hairball.qnaboard.service.QuestionService;
 
 /**
- * Servlet Filter implementation class LoginFilter
+ * Servlet Filter implementation class WriterCheckerFilter
  */
-@WebFilter({ 
-	"/member/memberDetail", 
-	"/member/memberUpdate",  
-	"/member/memberDelete", 
-	"/qnaBoard/questionCreate",
-})
-public class LoginFilter extends HttpFilter implements Filter {
+@WebFilter("/qnaBoard/questionDetail")
+public class WriterCheckerFilter extends HttpFilter implements Filter {
        
     /**
      * @see HttpFilter#HttpFilter()
      */
-    public LoginFilter() {
+    public WriterCheckerFilter() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,16 +46,23 @@ public class LoginFilter extends HttpFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
-		System.out.println("[Login 체크중...]");
+		HttpServletRequest httpReq = (HttpServletRequest) request; 
+		HttpServletResponse httpRes = (HttpServletResponse) response; 
 		
-		HttpServletRequest httpReq = (HttpServletRequest) request; // 다운캐스팅 getAttribute getSession 등 이런메소드는 부모타입에는 없는 메소드라서 다운캐스팅 함
-		HttpServletResponse httpRes = (HttpServletResponse) response; // 다운캐스팅
+		HttpSession session = httpReq.getSession(); 
+		QuestionService questionService = new QuestionService();
 		
-		HttpSession session = httpReq.getSession(); // getSession 하려면 다운캐스팅 후에 사용
 		Member loginMember = (Member) session.getAttribute("loginMember");
-		if(loginMember == null) {
-			session.setAttribute("msg", "로그인 후 이용하실 수 있습니다.");
-			httpRes.sendRedirect(httpReq.getContextPath() + "/");
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		QuestionVo question = questionService.findById(id);
+		request.setAttribute("question", question);
+		System.out.println("question = " + question.toString());
+		if(!(loginMember != null && ((question.getMemberId().equals(loginMember.getMemberId())) ||
+				loginMember.getMemberRole() == MemberRole.A ))) {
+			
+			session.setAttribute("msg", "게시물 작성자만 조회할 수 있습니다.");
+			httpRes.sendRedirect(httpReq.getContextPath() + "/qnaBoard/questionList");
 			return;
 		}
 		

@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -15,7 +16,9 @@ import com.sh.hairball.animal.model.vo.AnimalType;
 import com.sh.hairball.animal.model.vo.Sex;
 import com.sh.hairball.board.adoptboard.model.dao.AdoptionDao;
 import com.sh.hairball.board.adoptboard.model.exception.AdopBoardException;
+import com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
+import com.sh.hairball.board.enrollboard.model.vo.EnrollBoardDto;
 
 public class AnimalDao {
 	Properties prop = new Properties();
@@ -123,8 +126,45 @@ public class AnimalDao {
 		return totalCnt;
 	}
 
-	public List<EnrollBoard> findList(int start, int end) {
+	public List<EnrollBoardDto> findList(Connection conn, int start, int end) {
+		List<EnrollBoardDto> result = new ArrayList<>();
+		String sql = prop.getProperty("findList");
+		System.out.println(sql);
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1,  start);
+			pstmt.setInt(2,  end);
+			
+			try(ResultSet rset = pstmt.executeQuery()) {
+				while(rset.next()) {
+					EnrollBoardDto enrollBoardEntity = handleEnrollBoardResultSet(rset);
+					result.add(enrollBoardEntity);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
-		return null;
+		return result;
+	}
+
+	private EnrollBoardDto handleEnrollBoardResultSet(ResultSet rset) throws SQLException {
+		EnrollBoardDto enrollBoardDto = new EnrollBoardDto();
+		enrollBoardDto.setAnimalId(rset.getInt("animal_id"));
+		enrollBoardDto.setOriginalFileName(rset.getString("original_filename"));
+		enrollBoardDto.setRenamedFileName(rset.getString("renamed_filename"));
+		enrollBoardDto.setRegDate(rset.getDate("reg_date"));
+		enrollBoardDto.setAge(rset.getInt("age"));
+		enrollBoardDto.setDiscovoeryPlace(rset.getString("discvry_plc"));
+		enrollBoardDto.setAnimalType(rset.getString("animal_type").equals("D")?AnimalType.D : AnimalType.C);
+		enrollBoardDto.setSpecies(rset.getString("species"));
+		enrollBoardDto.setWeight(rset.getDouble("weight"));
+		enrollBoardDto.setPbl_id(rset.getString("pbl_id"));
+		enrollBoardDto.setState(rset.getString("State"));
+		enrollBoardDto.setSex(rset.getString("sex").equals("M")? Sex.M : Sex.F);
+		enrollBoardDto.setNeutered(rset.getInt("neutered"));
+		
+		
+		return enrollBoardDto;
 	}
 }

@@ -46,6 +46,7 @@ public class QuestionListServlet extends HttpServlet {
 
         request.setAttribute("questions", questions);
         request.setAttribute("pagebar", pagebar);
+        
 
         // 3. 응답처리
         request.getRequestDispatcher("/WEB-INF/views/qnaBoard/questionList.jsp")
