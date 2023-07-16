@@ -143,6 +143,10 @@ table#tbl-adopboard tr td {
     border-image: initial;
 }
 
+/* 마우스 오버 시 글자색 바꾸기 효과*/
+#tbl-adopboard .list-title:hover a {
+  color: rgb(80, 152, 131); 
+}
 
 /* 입양신청서 상세보기 페이지 */
 #adoption-detail-table {}

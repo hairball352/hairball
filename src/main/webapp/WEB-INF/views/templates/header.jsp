@@ -19,11 +19,15 @@
     <link rel="stylesheet" href="/hairball/css/introduce.css" />
     <link rel="stylesheet" href="/hairball/css/memberLogin.css" />
     <link rel="stylesheet" href="/hairball/css/procedure.css" />
+    <link rel="stylesheet"
+	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 <%
   String clientId = "9kBGa_4PSPHg5IPpNrhO";//애플리케이션 클라이언트 아이디값
-  String redirectURI = URLEncoder.encode("http://localhost:8080/Oauth/naver", "UTF-8");
+  String redirectURI = URLEncoder.encode("http://localhost:8080/oauth/naver", "UTF-8");
   SecureRandom random = new SecureRandom();
   String state = new BigInteger(130, random).toString();
   String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
