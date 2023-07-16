@@ -14,6 +14,8 @@ public class AnimalDetail extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	int animalId = Integer.parseInt(req.getParameter("animalId"));
+    	System.out.println("animal ID @ animalDetail Controller"+animalId);
         doPost(req, resp);
     }
 

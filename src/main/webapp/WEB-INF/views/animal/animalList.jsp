@@ -23,14 +23,14 @@ List<EnrollBoardDto> animalBoardList= (ArrayList) request.getAttribute("EnrollBa
     		<ul>
     		<%
     	}%>
-    	
+    	<a href="<%= request.getContextPath() %>/animal/animalDetail?animalId=<%= animalBoardList.get(i).getAnimalId()%>">
     	<li>
     	<img src="<%= request.getContextPath() %>/upload/animal/<%= animalBoardList.get(i).getRenamedFileName() %>" />
     	<p>고유번호 : <%= animalBoardList.get(i).getPbl_id() %></p>
     	<p>성별 : <%= animalBoardList.get(i).getSex() %></p>
     	<p>나이 : <%= animalBoardList.get(i).getAge() %></p>
     	</li>
-    	
+    	</a>
     	<%if(i%3==2){%>
     		</ul>
     		
