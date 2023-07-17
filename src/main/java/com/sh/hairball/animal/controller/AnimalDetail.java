@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sh.hairball.animal.model.service.AnimalService;
 import com.sh.hairball.animal.model.vo.Animal;
-import com.sh.hairball.animal.model.vo.AnimalEntity;
 
 @WebServlet("/animal/animalDetail")
 public class AnimalDetail extends HttpServlet {

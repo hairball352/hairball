@@ -6,7 +6,6 @@
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
 <%
 	Animal animal = (Animal) request.getAttribute("animal");
-	Attachment img = (Attachment) request.getAttribute("attachment");
 %>
 
 
@@ -34,7 +33,7 @@
 				<table id="detail-table">
 					<thead>
 					<tr>
-						<th><img alt="" src="">사진넣을공간</th>
+						<img src="<%= request.getContextPath() %>/upload/animal/<%= animal.getRenamedFileName()%>">
 					</tr>
 					</thead>
 					<tbody>

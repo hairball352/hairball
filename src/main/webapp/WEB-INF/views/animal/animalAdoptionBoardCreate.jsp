@@ -27,6 +27,8 @@
 				<p>게시글 작성해주시면 순차적으로 연락드리겠습니다.</p>
 			</div>
 			<div>
+				<img src="/hairball/images/1687851928029.png" alt=""
+					style="width: 500px" />
 				<form name="adoptionFrm"
 					action="<%=request.getContextPath()%>/animal/animalAdoptionBoardCreate"
 					method="post">
@@ -35,13 +37,14 @@
 							<td>등록 동물 번호</td>
 							<td>
 								<div class="ui-widget">
-									<label for="animalList"></label><input id="animalList" value="<%= animal != null ? animal.getPblId() : "" %>">
+									<label for="animalList"></label><input id="animalList" name="animalPblId" value="">
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<td>아이디</td>
-							<td><input type="text" name="memberId" value="<%= loginMember != null ? loginMember.getMemberId() : "" %>"/></td>
+							<td><input type="text" value="<%= loginMember != null ? loginMember.getMemberId() : "" %>"/>
+							<input type="hidden" name="memberId" value="<%= loginMember != null ? loginMember.getId() : "" %>"/></td>
 						</tr>
 						<tr>
 							<td>방문날짜</td>
