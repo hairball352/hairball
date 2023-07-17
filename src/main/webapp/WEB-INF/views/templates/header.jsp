@@ -62,8 +62,8 @@
         </div>
         <ul class="utility">
             <li>
-                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a7b86ff96d50db1785b75938758aeb44&redirect_uri=http://localhost:8080/oauth2/kakao">
-                    <img width="50" height="20" src="../../../images/kakao_login_simple/ko/kakao_login_large.png"/>
+                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a7b86ff96d50db1785b75938758aeb44&redirect_uri=http://localhost:8080/hairball/oauth/kakao">
+                    <img width="50" height="20" src="/hairball/images/kakao_login_simple/ko/kakao_login_large.png"/>
                 </a>
             </li>
             <li>
@@ -80,7 +80,7 @@
             </li>
             <%}else{ %>
             <li class="login_li">
-                <a href="<%= request.getContextPath() %>/member/login"><%= loginMember.getName()+"님 안녕하세요."%></a>
+                <a href="<%= request.getContextPath() %>/member/login"><%= loginMember.getName()+"님"%></a>
             </li>
             <%} %>
             <li class="signup_li">
