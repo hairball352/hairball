@@ -3,8 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
-<%@ include file="/WEB-INF/views/templates/header2.jsp" %>
-<%@ include file="/WEB-INF/views/templates/aside.jsp" %>
 <%
 	
 	List<Member> members = (List<Member>) request.getAttribute("members"); 
@@ -13,6 +11,7 @@
 	// 검색관련 
 	String searchType = request.getParameter("searchType");
 	String searchKeyword = request.getParameter("searchKeyword");
+
 
 %>
 <!-- 관리자용 admin.css link -->
@@ -48,7 +47,7 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 		<hr class="section-hr" />
 		<div class="adminPage-board">
 		<div id="search-container">
-	        <label for="searchType">검색타입 :</label> 
+	        <label for="searchType"></label> 
 	        <select id="searchType">
 	            <option value="memberId" <%= "member_id".equals(searchType) ? "selected" : "" %>>아이디</option>		
 	            <option value="name" <%= "name".equals(searchType) ? "selected" : "" %>>회원명</option>
@@ -101,13 +100,6 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 					<td><%=member.getPhone()%></td>
 					<td><%=member.getAddress()%></td>
 				</tr>
-			
-			<% 		
-					}
-				} 
-			%>
-		</tbody>
-	</table>
 				<tr class="chat-row" style="display: none;">
 					<td colspan="5">
 						<div class="chat-container"
