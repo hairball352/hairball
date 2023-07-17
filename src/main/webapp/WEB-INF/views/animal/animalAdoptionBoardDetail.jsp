@@ -7,7 +7,6 @@
 <%
 	AdopBoard adopBoard = (AdopBoard)request.getAttribute("adopBoard");
 	Animal animal = adopBoard.getAnimal();
-	
 %>
 <section class="animal-section">
 	<div class="introduce01-container">

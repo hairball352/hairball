@@ -61,7 +61,7 @@ List<AdopBoardEntity> adoptionBoardList = (List<AdopBoardEntity>) request.getAtt
 				<%=request.getAttribute("pagebar")%>
 		</div>
 		<div>
-				<input type="button" id="adop-btn" value="글쓰기"
+				<input type="button" id="adop-btn" value="글쓰기" class="btn1"
 					onclick="location.href = '<%=request.getContextPath()%>/animal/animalAdoptionBoardCreate';" />
 		</div>
 	</div>

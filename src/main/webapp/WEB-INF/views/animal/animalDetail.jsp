@@ -1,5 +1,5 @@
-<%@page import="com.sh.hairball.attachment.model.vo.Attachment"%>
 <%@page import="com.sh.hairball.animal.model.vo.Animal"%>
+<%@page import="com.sh.hairball.attachment.model.vo.Attachment"%>
 <%@ page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -27,11 +27,11 @@
 		<div class="checked-title2">동물 상세 정보</div>
 		<hr class="section-hr" />
 		<div class="animal-detail-div">
-			<div class="adoption-container">
+			<div class="animal-detail-container">
 				<%
 				if (loginMember != null)
 				%>
-				<table>
+				<table id="detail-table">
 					<thead>
 					<tr>
 						<th><img alt="" src="">사진넣을공간</th>
@@ -69,10 +69,21 @@
 						</tr>
 					</tbody>
 				</table>
+				<form 
+					name="animalAdopFrm"  method="GET"
+					action="<%= request.getContextPath()%>/animal/animalAdoptionBoardCreate">
+					<input type="hidden" name="animalId" value="<%= animal.getId() %>" />
+					<button type="submit" onclick="adoption();">입양하러가기</button>
+				</form>
 			</div>
 		</div>
 	</div>
 </section>
+<script>
+const adoption = (e) => {
+	
+}
+</script>
 
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>
 

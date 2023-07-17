@@ -1,7 +1,11 @@
+<%@page import="com.sh.hairball.animal.model.vo.Animal"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
 <%-- 입양 신청 게시글 작성하는 jsp --%>
+<%
+	Animal animal = (Animal) request.getAttribute("animal");
+%>
 <section class="adoption-board-section">
 	<div class="introduce01-container">
 		<div class="introduce01-bar">
@@ -23,8 +27,6 @@
 				<p>게시글 작성해주시면 순차적으로 연락드리겠습니다.</p>
 			</div>
 			<div>
-				<img src="/hairball/images/1687851928029.png" alt=""
-					style="width: 500px" />
 				<form name="adoptionFrm"
 					action="<%=request.getContextPath()%>/animal/animalAdoptionBoardCreate"
 					method="post">
@@ -33,13 +35,13 @@
 							<td>등록 동물 번호</td>
 							<td>
 								<div class="ui-widget">
-									<label for="animalList">동물 친구들 : </label><input id="animalList">
+									<label for="animalList"></label><input id="animalList" value="<%= animal != null ? animal.getPblId() : "" %>">
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<td>아이디</td>
-							<td><input type="text" name="memberId" /></td>
+							<td><input type="text" name="memberId" value="<%= loginMember != null ? loginMember.getMemberId() : "" %>"/></td>
 						</tr>
 						<tr>
 							<td>방문날짜</td>
@@ -48,9 +50,9 @@
 					</table>
 				</form>
 			</div>
-			<div class="adop-btn">
-				<button onclick="backbtn();">돌아가기</button>
-				<button onclick="adoptionFrmSubmit();">신청하기</button>
+			<div class="">
+				<button onclick="backbtn();" class="btn1">돌아가기</button>
+				<button onclick="adoptionFrmSubmit();" class="btn1">신청하기</button>
 			</div>
 		</div>
 	</div>
