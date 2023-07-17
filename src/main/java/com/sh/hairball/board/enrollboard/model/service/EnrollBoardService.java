@@ -52,5 +52,20 @@ public class EnrollBoardService {
 		}
 		return result;
 	}
+
+	public int deleteBoard(int enrollBoardId) { 
+		Connection conn = getConnection();
+		int result = 0;
+		try {
+			result = enrollBoardDao.deleteBoard(conn,enrollBoardId);
+			commit(conn);
+		} catch (Exception e) {
+			rollback(conn);
+			throw e;
+		} finally {
+			close(conn);			
+		}
+		return result;
+	}
 	
 }
