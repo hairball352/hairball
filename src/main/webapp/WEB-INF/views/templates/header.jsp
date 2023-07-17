@@ -49,13 +49,11 @@
     <link rel="stylesheet" href="/hairball/css/introduce.css" />
     <link rel="stylesheet" href="/hairball/css/memberLogin.css" />
     <link rel="stylesheet" href="/hairball/css/procedure.css" />
-    <link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
 <% 	if(loginMember != null) { %>
 	<script src="<%= request.getContextPath() %>/js/ws.js"></script>		
 <% 	} %>
-	</script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <title>유기견/유기묘 입양 사이트</title>
 </head>
