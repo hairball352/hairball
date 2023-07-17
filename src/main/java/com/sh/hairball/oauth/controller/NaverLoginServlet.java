@@ -26,7 +26,6 @@ public class NaverLoginServlet extends HttpServlet {
 
         String code = req.getParameter("code");
         String state = req.getParameter("state");
-//        String provider = req.getParameter("service_provider");
         System.out.println("naverLoginServlet code = " + code);
         try {
             member = oauth2ServiceNaver.naverLogin(code, state);
@@ -40,11 +39,7 @@ public class NaverLoginServlet extends HttpServlet {
             session.setAttribute("loginMember", member);
         }
 
-        System.out.println("loginMember = " + member);
-
-//        resp.sendRedirect(req.getContextPath() + "/views/Oauth/naverCallback.jsp");
-        req.getRequestDispatcher("/WEB-INF/views/oauth/naverCallback.jsp")
-                .forward(req, resp);
+        resp.sendRedirect(req.getContextPath() + "/"); // 리다이렉트
     }
 
     @Override

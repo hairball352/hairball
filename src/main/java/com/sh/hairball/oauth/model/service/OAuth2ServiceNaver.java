@@ -15,6 +15,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.sh.hairball.common.util.AnimalUtil;
 import com.sh.hairball.member.model.service.MemberService;
 import com.sh.hairball.member.model.vo.Member;
 import com.sh.hairball.member.model.vo.Provider;
@@ -54,7 +55,6 @@ public class OAuth2ServiceNaver {
         String responseUserInfo = getUserInfo("https://openapi.naver.com/v1/nid/me",requestHeaders);
         System.out.println("responseUserInfo : " + responseUserInfo);
 
-        // responseBody에 담긴 값을 바탕으로 JSON 파싱하기
 
 
         Object obj = parsing.parse(responseUserInfo);
@@ -63,25 +63,25 @@ public class OAuth2ServiceNaver {
 
         String email = (String) resObj.get("email");
         String phone = (String) resObj.get("mobile");
+        String name = (String) resObj.get("name");
 
-        System.out.println("email : " + email);
-        System.out.println("phone : " + phone);
-
-        member = new Member();
-        member.setEmail(email);
-        member.setPhone(phone);
-        member.setProvider(Provider.N);
-
-        result = memberService.insertMember(member);
-//                MemberVo loginMember =  memberService.findById(member.getMemberId());
-
-        // 세션 객체에 저장
-
+        member = memberService.findByEmail(email);
+        
+        if(member == null) {
+        	member = new Member();
+        	member.setName(name);
+        	member.setEmail(email);
+        	member.setPhone(phone);
+        	member.setProvider(Provider.N);
+        	member.setPassword(AnimalUtil.getEncryptedPassword(name, "Naver"));
+        	result = memberService.insertMember(member);
+        }
         return member;
     }
 
     private String getUserInfo(String apiUrl, Map<String, String> requestHeaders) {
         HttpURLConnection conn = connect(apiUrl);
+        System.out.println("requestHeaders : " + requestHeaders);
         try {
             conn.setRequestMethod("GET");
             for (Map.Entry<String, String> header : requestHeaders.entrySet()) {
@@ -115,7 +115,7 @@ public class OAuth2ServiceNaver {
                 conn.setRequestProperty(header.getKey(), header.getValue());
             }
             conn.setDoOutput(true);
-            try (OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream())) {
+            try (OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream(), "Utf-8")) {
                 writer.write(postData);
                 writer.flush();
             }
@@ -136,7 +136,9 @@ public class OAuth2ServiceNaver {
     private static HttpURLConnection connect(String apiUrl) {
         try {
             URL url = new URL(apiUrl);
+            
             return (HttpURLConnection) url.openConnection();
+            
         } catch (MalformedURLException e) {
             throw new RuntimeException("API URL이 잘못되었습니다. : " + apiUrl, e);
         } catch (IOException e) {

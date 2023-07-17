@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sh.hairball.animal.model.service.AnimalService;
+import com.sh.hairball.animal.model.vo.Animal;
+import com.sh.hairball.animal.model.vo.AnimalEntity;
 import com.sh.hairball.board.adoptboard.model.service.AdoptionService;
 import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
 import com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity;
@@ -20,8 +23,16 @@ import com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity;
 public class AnimalAdoptionCreateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private final AdoptionService adoptionService = new AdoptionService();
-
+    private final AnimalService animalService = new AnimalService();
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		if(request.getParameter("animalId") != null) {
+			int animalId = Integer.parseInt(request.getParameter("animalId"));
+			Animal animal = animalService.findById(animalId);
+			request.setAttribute("animal", animal);
+		}
+		
 		request.getRequestDispatcher("/WEB-INF/views/animal/animalAdoptionBoardCreate.jsp").forward(request, response);
 	}
 

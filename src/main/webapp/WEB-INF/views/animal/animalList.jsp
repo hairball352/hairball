@@ -5,7 +5,7 @@
          pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <%
-List<EnrollBoardDto> animalBoardList= (ArrayList) request.getAttribute("EnrollBaordList");
+List<EnrollBoardDto> animalBoardList= (List<EnrollBoardDto>) request.getAttribute("EnrollBaordList");
 %>
 <div class="animal-section" >
     <div class="introduce01-container">

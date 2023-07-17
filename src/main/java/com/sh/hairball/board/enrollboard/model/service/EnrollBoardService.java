@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.sh.hairball.animal.model.dao.AnimalDao;
-import com.sh.hairball.animal.model.service.AnimalService;
 import com.sh.hairball.attachment.model.vo.Attachment;
 import com.sh.hairball.board.enrollboard.model.dao.EnrollBoardDao;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
@@ -32,18 +31,13 @@ public class EnrollBoardService {
 		int result = 0;
 		Connection conn = getConnection();
 		try {
-			System.out.println(enrollBoard.getAnimal());
 			result = animalDao.insertAnimal(conn, enrollBoard.getAnimal());
 			int animalId = animalDao.getLastAnimalId(conn);
-			System.out.println("animalId : "+animalId);
 			result = enrollBoardDao.insertEnrollBoard(conn, animalId);
 			int enrollBoardId = enrollBoardDao.getLastEnrollBoardNo(conn);
-			System.out.println("enrollboardId : "+enrollBoardId);
-			
 			
 			enrollBoard.setId(enrollBoardId); 
 			
-			System.out.println("enrollBoardId = " + enrollBoardId);
 			
 			Attachment attach = enrollBoard.getAttachment();
 			attach.setEnrollBoardid(enrollBoardId);

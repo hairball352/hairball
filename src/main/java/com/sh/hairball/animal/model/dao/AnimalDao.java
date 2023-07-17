@@ -16,8 +16,6 @@ import com.sh.hairball.animal.model.vo.AnimalType;
 import com.sh.hairball.animal.model.vo.Sex;
 import com.sh.hairball.board.adoptboard.model.dao.AdoptionDao;
 import com.sh.hairball.board.adoptboard.model.exception.AdopBoardException;
-import com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity;
-import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoardDto;
 
 public class AnimalDao {
@@ -39,9 +37,10 @@ public class AnimalDao {
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setInt(1, animalId);
 			try (ResultSet rset = pstmt.executeQuery()) {
-				if (rset.next())
+				if (rset.next()) {
 					animal = handleAnimalResultSet(rset);
-					System.out.println(animal);
+					animal.setOriginalFileName(rset.getString("renamed_filename"));
+				}
 			}
 		} catch (SQLException e) {
 			throw new AnimalException(e);
@@ -71,13 +70,9 @@ public class AnimalDao {
 	
 	public int insertAnimal(Connection conn, Animal animal) {
 		int result = 0;
-		System.out.println(conn);
 		String sql = prop.getProperty("insertAnimal");
-		System.out.println(sql);
-		System.out.println(animal);
-		//insertAnimal = insert into animal (id, age , discvry_plc,animal_type,species,weight,pbl_id , state , sex , neutered) values (seq_animal_id.nextval,?,?,?,?,?,?,?,?,?,?)
 		try(
-				PreparedStatement preparedStatement = conn.prepareStatement(sql)){
+			PreparedStatement preparedStatement = conn.prepareStatement(sql)){
 			preparedStatement.setInt(1, animal.getAge());
 			preparedStatement.setString(2, animal.getDiscoveryPlace());
 			preparedStatement.setString(3, animal.getAnimalType().name());
@@ -95,6 +90,7 @@ public class AnimalDao {
 		}
 		return result;
 	}
+	
 	public int getLastAnimalId(Connection conn) throws SQLException {
 		int boardNo = 0;
 		String sql = prop.getProperty("getLastAnimalId");
