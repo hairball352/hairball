@@ -117,6 +117,11 @@ q:after {
     content: "";
     content: none;
 }
+
+.indexImg{
+	width:250px;
+	height:250px;
+}
 table {
     border-collapse: collapse;
     border-spacing: 0;
