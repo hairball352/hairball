@@ -255,3 +255,8 @@ table#tbl-adopboard tr td {
 	text-decoration: none;
 	color: #337ab7;
 }
+
+/* 동물 상세페이지의 프로필 이미지 */
+#animal-profile-img {
+	width: 250px;	
+}

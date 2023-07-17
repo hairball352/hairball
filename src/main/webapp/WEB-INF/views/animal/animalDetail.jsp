@@ -33,7 +33,7 @@
 				<table id="detail-table">
 					<thead>
 					<tr>
-						<img src="<%= request.getContextPath() %>/upload/animal/<%= animal.getRenamedFileName()%>">
+						<img src="<%= request.getContextPath() %>/upload/animal/<%= animal.getRenamedFileName()%>" id="animal-profile-img"/>
 					</tr>
 					</thead>
 					<tbody>
@@ -71,7 +71,7 @@
 				<form 
 					name="animalAdopFrm"  method="GET"
 					action="<%= request.getContextPath()%>/animal/animalAdoptionBoardCreate">
-					<input type="hidden" name="animalId" value="<%= animal.getId() %>" />
+					<input type="hidden" name="no" value="<%= animal.getId() %>" />
 					<button type="submit" onclick="adoption();">입양하러가기</button>
 				</form>
 			</div>

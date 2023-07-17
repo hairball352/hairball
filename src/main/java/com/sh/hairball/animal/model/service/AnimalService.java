@@ -37,18 +37,11 @@ public class AnimalService {
 		return animal;
 	}
 
-	public List<Animal> findByPblId(String term) {
+	public Animal findByPblId(String animalPblId) {
 		Connection conn = getConnection();
-		List<Animal> animals = animalDao.findAll(conn); 
-		
-		List<Animal> result = new ArrayList<>(); 
-		
-		for(Animal animal : animals) {
-			if(animal.getPblId().contains(term)) { 
-				result.add(animal); 
-			}
-		}
-		return result;
+		Animal animal = animalDao.findByPblId(conn, animalPblId); 
+		close(conn);
+		return animal;
 	}
 
 }

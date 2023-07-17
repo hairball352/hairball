@@ -26,8 +26,8 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		if(request.getParameter("animalId") != null) {
-			int animalId = Integer.parseInt(request.getParameter("animalId"));
+		if(request.getParameter("no") != null) {
+			int animalId = Integer.parseInt(request.getParameter("no"));
 			Animal animal = animalService.findById(animalId);
 			request.setAttribute("animal", animal);
 		}
@@ -38,8 +38,11 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String animalPblId = request.getParameter("animalPblId");
+		Animal animal = animalService.findByPblId(animalPblId);
 		
-		List<Animal> animal = animalService.findByPblId(animalPblId);
+		System.out.println("animal@adoption create servlet = " + animal);
+		System.out.println("animal(0) @adoption create servlet = " + animal.get(0));
+		
 		
 		int memberId = Integer.parseInt(request.getParameter("memberId"));
 		String _visitDate = request.getParameter("visitDate");
@@ -47,10 +50,10 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
 		
 		AdopBoard adopBoard = new AdopBoard();
 		
-		adopBoard.setAnimalId(animal.get(0).getId());
+		adopBoard.setAnimalId(animal.getId());
 		adopBoard.setMemberId(memberId);
 		adopBoard.setVisitDate(visitDate);
-		
+		System.out.println("adopBoard@Service : " + adopBoard);
 		int result = adoptionService.insertBoard(adopBoard);
 	
 		response.sendRedirect(request.getContextPath() + "/animal/animalAdoptionBoardDetail?no=" + adopBoard.getId());

@@ -1,0 +1,168 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'PyeongChangPeace-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+.side-menu {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.side-menu-title {
+    font-size: 35px;
+    margin: 5px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.checked-title2 {
+    font-size: 35px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.side-hr{
+    border: 0;
+    height: 2.5px;
+    background: #e3e3e3;
+    width: 250px;
+}
+
+.section-hr {
+   border: 0;
+    background: #e3e3e3;
+    height: 3px;
+    width: 1000px;
+    margin-bottom : 50px;
+}
+
+.section-hr2 {
+   border: 0;
+    background: #e3e3e3;
+    height: 3px;
+    width: 1000px;
+    margin-bottom : 50px;
+    margin-left: 0px;
+}
+
+
+.introduce01-container {
+    display: flex;
+    
+}
+
+.introduce01-detail-section {
+   margin-top: 20px;
+    margin-left: 100px;
+    display:flex;
+    flex-direction: column;
+}
+
+.introduce01-bar {
+    margin-top: 60px;
+    margin-left: 270px;
+    flex-direction: column;
+    align-items: center; /* 가로 방향 가운데 정렬 */
+}
+
+.introduce-section {
+   display: flex;
+   flex-direction: row;
+}
+
+.introduce-board {
+   margin-left: 550px;
+   
+}
+
+.vertical-line {
+    position: absolute;
+    width: 5px; /* 세로 선의 너비 */
+    height: 150px; /* 세로 선의 높이 */
+    background-color: rgb(172, 172, 172); /* 세로 선의 색상 */
+    border: 0;
+    margin-left: -520px;
+    margin-top: 130px;
+  }
+  
+ .vertical-line2 {
+    position: absolute;
+    width: 5px; /* 세로 선의 너비 */
+    height: 280px; /* 세로 선의 높이 */
+    background-color: rgb(172, 172, 172); /* 세로 선의 색상 */
+    border: 0;
+    margin-left: -520px;
+    margin-top: 120px;
+
+  }
+
+/* 테이블 영역 */
+
+#table-img {
+    width: 400px;
+    float: right; /* 오른쪽으로 띄움 */
+    margin-right: 300px;
+    margin-bottom: 100px;
+}
+
+.table-container2 {
+    justify-content: center; /* 가로 방향 가운데 정렬 */
+    align-items: center; /* 세로 방향 가운데 정렬 */
+    width: 400px;
+    margin-top: -135px;
+    
+  }
+  
+  
+.table-container4 {
+    justify-content: center; /* 가로 방향 가운데 정렬 */
+    align-items: center; /* 세로 방향 가운데 정렬 */
+    width: 400px;
+    margin-top: -135px;
+    
+ }
+  
+.table-container2 p {
+    font-size: 20px;
+    margin-left: -480px;
+    margin-top: 265px;
+    margin-bottom: 170px;
+   
+  }
+  
+  .table-container4 p {
+    font-size: 20px;
+    margin-left: -480px;
+    margin-top: 60px;
+    margin-bottom: 170px;
+   
+  }
+  
+  
+.table-container3{
+   font-size : 35px;
+   font-family: 'PyeongChangPeace-Bold';
+    margin-top: 150px;
+    margin-left: -220px;
+}
+
+.table-container3 span {
+   color: #5fab95;
+   font-weight: 500;
+}
+
+
+  
+/*페이지바*/
+#pagebar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin-top:50px; 
+    padding-bottom: 20px;
+    gap: 13px;
+}

@@ -37,7 +37,11 @@
 							<td>등록 동물 번호</td>
 							<td>
 								<div class="ui-widget">
+								<% if(animal == null) { %>
 									<label for="animalList"></label><input id="animalList" name="animalPblId" value="">
+								<% } else { %>
+									<label for="animalList"></label><input id="animalList" name="animalPblId" value="<%= animal.getPblId() %>">
+								<% } %>
 								</div>
 							</td>
 						</tr>
