@@ -1,3 +1,4 @@
+<% if (session.getAttribute("loginMember") != null) { %>
 <aside>
   <div class="side_bar">
     <div class="sidebar_content">
@@ -13,7 +14,7 @@
     </div>
   </div>
 </aside>
-
+<% } %>
 <script>
   function openPopup(event, url) {
     event.preventDefault();

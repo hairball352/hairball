@@ -52,9 +52,9 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 			<div class="side-menu">
 				<a href="<%=request.getContextPath()%>/admin/webChatList">채팅기록조회</a>
 			</div>
-            <hr class="side-hr" />
+			<hr class="side-hr" />
 			<div class="side-menu">
-				<a href="<%= request.getContextPath() %>/admin/AdminChat">현재채팅상담</a>
+				<a href="<%= request.getContextPath() %>/admin/AdminChat">관리자채팅상담</a>
 			</div>
 			<hr class="side-hr" />
 		</div>

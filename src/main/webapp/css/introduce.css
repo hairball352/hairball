@@ -19,36 +19,6 @@
     text-align: center;
 }
 
-
-
-.animalList {
-	justify-content : center;
-	align-content: center;
-}
-.animalList ul {
-  display: flex;
-  justify-content:center;
-  flex-wrap: nowrap; /* 가로로 배치되도록 설정 */
-  list-style: none; /* 리스트의 기본 마커 제거 */
-  padding: 0;
-}
-#enroll th{
-	vertical-align: middle;
-}
-#enroll tr{
-	height : 30px;
-}
-#enroll input[type="text"],
-textarea {
-  width: 70%; /* 너비를 100%로 지정 */
-  box-sizing: border-box; /* 패딩과 테두리를 포함한 전체 너비로 계산 */
-}
-.animalList ul li {
-  flex: 1; /* 각 항목이 동일한 너비를 가지도록 설정 */
-  margin-top: 25px; /* 각 항목 사이에 간격 설정 */
-  margin-right: 60px;
-}
-
 .checked-title2 {
     font-size: 35px;
     font-weight: 500;

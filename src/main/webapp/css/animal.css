@@ -1,152 +1,253 @@
 .animal-container {
-    display: flex;
-    justify-content: space-around
+	display: flex;
+	justify-content: space-around
 }
 
 .animal-sidebar {
-    margin-top: 30px;
-    width: 30%;
-    text-align: center;
+	margin-top: 30px;
+	width: 30%;
+	text-align: center;
 }
 
 .animal-detail-div {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
-
 
 /* 테이블 영역 */
 .table-container {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .table-container tr {
-    padding: 30px;
-    border: 1px solid rgb(116, 116, 116);
+	padding: 30px;
+	border: 1px solid rgb(116, 116, 116);
 }
 
 .table-container th {
-    background-color: #bcd9d1;
-    border: 1px solid rgb(116, 116, 116);
-    font-weight: 700;
-    padding: 15px;
+	background-color: #bcd9d1;
+	border: 1px solid rgb(116, 116, 116);
+	font-weight: 700;
+	padding: 15px;
 }
 
 .side-menu {
-    font-size: 20px;
-    margin: 10px;
-    z-index: 999;
+	font-size: 20px;
+	margin: 10px;
+	z-index: 999;
 }
 
-
 .side-hr {
-    border: 0;
-    height: 2.5px;
-    background: #e3e3e3;
-    width: 250px;
+	border: 0;
+	height: 2.5px;
+	background: #e3e3e3;
+	width: 250px;
 }
 
 .section-hr {
-    background: #b0b0b0;
-    width: 1200px;
+	background: #b0b0b0;
+	width: 1200px;
 }
-
 
 /* 입양신청 게시판 List */
 .animal-section {
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 table#tbl-adopboard {
-    width: 700px;
-    padding: 15px;
-    text-align: center;
+	width: 700px;
+	padding: 15px;
+	text-align: center;
 }
 
 table#tbl-adopboard td {
-    border-bottom: 1px solid #e3e3e3;
+	border-bottom: 1px solid #e3e3e3;
 }
 
 table#tbl-adopboard tr td {
-    margin: 20px;
-    padding: 10px;
+	margin: 20px;
+	padding: 10px;
 }
 
 .adoption-section {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    width: 100%
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+	width: 100%
 }
 
 .animal-detail-section {
-    display: flex;
+	display: flex;
 }
 
-
 /* 입양신청 게시글 작성 페이지 */
-
-.adoption-board {}
+.adoption-board {
+	
+}
 
 .adoption-board-section {
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .adoption-container {
-    display: flex;
-    margin-left: 130px;
+	display: flex;
+	margin-left: 130px;
 }
 
 #guide-text {
-    font-size: 17px;
-    margin-bottom: 20px;
+	font-size: 17px;
+	margin-bottom: 20px;
 }
 
 .adoption-board-table {
-    width: 630px;
-    table-layout: fixed;
-    margin: 30px;
-    text-align: center;
+	width: 630px;
+	table-layout: fixed;
+	margin: 30px;
+	text-align: center;
 }
 
 .adoption-board-table tr td:first-child {
-    background-color: #bcd9d1;
-    padding: 10px;
+	background-color: #bcd9d1;
+	padding: 10px;
 }
 
 .adoption-board-table td {
-    font-weight: 700;
+	font-weight: 700;
 }
 
 .adop-bottom-div {
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 200px;
+	display: flex;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 200px;
 }
 
 #adop-btn {
-    margin-left: 400px;
-    width: 60px;
-    height: 23px;
-    background: rgb(95, 171, 149);
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(80, 152, 131);
-    border-image: initial;
+	margin-left: 400px;
+	width: 60px;
+	height: 23px;
+	background: rgb(95, 171, 149);
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(80, 152, 131);
+	border-image: initial;
 }
 
 /* 마우스 오버 시 글자색 바꾸기 효과*/
 #tbl-adopboard .list-title:hover a {
-  color: rgb(80, 152, 131); 
+	color: rgb(80, 152, 131);
 }
 
-/* 입양신청서 상세보기 페이지 */
-#adoption-detail-table {}
+/* 동물 상세보기 페이지 */
+/* 테이블 스타일 */
+#detail-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+/* 테이블 헤더 스타일 */
+#detail-table thead th {
+	padding: 10px;
+	text-align: left;
+	background-color: #f2f2f2;
+	border: 1px solid #ddd;
+}
+
+/* 테이블 셀 스타일 */
+#detail-table tbody td {
+	padding: 10px;
+	border: 1px solid #ddd;
+}
+
+/* 테이블 셀 내부의 이미지 스타일 */
+#detail-table tbody td img {
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+/* 첫 번째 열(입양상태, 동물등록번호, 견종, 성별, 나이, 몸무게, 발견장소) 스타일 */
+#detail-table tbody tr:nth-child(1) th:nth-child(-n+4), #detail-table tbody tr:nth-child(2) th:nth-child(-n+4),
+	#detail-table tbody tr:nth-child(3) th:nth-child(-n+4), #detail-table tbody tr:nth-child(4) th:nth-child(-n+4)
+	{
+	background-color: #f2f2f2;
+	text-align: center;
+	border: 1px solid #ddd;
+}
+
+/* 두 번째 열부터의 내용 스타일 */
+#detail-table tbody tr:nth-child(n+2) td {
+	text-align: center;
+	border: 1px solid #ddd;
+}
+
+/* 첫 번째 열의 내용 스타일 */
+#detail-table tbody tr td:first-child {
+	text-align: center;
+	border: 1px solid #ddd;
+}
+
+/* 테이블 전체의 스타일 */
+#detail-table th, #detail-table td {
+	font-size: 14px;
+}
+
+/* 입양 신청 게시글 상세 테이블 */
+/* 테이블 스타일 */
+#adoption-detail-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+/* 테이블 헤더 스타일 */
+#adoption-detail-table thead td {
+	padding: 10px;
+	text-align: left;
+	background-color: #f2f2f2;
+	border: 1px solid #ddd;
+}
+
+/* 테이블 셀 스타일 */
+#adoption-detail-table tbody td {
+	padding: 10px;
+	border: 1px solid #ddd;
+}
+
+/* 테이블 셀 내부의 이미지 스타일 */
+#adoption-detail-table tbody td img {
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+/* 첫 번째 열 스타일 */
+#adoption-detail-table tbody tr td:first-child {
+	text-align: center;
+	border: 1px solid #ddd;
+}
+
+/* 두 번째 열 스타일 */
+#adoption-detail-table tbody tr td:nth-child(2) {
+	text-align: center;
+	border: 1px solid #ddd;
+}
+
+/* 테이블 전체의 스타일 */
+#adoption-detail-table td {
+	font-size: 14px;
+}
+
+/* 상세 동물 페이지로 이동하기 링크 스타일 */
+#adoption-detail-table a {
+	text-decoration: none;
+	color: #337ab7;
+}

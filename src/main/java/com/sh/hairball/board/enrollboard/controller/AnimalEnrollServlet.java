@@ -80,9 +80,10 @@ public class AnimalEnrollServlet extends HttpServlet {
 		animal.setDiscoveryPlace(discovery_place);
 		animal.setNeutered(IsNeutured.equals("Y") ? 1 : 0);
 		animal.setPblId(reg_no);
-		animal.setState(note);
+		animal.setState("0");
 		animal.setSex(sex.equals("M") ? Sex.M : Sex.F);
 		animal.setSpecies(species);
+		animal.setNote(note);
 		animal.setWeight(Double.parseDouble(weight));
 		
 		System.out.println(animal + "@ servlet");

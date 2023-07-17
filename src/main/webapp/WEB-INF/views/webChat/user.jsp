@@ -1,3 +1,5 @@
+<%@page import="com.sh.hairball.member.model.vo.Member"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,6 +10,9 @@
 	href="<%=request.getContextPath()%>/css/webchat.css" />
 	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
 </head>
+	<%
+	String loginMember = (String)request.getAttribute("loginMemberName");
+	%>
 <body>
 	<!-- 채팅 영역 -->
 	<div class="template">
@@ -37,7 +42,8 @@
 		// 접속이 완료되면
 		webSocket.onopen = function(message) {
 			// 콘솔에 메시지를 남긴다.
-			messageTextArea.value += temp;
+			let temp = "<%= loginMember %>";
+			messageTextArea.value += "✨" + temp + "님 환영합니다✨ \n\n관리자가 접속 중입니다. 잠시만 기다려주세요.\n";
 		};
 		// 접속이 끝기는 경우는 브라우저를 닫는 경우이기 때문에 이 이벤트는 의미가 없음.
 		webSocket.onclose = function(message) {
@@ -56,15 +62,10 @@
 			// 콘솔에 메시지를 남긴다.
 			messageTextArea.value += "error...\n";
 		};
-		// 서버로부터 메시지가 도착하면 콘솔 화면에 메시지를 남긴다.
-		webSocket.onmessage = function(message) {
-			var messageDiv = document.createElement("div");
-			messageDiv.className = "messageContainer";
-			messageDiv.textContent = "(operator) => " + message.data;
-			messageContainer.appendChild(messageDiv);
-			messageContainer.scrollTop = messageContainer.scrollHeight;
-		};
-
+		 // 서버로부터 메시지가 도착하면 콘솔 화면에 메시지를 남긴다.
+	    webSocket.onmessage = function(message) {
+	      messageTextArea.value += "\n관리자 : " + message.data + "\n";
+	    };
 		//채팅 기록을 저장할 배열을 추가
 		var chatHistoryAll = [];
 
@@ -74,7 +75,7 @@
 			// 텍스트 박스의 객체를 가져옴
 			let message = document.getElementById("textMessage");
 			// 콘솔에 메세지를 남긴다.
-			messageTextArea.value += "(me) => " + message.value + "\n";
+			messageTextArea.value += "\n나 : " + message.value + "\n";
 			chatHistoryAll.push(message.value); // 메시지를 채팅 기록에 추가
 			// 소켓으로 보낸다.
 			webSocket.send(message.value);
@@ -92,7 +93,7 @@
 			}
 			return true;
 		}
-		// 이 함수는 chatHistory 배열을 서버에 전송하고, 서버는 이 배열을 데이터베이스에 저장
+		// chatHistory 배열을 서버에 전송하고, 서버는 이 배열을 데이터베이스에 저장하는 함수
 		function saveChatHistoryToDB() {
 			$.ajax({
 				url: "/hairball/saveChatHistory",
@@ -108,6 +109,34 @@
 				}
 			});
 		}
+		
+		// 페이지가 로드되었을 때 채팅 기록을 가져오는 함수
+		function loadChatHistoryFromDB() {
+			$.ajax({
+				url: "/hairball/loadChatHistory", // 채팅 기록을 불러오는 서버의 endpoint
+				type: "GET",
+				success: function(response) {
+					// 서버로부터 받아온 채팅 내역을 화면에 추가
+					for(let i = 0; i < response.length; i++) {
+						let messageDiv = document.createElement("div");
+						messageDiv.className = "messageContainer";
+						// 서버로부터 받은 메시지 내용을 div에 추가
+						messageDiv.textContent = response[i].message;
+						messageContainer.appendChild(messageDiv);
+					}
+					// 스크롤을 최하단으로 이동 (최근 메시지 보기)
+					messageContainer.scrollTop = messageContainer.scrollHeight;
+				},
+				error: function(xhr, status, error) {
+					console.log("db 로딩 실패ㅠㅠ: " + status, error);
+				}
+			});
+		}
+
+		// 페이지 로드가 완료되면 채팅 기록을 불러옵니다.
+		$(document).ready(function() {
+			loadChatHistoryFromDB();
+		});
 	</script>
 </body>
 </html>

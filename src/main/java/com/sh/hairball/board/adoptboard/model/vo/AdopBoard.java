@@ -5,7 +5,7 @@ import com.sh.hairball.animal.model.vo.Animal;
 
 public class AdopBoard extends AdopBoardEntity{
 	Animal animal; // 입양신청서에 적어낸 동물
-
+	
 	public AdopBoard() {
 		super();
 	}
