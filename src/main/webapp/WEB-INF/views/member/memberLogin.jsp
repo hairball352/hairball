@@ -28,7 +28,7 @@
 							</div>
 						</div>
 						<div class="login_btn">
-							<input id="btn1" type="submit" tabindex="3" value="로그인">
+							<input id="btn1" type="submit" tabindex="3" value="로그인" onclick="loginsingup();">
 							<input type="button" id="btn2" value="회원가입" onclick="location.href='<%=request.getContextPath()%>/member/memberEnroll';">
 						</div>
 					</td>
@@ -59,4 +59,18 @@
 		%>
 	</div>
 </section>
+<script>
+
+
+const loginsingup = () => {
+	const target = document.getElementById("btn2");
+	
+	if(loginMember != null ){
+		target.style.display = "none";
+	} else{
+		target.style.display = "inline-block";
+	}	
+};
+
+</script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>
