@@ -52,7 +52,6 @@ public class EnrollBoardService {
 		}
 		return result;
 	}
-
 	public int deleteBoard(int enrollBoardId) { 
 		Connection conn = getConnection();
 		int result = 0;

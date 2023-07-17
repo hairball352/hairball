@@ -107,3 +107,4 @@ build/classes/com/sh/hairball/oauth/controller/KakaoLoginServlet.class
 build/classes/com/sh/hairball/oauth/controller/KakaoLoginServlet.class
 build/classes/com/sh/hairball/oauth/model/service/OAuth2Service.class
 *.class
+*.class

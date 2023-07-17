@@ -139,7 +139,6 @@ public class EnrollBoardDao {
 		return attach;
 	}
 
-
 	public int deleteBoard(Connection connection, int enrollBoardId) {
 		int result = 0;
 		String sql = prop.getProperty("deleteBoard");
@@ -153,4 +152,5 @@ public class EnrollBoardDao {
 		
 		return result;
 	}
+	
 }
