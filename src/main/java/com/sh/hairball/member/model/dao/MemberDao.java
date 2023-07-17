@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import com.sh.hairball.board.adoptboard.model.exception.AdopBoardException;
+import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
 import com.sh.hairball.member.model.exception.MemberException;
 import com.sh.hairball.member.model.vo.Member;
 import com.sh.hairball.member.model.vo.MemberRole;
@@ -166,6 +168,23 @@ public class MemberDao {
 
         return members;
     }
+
+	public Member findByEmail(Connection conn, String email) {
+		Member member = null;
+		String sql = prop.getProperty("findByEmail");
+		
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, email);
+			try (ResultSet rset = pstmt.executeQuery()) {
+				if (rset.next())
+					member = handleMemberResultSet(rset);
+			}
+		} catch (SQLException e) {
+			throw new MemberException(e);
+		}
+		
+		return member;
+	}
 
 
 

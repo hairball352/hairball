@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.sh.hairball.animal.model.dao.AnimalDao;
 import com.sh.hairball.animal.model.vo.Animal;
+import com.sh.hairball.animal.model.vo.AnimalEntity;
 import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoardDto;

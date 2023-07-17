@@ -4,6 +4,8 @@ package com.sh.hairball.member.model.service;
 import java.sql.Connection;
 import java.util.List;
 
+import com.sh.hairball.animal.model.vo.AnimalEntity;
+import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
 import com.sh.hairball.member.model.dao.MemberDao;
 import com.sh.hairball.member.model.vo.Member;
 import com.sh.hairball.member.model.vo.MemberRole;
@@ -98,4 +100,11 @@ public class MemberService {
         close(conn);
         return members;
     }
+
+	public Member findByEmail(String email) {
+		Connection conn = getConnection();
+		Member member = memberDao.findByEmail(conn, email);
+		close(conn);
+		return member;
+	}
 }
