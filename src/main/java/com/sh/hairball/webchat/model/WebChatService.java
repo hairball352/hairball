@@ -14,25 +14,25 @@ public class WebChatService {
 
     private final WebChatDao webChatDao = new WebChatDao();
 
-    public int insertWebChat(Chat chat) {
+    public int insertWebChat(WebChat webchat) {
         int result = 0;
         Connection conn = getConnection();
         try {
         	
         	// Chat 테이블의 컨텐츠 추가
-            result = webChatDao.insertWebChat(conn, chat);
+            result = webChatDao.insertWebChat(conn, webchat);
             
             // memeber.no를 조회
             int memberId = webChatDao.getLastMemberId(conn);
-            chat.setId(memberId);
+            webchat.setId(memberId);
             System.out.println("memberId = " + memberId);
             
             // webChat 테이블 추가
-            List<WebChat> webchats = chat.getContents();
+            List<WebChat> webchats = webchat.getContents();
             if(webchats != null && !webchats.isEmpty()) {
             	for(WebChat webchat : webchats) {
-            		chat.setId(memberId);
-            		result = webChatDao.insertWebChat(conn, chat);
+            		webchat.setId(memberId);
+            		result = webChatDao.insertWebChat(conn, webchat);
             	}
             }
       
