@@ -149,7 +149,7 @@ public class EnrollBoardDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+		System.out.println("result in dao"+result);
 		return result;
 	}
 	

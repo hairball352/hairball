@@ -56,7 +56,7 @@ public class EnrollBoardService {
 		Connection conn = getConnection();
 		int result = 0;
 		try {
-			result = enrollBoardDao.deleteBoard(conn,enrollBoardId);
+			result = enrollBoardDao.deleteBoard(conn, enrollBoardId);
 			commit(conn);
 		} catch (Exception e) {
 			rollback(conn);
