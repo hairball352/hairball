@@ -35,6 +35,7 @@ public class MemberDao {
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, memberId);
             try (ResultSet rset = pstmt.executeQuery()) {
+            	System.out.println(rset.next());
                 while (rset.next()) {
                     member = handleMemberResultSet(rset);
                 }

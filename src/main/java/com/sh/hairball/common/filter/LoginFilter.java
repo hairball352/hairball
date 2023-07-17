@@ -20,10 +20,13 @@ import com.sh.hairball.member.model.vo.Member;
  */
 @WebFilter({ 
 	"/member/memberDetail", 
-	"/member/memberUpdate",  
-	"/member/memberDelete", 
+	"/member/memberUpdate", 
+	"/member/memberDelete",
 	"/qnaBoard/questionCreate",
-	"/animal/animalAdoptionBoardCreate",
+	"/qnaBoard/questionDelete",
+	"/qnaBoard/questionDetail",
+	"/qnaBoard/answerCreate",
+	"/qnaBoard/answerDelete",
 })
 public class LoginFilter extends HttpFilter implements Filter {
        

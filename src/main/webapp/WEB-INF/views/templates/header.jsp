@@ -7,6 +7,26 @@
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="java.security.SecureRandom" %>
 
+<%
+  String msg = (String) session.getAttribute("msg"); 
+   if(msg != null){ 
+      session.removeAttribute("msg"); 
+   }
+  Member loginMember = (Member)session.getAttribute("loginMember");
+      
+  Cookie[] cookies = request.getCookies(); 
+   String saveId = null;
+   if(cookies != null){                 
+      for(Cookie cookie : cookies){
+         String name = cookie.getName();  
+         String value = cookie.getValue();
+         if("saveId".equals(name))
+            saveId = value;   
+      }
+   } 
+%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,36 +49,41 @@
 	<script src="<%= request.getContextPath() %>/js/ws.js"></script>		
     <title>유기견/유기묘 입양 사이트</title>
 </head>
-<%
 
-  
-  String msg = (String) session.getAttribute("msg"); 
-   if(msg != null){ 
-      session.removeAttribute("msg"); // msg해야 로그인필터 거쳐서 "로그인 후 이용해주세요"가 뜹니다 아시겠죠
-   }
-  Member loginMember = (Member)session.getAttribute("loginMember");
-      
-  Cookie[] cookies = request.getCookies(); 
-   String saveId = null;
-   if(cookies != null){                 
-      for(Cookie cookie : cookies){
-         String name = cookie.getName();  
-         String value = cookie.getValue();
-         if("saveId".equals(name))
-            saveId = value;   
-      }
-   }
-%>
 
    
 <body>
 
 <script>
-  window.onload = () => {
-  <% 	if(msg != null) { %>
-	alert('<%= msg %>');
-  <% 	} %>
-}
+window.onload = () => {
+		
+	<% 	if(msg != null) { %>
+		alert('<%= msg %>');
+	<% 	} %>	
+		
+	<% 	if(loginMember == null) { %>	
+		document.loginFrm.onsubmit = (e) => {
+			// 아이디
+			console.log(memberId);
+			console.log(memberId.value);
+			const memberId = e.target.memberId;
+			if(!/^\w{4,}$/.test(memberId.value)) {
+				alert(" 아이디 또는 비밀번호를 잘못 입력했습니다.");
+				e.preventDefault();
+				return;
+			}
+			
+			// 비밀번호
+			const password = e.target.password;
+			if(!/^.{4,}$/.test(password.value)) {
+				alert(" 아이디 비밀번호를 잘못 입력했습니다.");
+				e.preventDefault();
+				return;
+			}
+		}
+	<% 	} %>
+	};
+
 </script>
 
 <header>
@@ -87,7 +112,7 @@
             %>
             <%if(loginMember == null){ %>
             <li class="signup_li">
-                <a href="<%= request.getContextPath() %>/member/memberEnroll">회원가입</a>
+                <a href="<%= request.getContextPath() %>/member/terms">회원가입</a>
             </li>
             <% } %>
 			<% if (loginMember != null) { %>
