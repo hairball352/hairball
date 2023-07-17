@@ -103,6 +103,12 @@
 }
 
 /* 회원가입 관련 css*/
+
 #enroll-table {
 
+}
+/* 아이디 중복검사 css*/
+
+#checkId-container{
+	border: none;
 }

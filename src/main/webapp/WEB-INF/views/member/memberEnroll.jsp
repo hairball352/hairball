@@ -39,6 +39,7 @@
           <input type="text" placeholder="이름" name="name" id="name" value="" required><br>
         </td>
       </tr>
+      <tr>
         <th>이메일</th>
         <td>
           <input type="email" placeholder="비밀번호 분실 시 확인용 이메일" name="email" id="email" value=""><br>
@@ -48,6 +49,12 @@
         <th>휴대폰<sup>*</sup></th>
         <td>
           <input type="tel" placeholder="휴대전화번호" name="phone" id="phone" maxlength="11" value="" required><br>
+        </td>
+      </tr>
+      <tr>
+        <th>주소<sup>*</sup></th>
+        <td>
+          <input type="address" placeholder="주소" name="address" id="address" maxlength="11" value="" required><br>
         </td>
       </tr>
     </table>
@@ -94,6 +101,7 @@
     const passwordConfirmation = e.target.querySelector("#passwordConfirmation");
     const name = e.target.name;
     const phone = e.target.phone;
+    const addrerss = e.target.address;
     const idValid = document.querySelector("#idValid");
 
     // 아이디 검사 - 영문자/숫자 4글자 이상
