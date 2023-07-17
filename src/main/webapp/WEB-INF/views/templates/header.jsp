@@ -87,11 +87,11 @@
                 <a href="<%= request.getContextPath() %>/member/memberEnroll">회원가입</a>
             </li>
             <% } %>
-         <% if (loginMember != null) { %>
-             <li class="logout_li">
-                 <a href="<%= request.getContextPath() %>/member/logout">로그아웃</a>
-             </li>
-         <% } %>
+			<% if (loginMember != null) { %>
+			    <li class="logout_li">
+			        <a href="<%= request.getContextPath() %>/member/logout">로그아웃</a>
+			    </li>
+			<% } %>
         </ul>
         <div class="menu-container">
             <ul class="nav">

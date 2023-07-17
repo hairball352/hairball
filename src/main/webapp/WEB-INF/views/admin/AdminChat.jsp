@@ -11,13 +11,13 @@
                 <hr class="side-hr" />
                 <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/webChatList">채팅기록조회</a></div>
                 <hr class="side-hr" />
-                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/AdminChat">현재채팅상담</a></div>
+                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin">관리자채팅상담</a></div>
                 <hr class="side-hr" />
             </div>
 
 
 <div class="introduce01-detail-section animalList" style="width:950px">
-		<div class="checked-title2">현재 채팅 상담 신청</div>
+		<div class="checked-title2">관리자채팅상담</div>
 		<hr class="section-hr" />
 		
 		

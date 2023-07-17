@@ -71,17 +71,19 @@ public class AnimalDao {
 	public int insertAnimal(Connection conn, Animal animal) {
 		int result = 0;
 		String sql = prop.getProperty("insertAnimal");
+		//insertAnimal = insert into animal (id, age , discvry_plc , animal_type , species , weight , pbl_id , state , sex , neutered, note ) values (seq_animal_id.nextval , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)
 		try(
 			PreparedStatement preparedStatement = conn.prepareStatement(sql)){
 			preparedStatement.setInt(1, animal.getAge());
 			preparedStatement.setString(2, animal.getDiscoveryPlace());
 			preparedStatement.setString(3, animal.getAnimalType().name());
 			preparedStatement.setString(4, animal.getSpecies());
-			preparedStatement.setFloat(4, (float)animal.getWeight());
-			preparedStatement.setString(5, animal.getPblId());
-			preparedStatement.setString(6, animal.getState());
-			preparedStatement.setString(7, animal.getSex().name());
-			preparedStatement.setInt(8, animal.getNeutered());
+			preparedStatement.setFloat(5, (float)animal.getWeight());
+			preparedStatement.setString(6, animal.getPblId());
+			preparedStatement.setString(7, animal.getState());
+			preparedStatement.setString(8, animal.getSex().name());
+			preparedStatement.setInt(9, animal.getNeutered());
+			preparedStatement.setString(10, animal.getNote());
 			
 			result = preparedStatement.executeUpdate();
 		} catch (SQLException e) {

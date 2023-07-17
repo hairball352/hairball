@@ -59,7 +59,7 @@
 
 		// 에러가 발생하면
 		webSocket.onerror = function(message) {
-			// 콘솔에 메시지를 남긴다.
+		// 콘솔에 메시지를 남긴다.
 			messageTextArea.value += "error...\n";
 		};
 		 // 서버로부터 메시지가 도착하면 콘솔 화면에 메시지를 남긴다.
