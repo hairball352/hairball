@@ -30,8 +30,6 @@ public class MemberLoginServlet extends HttpServlet {
 		String memberId = request.getParameter("memberId");
 
 		String saveId = request.getParameter("saveId");
-		System.out.println("memberId = " + memberId);
-		System.out.println("saveId = " + saveId);
 
 		Member member = memberService.findById(memberId);
 
@@ -55,7 +53,6 @@ public class MemberLoginServlet extends HttpServlet {
 //                session.setAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
 		}
 
-		System.out.println("memberServlet@member = " + member);
 
 		// 3. 응답처리
 		response.sendRedirect(request.getContextPath() + "/"); // redirect를 통한 url변경

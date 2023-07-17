@@ -12,6 +12,7 @@
 </head>
 	<%
 	String loginMember = (String)request.getAttribute("loginMemberName");
+	Member loginMember2 = (Member) session.getAttribute("loginMember");
 	%>
 <body>
 	<!-- 채팅 영역 -->
@@ -112,10 +113,15 @@
 		
 		// 페이지가 로드되었을 때 채팅 기록을 가져오는 함수
 		function loadChatHistoryFromDB() {
+			let memberId = '<%=loginMember2.getId()%>';
+		    console.log(memberId);
+		    
 			$.ajax({
-				url: "/hairball/loadChatHistory", // 채팅 기록을 불러오는 서버의 endpoint
-				type: "GET",
+				url: '<%=request.getContextPath()%>/loadChatHistory',
+				type: 'GET',
+                data: {memberId: memberId},
 				success: function(response) {
+		            var memberId = response.memberId;
 					// 서버로부터 받아온 채팅 내역을 화면에 추가
 					for(let i = 0; i < response.length; i++) {
 						let messageDiv = document.createElement("div");

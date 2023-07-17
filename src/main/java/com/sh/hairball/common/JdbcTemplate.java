@@ -42,7 +42,6 @@ public class JdbcTemplate {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, user, password);
-            System.out.println(conn);
             conn.setAutoCommit(false);
         } catch (SQLException e) {
             e.printStackTrace();
