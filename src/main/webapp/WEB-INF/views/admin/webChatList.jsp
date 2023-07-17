@@ -154,7 +154,32 @@ $(document).ready(function(){
         }
     });
 });
+
+//페이지가 로드되었을 때 채팅 기록을 가져오는 함수
+function loadChatHistoryFromDB() {
+	$.ajax({
+		url: "/hairball/loadChatHistory", // 채팅 기록을 불러오는 서버의 endpoint
+		type: "GET",
+		success: function(response) {
+			// 서버로부터 받아온 채팅 내역을 화면에 추가
+			for(let i = 0; i < response.length; i++) {
+				let messageDiv = document.createElement("div");
+				messageDiv.className = "messageContainer";
+				// 서버로부터 받은 메시지 내용을 div에 추가
+				messageDiv.textContent = response[i].message;
+				messageContainer.appendChild(messageDiv);
+			}
+			// 스크롤을 최하단으로 이동 (최근 메시지 보기)
+			messageContainer.scrollTop = messageContainer.scrollHeight;
+		},
+		error: function(xhr, status, error) {
+			console.log("db 로딩 실패ㅠㅠ: " + status, error);
+		}
+	});
+}
 </script>
+
+
 <script>
 document.querySelector("select#searchType").onchange = (e) => {
 	console.log(e.target.value);
