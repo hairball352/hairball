@@ -1,22 +1,23 @@
 package com.sh.hairball.animal.model.vo;
 
 public class Animal extends AnimalEntity{
-	String originalFileName;
+	String renamedFileName;
 
 	// 기본생성자
-	public Animal() {};
-	
-	public String getOriginalFileName() {
-		return originalFileName;
+	public Animal() {}
+
+	public String getRenamedFileName() {
+		return renamedFileName;
 	}
 
-	public void setOriginalFileName(String originalFileName) {
-		this.originalFileName = originalFileName;
+	public void setRenamedFileName(String renamedFileName) {
+		this.renamedFileName = renamedFileName;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "Animal [originalFileName=" + originalFileName + "]";
-	}
+		return "Animal [renamedFileName=" + renamedFileName + "]";
+	};
+	
 	
 }

@@ -39,7 +39,7 @@ public class AnimalDao {
 			try (ResultSet rset = pstmt.executeQuery()) {
 				if (rset.next()) {
 					animal = handleAnimalResultSet(rset);
-					animal.setOriginalFileName(rset.getString("renamed_filename"));
+					animal.setRenamedFileName(rset.getString("renamed_filename"));
 				}
 			}
 		} catch (SQLException e) {

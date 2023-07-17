@@ -32,7 +32,7 @@
 				<table id="adoption-detail-table">
 					<thead>
 						<tr>
-							<td><img src="">동물사진</td>
+							<td colspan="2"><img src="<%= request.getContextPath() %>/upload/animal/<%= animal.getRenamedFileName()%>"></td>
 						</tr>
 					</thead>
 					<tbody>

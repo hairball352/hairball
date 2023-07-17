@@ -2,6 +2,7 @@ package com.sh.hairball.board.adoptboard.controller;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,10 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sh.hairball.animal.model.service.AnimalService;
 import com.sh.hairball.animal.model.vo.Animal;
-import com.sh.hairball.animal.model.vo.AnimalEntity;
 import com.sh.hairball.board.adoptboard.model.service.AdoptionService;
 import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
-import com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity;
 
 /**
  * Servlet implementation class AnimalAdoptionCreateServlet
@@ -38,14 +37,17 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int animalId = Integer.parseInt(request.getParameter("animalId"));
+		String animalPblId = request.getParameter("animalPblId");
+		
+		List<Animal> animal = animalService.findByPblId(animalPblId);
+		
 		int memberId = Integer.parseInt(request.getParameter("memberId"));
 		String _visitDate = request.getParameter("visitDate");
 		Date visitDate = Date.valueOf(_visitDate);
 		
 		AdopBoard adopBoard = new AdopBoard();
 		
-		adopBoard.setAnimalId(animalId);
+		adopBoard.setAnimalId(animal.get(0).getId());
 		adopBoard.setMemberId(memberId);
 		adopBoard.setVisitDate(visitDate);
 		
