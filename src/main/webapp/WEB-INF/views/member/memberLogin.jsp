@@ -112,7 +112,7 @@ const loginBtn = () => {
 };
 
 const enrollBtn = () => {
-   location.href='<%=request.getContextPath()%>/member/memberEnroll';
+   location.href='<%=request.getContextPath()%>/member/terms';
 };
 
 window.onload = () => {

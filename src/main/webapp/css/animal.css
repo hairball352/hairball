@@ -88,7 +88,9 @@ table#tbl-adopboard tr td {
 }
 
 /* 입양신청 게시글 작성 페이지 */
-.adoption-board {}
+.adoption-board {
+	text-align: center;
+}
 
 .adoption-board-section {
 	display: flex;
@@ -109,7 +111,9 @@ table#tbl-adopboard tr td {
 .adoption-board-table {
 	width: 630px;
 	table-layout: fixed;
-	margin: 30px;
+	margin-left: 200px;
+	margin-top: 20px;
+	margin-bottom: 50px;
 	text-align: center;
 }
 
@@ -259,4 +263,10 @@ table#tbl-adopboard tr td {
 /* 동물 상세페이지의 프로필 이미지 */
 #animal-profile-img {
 	width: 250px;	
+}
+
+
+#adopt-img {
+	width: 200px;
+	border-radius: 30%;
 }

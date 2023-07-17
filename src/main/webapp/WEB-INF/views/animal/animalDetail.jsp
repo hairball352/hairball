@@ -39,7 +39,7 @@
 					<tbody>
 						<tr>
 							<th colspan="4">입양상태
-								<td colspan="6" id="state"><%=animal.getState() %></td>
+								<td colspan="6" id="state"><%= (animal.getState().equals("0")) ? "보호중" : "입양완료" %></td>
 							</th>
 							<th colspan="4">동물등록번호
 								<td colspan="6" id="pblId"><%=animal.getPblId()%></td>
