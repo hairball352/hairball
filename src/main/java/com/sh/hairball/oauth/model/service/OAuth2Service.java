@@ -66,6 +66,7 @@ public class OAuth2Service {
 
         Member member = memberService.findById("KaKao"+(String)UserInfo.get("nickname"));
         if(member == null) {
+        	member = new Member();
 	        member.setMemberId("KaKao"+(String)UserInfo.get("nickname"));
 	        member.setPassword("KaKao"+(String)UserInfo.get("nickname"));
 	        member.setName((String)UserInfo.get("nickname"));

@@ -62,9 +62,9 @@ public class MemberDao {
         int result = 0;
         String sql = prop.getProperty("insertMember");
         try (PreparedStatement pstmt = conn.prepareStatement(sql)){
-            pstmt.setString(1,newMember.getMemberId());
-            pstmt.setString(2,newMember.getPassword());
-            pstmt.setString(3,newMember.getName());
+            pstmt.setString(1, newMember.getMemberId());
+            pstmt.setString(2, newMember.getPassword());
+            pstmt.setString(3, newMember.getName());
             pstmt.setString(4, newMember.getEmail());
             pstmt.setString(5, newMember.getPhone());
             pstmt.setString(6, newMember.getAddress());
