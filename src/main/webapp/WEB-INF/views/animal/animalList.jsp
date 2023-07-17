@@ -30,7 +30,7 @@ List<EnrollBoardDto> animalBoardList= (List<EnrollBoardDto>) request.getAttribut
     		<ul>
     		<%
     	}%>
-    	<a href="<%= request.getContextPath() %>/animal/animalDetail?animalId=<%= animalBoardList.get(i).getAnimalId()%>">
+    	<a href="<%= request.getContextPath() %>/animal/animalDetail?no=<%= animalBoardList.get(i).getAnimalId()%>">
 	    	<li>
 		    	<img src="<%= request.getContextPath() %>/upload/animal/<%= animalBoardList.get(i).getRenamedFileName() %>" style="width:100px"/>
 		    	<p>고유번호 : <%= animalBoardList.get(i).getPbl_id() %></p>
