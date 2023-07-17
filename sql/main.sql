@@ -48,6 +48,7 @@ create table animal(
    state varchar(100),
    sex varchar(10),
    neutered number,
+   note varchar2(4000),
    constraints pk_animal_id primary key(id)
 );
 
