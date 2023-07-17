@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.sh.hairball.animal.model.dao.AnimalDao;
 import com.sh.hairball.animal.model.vo.Animal;
+import com.sh.hairball.animal.model.vo.AnimalEntity;
 import com.sh.hairball.attachment.model.vo.Attachment;
 import com.sh.hairball.board.adoptboard.model.dao.AdoptionDao;
 import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;

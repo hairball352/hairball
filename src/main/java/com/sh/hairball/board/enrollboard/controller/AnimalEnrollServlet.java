@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
 import com.sh.hairball.animal.model.vo.Animal;
+import com.sh.hairball.animal.model.vo.AnimalEntity;
 import com.sh.hairball.animal.model.vo.AnimalType;
 import com.sh.hairball.animal.model.vo.Sex;
 import com.sh.hairball.attachment.model.vo.Attachment;

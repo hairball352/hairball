@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sh.hairball.animal.model.service.AnimalService;
 import com.sh.hairball.animal.model.vo.Animal;
+import com.sh.hairball.animal.model.vo.AnimalEntity;
 
 @WebServlet("/animal/animalDetail")
 public class AnimalDetail extends HttpServlet {
@@ -19,7 +20,8 @@ public class AnimalDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     	int animalId = Integer.parseInt(req.getParameter("animalId"));
-    	System.out.println("animal ID @ animalDetail Controller"+animalId);
+    	Animal animal = animalService.findById(animalId);
+    	req.setAttribute("animal", animal);
         doPost(req, resp);
 
     }

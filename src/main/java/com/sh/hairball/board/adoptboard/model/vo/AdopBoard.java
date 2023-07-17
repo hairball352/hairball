@@ -1,6 +1,5 @@
 package com.sh.hairball.board.adoptboard.model.vo;
 
-import java.sql.Date;
 
 import com.sh.hairball.animal.model.vo.Animal;
 

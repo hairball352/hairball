@@ -21,9 +21,6 @@ public class AdminMemberFindServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String searchType = request.getParameter("searchType");
         String searchKeyword = request.getParameter("searchKeyword");
-        System.out.println("serchType = " + searchType);
-        System.out.println("serchKeyword = " + searchKeyword);
-
 
         List<Member> members = memberService.searchMember(searchType, searchKeyword);
         

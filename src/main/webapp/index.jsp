@@ -44,57 +44,50 @@
       <ul class="gallery">
         <li>
           <a href="#">
-            <img src="/hairball/images/홈/1.jpg" alt="호두1" />
+            <img src="/hairball/images/indexImg/1.jpg" alt="호두1" class="indexImg"/>
             <div class="gallery_text">
-              <p>호두1</p>
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/hairball/images/홈/2.jpg" alt="호두2" />
+            <img src="/hairball/images/indexImg/2.jpg" alt="호두2" class="indexImg"/>
             <div class="gallery_text">
-              <p>호두2</p>
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/hairball/images/홈/3.jpg" alt="호두3" />
+            <img src="/hairball/images/indexImg/3.jpg" alt="호두3" class="indexImg"/>
             <div class="gallery_text">
-              <p>호두3</p>
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/hairball/images/홈/4.jpg" alt="호두4" />
+            <img src="/hairball/images/indexImg/4.jpg" alt="호두4" class="indexImg"/>
             <div class="gallery_text">
-              <p>호두4</p>
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/hairball/images/홈/5.jpg" alt="호두5" />
+            <img src="/hairball/images/indexImg/5.jpg" alt="호두5" class="indexImg"/>
             <div class="gallery_text">
-              <p>호두5</p>
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/hairball/images/홈/6.jpg" alt="호두6" />
+            <img src="/hairball/images/indexImg/6.jpg" alt="호두6" class="indexImg"/>
             <div class="gallery_text">
-              <p>호두6</p>
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/hairball/images/홈/7.jpg" alt="호두7" />
+            <img src="/hairball/images/indexImg/7.jpg" alt="호두7" class="indexImg"/>
             <div class="gallery_text">
-              <p>호두7</p>
             </div>
           </a>
         </li>
@@ -119,14 +112,14 @@
 
 <script>
 window.addEventListener('load', () => {
-   removeBanner();
+	removeBanner();
 });
 
 const removeBanner = () => {
-   const banner = document.querySelector('.banner_img');
-     if (banner) {
-        banner.remove();
-     }
+	const banner = document.querySelector('.banner_img');
+	  if (banner) {
+		  banner.remove();
+	  }
 }
 </script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>
