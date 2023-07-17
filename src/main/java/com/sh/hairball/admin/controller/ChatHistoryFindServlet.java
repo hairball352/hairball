@@ -19,7 +19,7 @@ import com.sh.hairball.webchat.model.WebChatService;
  * Servlet implementation class ChatHistoryServlet
  */
 @WebServlet("/admin/getChatHistory")
-public class ChatHistoryServlet extends HttpServlet {
+public class ChatHistoryFindServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final WebChatService webChatService = new WebChatService();
     private final MemberService memberService = new MemberService();
