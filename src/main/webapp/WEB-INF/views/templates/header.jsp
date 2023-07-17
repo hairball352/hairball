@@ -23,6 +23,7 @@
 	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/hairball/css/animation.css" />
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 <%

@@ -84,7 +84,6 @@ video {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
@@ -196,8 +195,7 @@ body {
 
 /* 회원가입, 로그인 버튼 */
 .utility {
-    margin-right: 10%;
-    margin-left: auto;
+    margin-left: 805px;
     gap: 25px;
 }
 
@@ -323,22 +321,22 @@ body {
 
 /* 입양 가능 사진 슬라이드 버튼 */
 .button_box {
-    margin-left: 21.5%;
+    margin-left: 400px;
     cursor: pointer;
 }
 
 .prev_btn {
     width: 25px;
     position: absolute;
-    margin-top: -18.5%;
-    margin-left: -13%;
+    margin-top: -360px;
+    margin-left: -250px;
 }
 
 .next_btn {
     width: 25px;
     position: absolute;
-    margin-top: -18.5%;
-    margin-left: 67.5%;
+    margin-top: -360px;
+    margin-left: 1310px;
 }
 
 /* 카피라이터 */
@@ -392,3 +390,5 @@ footer p {
      display: flex;
      justify-content: center;
  }
+ 
+

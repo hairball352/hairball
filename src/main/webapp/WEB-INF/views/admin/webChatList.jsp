@@ -112,12 +112,11 @@
 	</table>
 </section>
 <script>
-  const memberRows = document.querySelectorAll('.member-row');
-  memberRows.forEach((row) => {
-    row.addEventListener('click', () => {
-      const chatRow = row.nextElementSibling;
-      const chatContainer = chatRow.querySelector('.chat-container');
-      const memberId = chatContainer.dataset.memberId;
+$(document).ready(function(){
+    $(".member-row").click(function(){
+        var $chatRow = $(this).next(".chat-row");
+        var memberId = $chatRow.find(".chat-container").data("member-id");
+        console.log(memberId);
 
       // 서비스를 통해 채팅 기록을 가져옴
       fetch(`/admin/getChatHistory?memberId=${memberId}`)
