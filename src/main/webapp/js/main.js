@@ -52,4 +52,48 @@ $(document).ready(function () {
       imgs.css("transform", `translateX(${-img_position * 290}px)`); // translateX를 사용하여 이미지 이동
     }
   }
+  
+	
+  });
+  
+  
+/*
+ 알림기능 - 대원
+ */
+  
+const ws = new WebSocket(`ws://${location.host}/hairball/QuestionWebSocket`); 
+// WebSocket 객체를 생성하고, 클라이언트에서 서버로 연결
+// 서버측 endpoint 연결
+console.log(location.host);
+
+ws.addEventListener('open', (e) => { // 연결이 열릴 때마다 'open' 이벤트가 발생
+	console.log('open: ', e);
+});
+
+ws.addEventListener('message', (e) => { // 메시지를 수신할 때마다 'message' 이벤트가 발생
+	console.log('message: ', e);
+	
+	const {messageType, message} = JSON.parse(e.data); // 수신한 메시지를 JSON 형식으로 파싱
+	
+	switch(messageType) {
+		case 'NEW_ANSWER' : // 새로운 게시글 댓글인 경우
+			const wrapper = document.querySelector("#notification");
+			const i = document.createElement("i");
+			i.classList.add("fa-solid", "fa-bell", "bell");
+			i.onclick = () => {
+				alert(message);
+				i.remove();
+			};
+			wrapper.append(i);
+			break;
+	}
+  
+});
+
+ws.addEventListener('error', (e) => {
+	console.log('error: ', e);
+});
+
+ws.addEventListener('close', (e) => {
+	console.log('close: ', e);
 });

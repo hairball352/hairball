@@ -396,4 +396,20 @@ footer p {
      justify-content: center;
  }
  
+/* 알림표시 */
+.bell {
+  transform-origin: top;
+  animation: bell 2s infinite linear;
+}
 
+@keyframes bell{
+  0%, 50%{
+    transform: rotate(0deg);
+    }
+  5%, 15%, 25%, 35%, 45% {
+    transform: rotate(13deg);
+  }
+  10%, 20%, 30%, 40% {
+    transform: rotate(-13deg);
+  }
+}

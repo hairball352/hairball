@@ -45,7 +45,6 @@ public class NotificationService {
 				payload.put("message", question.getTitle() + "(" + question.getId() + "번) 질문에 답변이 달렸습니다.");
 				basic.sendText(new Gson().toJson(payload));
 				
-				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

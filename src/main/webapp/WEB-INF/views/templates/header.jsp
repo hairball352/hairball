@@ -7,25 +7,6 @@
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="java.security.SecureRandom" %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/hairball/css/index.css" />
-    <link rel="stylesheet" href="/hairball/css/animal.css" />
-    <link rel="stylesheet" href="/hairball/css/aside.css" />
-    <link rel="stylesheet" href="/hairball/css/swiper.css" />
-    <link rel="stylesheet" href="/hairball/css/introduce.css" />
-    <link rel="stylesheet" href="/hairball/css/memberLogin.css" />
-    <link rel="stylesheet" href="/hairball/css/procedure.css" />
-    <link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <title>유기견/유기묘 입양 사이트</title>
-</head>
 <%
   String clientId = "9kBGa_4PSPHg5IPpNrhO";//애플리케이션 클라이언트 아이디값
   String redirectURI = URLEncoder.encode("http://localhost:8080/hairball/oauth/naver", "UTF-8");
@@ -55,6 +36,29 @@
    }
 %>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/hairball/css/index.css" />
+    <link rel="stylesheet" href="/hairball/css/animal.css" />
+    <link rel="stylesheet" href="/hairball/css/aside.css" />
+    <link rel="stylesheet" href="/hairball/css/swiper.css" />
+    <link rel="stylesheet" href="/hairball/css/introduce.css" />
+    <link rel="stylesheet" href="/hairball/css/memberLogin.css" />
+    <link rel="stylesheet" href="/hairball/css/procedure.css" />
+    <link rel="stylesheet"
+	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js">
+<% 	if(loginMember != null) { %>
+	<script src="<%= request.getContextPath() %>/js/ws.js"></script>		
+<% 	} %>
+	</script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <title>유기견/유기묘 입양 사이트</title>
+</head>
    
 <body>
 
@@ -96,6 +100,7 @@
             <%}else{ %>
             <li class="login_li">
                 <a href="<%= request.getContextPath() %>/member/login"><%= loginMember.getName()+"님 안녕하세요."%></a>
+                <span id="notification"></span>
             </li>
             <%} 
             %>
