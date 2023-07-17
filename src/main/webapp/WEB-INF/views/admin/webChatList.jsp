@@ -17,40 +17,35 @@
 	String searchKeyword = request.getParameter("searchKeyword");
 
 %>
-<!-- 관리자용 admin.css link -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/admin.css" />
-<style>
-div#search-container 	{width: 100%; margin:0 0 10px 0; padding:3px; background-color: 5fab95;}
-div#search-memberId 	{display: <%= searchType == null || "member_id".equals(searchType) ? "inline-block" : "none" %>;}
-div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "none" %>;}
-}
-</style>
-<section class="adminPage-section">
-	<div class="introduce01-container">
-		<div class="introduce01-bar">
-			<div class="side-menu-title">
-				<a href="<%=request.getContextPath()%>/animal/enroll">관리자페이지</a>
-			</div>
-			<hr class="side-hr" />
-			<div class="side-menu">
-				<a href="<%=request.getContextPath()%>/animal/enroll">동물등록</a>
-			</div>
-			<hr class="side-hr" />
-			<div class="side-menu">
-				<a href="<%=request.getContextPath()%>/admin/memberList">회원목록조회</a>
-			</div>
-			<hr class="side-hr" />
-			<div class="side-menu">
-				<a href="<%=request.getContextPath()%>/admin/webChatList">채팅기록조회</a>
-			</div>
-			<hr class="side-hr" />
-		</div>
-	</div>
-	<div class="introduce01-detail-section">
-		<div class="checked-title2">채팅기록조회</div>
-		<hr class="section-hr" />
-		<div class="adminPage-board">
+
+ 	 <!-- 관리자용 admin.css link -->
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/admin.css" />
+	<style>
+	div#search-container 	{width: 100%; margin:0 0 10px 0; padding:3px; background-color: 5fab95;}
+	div#search-memberId 	{display: <%= searchType == null || "member_id".equals(searchType) ? "inline-block" : "none" %>;}
+	div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "none" %>;}
+	</style>
+
+    <div class="introduce01-container">
+        <div class="introduce01-bar">
+                <div class="side-menu-title"><a href="<%= request.getContextPath() %>/admin/enroll">관리자페이지</a></div>
+                <hr class="side-hr" />
+               	<div class="side-menu"><a href="<%= request.getContextPath() %>/animal/enroll">동물등록</a></div>
+                <hr class="side-hr" />
+                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/memberList">회원목록조회</a></div>
+                <hr class="side-hr" />
+                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/webChatList">채팅기록조회</a></div>
+                <hr class="side-hr" />
+                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/AdminChat">현재채팅상담</a></div>
+                <hr class="side-hr" />
+            </div>
+        </div>
+   <div class="introduce01-detail-section">
+            <div id="checked-title2">채팅기록조회</div>
+            <hr class="section-hr" />
+    <section id="memberList-container">
+    <div class="memberList-container2">
+		<h2>채팅기록</h2>
 		<div id="search-container">
 	        <label for="searchType"></label> 
 	        <select id="searchType">
