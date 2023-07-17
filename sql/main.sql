@@ -39,14 +39,13 @@ create table member (
 create table animal(
    id number,
    age number,
-   attachment_id number not null,
-   discvry_plc varchar2(300),
-   animal_type varchar2(20),
-   species varchar2(20),
+   discvry_plc varchar(300),
+   animal_type varchar(20),
+   species varchar(20),
    weight number,
-   pbl_id varchar2(100),
-   state varchar2(100),
-   sex varchar2(10),
+   pbl_id varchar(100),
+   state varchar(100),
+   sex varchar(10),
    neutered number,
    note varchar2(4000),
    constraints pk_animal_id primary key(id)
@@ -63,6 +62,7 @@ create table enroll_board (
 create table attachment (
     id number,
     enroll_board_id number not null,
+    animal_id number not null,
     original_filename varchar2(255) not null,
     renamed_filename varchar2(255) not null,
     reg_date date default sysdate,
