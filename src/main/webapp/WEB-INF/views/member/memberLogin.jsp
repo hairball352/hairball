@@ -5,9 +5,65 @@
 <section id="login-section">
 	<div class="login-container">
 		<%
-		if (loginMember == null) {
-		%>
+		String msg = (String) session.getAttribute("msg");
+		if(msg != null) session.removeAttribute("msg"); // 1회용
+		// System.out.println("msg = " + msg);
 		
+		Member loginMember = (Member) session.getAttribute("loginMember");
+		// System.out.println("loginMember = " + loginMember);
+		
+		Cookie[] cookies = request.getCookies();
+		String saveId = null;
+		if(cookies != null) {
+			for(Cookie cookie : cookies) {
+				String name = cookie.getName();
+				String value = cookie.getValue();
+				// System.out.println("[Cookie] " + name + " = " + value);
+				if ("saveId".equals(name))
+					saveId = value;
+			}
+		}
+		%>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/style.css" />
+<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
+<% 	if(loginMember != null) { %>
+	<script src="<%= request.getContextPath() %>/js/ws.js"></script>		
+<% 	} %>
+<script>
+window.onload = () => {
+	
+<% 	if(msg != null) { %>
+	alert('<%= msg %>');
+<% 	} %>	
+	
+<% 	if(loginMember == null) { %>	
+	document.loginFrm.onsubmit = (e) => {
+		// 아이디
+		const memberId = e.target.memberId;
+		if(!/^\w{4,}$/.test(memberId.value)) {
+			alert("아이디는 4글자 이상 입력하세요.");
+			e.preventDefault();
+			return;
+		}
+		
+		// 비밀번호
+		const password = e.target.password;
+		if(!/^.{4,}$/.test(password.value)) {
+			alert("비밀번호는 4글자 이상 입력하세요.");
+			e.preventDefault();
+			return;
+		}
+	}
+<% 	} %>
+};
+</script>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<h1>Hello MVC</h1>
+			<div class="login-container">
+				<% if (loginMember == null) { %>		
 		<!-- 로그인폼 시작 -->
 		<form id="loginFrm" name="loginFrm" action="<%=request.getContextPath()%>/member/login" method="post">
 			<table id="login-table">
@@ -28,7 +84,7 @@
 							</div>
 						</div>
 						<div class="login_btn">
-							<input id="btn1" type="submit" tabindex="3" value="로그인" onclick="loginsingup();">
+							<input id="btn1" type="submit" tabindex="3" value="로그인" >
 							<input type="button" id="btn2" value="회원가입" onclick="location.href='<%=request.getContextPath()%>/member/memberEnroll';">
 						</div>
 					</td>
@@ -62,7 +118,7 @@
 <script>
 
 
-const loginsingup = () => {
+<!--const loginsingup = () => {
 	const target = document.getElementById("btn2");
 	
 	if(loginMember != null ){
@@ -70,7 +126,7 @@ const loginsingup = () => {
 	} else{
 		target.style.display = "inline-block";
 	}	
-};
+}; -->
 
 </script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>
