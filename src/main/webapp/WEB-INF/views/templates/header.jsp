@@ -17,18 +17,16 @@
     <link rel="stylesheet" href="/hairball/css/aside.css" />
     <link rel="stylesheet" href="/hairball/css/swiper.css" />
     <link rel="stylesheet" href="/hairball/css/introduce.css" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/hairball/css/memberLogin.css" />
     <link rel="stylesheet" href="/hairball/css/procedure.css" />
-    <link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <link rel="stylesheet" href="/hairball/css/animation.css" />
+        <link rel="stylesheet" href="/hairball/css/animation.css" />
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 <%
   String clientId = "9kBGa_4PSPHg5IPpNrhO";//애플리케이션 클라이언트 아이디값
-  String redirectURI = URLEncoder.encode("http://localhost:8080/oauth/naver", "UTF-8");
+  String redirectURI = URLEncoder.encode("http://localhost:8080/Oauth/naver", "UTF-8");
   SecureRandom random = new SecureRandom();
   String state = new BigInteger(130, random).toString();
   String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
@@ -38,34 +36,25 @@
   session.setAttribute("state", state);
   
   String msg = (String) session.getAttribute("msg"); 
-   if(msg != null){ 
-      session.removeAttribute("msg"); // msg해야 로그인필터 거쳐서 "로그인 후 이용해주세요"가 뜹니다 아시겠죠
-   }
+	if(msg != null){ 
+		session.removeAttribute("msg"); // msg해야 로그인필터 거쳐서 "로그인 후 이용해주세요"가 뜹니다 아시겠죠
+	}
   Member loginMember = (Member)session.getAttribute("loginMember");
-      
+		
   Cookie[] cookies = request.getCookies(); 
-   String saveId = null;
-   if(cookies != null){                 
-      for(Cookie cookie : cookies){
-         String name = cookie.getName();  
-         String value = cookie.getValue();
-         if("saveId".equals(name))
-            saveId = value;   
-      }
-   }
+	String saveId = null;
+	if(cookies != null){ 					 
+		for(Cookie cookie : cookies){
+			String name = cookie.getName();  
+			String value = cookie.getValue();
+			if("saveId".equals(name))
+				saveId = value;	
+		}
+	}
 %>
 
-   
+	
 <body>
-
-<script>
-  window.onload = () => {
-  <% 	if(msg != null) { %>
-	alert('<%= msg %>');
-  <% 	} %>
-}
-</script>
-
 <header>
     <div class="header">
         <div class="logo_img">
@@ -73,8 +62,8 @@
         </div>
         <ul class="utility">
             <li>
-                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a7b86ff96d50db1785b75938758aeb44&redirect_uri=http://localhost:8080/hairball/oauth/kakao">
-                    <img width="50" height="20" src="/hairball/images/kakao_login_simple/ko/kakao_login_large.png"/>
+                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a7b86ff96d50db1785b75938758aeb44&redirect_uri=http://localhost:8080/oauth2/kakao">
+                    <img width="50" height="20" src="../../../images/kakao_login_simple/ko/kakao_login_large.png"/>
                 </a>
             </li>
             <li>
@@ -83,7 +72,7 @@
                 </a>
             </li>
             <li class="admin_li">
-                <a href="<%= request.getContextPath() %>/animal/enroll">관리자</a>
+                <a href="<%= request.getContextPath() %>/admin/animalRegistration">관리자</a>
             </li>
             <li class="login_li">
                 <a href="<%= request.getContextPath() %>/member/login">로그인</a>
@@ -120,3 +109,4 @@
 </header>
 <%@ include file="/WEB-INF/views/templates/header2.jsp" %>
 <%@ include file="/WEB-INF/views/templates/aside.jsp" %>
+

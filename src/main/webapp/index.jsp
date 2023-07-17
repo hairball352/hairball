@@ -116,17 +116,20 @@
     </div>
   </div>
 </div>
+<a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a7b86ff96d50db1785b75938758aeb44&redirect_uri=http://localhost:8080/oauth2/kakao"><button>KAKAO LOGIN</button></a>
+
+<a href="<%=apiURL%>"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
 
 <script>
 window.addEventListener('load', () => {
-   removeBanner();
+	removeBanner();
 });
 
 const removeBanner = () => {
-   const banner = document.querySelector('.banner_img');
-     if (banner) {
-        banner.remove();
-     }
+	const banner = document.querySelector('.banner_img');
+	  if (banner) {
+		  banner.remove();
+	  }
 }
 </script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>
