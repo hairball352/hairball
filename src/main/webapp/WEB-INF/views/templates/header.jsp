@@ -1,3 +1,4 @@
+<%@page import="com.sh.hairball.member.model.vo.MemberRole"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -81,9 +82,13 @@
                     <img width="50" height="20" src="/hairball/images/naver_login_simple/btnW_축약형.png"/>
                 </a>
             </li>
-            <li class="admin_li">
-                <a href="<%= request.getContextPath() %>/animal/enroll">관리자</a>
-            </li>
+				<% 
+				    if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) {
+				%>
+			    <li class="admin_li">
+			        <a href="<%= request.getContextPath() %>/animal/enroll">관리자</a>
+			    </li>
+			<% } %>
             <%if(loginMember == null){ %>
             <li class="login_li">
                 <a href="<%= request.getContextPath() %>/member/login">로그인</a>
@@ -92,10 +97,13 @@
             <li class="login_li">
                 <a href="<%= request.getContextPath() %>/member/login"><%= loginMember.getName()+"님 안녕하세요."%></a>
             </li>
-            <%} %>
+            <%} 
+            %>
+            <%if(loginMember == null){ %>
             <li class="signup_li">
                 <a href="<%= request.getContextPath() %>/member/memberEnroll">회원가입</a>
             </li>
+            <% } %>
             <li class="logout_li" style="display: none">
                 <a href="#">로그아웃</a>
             </li>
