@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
-<section class="introduce-section">
+<section class="animal-section">
+
 	<div class="introduce01-container">
 		<div class="introduce01-bar">
 			<div class="side-menu-title">
@@ -29,7 +30,7 @@
 				<tbody>
 					<tr>
 						<td>
-							<p>동물들은 당신의 사랑과 관심이 필요합니다. <br/><br/>
+							<p id="desc">동물들은 당신의 사랑과 관심이 필요합니다. <br/><br/>
 								털뭉치들은 올바른 반려동물 문화를 만들고<br/>
 							동물들이 새로운 가족을 만날 수 있도록<br/>
 							도움을 주기 위해 만들어진 센터입니다.</p>

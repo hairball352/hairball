@@ -24,11 +24,12 @@ public class AnswerCreateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 사용자 입력값 처리
 		int questionId =  Integer.parseInt(request.getParameter("questionId"));
-		String memberId = request.getParameter("memberId");
+		String adminName = request.getParameter("adminName");
 		String content = request.getParameter("content");
-		
-		AnswerVo answer = new AnswerVo(0, memberId, content, null, questionId);
+		AnswerVo answer = new AnswerVo(0, adminName, content, null, questionId);
 		System.out.println("answer = " + answer);
+		
+		
 		
 		
 		// 2. 업무로직

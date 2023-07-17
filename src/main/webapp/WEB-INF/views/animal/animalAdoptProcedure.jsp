@@ -14,7 +14,7 @@
 			</div>
 			<hr class="side-hr" />
 			<div class="side-menu">
-				<a href="<%=request.getContextPath()%>/animal/animalAdoptionList">보호동물</a>
+				<a href="<%=request.getContextPath()%>/animal/list">보호동물</a>
 			</div>
 			<hr class="side-hr" />
 		</div>

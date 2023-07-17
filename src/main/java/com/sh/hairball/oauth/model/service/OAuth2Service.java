@@ -18,13 +18,14 @@ import java.util.Map;
 
 public class OAuth2Service {
     private final MemberService memberService = new MemberService();
-    public int kakaoLogin(String code) {
+    public Member kakaoLogin(String code) {
         System.out.println(code);
         String reqURL = "https://kauth.kakao.com/oauth/token";
 
         Map<String, String> requestHeaders = new HashMap<>();
         requestHeaders.put("Content-type", "application/x-www-form-urlencoded");
         String responseBody = get(reqURL,requestHeaders , code);
+        System.out.println("respBody"+responseBody);
 
         JSONParser parsing = new JSONParser();
         JSONObject jsonObj = null;
@@ -38,14 +39,14 @@ public class OAuth2Service {
         String refresh_token = (String)jsonObj.get("refresh_token");
         String scope = (String)jsonObj.get("scope");
 
-        System.out.println(access_token);
-        System.out.println(refresh_token);
-        System.out.println(scope);
+        System.out.println("accToken"+access_token);
+        System.out.println("refresh_token"+refresh_token);
+        System.out.println("scope"+scope);
 
         requestHeaders.put("Authorization", "Bearer "+access_token);
 
         String responseUserInfo = getUserInfo("https://kapi.kakao.com/v2/user/me", requestHeaders );
-        System.out.println(responseUserInfo);
+        System.out.println("Resp User Info @"+responseUserInfo);
 
 
         Object obj = null;
@@ -64,15 +65,20 @@ public class OAuth2Service {
         System.out.println(UserInfo.get("nickname"));
         System.out.println(resObj.get("email"));
 
-        Member member = new Member();
-        member.setMemberId("KaKao"+(String)resObj.get("email"));
-        member.setName((String)UserInfo.get("nickname"));
-        member.setEmail((String)resObj.get("email"));
-        member.setProvider(Provider.K);
+        Member member = memberService.findById("KaKao"+(String)UserInfo.get("nickname"));
+        if(member == null) {
+        	member = new Member();
+	        member.setMemberId("KaKao"+(String)UserInfo.get("nickname"));
+	        member.setPassword("KaKao"+(String)UserInfo.get("nickname"));
+	        member.setName((String)UserInfo.get("nickname"));
+	        member.setEmail((String)resObj.get("email"));
+	        member.setPhone("카카오회원");
+	        member.setProvider(Provider.K);
+	        
+	        memberService.insertMember(member);
+        }
 
-        memberService.insertMember(member);
-
-        return 0;
+        return member;
     }
 
     private static String getUserInfo(String apiUrl, Map<String, String> requestHeaders ){
@@ -103,7 +109,7 @@ public class OAuth2Service {
         HttpURLConnection con = connect(apiUrl);
         String grant_type = "authorization_code";
         String client_id = "a7b86ff96d50db1785b75938758aeb44";
-        String redirect_uri= "http://localhost:8080/oauth2/kakao";
+        String redirect_uri= "http://localhost:8080/hairball/oauth/kakao";
         String client_secret = "vU2DG59HgaZ8s6nmIf7kkfzWnWYCkqmX";
         String postData="grant_type="+grant_type+"&client_id="+client_id+"&redirect_uri="+redirect_uri+"&client_secret="+client_secret+"&code="+code;
 

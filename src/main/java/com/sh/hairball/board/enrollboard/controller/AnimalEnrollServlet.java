@@ -82,7 +82,9 @@ public class AnimalEnrollServlet extends HttpServlet {
 		animal.setState(note);
 		animal.setSex(sex.equals("M") ? Sex.M : Sex.F);
 		animal.setSpecies(species);
-		animal.setWeight(Float.parseFloat(weight));
+		animal.setWeight(Double.parseDouble(weight));
+		
+		System.out.println(animal + "@ servlet");
 		
 		enrollBoard.setAnimal(animal);
 		
@@ -91,8 +93,7 @@ public class AnimalEnrollServlet extends HttpServlet {
 		int result = enrollBoardService.insertEnrollBoard(enrollBoard);
 		
 		
-		resp.sendRedirect(req.getContextPath() + "/board/boardDetail?no=" + enrollBoard.getId());
-		
+		resp.sendRedirect(req.getContextPath() + "/animal/list");
 	}
 }
 

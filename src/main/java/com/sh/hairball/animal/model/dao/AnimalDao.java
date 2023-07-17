@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -15,7 +16,9 @@ import com.sh.hairball.animal.model.vo.AnimalType;
 import com.sh.hairball.animal.model.vo.Sex;
 import com.sh.hairball.board.adoptboard.model.dao.AdoptionDao;
 import com.sh.hairball.board.adoptboard.model.exception.AdopBoardException;
+import com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
+import com.sh.hairball.board.enrollboard.model.vo.EnrollBoardDto;
 
 public class AnimalDao {
 	Properties prop = new Properties();
@@ -72,13 +75,14 @@ public class AnimalDao {
 		String sql = prop.getProperty("insertAnimal");
 		System.out.println(sql);
 		System.out.println(animal);
-		//insertAnimal = insert into animal (id, age , discvry_plc,animal_type,species,pbl_id , state , sex , neutered) values (seq_animal_id.nextval,?,?,?,?,?,?,?,?,?)
+		//insertAnimal = insert into animal (id, age , discvry_plc,animal_type,species,weight,pbl_id , state , sex , neutered) values (seq_animal_id.nextval,?,?,?,?,?,?,?,?,?,?)
 		try(
 				PreparedStatement preparedStatement = conn.prepareStatement(sql)){
 			preparedStatement.setInt(1, animal.getAge());
 			preparedStatement.setString(2, animal.getDiscoveryPlace());
 			preparedStatement.setString(3, animal.getAnimalType().name());
 			preparedStatement.setString(4, animal.getSpecies());
+			preparedStatement.setFloat(4, (float)animal.getWeight());
 			preparedStatement.setString(5, animal.getPblId());
 			preparedStatement.setString(6, animal.getState());
 			preparedStatement.setString(7, animal.getSex().name());
@@ -123,8 +127,62 @@ public class AnimalDao {
 		return totalCnt;
 	}
 
-	public List<EnrollBoard> findList(int start, int end) {
+	public List<EnrollBoardDto> findList(Connection conn, int start, int end) {
+		List<EnrollBoardDto> result = new ArrayList<>();
+		String sql = prop.getProperty("findList");
+		System.out.println(sql);
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1,  start);
+			pstmt.setInt(2,  end);
+			
+			try(ResultSet rset = pstmt.executeQuery()) {
+				while(rset.next()) {
+					EnrollBoardDto enrollBoardEntity = handleEnrollBoardResultSet(rset);
+					result.add(enrollBoardEntity);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
-		return null;
+		return result;
+	}
+
+	private EnrollBoardDto handleEnrollBoardResultSet(ResultSet rset) throws SQLException {
+		EnrollBoardDto enrollBoardDto = new EnrollBoardDto();
+		enrollBoardDto.setAnimalId(rset.getInt("animal_id"));
+		enrollBoardDto.setOriginalFileName(rset.getString("original_filename"));
+		enrollBoardDto.setRenamedFileName(rset.getString("renamed_filename"));
+		enrollBoardDto.setRegDate(rset.getDate("reg_date"));
+		enrollBoardDto.setAge(rset.getInt("age"));
+		enrollBoardDto.setDiscovoeryPlace(rset.getString("discvry_plc"));
+		enrollBoardDto.setAnimalType(rset.getString("animal_type").equals("D")?AnimalType.D : AnimalType.C);
+		enrollBoardDto.setSpecies(rset.getString("species"));
+		enrollBoardDto.setWeight(rset.getDouble("weight"));
+		enrollBoardDto.setPbl_id(rset.getString("pbl_id"));
+		enrollBoardDto.setState(rset.getString("State"));
+		enrollBoardDto.setSex(rset.getString("sex").equals("M")? Sex.M : Sex.F);
+		enrollBoardDto.setNeutered(rset.getInt("neutered"));
+		
+		
+		return enrollBoardDto;
+	}
+
+	public List<Animal> findAll(Connection conn) {
+		List<Animal> animals = new ArrayList<>();
+		String sql = prop.getProperty("findAll");
+		try (
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rset = pstmt.executeQuery(); // select 한 행들이 rset에 담김
+		) {
+			while(rset.next()) { // rset이 다음에도 있으면 true (rset을 모두 순회할 수 있는 반복문임)
+				Animal animal = handleAnimalResultSet(rset); // rset을 자바의 member객체로 변환하여 member에 담음
+				animals.add(animal); // 변환된 member를 memberList에 담음
+			}
+		} catch (SQLException e) {
+			throw new AnimalException(e);
+		}
+		return animals;
 	}
 }
