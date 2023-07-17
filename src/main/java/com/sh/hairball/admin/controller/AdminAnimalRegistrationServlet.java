@@ -15,7 +15,6 @@ public class AdminAnimalRegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("관리자 doGet 호출됨");
 		request.getRequestDispatcher("/WEB-INF/views/admin/animalRegistration.jsp")
         	.forward(request,response);
 	}

@@ -24,13 +24,13 @@ public class QuestionWebSocketConfigurator extends Configurator{
 		
 		// memberId 관리
 		Member loginMember = (Member) httpSession.getAttribute("loginMember");
+		System.out.println("loginMember :" + loginMember);
 		String memberId = loginMember.getMemberId();
+		System.out.println("memberId :" + memberId);
 		
 		Map<String, Object> configProperties = sec.getUserProperties();
 		configProperties.put("memberId", memberId);
 		
 		
 	}
-	
-	
 }

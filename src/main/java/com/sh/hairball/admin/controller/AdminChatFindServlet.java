@@ -23,8 +23,6 @@ public class AdminChatFindServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String searchType = request.getParameter("searchType");
         String searchKeyword = request.getParameter("searchKeyword");
-        System.out.println("webChat serchType = " + searchType);
-        System.out.println("webChat serchKeyword = " + searchKeyword);
 
 
         List<Member> memberList = memberService.searchMember(searchType, searchKeyword);

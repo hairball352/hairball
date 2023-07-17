@@ -23,13 +23,14 @@ public class AnswerCreateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 사용자 입력값 처리
+		
 		int questionId =  Integer.parseInt(request.getParameter("questionId"));
+		System.out.println("questionId : " + questionId);
 		String adminName = request.getParameter("adminName");
 		String content = request.getParameter("content");
+		
 		AnswerVo answer = new AnswerVo(0, adminName, content, null, questionId);
 		System.out.println("answer = " + answer);
-		
-		
 		
 		
 		// 2. 업무로직
@@ -38,7 +39,7 @@ public class AnswerCreateServlet extends HttpServlet {
 		
 		// 댓글 등록 실시간 알림
 		QuestionVo question = questionService.findById(questionId);
-//		result = notificationService.notifyNewAnswer(question);
+		result = notificationService.notifyNewBoardComment(question);
 		
 		// 3. 응답처리 - redirect
 		response.sendRedirect(request.getContextPath() + "/qnaBoard/questionDetail?id=" + questionId);
