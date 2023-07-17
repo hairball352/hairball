@@ -108,8 +108,8 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 				<tr class="chat-row" style="display: none;">
 					<td colspan="5">
 						<div class="chat-container"
-							data-member-id="<%=member.getMemberId()%>">
-							<!-- 채팅 기록을 동적으로 로드할 컨테이너 -->
+							data-member-id="<%=member.getMemberId()%>"
+							style="overflow-y: auto; width: 960px; max-height: 500px; padding: 4px; border: 1 solid #000000;">
 						</div>
 					</td>
 				</tr>
