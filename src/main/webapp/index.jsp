@@ -44,49 +44,49 @@
       <ul class="gallery">
         <li>
           <a href="#">
-            <img src="/hairball/images/indexImg/1.jpg" alt="호두1" class="indexImg"/>
+            <img src="" alt="호두1" class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/hairball/images/indexImg/2.jpg" alt="호두2" class="indexImg"/>
+            <img src="" alt="호두2" class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/hairball/images/indexImg/3.jpg" alt="호두3" class="indexImg"/>
+            <img src="" alt="호두3" class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/hairball/images/indexImg/4.jpg" alt="호두4" class="indexImg"/>
+            <img src="" alt="호두4" class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/hairball/images/indexImg/5.jpg" alt="호두5" class="indexImg"/>
+            <img src="" alt="호두5" class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/hairball/images/indexImg/6.jpg" alt="호두6" class="indexImg"/>
+            <img src="" alt="호두6" class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/hairball/images/indexImg/7.jpg" alt="호두7" class="indexImg"/>
+            <img src="" alt="호두7" class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
@@ -120,6 +120,25 @@ const removeBanner = () => {
 	  if (banner) {
 		  banner.remove();
 	  }
+}
+
+window.onload = () => {
+	$.ajax({
+		url : "<%= request.getContextPath()%>/getindex",
+		success(files){
+			const indeximg = [...document.querySelectorAll('.indexImg')]
+			let end;
+			if(files.length >= 7){
+				end = 7
+			}else {
+				end = files.length;
+			}
+			for(let i = 0 ; i < end ; i++ ){
+				indeximg[i].src = '/hairball/upload/animal/'+ files[i].renamed_filename
+			}
+		}
+	})
+	
 }
 </script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>
