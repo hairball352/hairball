@@ -88,6 +88,9 @@ video {
     vertical-align: baseline;
     box-sizing: border-box;
 }
+#canNotFindAnimal{
+	text-align: center;
+}
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
