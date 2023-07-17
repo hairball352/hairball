@@ -119,4 +119,11 @@ public class MemberService {
         close(conn);
         return member;
     }
+
+	public Member findByName(String loginMember) {
+        Connection conn = getConnection();
+        Member member = memberDao.findByName(conn, loginMember);
+        close(conn);
+        return member;
+    }
 }

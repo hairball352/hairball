@@ -53,7 +53,7 @@
         // console영역을 찾는다.
         let log = $div.find(".console").val();
         // 아래에 메시지를 추가한다.
-        $div.find(".console").val(log + "(user) => " +node.message + "\n");
+        $div.find(".console").val(log + "\n회원 : " +node.message + "\n");
       // bye는 유저가 접속을 끊었을 때 알려주는 메시지이다.
       } else if(node.status === "bye") {
         // 해당 키로 div를 찾아서 dom을 제거한다.
@@ -71,7 +71,7 @@
       // console영역을 찾는다.
       let log = $div.find(".console").val();
       // 아래에 메시지를 추가한다.
-      $div.find(".console").val(log + "(me) => " + message + "\n");
+      $div.find(".console").val(log + "\n관리자 : " + message + "\n");
       // 텍스트 박스의 값을 초기화 한다.
       $div.find(".message").val("");
       // 웹소켓으로 메시지를 보낸다.
