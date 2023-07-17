@@ -17,6 +17,7 @@
 	String searchKeyword = request.getParameter("searchKeyword");
 
 %>
+
  	 <!-- 관리자용 admin.css link -->
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/admin.css" />
 	<style>
@@ -24,28 +25,40 @@
 	div#search-memberId 	{display: <%= searchType == null || "member_id".equals(searchType) ? "inline-block" : "none" %>;}
 	div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "none" %>;}
 	</style>
+<!-- 관리자용 admin.css link -->
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/admin.css" />
+<style>
+div#search-container 	{width: 100%; margin:0 0 10px 0; padding:3px; background-color: 5fab95;}
+div#search-memberId 	{display: <%= searchType == null || "member_id".equals(searchType) ? "inline-block" : "none" %>;}
+div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "none" %>;}
+}
+</style>
 <section class="adminPage-section">
-   <div class="introduce01-container">
-      <div class="introduce01-bar">
-         <div class="side-menu-title">
-            <a href="<%=request.getContextPath()%>/admin/animalRegistration">관리자페이지</a>
-                <hr class="side-hr" />
-               	<div class="side-menu"><a href="<%= request.getContextPath() %>/animal/enroll">동물등록</a></div>
-                <hr class="side-hr" />
-                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/memberList">회원목록조회</a></div>
-                <hr class="side-hr" />
-                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/webChatList">채팅기록조회</a></div>
-                <hr class="side-hr" />
-                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/AdminChat">현재채팅상담</a></div>
-                <hr class="side-hr" />
-            </div>
-        </div>
-   <div class="introduce01-detail-section">
-            <div id="checked-title2">채팅기록조회</div>
-            <hr class="section-hr" />
-    <section id="memberList-container">
-    <div class="memberList-container2">
-		<h2>채팅기록</h2>
+	<div class="introduce01-container">
+		<div class="introduce01-bar">
+			<div class="side-menu-title">
+				<a href="<%=request.getContextPath()%>/animal/enroll">관리자페이지</a>
+			</div>
+			<hr class="side-hr" />
+			<div class="side-menu">
+				<a href="<%=request.getContextPath()%>/animal/enroll">동물등록</a>
+			</div>
+			<hr class="side-hr" />
+			<div class="side-menu">
+				<a href="<%=request.getContextPath()%>/admin/memberList">회원목록조회</a>
+			</div>
+			<hr class="side-hr" />
+			<div class="side-menu">
+				<a href="<%=request.getContextPath()%>/admin/webChatList">채팅기록조회</a>
+			</div>
+			<hr class="side-hr" />
+		</div>
+	</div>
+	<div class="introduce01-detail-section">
+		<div class="checked-title2">채팅기록조회</div>
+		<hr class="section-hr" />
+		<div class="adminPage-board">
 		<div id="search-container">
 	        <label for="searchType"></label> 
 	        <select id="searchType">
@@ -149,32 +162,7 @@ $(document).ready(function(){
         }
     });
 });
-
-//페이지가 로드되었을 때 채팅 기록을 가져오는 함수
-function loadChatHistoryFromDB() {
-	$.ajax({
-		url: "/hairball/loadChatHistory", // 채팅 기록을 불러오는 서버의 endpoint
-		type: "GET",
-		success: function(response) {
-			// 서버로부터 받아온 채팅 내역을 화면에 추가
-			for(let i = 0; i < response.length; i++) {
-				let messageDiv = document.createElement("div");
-				messageDiv.className = "messageContainer";
-				// 서버로부터 받은 메시지 내용을 div에 추가
-				messageDiv.textContent = response[i].message;
-				messageContainer.appendChild(messageDiv);
-			}
-			// 스크롤을 최하단으로 이동 (최근 메시지 보기)
-			messageContainer.scrollTop = messageContainer.scrollHeight;
-		},
-		error: function(xhr, status, error) {
-			console.log("db 로딩 실패ㅠㅠ: " + status, error);
-		}
-	});
-}
 </script>
-
-
 <script>
 document.querySelector("select#searchType").onchange = (e) => {
 	console.log(e.target.value);
