@@ -1,3 +1,4 @@
+<%@page import="com.sh.hairball.member.model.vo.MemberRole"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -19,10 +20,11 @@
     <link rel="stylesheet" href="/hairball/css/introduce.css" />
     <link rel="stylesheet" href="/hairball/css/memberLogin.css" />
     <link rel="stylesheet" href="/hairball/css/procedure.css" />
+    <link rel="stylesheet" href="/hairball/css/webchat.css" />
     <link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+   href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+   <script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
+   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 <%
@@ -51,9 +53,9 @@
 
 <script>
   window.onload = () => {
-  <% 	if(msg != null) { %>
-	alert('<%= msg %>');
-  <% 	} %>
+  <%    if(msg != null) { %>
+   alert('<%= msg %>');
+  <%    } %>
 }
 </script>
 
@@ -63,24 +65,33 @@
             <a href="<%= request.getContextPath() %>"><img src="/hairball/images/로고/메뉴바_로고.png" alt=""/></a>
         </div>
         <ul class="utility">
-            <li class="admin_li">
-                <a href="<%= request.getContextPath() %>/animal/enroll">관리자</a>
-            </li>
+            <% 
+                if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) {
+            %>
+             <li class="admin_li">
+                 <a href="<%= request.getContextPath() %>/animal/enroll">관리자</a>
+             </li>
+         <% } %>
             <%if(loginMember == null){ %>
             <li class="login_li">
                 <a href="<%= request.getContextPath() %>/member/login">로그인</a>
             </li>
             <%}else{ %>
             <li class="login_li">
-                <a href="<%= request.getContextPath() %>/member/login"><%= loginMember.getName()+"님 안녕하세요."%></a>
+                <a href="<%= request.getContextPath() %>/member/login">마이페이지</a>
             </li>
-            <%} %>
+            <%} 
+            %>
+            <%if(loginMember == null){ %>
             <li class="signup_li">
                 <a href="<%= request.getContextPath() %>/member/memberEnroll">회원가입</a>
             </li>
-            <li class="logout_li" style="display: none">
-                <a href="#">로그아웃</a>
-            </li>
+            <% } %>
+         <% if (loginMember != null) { %>
+             <li class="logout_li">
+                 <a href="<%= request.getContextPath() %>/member/logout">로그아웃</a>
+             </li>
+         <% } %>
         </ul>
         <div class="menu-container">
             <ul class="nav">
