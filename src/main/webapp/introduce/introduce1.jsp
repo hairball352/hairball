@@ -28,8 +28,16 @@
 				</div>
 				<div style="clear: both;"></div>
 			</div>
+			<hr class="side-hr" />
+			<div class="side-menu">
+				<a href="<%=request.getContextPath()%>/introduce/introduce1.jsp">센터소개</a>
+			</div>
+			<hr class="side-hr" />
+			<div class="side-menu">
+				<a href="<%=request.getContextPath()%>/introduce/introduce2.jsp">팀원소개</a>
+			</div>
+			<hr class="side-hr" />
 		</div>
 	</div>
-	<br /> <br /> <br /> <br /> <br />
 </section>
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>

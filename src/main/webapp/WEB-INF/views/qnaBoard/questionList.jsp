@@ -4,7 +4,6 @@
 <%@page import="java.util.List"%>
 <%@ page import="com.sh.hairball.qnaboard.model.QuestionVo"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
-<%@ include file="/WEB-INF/views/templates/header2.jsp"%>
 <%@ include file="/WEB-INF/views/templates/aside.jsp"%>
 <%
 List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions");
@@ -58,7 +57,14 @@ List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions"
 					<tr>
 						<td><%=question.getId()%></td>
 						<td><a
-							href="<%=request.getContextPath()%>/qnaBoard/questionDetail?id=<%=question.getId()%>"><%=question.getTitle()%></a></td>
+							href="<%=request.getContextPath()%>/qnaBoard/questionDetail?id=<%=question.getId()%>">
+							<%=question.getTitle()%>
+							<% 
+							if(question.getAnswerCnt() > 0) { %>
+							<span>[답변완료]</span>
+							<%  }  %>
+							</a>
+						</td>
 						<td><%=question.getMemberId()%></td>
 						<td><%=question.getRegDate()%></td>
 					</tr>
@@ -81,4 +87,6 @@ List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions"
 		</section>
 	</div>
 </section>
+
+
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>

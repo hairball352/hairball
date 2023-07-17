@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/templates/header.jsp" %>
-<%@ include file="/WEB-INF/views/templates/aside.jsp" %>
+<%@ include file="/WEB-INF/views/templates/header.jsp"%>
+<%@ include file="/WEB-INF/views/templates/aside.jsp"%>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
 <section id="question-container">
-	<h2>게시판 작성</h2>
+	<h2>질문하기</h2>
 	<form
 		name="questionCreateFrm"
 		action="<%=request.getContextPath() %>/qnaBoard/questionCreate"
-		method="post"
-		enctype="multipart/form-data">
+		method="POST"
+		enctype="form-data">
 		<table id="tbl-question-view">
 		<tr>
 			<th>제 목</th>
