@@ -1,4 +1,4 @@
-package com.sh.hairball.board.adoptboard.controller;
+package com.sh.hairball.admin.controller;
 
 import java.io.IOException;
 import java.util.List;
