@@ -10,7 +10,7 @@
                 <hr class="side-hr" />
                 <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/memberList">회원목록조회</a></div>
                 <hr class="side-hr" />
-                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/webChatList">채팅기록조회</a></div>
+                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin">채팅기록조회</a></div>
                 <hr class="side-hr" />
             </div>
         </div>
