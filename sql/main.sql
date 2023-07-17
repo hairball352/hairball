@@ -329,6 +329,7 @@ delete answer where id = 4;
 
 select * from (select row_number() over (order by q.id desc) rnum, q.*, (select count(*) from answer where question_id = q.id) answer_cnt from question q) where rnum between 1 and 10;
 
+select * from enroll_board;
 
 
 
