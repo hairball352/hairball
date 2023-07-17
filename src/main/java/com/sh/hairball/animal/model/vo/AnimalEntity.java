@@ -12,6 +12,7 @@ public class AnimalEntity {
 	String state; // 보호중인지 입양완료인지 상태
 	Sex sex;
 	int neutered; // 중성화유무 (0-안됨 / 1-됨)
+	String note;
 
 	
 	// 기본 생성자
@@ -39,6 +40,17 @@ public class AnimalEntity {
 	public int getId() {
 		return id;
 	}
+	
+	public String getNote() {
+		return note;
+	}
+
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
