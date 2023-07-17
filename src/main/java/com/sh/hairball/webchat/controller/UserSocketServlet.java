@@ -18,10 +18,15 @@ public class UserSocketServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     	
-    	String loginMemberName  = req.getParameter("Name");
+		// 로그인한 사용자의 Member 객체를 가져온다
+		HttpSession session = req.getSession();
+		Member loginMember = (Member) session.getAttribute("loginMember");
     	
-		List<Member> member = memberService.findAll();
+		// 로그인한 사용자의 회원 이름을 가져온다
+		String loginMemberName  = loginMember.getName();
 
+		// "loginMemberName" JSP로 전달
+		req.setAttribute("loginMemberName", loginMemberName);
         req.getRequestDispatcher("/WEB-INF/views/webChat/user.jsp").forward(req, resp);
 
     }

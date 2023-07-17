@@ -1,3 +1,5 @@
+<%@page import="com.sh.hairball.member.model.vo.Member"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,6 +10,9 @@
 	href="<%=request.getContextPath()%>/css/webchat.css" />
 	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
 </head>
+	<%
+	String loginMember = (String)request.getAttribute("loginMemberName");
+	%>
 <body>
 	<!-- 채팅 영역 -->
 	<div class="template">
@@ -37,8 +42,8 @@
 		// 접속이 완료되면
 		webSocket.onopen = function(message) {
 			// 콘솔에 메시지를 남긴다.
-			let temp = "<%= loginMember.getName() %>";
-			messageTextArea.value += temp;
+			let temp = "<%= loginMember %>";
+			messageTextArea.value += "✨" + temp + "님 환영합니다✨ \n\n관리자가 접속 중입니다. 잠시만 기다려주세요.\n";
 		};
 		// 접속이 끝기는 경우는 브라우저를 닫는 경우이기 때문에 이 이벤트는 의미가 없음.
 		webSocket.onclose = function(message) {
@@ -57,15 +62,10 @@
 			// 콘솔에 메시지를 남긴다.
 			messageTextArea.value += "error...\n";
 		};
-		// 서버로부터 메시지가 도착하면 콘솔 화면에 메시지를 남긴다.
-		webSocket.onmessage = function(message) {
-			var messageDiv = document.createElement("div");
-			messageDiv.className = "messageContainer";
-			messageDiv.textContent = "(operator) => " + message.data;
-			messageContainer.appendChild(messageDiv);
-			messageContainer.scrollTop = messageContainer.scrollHeight;
-		};
-
+		 // 서버로부터 메시지가 도착하면 콘솔 화면에 메시지를 남긴다.
+	    webSocket.onmessage = function(message) {
+	      messageTextArea.value += "\n관리자 : " + message.data + "\n";
+	    };
 		//채팅 기록을 저장할 배열을 추가
 		var chatHistoryAll = [];
 
@@ -75,7 +75,7 @@
 			// 텍스트 박스의 객체를 가져옴
 			let message = document.getElementById("textMessage");
 			// 콘솔에 메세지를 남긴다.
-			messageTextArea.value += "(me) => " + message.value + "\n";
+			messageTextArea.value += "\n나 : " + message.value + "\n";
 			chatHistoryAll.push(message.value); // 메시지를 채팅 기록에 추가
 			// 소켓으로 보낸다.
 			webSocket.send(message.value);

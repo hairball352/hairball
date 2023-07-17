@@ -213,4 +213,21 @@ public class MemberDao {
         return totalContent;
     }
 
+	public Member findByName(Connection conn, String loginMemberName) {
+        Member member = null;
+        String sql = prop.getProperty("findByName");
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, loginMemberName);
+            try (ResultSet rset = pstmt.executeQuery()) {
+                if (rset.next())
+                    member = handleMemberResultSet(rset);
+            }
+        } catch (SQLException e) {
+            throw new MemberException(e);
+        }
+
+        return member;
+    }
+
 }
