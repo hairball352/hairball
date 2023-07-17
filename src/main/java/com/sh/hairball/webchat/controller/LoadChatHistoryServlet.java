@@ -43,6 +43,7 @@ public class LoadChatHistoryServlet extends HttpServlet {
             
             Gson gson = new Gson();
             String chatHistoryJson = gson.toJson(chatHistory);
+            System.out.println("chatHistoryJson : " + chatHistoryJson);
 
             response.getWriter().write(chatHistoryJson);
         }

@@ -42,6 +42,7 @@ public class MemberDao {
         } catch (SQLException e) {
             throw new MemberException(e);
         }
+        System.out.println("dao member : " + member);
         return member;
     }
 
