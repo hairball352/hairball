@@ -8,6 +8,7 @@
 <%
 	
 	List<Member> members = (List<Member>) request.getAttribute("members"); 
+	List<Member> memberList = (List<Member>) request.getAttribute("memberList");
 
 	// 검색관련 
 	String searchType = request.getParameter("searchType");
@@ -21,25 +22,31 @@ div#search-container 	{width: 100%; margin:0 0 10px 0; padding:3px; background-c
 div#search-memberId 	{display: <%= searchType == null || "member_id".equals(searchType) ? "inline-block" : "none" %>;}
 div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "none" %>;}
 </style>
-
-    <div class="introduce01-container">
-        <div class="introduce01-bar">
-                <div class="side-menu-title"><a href="<%= request.getContextPath() %>/admin/animalRegistration">관리자페이지</a></div>
-                <hr class="side-hr" />
-               	<div class="side-menu"><a href="<%= request.getContextPath() %>/admin/animalRegistration">동물등록</a></div>
-                <hr class="side-hr" />
-                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/memberList">회원목록조회</a></div>
-                <hr class="side-hr" />
-                <div class="side-menu"><a href="<%= request.getContextPath() %>/admin/webChatList">채팅기록조회</a></div>
-                <hr class="side-hr" />
-            </div>
-        </div>
-        <div class="introduce01-detail-section">
-            <div id="checked-title2">회원목록조회</div>
-            <hr class="section-hr" />
-    <section id="memberList-container">
-    <div class="memberList-container2">
-		<h2>회원관리</h2>
+<section class="adminPage-section">
+	<div class="introduce01-container">
+		<div class="introduce01-bar">
+			<div class="side-menu-title">
+				<a href="<%=request.getContextPath()%>/admin/animalRegistration">관리자페이지</a>
+			</div>
+			<hr class="side-hr" />
+			<div class="side-menu">
+				<a href="<%=request.getContextPath()%>/admin/animalRegistration">동물등록</a>
+			</div>
+			<hr class="side-hr" />
+			<div class="side-menu">
+				<a href="<%=request.getContextPath()%>/admin/memberList">회원목록조회</a>
+			</div>
+			<hr class="side-hr" />
+			<div class="side-menu">
+				<a href="<%=request.getContextPath()%>/admin/webChatList">채팅기록조회</a>
+			</div>
+			<hr class="side-hr" />
+		</div>
+	</div>
+	<div class="introduce01-detail-section">
+		<div class="checked-title2">회원목록조회</div>
+		<hr class="section-hr" />
+		<div class="adminPage-board">
 		<div id="search-container">
 	        <label for="searchType">검색타입 :</label> 
 	        <select id="searchType">
@@ -47,7 +54,7 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 	            <option value="name" <%= "name".equals(searchType) ? "selected" : "" %>>회원명</option>
 	        </select>
 	        <div id="search-memberId" class="search-type">
-	            <form action="<%=request.getContextPath()%>/admin/memberFinder">
+	            <form action="<%=request.getContextPath()%>/admin/webChatFinder">
 	                <input type="hidden" name="searchType" value="member_id"/>
 	                <input 
 	                	type="text" name="searchKeyword"  size="25" placeholder="검색할 아이디를 입력하세요." 
@@ -56,7 +63,7 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 	            </form>	
 	        </div>
 	        <div id="search-name" class="search-type">
-	            <form action="<%=request.getContextPath()%>/admin/memberFinder">
+	            <form action="<%=request.getContextPath()%>/admin/webChatFinder">
 	                <input type="hidden" name="searchType" value="name"/>
 	                <input 
 	                	type="text" name="searchKeyword" size="25" placeholder="검색할 이름을 입력하세요."
@@ -66,39 +73,33 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 	        </div>
 	    </div>
 	</div>
-	<table id="tbl-member">
-		<thead>
-			<tr>
-				<th>아이디</th>
-				<th>이름</th>
-				<th>회원권한</th>
-				<th>이메일</th>
-				<th>전화번호</th>
-				<th>주소</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% 	if(members == null || members.isEmpty()) { %>
+		<table id="tbl-member">
+			<thead>
+				<tr>
+					<th class="id">아이디</th>
+					<th class="name">이름</th>
+					<th class="email">이메일</th>
+					<th>전화번호</th>
+					<th>주소</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
+				if (members == null || members.isEmpty()) {
+				%>
 				<tr>
 					<td colspan="10">조회 결과가 없습니다.</td>
 				</tr>
-			<%	
-				} 
-				else { 
-					for(Member member : members) {
-			%>
-				<tr>
-					<td><%= member.getMemberId() %></td>
-					<td><%= member.getName() %></td>
-					<td>
-						<select class="member-role" data-member-id="<%= member.getMemberId() %>">
-							<option value="U" <%= member.getMemberRole() == MemberRole.U ? "selected" : "" %>>일반</option>
-							<option value="A" <%= member.getMemberRole() == MemberRole.A ? "selected" : "" %>>관리자</option>
-						</select>
-					</td>
-					<td><%= member.getEmail() != null ? member.getEmail() : "" %></td>
-					<td><%= member.getPhone() %></td>	
-					<td><%= member.getAddress() %></td>			
+				<%
+				} else {
+				for (Member member : memberList) {
+				%>
+				<tr class="member-row">
+					<td class="id"><%=member.getMemberId()%></td>
+					<td class="name"><%=member.getName()%></td>
+					<td class="email"><%=member.getEmail() != null ? member.getEmail() : ""%></td>
+					<td><%=member.getPhone()%></td>
+					<td><%=member.getAddress()%></td>
 				</tr>
 			
 			<% 		
@@ -107,6 +108,23 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 			%>
 		</tbody>
 	</table>
+				<tr class="chat-row" style="display: none;">
+					<td colspan="5">
+						<div class="chat-container"
+							data-member-id="<%=member.getMemberId()%>">
+						</div>
+					</td>
+				</tr>
+				<%
+				}
+				}
+				%>
+			</tbody>
+		</table>
+		<div id='pagebar'>
+			<%=request.getAttribute("pagebar")%>
+		</div>
+	</div>
 </section>
 <form 
 	name="memberRoleUpdateFrm" 

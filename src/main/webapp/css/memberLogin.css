@@ -9,9 +9,16 @@
 
 /* 로그인 관련 css */
 #login-section {
-	display: flex;
-	justify-content: center;
-	margin: 100px;
+   display: flex;
+   justify-content: center;
+   margin: auto 0;
+   align-items: center;
+   
+}
+
+.login-container {
+	margin-left: 300px;
+	margin-top: 50px;
 }
 
 #login-table {
@@ -25,14 +32,34 @@
 	margin: 20px;
 }
 
+.login_btn {
+	margin-left: -30px;
+	margin-top: 30px;
+	margin-bottom: 50px;
+	position: relative;
+	gap : 10px;
+
+}
+
 #btn1 {
-	margin-top: 10px;
-	bottom: px;
-	justify-content: center;
-	background: #5fab95;
-	font-family: 'KBO-Dia-Gothic_bold';
-	color: white;
-	border: none;
+   margin-top: 30px;
+   background: #5fab95;
+   color: white;
+   border: none;
+   zoom: 2.0;
+   cursor:pointer;
+   font-size: 5px;
+}
+
+#btn2 {
+   margin-top: 30px;
+   position: absolute;
+   background: #5fab95;
+   color: white;
+   border: none;
+   zoom: 2.0;
+   cursor:pointer;
+   font-size: 5px;
 }
 
 #btn1:hover {
@@ -47,15 +74,34 @@
 	style: transform;
 }
 
-​
-#singup-btn {
-	border: none;
-	font-family: 'KBO-Dia-Gothic_bold';
+
+#saveId{
+   width: 30px;
+   height: 30px;
+   border: none;
+   border-top: none;
+   border-bottom: none;
+   border-right: none;
+   border-left: none;
+   	margin-left: 50px;
+}
+  
+.saveId3 {
+	margin-top: -50px;
+	margin-left: 10px;
+	padding-left: 60px;
 }
 
-#saveId {
-	font-family: 'KBO-Dia-Gothic_bold';
+.saveId4 {
+	margin-left: 40px;
 }
+
+#loginFrm img {
+	width: 150px;
+	margin-bottom: 60px;
+	margin-left: 45px;
+}
+
 /* 회원가입 관련 css*/
 #enroll-table {
 

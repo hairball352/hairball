@@ -23,6 +23,7 @@
 	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/hairball/css/animation.css" />
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 <%
@@ -82,7 +83,7 @@
                 </a>
             </li>
             <li class="admin_li">
-                <a href="<%= request.getContextPath() %>/admin/animalRegistration">관리자</a>
+                <a href="<%= request.getContextPath() %>/animal/enroll">관리자</a>
             </li>
             <li class="login_li">
                 <a href="<%= request.getContextPath() %>/member/login">로그인</a>

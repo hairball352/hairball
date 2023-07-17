@@ -16,6 +16,8 @@
 					<td><input colspan="2"type="text" name="memberId" id="memberId"
 						placeholder="아이디" tabindex="1"
 						value="<%=saveId != null ? saveId : ""%>"></td>
+					<img src="/hairball/images/login.gif" alt="login">
+					<td><input colspan="2" type="text" name="memberId" id="memberId" placeholder="아이디" tabindex="1" value="<%=saveId != null ? saveId : ""%>"></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="password" name="password" id="password"
