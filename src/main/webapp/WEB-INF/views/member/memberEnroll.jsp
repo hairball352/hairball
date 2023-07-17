@@ -55,9 +55,7 @@
   </form>
 </section>
 <script>
-  /**
-   * 중복검사 이후 아이디 변경시 #idValid값을 리셋(0)한다.
-   */
+
   document.querySelector("#_memberId").onchange = () => {
     document.querySelector("#idValid").value = "0";
   };
