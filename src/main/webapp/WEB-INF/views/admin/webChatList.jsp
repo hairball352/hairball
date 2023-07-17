@@ -24,10 +24,11 @@
 	div#search-memberId 	{display: <%= searchType == null || "member_id".equals(searchType) ? "inline-block" : "none" %>;}
 	div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "none" %>;}
 	</style>
-
-    <div class="introduce01-container">
-        <div class="introduce01-bar">
-                <div class="side-menu-title"><a href="<%= request.getContextPath() %>/admin/enroll">관리자페이지</a></div>
+<section class="adminPage-section">
+   <div class="introduce01-container">
+      <div class="introduce01-bar">
+         <div class="side-menu-title">
+            <a href="<%=request.getContextPath()%>/admin/animalRegistration">관리자페이지</a>
                 <hr class="side-hr" />
                	<div class="side-menu"><a href="<%= request.getContextPath() %>/animal/enroll">동물등록</a></div>
                 <hr class="side-hr" />
