@@ -1,151 +1,200 @@
-
 /* 로그인 관련 css */
 #login-section {
-   display: flex;
-   justify-content: center;
-   flex-direction: column;
-   margin: auto 0;
-   align-items: center;
-   
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin: auto 0;
+	align-items: center;
 }
+
 #login-table {
-   padding: 20px;
-   width: 500px;
-   height: 200px;
-   position: relative;
+	padding: 20px;
+	width: 500px;
+	height: 200px;
+	position: relative;
 }
 
 #login-table tr td input {
-   margin-bottom: 20px;
-   margin-left: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
 }
 
-
 #btn1 {
-   margin-top: 30px;
-   background: #5fab95;
-   color: white;
-   border: none;
-   zoom: 2.0;
-   cursor:pointer;
-   font-size: 5px;
+	margin-top: 30px;
+	background: #5fab95;
+	color: white;
+	border: none;
+	zoom: 2.0;
+	cursor: pointer;
+	font-size: 5px;
 }
 
 #btn2 {
-   margin-top: 30px;
-   position: absolute;
-   background: #5fab95;
-   color: white;
-   border: none;
-   zoom: 2.0;
-   cursor:pointer;
-   font-size: 5px;
+	margin-top: 30px;
+	position: absolute;
+	background: #5fab95;
+	color: white;
+	border: none;
+	zoom: 2.0;
+	cursor: pointer;
+	font-size: 5px;
 }
 
-
 #btn1:hover {
-   border: black;
+	border: black;
 }
 
 #memberId {
-   width: 200px;
-   height: 30px;
+	width: 200px;
+	height: 30px;
 }
 
-#password{
-   width: 200px;
-   height: 30px;
+#password {
+	width: 200px;
+	height: 30px;
 }
+
 ​
 #singup-btn {
-   background: #5fab95;
-   color: white;
-   border: 0;
-   zoom: 2.0;
+	background: #5fab95;
+	color: white;
+	border: 0;
+	zoom: 2.0;
 }
 
-#saveId2{
-   width: 20px;
+#saveId2 {
+	width: 20px;
 }
 
-#saveId{
-   width: 30px;
-   height: 30px;
-   border: none;
-   border-top: none;
-   border-bottom: none;
-   border-right: none;
-   border-left: none;
-      margin-left: 50px;
+#saveId {
+	width: 30px;
+	height: 30px;
+	border: none;
+	border-top: none;
+	border-bottom: none;
+	border-right: none;
+	border-left: none;
+	margin-left: 50px;
 }
 
 .saveId3 {
-   margin-top: -50px;
-   margin-left: 10px;
-   padding-left: 60px;
-   margin-bottom: 10px
+	margin-top: -50px;
+	margin-left: 10px;
+	padding-left: 60px;
+	margin-bottom: 10px
 }
 
 .saveId4 {
-   margin-left: 40px;
+	margin-left: 40px;
 }
 
 #loginFrm img {
-   width: 150px;
-   margin-bottom: 60px;
-   margin-left: 45px;
+	width: 150px;
+	margin-bottom: 60px;
+	margin-left: 45px;
 }
 
 /* 회원가입 관련 css*/
-#enroll-table {
-   background: red;
+.login-btn a img {
+	width: 200px;
+	height: 49.17px;
+	margin-left: 45px;
 }
 
-.login-btn a img{
+.login-btn button {
 	width: 200px;
 	height: 49.17px;
 	margin-left: 45px;
-}
-.login-btn button{
-	width: 200px;
-	height: 49.17px;
-	margin-left: 45px;
-	margin-bottom:4px;
+	margin-bottom: 4px;
 	background: #5fab95;
 	color: #FFF;
 	border: 0 solid #5fab95;
 	border-radius: 5px;
 	cursor: pointer;
 	font-size: 16px;
-	
 }
+
 .sns-btn:last-of-type {
 	margin-bottom: 50px;
 }
 
 
-
-
 #login-table {
-  width: 100%;
+	width: 100%;
 }
 
 #login-table tr img {
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 10px;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 10px;
 }
 
-#login-table input[type="text"],
-#login-table input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  background-color: transparent;
+#login-table input[type="text"], #login-table input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	background-color: transparent;
 }
 
 #login-table label {
-  vertical-align: middle;
+	vertical-align: middle;
+}
+
+.enroll-container {
+	border: none;
+	font-size: 16px;
+	display: flex;
+	flex-direction : column;
+	justify-content: center;
+	
+}
+
+.enroll-h2 {
+	display: flex;
+	justify-content: center;
+	font-size: 16px;
+	margin: 20px;
+	font-weight: 150;
+	
+	
+	
+}
+.enroll-btn {
+	display: flex;
+	justify-content: center;
+	margin: 20px;
+}
+
+.enroll-btn2 {
+	border: none;
+	font-size: 14px;
+	background-color: #77af9c	;
+	color: #d7fff1;
+}
+
+.enroll-btn2 input[type="submit"], input[type="reset"] {
+	display: flex;
+	justify-content: center;
+	
+}
+
+.banner_img{
+	margin-bottom: 10px;
+}
+
+#enroll-table {
+	border: none;
+	display: flex;
+	justify-content: center;
+}
+.enroll-Frm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.enroll-Frm th {
+	margin-right: 30px;
+	margin-left: 30px;
 }

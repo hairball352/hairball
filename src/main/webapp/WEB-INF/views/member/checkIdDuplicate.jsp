@@ -30,7 +30,7 @@
     <form
             name="checkIdDuplicateFrm">
         <input type="text" name="memberId" placeholder="아이디를 입력하세요."/>
-        <input type="submit" value="중복검사" />
+        <input  type="submit" value="중복검사" />
     </form>
 
     <%  } %>

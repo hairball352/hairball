@@ -40,6 +40,7 @@ create table animal(
    id number,
    age number,
    discvry_plc varchar(300),
+   attachment_id number,
    animal_type varchar(20),
    species varchar(20),
    weight number,
@@ -319,6 +320,7 @@ select * from animal;
 select * from question;
 select * from answer where question_id = 38;
 
+select * from member;
 
 insert into answer values(seq_answer_id.nextval, default, 38, '뒤지세요 ㅋㅋㅋㅋ',default );
 insert into answer values(seq_answer_id.nextval, default, ?, ?, default);

@@ -6,8 +6,7 @@
          pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <%
-  // not null
-  // null
+
   String memberId = loginMember.getMemberId();
   String name = loginMember.getName();
   String email = loginMember.getEmail();
