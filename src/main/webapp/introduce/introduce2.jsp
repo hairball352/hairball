@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
-<section class="animal-section">
+<section class="introduce-section">
 	<div class="introduce01-container">
 		<div class="introduce01-bar">
 			<div class="side-menu-title">
@@ -29,11 +29,11 @@
 						<tr>
 							<td>
 								<div class="table-container3"><span>싸우지말조</span>를 소개합니다 😘</div>
-								<p class="p2">🤮 정건룡 : 시간이 금인데 말이죠<br/><br/>
-								👀 전예라 : 안녕하세요 전예라입니다.<br/><br/>
-								🐰 김담희 : 안녕하세요 김담희입니다.<br/><br/>
-								😒 김상훈 : 안녕하세요 김상훈입니다.<br/><br/>
-								💩 김대원 : 안녕하세요 김대원입니다.</p>
+								<p class="p2">🤮 정건룡 : <br/><br/>
+								👀 전예라 : <br/><br/>
+								🐰 김담희 : <br/><br/>
+								😒 김상훈 : <br/><br/>
+								💩 김대원 : </p>
 							</td>
 						</tr>
 					</tbody>

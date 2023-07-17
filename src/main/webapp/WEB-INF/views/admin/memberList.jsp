@@ -25,11 +25,11 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 	<div class="introduce01-container">
 		<div class="introduce01-bar">
 			<div class="side-menu-title">
-				<a href="<%=request.getContextPath()%>/animal/enroll">관리자페이지</a>
+				<a href="<%=request.getContextPath()%>/admin/animalRegistration">관리자페이지</a>
 			</div>
 			<hr class="side-hr" />
 			<div class="side-menu">
-				<a href="<%=request.getContextPath()%>/animal/enroll">동물등록</a>
+				<a href="<%=request.getContextPath()%>/admin/animalRegistration">동물등록</a>
 			</div>
 			<hr class="side-hr" />
 			<div class="side-menu">
