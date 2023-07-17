@@ -93,7 +93,7 @@
 			}
 			return true;
 		}
-		// 이 함수는 chatHistory 배열을 서버에 전송하고, 서버는 이 배열을 데이터베이스에 저장
+		// chatHistory 배열을 서버에 전송하고, 서버는 이 배열을 데이터베이스에 저장하는 함수
 		function saveChatHistoryToDB() {
 			$.ajax({
 				url: "/hairball/saveChatHistory",
@@ -109,6 +109,34 @@
 				}
 			});
 		}
+		
+		// 페이지가 로드되었을 때 채팅 기록을 가져오는 함수
+		function loadChatHistoryFromDB() {
+			$.ajax({
+				url: "/hairball/loadChatHistory", // 채팅 기록을 불러오는 서버의 endpoint
+				type: "GET",
+				success: function(response) {
+					// 서버로부터 받아온 채팅 내역을 화면에 추가
+					for(let i = 0; i < response.length; i++) {
+						let messageDiv = document.createElement("div");
+						messageDiv.className = "messageContainer";
+						// 서버로부터 받은 메시지 내용을 div에 추가
+						messageDiv.textContent = response[i].message;
+						messageContainer.appendChild(messageDiv);
+					}
+					// 스크롤을 최하단으로 이동 (최근 메시지 보기)
+					messageContainer.scrollTop = messageContainer.scrollHeight;
+				},
+				error: function(xhr, status, error) {
+					console.log("db 로딩 실패ㅠㅠ: " + status, error);
+				}
+			});
+		}
+
+		// 페이지 로드가 완료되면 채팅 기록을 불러옵니다.
+		$(document).ready(function() {
+			loadChatHistoryFromDB();
+		});
 	</script>
 </body>
 </html>

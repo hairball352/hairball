@@ -8,6 +8,7 @@ import com.sh.hairball.member.model.service.MemberService;
 import com.sh.hairball.member.model.vo.Member;
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/user")
 public class UserSocketServlet extends HttpServlet {
@@ -19,7 +20,7 @@ public class UserSocketServlet extends HttpServlet {
     	
     	String loginMemberName  = req.getParameter("Name");
     	
-		Member member = memberService.findById(memberId);
+		List<Member> member = memberService.findAll();
 
         req.getRequestDispatcher("/WEB-INF/views/webChat/user.jsp").forward(req, resp);
 
