@@ -74,9 +74,15 @@
             <li class="admin_li">
                 <a href="<%= request.getContextPath() %>/admin/animalRegistration">관리자</a>
             </li>
+            <%if(loginMember == null){ %>
             <li class="login_li">
                 <a href="<%= request.getContextPath() %>/member/login">로그인</a>
             </li>
+            <%}else{ %>
+            <li class="login_li">
+                <a href="<%= request.getContextPath() %>/member/login"><%= loginMember.getName()+"님 안녕하세요."%></a>
+            </li>
+            <%} %>
             <li class="signup_li">
                 <a href="<%= request.getContextPath() %>/member/memberEnroll">회원가입</a>
             </li>
