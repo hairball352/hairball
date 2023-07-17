@@ -23,7 +23,7 @@ public class JdbcTemplate {
         try {
             String filename = JdbcTemplate.class.getResource("/datasource.properties").getPath();
             prop.load(new FileReader(filename));
-            driverClass = prop.getProperty("driverClass");
+            driverClass = prop.getProperty("classDriver");
             url = prop.getProperty("url");
             user = prop.getProperty("user");
             password = prop.getProperty("password");
@@ -42,6 +42,7 @@ public class JdbcTemplate {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, user, password);
+            System.out.println(conn);
             conn.setAutoCommit(false);
         } catch (SQLException e) {
             e.printStackTrace();
