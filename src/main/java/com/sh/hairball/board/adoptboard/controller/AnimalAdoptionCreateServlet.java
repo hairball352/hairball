@@ -40,10 +40,6 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
 		String animalPblId = request.getParameter("animalPblId");
 		Animal animal = animalService.findByPblId(animalPblId);
 		
-		System.out.println("animal@adoption create servlet = " + animal);
-		System.out.println("animal(0) @adoption create servlet = " + animal.get(0));
-		
-		
 		int memberId = Integer.parseInt(request.getParameter("memberId"));
 		String _visitDate = request.getParameter("visitDate");
 		Date visitDate = Date.valueOf(_visitDate);
