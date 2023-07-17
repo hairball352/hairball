@@ -45,7 +45,7 @@
 							<td><%= animal.getId() %></td>
 						</tr>
 						<tr>
-							<td colspan="2"><a href="">상세 동물 페이지로 이동하기</td>
+							<td colspan="2"><a href="<%= request.getContextPath()%>/animal/animalDetail?no=<%=animal.getId()%>">상세 동물 페이지로 이동하기</a></td>
 						</tr>
 					</tbody>
 				</table>

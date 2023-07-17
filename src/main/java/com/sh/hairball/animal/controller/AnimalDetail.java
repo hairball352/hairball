@@ -18,7 +18,7 @@ public class AnimalDetail extends HttpServlet {
 	
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    	int animalId = Integer.parseInt(req.getParameter("animalId"));
+    	int animalId = Integer.parseInt(req.getParameter("no"));
     	Animal animal = animalService.findById(animalId);
     	req.setAttribute("animal", animal);
         doPost(req, resp);
