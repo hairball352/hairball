@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="/hairball/css/introduce.css" />
     <link rel="stylesheet" href="/hairball/css/memberLogin.css" />
     <link rel="stylesheet" href="/hairball/css/procedure.css" />
+    <link rel="stylesheet" href="/hairball/css/webchat.css" />
     <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>

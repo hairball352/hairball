@@ -21,16 +21,19 @@ List<EnrollBoardDto> animalBoardList= (List<EnrollBoardDto>) request.getAttribut
 		</div>
 	</div>
 		<div class="introduce01-detail-section animalList" style="width:950px">
-		<div class="checked-title2">상세동물보기</div>
+		<div class="checked-title2">보호동물목록</div>
 		<hr class="section-hr" />
 		<div>
+		<% if(animalBoardList.size()==0){ %>
+		<h1 id="canNotFindAnimal">등록 유기동물을 찾을 수 없습니다 !</h1>
+		<%} %>
     <%for(int i = 0 ; i<animalBoardList.size(); i++){
     	if(i%3==0){
     		%>
     		<ul>
     		<%
     	}%>
-    	<a href="<%= request.getContextPath() %>/animal/animalDetail?animalId=<%= animalBoardList.get(i).getAnimalId()%>">
+    	<a href="<%= request.getContextPath() %>/animal/animalDetail?no=<%= animalBoardList.get(i).getAnimalId()%>">
 	    	<li>
 		    	<img src="<%= request.getContextPath() %>/upload/animal/<%= animalBoardList.get(i).getRenamedFileName() %>" style="width:100px"/>
 		    	<p>고유번호 : <%= animalBoardList.get(i).getPbl_id() %></p>

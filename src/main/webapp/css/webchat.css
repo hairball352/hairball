@@ -10,3 +10,18 @@
     border-radius: 5px;
 }
 
+.chat-container{
+	margin: auto 0;
+}
+
+.float-left {
+	margin: 5px;
+}
+
+.chat-container {
+	margin-left: 910px;
+	margin-top: -240px;
+	margin-bottom: 100px;
+	overflow-y: auto; width: 970px; max-height: 500px; padding: 4px; border: 1 solid #000000;
+}
+

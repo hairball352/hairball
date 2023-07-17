@@ -26,12 +26,12 @@ create table member (
     member_id varchar2(20),
     password varchar2(300) not null,
     name varchar2(50) not null,
-    member_role varchar(59) default 'ROLE_USER' not null,
+    member_role varchar2(59) default 'U' not null,
     email varchar2(200),
-    phone char(20) not null,
+    phone varchar2(20) not null,
     reg_date date default sysdate,
-    address varchar(100),
-    provider varchar(50),
+    address varchar2(100),
+    provider varchar2(50),
     constraints pk_member_id primary key(id),
     constraints uq_member_member_id unique (member_id)
 );
@@ -39,8 +39,8 @@ create table member (
 create table animal(
    id number,
    age number,
-   attachment_id number not null,
    discvry_plc varchar(300),
+   attachment_id number,
    animal_type varchar(20),
    species varchar(20),
    weight number,
@@ -63,6 +63,7 @@ create table enroll_board (
 create table attachment (
     id number,
     enroll_board_id number not null,
+    animal_id number not null,
     original_filename varchar2(255) not null,
     renamed_filename varchar2(255) not null,
     reg_date date default sysdate,
@@ -294,6 +295,7 @@ INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '작은소피�
 
 select * from question;
 
+
 --=============================
 -- 애니멀 테이블 더미 DB 
 --=============================
@@ -318,6 +320,7 @@ select * from animal;
 select * from question;
 select * from answer where question_id = 38;
 
+select * from member;
 
 insert into answer values(seq_answer_id.nextval, default, 38, '뒤지세요 ㅋㅋㅋㅋ',default );
 insert into answer values(seq_answer_id.nextval, default, ?, ?, default);
