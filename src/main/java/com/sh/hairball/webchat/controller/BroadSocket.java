@@ -82,14 +82,11 @@ public class BroadSocket {
 			try {
 				// 유저 Session으로 socket을 취득한 후 메시지를 전송한다.
 				user.session.getBasicRemote().sendText(message);
-				//여기에 채팅 디비 저장 함수를 넣는다. 
-				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	// WebSocket이 종료가 되면, 종료 버튼이 없기 때문에 유저 브라우저가 닫히면 발생한다.
 	@OnClose
 	public void handleClose(Session userSession) {
 		// Session으로 접속 리스트에서 User 클래스를 탐색

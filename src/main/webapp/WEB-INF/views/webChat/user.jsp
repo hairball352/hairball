@@ -9,6 +9,9 @@
 	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
 </head>
 <body>
+	<!-- 클라이언트의 요청 -> JSP 파일이 실행 -> 서블릿 실행 -> 동시에 클라이언트와 서버는 웹 소켓을 통해 양방향 통신을 수행 -> 
+	채팅 기록은 클라이언트의 요청에 따라 서버에서 데이터베이스에 저장 -->
+	
 	<!-- 채팅 영역 -->
 	<div class="template">
 		<br />
@@ -36,19 +39,19 @@
 		var messageContainer = document.getElementById("messageContainer");
 		// 접속이 완료되면
 		webSocket.onopen = function(message) {
-			// 콘솔에 메시지를 남긴다.
+		// 콘솔에 메시지를 남긴다.
 			messageTextArea.value += temp;
 		};
-		// 접속이 끝기는 경우는 브라우저를 닫는 경우이기 때문에 이 이벤트는 의미가 없음.
+		// 접속이 끊기는 경우
 		webSocket.onclose = function(message) {
 		};
 
 		//창을 닫을 때 웹소켓 연결을 종료
 		function endChat() {
-		  // 웹소켓 연결을 종료
-		  webSocket.close();
-		  // 채팅 기록을 서버에 저장
-		  saveChatHistoryToDB();
+		// 웹소켓 연결을 종료
+		webSocket.close();
+		// 채팅 기록을 서버에 저장
+		saveChatHistoryToDB();
 		}
 
 		// 에러가 발생하면
@@ -92,12 +95,12 @@
 			}
 			return true;
 		}
-		// 이 함수는 chatHistory 배열을 서버에 전송하고, 서버는 이 배열을 데이터베이스에 저장
+		// chatHistoryAll 배열을 서버에 전송하고, 서버는 이 배열을 데이터베이스에 저장
 		function saveChatHistoryToDB() {
 			$.ajax({
 				url: "/hairball/saveChatHistory",
 				type: "POST",
-				data: JSON.stringify(chatHistoryAll),
+				data: JSON.stringify(chatHistoryAll), // JSON 형식으로 변환
 				contentType: "application/json",
 				success: function(response) {
 					console.log("db 저장 성공!");
