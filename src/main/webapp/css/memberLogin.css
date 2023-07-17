@@ -3,16 +3,11 @@
 #login-section {
    display: flex;
    justify-content: center;
+   flex-direction: column;
    margin: auto 0;
    align-items: center;
    
 }
-
-.login-container {
-	margin-left: 300px;
-	margin-top: 50px;
-}
-
 #login-table {
    padding: 20px;
    width: 500px;
@@ -25,14 +20,6 @@
    margin-left: 20px;
 }
 
-.login_btn {
-	margin-left: -30px;
-	margin-top: 30px;
-	margin-bottom: 50px;
-	position: relative;
-	gap : 10px;
-
-}
 
 #btn1 {
    margin-top: 30px;
@@ -89,26 +76,76 @@
    border-bottom: none;
    border-right: none;
    border-left: none;
-   	margin-left: 50px;
+      margin-left: 50px;
 }
-  
+
 .saveId3 {
-	margin-top: -50px;
-	margin-left: 10px;
-	padding-left: 60px;
+   margin-top: -50px;
+   margin-left: 10px;
+   padding-left: 60px;
+   margin-bottom: 10px
 }
 
 .saveId4 {
-	margin-left: 40px;
+   margin-left: 40px;
 }
 
 #loginFrm img {
-	width: 150px;
-	margin-bottom: 60px;
-	margin-left: 45px;
+   width: 150px;
+   margin-bottom: 60px;
+   margin-left: 45px;
 }
 
 /* 회원가입 관련 css*/
 #enroll-table {
    background: red;
+}
+
+.login-btn a img{
+	width: 200px;
+	height: 49.17px;
+	margin-left: 45px;
+}
+.login-btn button{
+	width: 200px;
+	height: 49.17px;
+	margin-left: 45px;
+	margin-bottom:4px;
+	background: #5fab95;
+	color: #FFF;
+	border: 0 solid #5fab95;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	
+}
+.sns-btn:last-of-type {
+	margin-bottom: 50px;
+}
+
+
+
+
+#login-table {
+  width: 100%;
+}
+
+#login-table tr img {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#login-table input[type="text"],
+#login-table input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+}
+
+#login-table label {
+  vertical-align: middle;
 }
