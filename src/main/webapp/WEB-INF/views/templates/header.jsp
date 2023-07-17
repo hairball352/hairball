@@ -28,15 +28,7 @@
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 <%
-  String clientId = "9kBGa_4PSPHg5IPpNrhO";//애플리케이션 클라이언트 아이디값
-  String redirectURI = URLEncoder.encode("http://localhost:8080/hairball/oauth/naver", "UTF-8");
-  SecureRandom random = new SecureRandom();
-  String state = new BigInteger(130, random).toString();
-  String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
-  apiURL += "&client_id=" + clientId;
-  apiURL += "&redirect_uri=" + redirectURI;
-  apiURL += "&state=" + state;
-  session.setAttribute("state", state);
+
   
   String msg = (String) session.getAttribute("msg"); 
    if(msg != null){ 
@@ -73,16 +65,6 @@
             <a href="<%= request.getContextPath() %>"><img src="/hairball/images/로고/메뉴바_로고.png" alt=""/></a>
         </div>
         <ul class="utility">
-            <li>
-                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a7b86ff96d50db1785b75938758aeb44&redirect_uri=http://localhost:8080/hairball/oauth/kakao">
-                    <img width="50" height="20" src="/hairball/images/kakao_login_simple/ko/kakao_login_large.png"/>
-                </a>
-            </li>
-            <li>
-                <a href="<%=apiURL%>">
-                    <img width="50" height="20" src="/hairball/images/naver_login_simple/btnW_축약형.png"/>
-                </a>
-            </li>
 				<% 
 				    if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) {
 				%>
