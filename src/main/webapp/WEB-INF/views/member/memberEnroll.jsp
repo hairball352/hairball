@@ -2,21 +2,24 @@
          pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 
-<section id=enroll-container>
-
-  <h2>회원 가입 정보 입력</h2>
+<section id=enroll-container class="enroll-container">
+	<div class="enroll-h2">	
+  <h2 >회원 가입 정보 입력</h2>
+   </div>
   <form
           name="checkIdDuplicateFrm"
           action="<%= request.getContextPath() %>/member/checkIdDuplicate">
     <input type="hidden" name="memberId"/>
   </form>
-  <form name="memberEnrollFrm" action="" method="POST">
+  <form
+  	class="enrollFrm" 
+  	name="memberEnrollFrm" action="" method="POST">
     <table id="enroll-table">
       <tr>
         <th>아이디<sup>*</sup></th>
         <td id="login-td">
           <input type="text" placeholder="아이디" name="memberId" id="_memberId" value="" required>
-          <input type="button" value="중복검사" onclick="checkIdDuplicate();"/>
+          <input class="enroll-btn2" type="button" value="중복검사" onclick="checkIdDuplicate();"/>
           <input type="hidden" id="idValid" value="0"/>
           <%-- id검사여부 확인용: 0-유효하지않음, 1-유효한 아이디 --%>
         </td>
@@ -58,8 +61,10 @@
         </td>
       </tr>
     </table>
-    <input type="submit" value="가입" >
-    <input type="reset" value="취소">
+    <div class="enroll-btn">
+    <input class="enroll-btn2" type="submit" value="가입" >
+    <input class="enroll-btn2" type="reset" value="취소">
+    </div>
   </form>
 </section>
 <script>

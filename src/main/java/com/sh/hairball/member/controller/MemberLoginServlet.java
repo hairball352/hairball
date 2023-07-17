@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sh.hairball.common.util.AnimalUtil;
 import com.sh.hairball.member.model.service.MemberService;
 import com.sh.hairball.member.model.vo.Member;
 
@@ -28,7 +29,7 @@ public class MemberLoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String memberId = request.getParameter("memberId");
-
+		String password = AnimalUtil.getEncryptedPassword(request.getParameter("password"), memberId);
 		String saveId = request.getParameter("saveId");
 		System.out.println("memberId = " + memberId);
 		System.out.println("saveId = " + saveId);
@@ -37,7 +38,7 @@ public class MemberLoginServlet extends HttpServlet {
 
 		HttpSession session = request.getSession(); // request.getSession(true)와 동일.
 
-		if (member != null) {
+		if(member != null && password.equals(member.getPassword())) {
 			session.setAttribute("loginMember", member);
 
 			Cookie cookie = new Cookie("saveId", memberId);
@@ -52,7 +53,7 @@ public class MemberLoginServlet extends HttpServlet {
 
 		} else {
 			// 로그인 실패
-//                session.setAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
+            session.setAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
 		}
 
 		System.out.println("memberServlet@member = " + member);
