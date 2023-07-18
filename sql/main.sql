@@ -126,24 +126,24 @@ create sequence seq_adopt_board_id;
 --=========================================
 -- 테이블, 시퀀스 DROP
 --=========================================
---drop table member;
---drop table answer;
---drop table question;
---drop table animal;
---drop table enroll_board;
---drop table attachment;
---drop table shelter;
---drop table chatlog;
---drop table adopt_board;
+drop table member;
+drop table answer;
+drop table question;
+drop table animal;
+drop table enroll_board;
+drop table attachment;
+drop table shelter;
+drop table chatlog;
+drop table adopt_board;
 --
---drop sequence seq_member_id;
---drop sequence seq_animal_id;
---drop sequence seq_answer_id;
---drop sequence seq_question_id;
---drop sequence seq_attachment_id;
---drop sequence seq_enroll_board_id;
---drop sequence seq_chatlog_id;
---drop sequence seq_adopt_board_id;
+drop sequence seq_member_id;
+drop sequence seq_animal_id;
+drop sequence seq_answer_id;
+drop sequence seq_question_id;
+drop sequence seq_attachment_id;
+drop sequence seq_enroll_board_id;
+drop sequence seq_chatlog_id;
+drop sequence seq_adopt_board_id;
 
 --===========================================
 

@@ -24,7 +24,6 @@ import com.sh.hairball.member.model.vo.Member;
 	"/member/memberDelete",
 	"/qnaBoard/questionCreate",
 	"/qnaBoard/questionDelete",
-	"/qnaBoard/questionDetail",
 	"/qnaBoard/answerCreate",
 	"/qnaBoard/answerDelete",
 })
