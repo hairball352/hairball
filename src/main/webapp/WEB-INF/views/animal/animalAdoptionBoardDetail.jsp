@@ -38,7 +38,7 @@
 					<tbody>
 						<tr>
 							<td>진행단계</td>
-							<td><%= stateArr[animal.getState()+1] %></td>
+							<td><%= stateArr[animal.getState()] %></td>
 						</tr>
 						<tr>
 							<td>등록번호</td>
