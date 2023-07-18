@@ -14,6 +14,10 @@
 	position: relative;
 }
 
+#login-table {
+	margin-top: -40px;
+}
+
 #login-table tr td input {
 	margin-bottom: 20px;
 	margin-left: 20px;
@@ -89,14 +93,12 @@
 }
 
 #loginFrm img {
-	width: 150px;
+	width: 140px;
 	margin-bottom: 60px;
-	margin-left: 60px;
+	margin-left: 80px;
 }
 
 /* 회원가입 관련 css*/
-
- /* 회원가입 관련 css*/
 
 .error-message {
     color: red;
@@ -105,7 +107,7 @@
 }
 
 .enrollFrm img {
-	width: 150px;
+	width: 140px;
 	margin-left: 880px;
 	margin-top: -40px;
 }

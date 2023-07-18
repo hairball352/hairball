@@ -1,7 +1,9 @@
 package com.sh.hairball.animal.model.service;
 
 import static com.sh.hairball.common.JdbcTemplate.close;
+import static com.sh.hairball.common.JdbcTemplate.commit;
 import static com.sh.hairball.common.JdbcTemplate.getConnection;
+import static com.sh.hairball.common.JdbcTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -58,5 +60,28 @@ public class AnimalService {
 		close(conn);
 		return animal;
 	}
+
+	public List<Animal> findAllAnimal() {
+		Connection conn = getConnection();
+		List<Animal> boardList = animalDao.findAll(conn);
+		close(conn);
+		return boardList;
+	}
+
+	public void updateState(int animalId, int state) {
+		Connection connection = getConnection();
+		int result = 0;
+		 try {
+	            animalDao.updateState(connection, animalId , state);
+	            commit(connection);
+	        } catch (Exception e) {
+	            rollback(connection);
+	            throw e;
+	        } finally {
+	            close(connection);
+	        }
+		
+	}
+
 
 }

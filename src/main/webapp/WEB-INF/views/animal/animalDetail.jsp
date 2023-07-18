@@ -27,9 +27,6 @@
 		<hr class="section-hr" />
 		<div class="animal-detail-div">
 			<div class="animal-detail-container">
-				<%
-				if (loginMember != null)
-				%>
 				<table id="detail-table">
 					<thead>
 					<tr>
@@ -38,9 +35,18 @@
 					</thead>
 					<tbody>
 						<tr>
+							<%if (loginMember != null && loginMember.getMemberRole().name().equals("A")){ %>
+							<select id="procedureState">
+							 <option value="0"> 입양가능 </option>
+							 <option value="1"> 센터 방문 대기 </option>
+							 <option value="2"> 교육 수료중 </option>
+							 <option value="3"> 입양 확정</option>
+							</select>
+							<%} else { %>
 							<th colspan="4">입양상태
-								<td colspan="6" id="state"><%= animal.getState() %></td>
+								<td colspan="6" id="state"><%= stateArr[animal.getState()] %></td>
 							</th>
+							<%} %>
 							<th colspan="4">동물등록번호
 								<td colspan="6" id="pblId"><%=animal.getPblId()%></td>
 							</th>
@@ -72,21 +78,35 @@
 					name="animalAdopFrm"  method="GET"
 					action="<%= request.getContextPath()%>/animal/animalAdoptionBoardCreate">
 					<input type="hidden" name="no" value="<%= animal.getId() %>" />
-					<button type="submit" onclick="adoption();">입양하러가기</button>
+					<button class="btn1" type="submit" onclick="adoption();">입양하러가기</button>
 				</form>
 			</div>
+			<%if (loginMember != null&& loginMember.getMemberRole().name().equals("A")){ %>
 			<a href="<%=request.getContextPath() %>/animal/delete?animalId=<%= animal.getId()%>">정보삭제하기</a>
+			<%} %>
 		</div>
 	</div>
 </section>
 <script>
-const adoption = (e) => {
-	
-}
-const delete = (e) => {
-	e.preventDefault();
-	console.log("hi")
-}
+<%if (loginMember != null&& loginMember.getMemberRole().name().equals("A")){ %>
+window.onload = () => {
+	const selector = document.querySelector('#procedureState');
+	selector.selectedIndex = <%= animal.getState() %>;
+
+	selector.addEventListener('change', () => {
+		const selectedOption = selector.options[selector.selectedIndex];
+		console.log(selectedOption.value);
+		$.ajax({
+			url : `<%= request.getContextPath()%>/animal/update?animalId=<%= animal.getId()%>&state=\${selectedOption.value}`,
+			success(resp){
+				console.log(resp)
+			}
+		})
+	});
+};
+<%} %>
+
+
 </script>
 
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>
