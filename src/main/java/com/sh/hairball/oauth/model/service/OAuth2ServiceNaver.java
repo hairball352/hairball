@@ -69,6 +69,7 @@ public class OAuth2ServiceNaver {
         
         if(member == null) {
         	member = new Member();
+        	member.setMemberId("Naver@"+name);
         	member.setName(name);
         	member.setEmail(email);
         	member.setPhone(phone);
