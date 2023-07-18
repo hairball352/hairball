@@ -28,7 +28,6 @@
 			style="width: 310px; height: 39px;">
 		<!-- 서버로 메시지를 전송하는 버튼 -->
 		<input onclick="sendMessage()" value="전송" type="button" style="margin-left: 12px;">
-		<input onclick="endChat()" value="채팅종료" type="button" style="margin-top: 5px;">
 	</form>
 	
 	<script type="text/javascript">
@@ -56,7 +55,12 @@
 		  // 채팅 기록을 서버에 저장
 		  saveChatHistoryToDB();
 		}
-
+		
+		// beforeunload 이벤트 핸들러 등록
+		window.addEventListener('beforeunload', function(event) {
+			event.returnValue = '정말로 채팅을 종료하시겠습니까?';
+		  endChat();
+		});
 		// 에러가 발생하면
 		webSocket.onerror = function(message) {
 		// 콘솔에 메시지를 남긴다.
