@@ -78,7 +78,6 @@ public class QuestionDao {
             pstmt.setString(1, question.getMemberId());
             pstmt.setString(2, question.getTitle());
             pstmt.setString(3, question.getContent());
-            pstmt.setDate(4, question.getRegDate());
 
             result = pstmt.executeUpdate(); // 실행
         } catch (SQLException e) {
