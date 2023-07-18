@@ -27,9 +27,6 @@
 		<hr class="section-hr" />
 		<div class="animal-detail-div">
 			<div class="animal-detail-container">
-				<%
-				if (loginMember != null)
-				%>
 				<table id="detail-table">
 					<thead>
 					<tr>
@@ -38,9 +35,19 @@
 					</thead>
 					<tbody>
 						<tr>
+							<%if (loginMember != null && loginMember.getMemberRole().name().equals("A")){ %>
+							<select>
+							 <option value="0"> gmail.com </option>
+							 <option value="1" selected="selected"> naver.com</option>
+							 <option value="2"> hanmail.net</option>
+							 <option value="3"> hanmail.net</option>
+							 <option value="4"> hanmail.net</option>
+							</select>
+							<%} else { %>
 							<th colspan="4">입양상태
 								<td colspan="6" id="state"><%=animal.getState() %></td>
 							</th>
+							<%} %>
 							<th colspan="4">동물등록번호
 								<td colspan="6" id="pblId"><%=animal.getPblId()%></td>
 							</th>
@@ -75,7 +82,9 @@
 					<button type="submit" onclick="adoption();">입양하러가기</button>
 				</form>
 			</div>
+			<%if (loginMember != null&& loginMember.getMemberRole().name().equals("A")){ %>
 			<a href="<%=request.getContextPath() %>/animal/delete?animalId=<%= animal.getId()%>">정보삭제하기</a>
+			<%} %>
 		</div>
 	</div>
 </section>
