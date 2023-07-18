@@ -37,15 +37,16 @@ public class MemberDao {
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, memberId);
             try (ResultSet rset = pstmt.executeQuery()) {
-            	System.out.println(rset.next());
+            	
                 while (rset.next()) {
                     member = handleMemberResultSet(rset);
+                    System.out.println("result @memberDao"+member);
                 }
             }
         } catch (SQLException e) {
             throw new MemberException(e);
         }
-        System.out.println("DAO member = " + member);
+
         return member;
     }
 
