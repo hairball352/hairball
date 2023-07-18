@@ -1,22 +1,17 @@
 package com.sh.hairball.qnaboard.notification;
 
-import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 import javax.websocket.EndpointConfig;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
-import javax.websocket.RemoteEndpoint.Basic;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import com.google.gson.Gson;
 
 @ServerEndpoint(value = "/QuestionWebSocket", configurator = QuestionWebSocketConfigurator.class) 
 public class QuestionWebSocket {
