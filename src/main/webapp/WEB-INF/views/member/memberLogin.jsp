@@ -77,7 +77,7 @@ Cookie[] cookies = request.getCookies();
       } else {
       %>
       <!-- 로그인사용자정보 시작 -->
-      <table id="login">
+      <table id="login" class="login">
          <tr>
             <td><%=loginMember.getName()%>님, 안녕하세요. <span id="notification"></span></td>
          </tr>

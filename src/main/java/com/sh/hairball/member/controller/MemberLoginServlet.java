@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.sh.hairball.common.util.AnimalUtil;
 import com.sh.hairball.member.model.service.MemberService;
 import com.sh.hairball.member.model.vo.Member;
+import com.sh.hairball.member.model.vo.MemberRole;
 
 @WebServlet("/member/login")
 public class MemberLoginServlet extends HttpServlet {
@@ -27,7 +28,6 @@ public class MemberLoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
 		String memberId = request.getParameter("memberId");
 		String password = AnimalUtil.getEncryptedPassword(request.getParameter("password"), memberId);
 		String saveId = request.getParameter("saveId");
@@ -35,6 +35,7 @@ public class MemberLoginServlet extends HttpServlet {
 		System.out.println("saveId = " + saveId);
 
 		Member member = memberService.findById(memberId);
+		
 
 		HttpSession session = request.getSession(); // request.getSession(true)와 동일.
 
@@ -57,7 +58,7 @@ public class MemberLoginServlet extends HttpServlet {
 		}
 
 		System.out.println("memberServlet@member = " + member);
-
+		//member.setMemberRole(MemberRole.A);
 		// 3. 응답처리
 		response.sendRedirect(request.getContextPath() + "/"); // redirect를 통한 url변경
 
