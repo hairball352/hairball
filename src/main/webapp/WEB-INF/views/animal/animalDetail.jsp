@@ -39,7 +39,7 @@
 					<tbody>
 						<tr>
 							<th colspan="4">입양상태
-								<td colspan="6" id="state"><%= animal.getState() %></td>
+								<td colspan="6" id="state"><%= stateArr[animal.getState()] %></td>
 							</th>
 							<th colspan="4">동물등록번호
 								<td colspan="6" id="pblId"><%=animal.getPblId()%></td>
@@ -72,7 +72,7 @@
 					name="animalAdopFrm"  method="GET"
 					action="<%= request.getContextPath()%>/animal/animalAdoptionBoardCreate">
 					<input type="hidden" name="no" value="<%= animal.getId() %>" />
-					<button type="submit" onclick="adoption();">입양하러가기</button>
+					<button class="btn1" type="submit" onclick="adoption();">입양하러가기</button>
 				</form>
 			</div>
 		</div>

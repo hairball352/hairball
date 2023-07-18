@@ -176,7 +176,7 @@ public class AnimalDao {
 		) {
 			while(rset.next()) { // rset이 다음에도 있으면 true (rset을 모두 순회할 수 있는 반복문임)
 				Animal animal = handleAnimalResultSet(rset); // rset을 자바의 member객체로 변환하여 member에 담음
-				animals.add(animal); // 변환된 member를 memberList에 담음
+				animals.add(animal);
 			}
 		} catch (SQLException e) {
 			throw new AnimalException(e);

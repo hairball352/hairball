@@ -72,7 +72,7 @@ public class OAuth2ServiceNaver {
         	member.setMemberId("Naver@"+name);
         	member.setName(name);
         	member.setEmail(email);
-        	member.setPhone(phone);
+        	member.setPhone(phone.replace("-", ""));
         	member.setProvider(Provider.N);
         	member.setPassword(AnimalUtil.getEncryptedPassword(name, "Naver"));
         	result = memberService.insertMember(member);

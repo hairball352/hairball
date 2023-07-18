@@ -59,4 +59,12 @@ public class AnimalService {
 		return animal;
 	}
 
+	public List<Animal> findAllAnimal() {
+		Connection conn = getConnection();
+		List<Animal> boardList = animalDao.findAll(conn);
+		close(conn);
+		return boardList;
+	}
+
+
 }

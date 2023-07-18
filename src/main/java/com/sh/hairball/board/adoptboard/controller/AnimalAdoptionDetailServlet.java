@@ -20,7 +20,6 @@ public class AnimalAdoptionDetailServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int no = Integer.parseInt(request.getParameter("no"));
-		System.out.println("어답션 doget : " + no);
 		AdopBoard adopBoard = adoptionService.findById(no);
 		
 		request.setAttribute("adopBoard", adopBoard);
