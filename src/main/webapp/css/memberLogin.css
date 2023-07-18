@@ -92,9 +92,45 @@
 	width: 150px;
 	margin-bottom: 30px;
 	margin-left: 65px;
+	
 }
 
+
 /* 회원가입 관련 css*/
+
+.error-message {
+    color: red;
+    font-size: 13px;
+    margin-left: 17px;
+}
+
+.enrollFrm img {
+	width: 150px;
+	margin-left: 880px;
+	margin-top: -40px;
+}
+
+#enroll-table th {
+	padding: 10px;
+	
+}
+
+#enroll-table input[type="text"],
+#enroll-table input[type="password"],
+#enroll-table input[type="email"],
+#enroll-table input[type="tel"],
+#enroll-table input[type="address"] {
+    width: 220px;
+    padding: 5px;
+    margin: 10px;
+    font-size: 14px;
+}
+
+sup {
+	color:red;
+	margin-left: 3px;
+}
+
 .login-btn a img {
 	width: 200px;
 	height: 49.17px;
@@ -158,24 +194,45 @@
 	margin: 20px;
 	font-weight: 150;
 	
-	
-	
 }
 .enroll-btn {
 	display: flex;
 	justify-content: center;
-	margin: 20px;
+	margin-top: 30px;
+	margin-left: 20px;
+	margin-bottom: 100px;
+	gap: 20px;
 }
 
 .enroll-btn2 {
-	border: none;
-	font-size: 14px;
-	background-color: #77af9c	;
-	color: #d7fff1;
+	width: 200px;
+	height: 49.17px;
+	margin-bottom: 4px;
+	background: #5fab95;
+	color: #FFF;
+	border: 0 solid #5fab95;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
 }
 
-.enroll-btn2 input[type="submit"], input[type="reset"] {
-	display: flex;
+.enroll-btn3 {
+	width: 200px;
+	height: 49.17px;
+	margin-bottom: 4px;
+	background: #c8c8c8;
+	color: black;
+	border: 0 solid #5fab95;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.enroll-btn2 input[type="submit"]{
+	justify-content: center;
+}
+
+.enroll-btn3 input[type="reset"] {
 	justify-content: center;
 	
 }
@@ -189,6 +246,7 @@
 	display: flex;
 	justify-content: center;
 }
+
 .enroll-Frm {
   display: flex;
   justify-content: center;
