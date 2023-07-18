@@ -77,6 +77,20 @@ public class AdoptionDao {
 		}
 		return result;
 	}
+	public int deleteBoardByAnimalId (Connection conn, int no) {
+		int result = 0;
+		String sql = prop.getProperty("deleteBoardByAnimalId");
+		System.out.println(sql);
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setInt(1, no);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch(SQLException e) {
+			throw new AdopBoardException("게시글 삭제 실패", e);
+		}
+		return result;
+	}
 
 	public List<AdopBoard> findAll(Connection conn, int start, int end) {
 		List<AdopBoard> adopBoards = new ArrayList<>();
