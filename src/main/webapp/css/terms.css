@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+
+
+.checkBoxcheck ul li{
+	float: right;
+}
+.checkBoxcheck {
+	margin: 30px;
+}
+
+.terms-content {
+	height: 80px;
+	border: 1px solid #b1b1b1;
+	background: #efefef;
+}
+
+.join_box {
+	display: plex;
+	
+}

@@ -176,7 +176,7 @@ public class AnimalDao {
 		) {
 			while(rset.next()) { // rset이 다음에도 있으면 true (rset을 모두 순회할 수 있는 반복문임)
 				Animal animal = handleAnimalResultSet(rset); // rset을 자바의 member객체로 변환하여 member에 담음
-				animals.add(animal); // 변환된 member를 memberList에 담음
+				animals.add(animal);
 			}
 		} catch (SQLException e) {
 			throw new AnimalException(e);
@@ -184,5 +184,41 @@ public class AnimalDao {
 		return animals;
 	}
 
-	
+	public Animal findByPblId(Connection conn, String animalPblId) {
+		Animal animal = null;
+		String sql = prop.getProperty("findByPblId");
+		
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, animalPblId);
+			try (ResultSet rset = pstmt.executeQuery()) {
+				if (rset.next()) {
+					animal = handleAnimalResultSet(rset);
+					animal.setRenamedFileName(rset.getString("renamed_filename"));
+				}
+			}
+		} catch (SQLException e) {
+			throw new AnimalException(e);
+		}
+		return animal;
+	}
+
+	public int setAttachmentNumber(Connection conn, int attachmentId, int animalId ) {
+		int result = 0;
+		String sql = prop.getProperty("setAttachmentNumber");
+		//update animal set attachment_id = ? where id = ?
+		try(
+				PreparedStatement preparedStatement = conn.prepareStatement(sql)){
+			preparedStatement.setInt(1, attachmentId);
+			preparedStatement.setInt(2, animalId);
+			
+			result = preparedStatement.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
 }

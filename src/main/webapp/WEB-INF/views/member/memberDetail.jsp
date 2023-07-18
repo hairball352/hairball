@@ -6,8 +6,7 @@
          pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <%
-  // not null
-  // null
+
   String memberId = loginMember.getMemberId();
   String name = loginMember.getName();
   String email = loginMember.getEmail();
@@ -28,15 +27,15 @@
           method="post">
     <table>
       <tr>
-        <th>아이디<sup>*</sup></th>
+        <th contenteditable="false">아이디<sup>*</sup></th>
         <td>
           <input type="text" name="memberId" id="memberId" value="<%= memberId %>" readonly>
         </td>
       </tr>
       <tr>
-        <th>이름<sup>*</sup></th>
+        <th contenteditable="false" >이름<sup>*</sup></th>
         <td>
-          <input type="text"  name="name" id="name" value="<%= name %>"  required><br>
+          <input type="text"  name="name" id="name" value="<%= name %>"  readonly><br>
         </td>
       </tr>
       <tr>
@@ -57,13 +56,8 @@
           <input type="address" placeholder="" name="address" id="address" maxlength="11" value="<%= address %>" required><br>
         </td>
       </tr>
-      <tr>
-        <th>권한<sup>*</sup></th>
-        <td>
-          <input type="role" placeholder="" name="role" id="role" maxlength="11" value="<%= memberRole %>" required><br>
-        </td>
-      </tr>
     </table>
+    
     <input type="submit" value="정보수정"/>
     <input type="button" onclick="deleteMember();" value="탈퇴"/>
   </form>

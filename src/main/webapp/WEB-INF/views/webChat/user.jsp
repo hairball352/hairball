@@ -12,6 +12,7 @@
 </head>
 	<%
 	String loginMember = (String)request.getAttribute("loginMemberName");
+	Member loginMember2 = (Member) session.getAttribute("loginMember");
 	%>
 <body>
 	<!-- 채팅 영역 -->
@@ -112,30 +113,37 @@
 		
 		// 페이지가 로드되었을 때 채팅 기록을 가져오는 함수
 		function loadChatHistoryFromDB() {
-			$.ajax({
-				url: "/hairball/loadChatHistory", // 채팅 기록을 불러오는 서버의 endpoint
-				type: "GET",
-				success: function(response) {
-					// 서버로부터 받아온 채팅 내역을 화면에 추가
-					for(let i = 0; i < response.length; i++) {
-						let messageDiv = document.createElement("div");
-						messageDiv.className = "messageContainer";
-						// 서버로부터 받은 메시지 내용을 div에 추가
-						messageDiv.textContent = response[i].message;
-						messageContainer.appendChild(messageDiv);
-					}
-					// 스크롤을 최하단으로 이동 (최근 메시지 보기)
-					messageContainer.scrollTop = messageContainer.scrollHeight;
-				},
-				error: function(xhr, status, error) {
-					console.log("db 로딩 실패ㅠㅠ: " + status, error);
-				}
-			});
+		    let memberId = '<%=loginMember2.getId()%>';
+		    console.log(memberId);
+
+		    $.ajax({
+		        url: '<%=request.getContextPath()%>/loadChatHistory',
+		        type: 'GET',
+		        data: {memberId: memberId},
+		        dataType: 'json', // JSON 데이터로 응답을 받기 위해 dataType을 설정
+		        success: function(response) {
+		            console.log(response);
+		            // 서버로부터 받아온 채팅 내역을 화면에 추가
+		            if (response) { // 응답 데이터를 확인하여 null 또는 undefined가 아닌지 검사
+		                for (let i = 0; i < response.length; i++) {
+		                    // 서버로부터 받은 메시지 내용을 textarea에 추가
+		                    messageTextArea.value += "\n이전 채팅 : " + response[i].content + "\n";
+		                }
+		                // 스크롤을 최하단으로 이동 (최근 메시지 보기)
+		                messageContainer.scrollTop = messageContainer.scrollHeight;
+		            } else {
+		                console.log("응답 데이터가 유효하지 않습니다.");
+		            }
+		        },
+		        error: function(xhr, status, error) {
+		            console.log("db 로딩 실패ㅠㅠ: " + status, error);
+		        }
+		    });
 		}
 
 		// 페이지 로드가 완료되면 채팅 기록을 불러옵니다.
 		$(document).ready(function() {
-			loadChatHistoryFromDB();
+		    loadChatHistoryFromDB();
 		});
 	</script>
 </body>

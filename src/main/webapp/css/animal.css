@@ -88,7 +88,7 @@ table#tbl-adopboard tr td {
 
 /* 입양신청 게시글 작성 페이지 */
 .adoption-board {
-	
+	text-align: center;
 }
 
 .adoption-board-section {
@@ -109,7 +109,9 @@ table#tbl-adopboard tr td {
 .adoption-board-table {
 	width: 630px;
 	table-layout: fixed;
-	margin: 30px;
+	margin-left: 200px;
+	margin-top: 20px;
+	margin-bottom: 50px;
 	text-align: center;
 }
 
@@ -129,17 +131,6 @@ table#tbl-adopboard tr td {
 	margin-left: 200px;
 }
 
-#adop-btn {
-	margin-left: 400px;
-	width: 60px;
-	height: 23px;
-	background: rgb(95, 171, 149);
-	border-width: 1px;
-	border-style: solid;
-	border-color: rgb(80, 152, 131);
-	border-image: initial;
-}
-
 /* 마우스 오버 시 글자색 바꾸기 효과*/
 #tbl-adopboard .list-title:hover a {
 	color: rgb(80, 152, 131);
@@ -150,6 +141,7 @@ table#tbl-adopboard tr td {
 #detail-table {
 	width: 100%;
 	border-collapse: collapse;
+		margin-bottom: 20px;
 }
 
 /* 테이블 헤더 스타일 */
@@ -170,7 +162,7 @@ table#tbl-adopboard tr td {
 #detail-table tbody td img {
 	width: 50px;
 	height: 50px;
-	object-fit: cover;
+	obrgb(235, 250, 248), 224, 197), 223, 207)t: cover;
 	border-radius: 50%;
 }
 
@@ -206,7 +198,9 @@ table#tbl-adopboard tr td {
 	width: 100%;
 	border-collapse: collapse;
 }
-
+.animal-detail-container form button{
+	margin-left: 100px;
+}
 /* 테이블 헤더 스타일 */
 #adoption-detail-table thead td {
 	padding: 10px;
@@ -250,4 +244,54 @@ table#tbl-adopboard tr td {
 #adoption-detail-table a {
 	text-decoration: none;
 	color: #337ab7;
+}
+
+/* 동물 상세페이지의 프로필 이미지 */
+#animal-profile-img {
+	width: 250px;
+}
+
+#adopt-img {
+	width: 200px;
+	border-radius: 30%;
+}
+
+.animal-card {
+	width: 200px;
+	margin: 10px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+.animal-card:hover {
+	background-color: #e5e5e5;
+}
+.animal-card img{
+	margin-bottom: 5px;
+}
+.animal-card p span {
+	color: #3b3b3b;
+}
+
+.state {
+	background-color: #fba94f;
+}
+
+
+.btn1 {
+color: #FFF;
+background-color: #4f9580;
+border: 1px solid #478975;
+border-radius: 4px;
+padding: 0 15px;
+cursor: pointer;
+height:32px;
+font-size:14px;
+transition: all 0.2s ease-in-out;
+opacity: 0.6;
+}
+.btn1:hover {
+opacity: 1;
 }

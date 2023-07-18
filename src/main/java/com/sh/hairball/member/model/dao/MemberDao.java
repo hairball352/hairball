@@ -22,7 +22,6 @@ public class MemberDao {
 
     public MemberDao() {
         String filename = MemberDao.class.getResource("/sql/member/member-query.properties").getPath();
-        System.out.println("filename" + filename);
         try {
             prop.load(new FileReader(filename));
         } catch (IOException e) {
@@ -31,18 +30,23 @@ public class MemberDao {
     }
 
     public Member findById(Connection conn, String memberId) {
+    	Member member = null;
         String sql = prop.getProperty("findById"); // select * from member where member_id = ?
-        Member member = null;
+        System.out.println(sql);
+        
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, memberId);
             try (ResultSet rset = pstmt.executeQuery()) {
+            	
                 while (rset.next()) {
                     member = handleMemberResultSet(rset);
+                    System.out.println("result @memberDao"+member);
                 }
             }
         } catch (SQLException e) {
             throw new MemberException(e);
         }
+
         return member;
     }
 
@@ -88,11 +92,10 @@ public class MemberDao {
         // update member set name = ?, gender = ?, birthday = ?, email = ?, phone = ?,
         // hobby = ? where member_id = ?
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, member.getMemberId());
-            pstmt.setString(2, member.getName());
-            pstmt.setString(3, member.getEmail());
-            pstmt.setString(4, member.getPhone());
-            pstmt.setString(5, member.getAddress());
+            pstmt.setString(1, member.getEmail());
+            pstmt.setString(2, member.getPhone());
+            pstmt.setString(3, member.getAddress());
+            pstmt.setString(4, member.getMemberId());
             result = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new MemberException(e);
@@ -104,7 +107,7 @@ public class MemberDao {
         int result = 0;
         String sql = prop.getProperty("deleteMember");
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(2, memberId);
+            pstmt.setString(1, memberId);
             result = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new MemberException(e);
@@ -146,7 +149,6 @@ public class MemberDao {
         List<Member> members = new ArrayList<>();
         String sql = prop.getProperty("searchMember"); // select * from member where # like ?
         sql = sql.replace("#", searchType);
-        System.out.println("sql@dao = " + sql);
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, "%" + searchKeyword + "%");

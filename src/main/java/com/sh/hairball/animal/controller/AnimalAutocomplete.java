@@ -24,7 +24,7 @@ public class AnimalAutocomplete extends HttpServlet {
 		System.out.println("term = " + term);
 		
 		
-		List<Animal> results = animalService.findByPblId(term); // 공고 번호로 찾기
+		List<Animal> results = animalService.ListByPblId(term); // 공고 번호로 찾기
 		System.out.println("resulst" + results);
 		response.setContentType("text/csv; charset=utf-8");
 		PrintWriter out = response.getWriter();

@@ -7,6 +7,29 @@
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="java.security.SecureRandom" %>
 
+<%
+	// 입양절차 배열
+  String[] stateArr = {"입양가능","센터 방문 대기", "교육 수료중", "입양 확정"};
+
+  String msg = (String) session.getAttribute("msg"); 
+   if(msg != null){ 
+      session.removeAttribute("msg"); 
+   }
+  Member loginMember = (Member)session.getAttribute("loginMember");
+      
+  Cookie[] cookies = request.getCookies(); 
+   String saveId = null;
+   if(cookies != null){                 
+      for(Cookie cookie : cookies){
+         String name = cookie.getName();  
+         String value = cookie.getValue();
+         if("saveId".equals(name))
+            saveId = value;   
+      }
+   } 
+%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,42 +44,48 @@
     <link rel="stylesheet" href="/hairball/css/memberLogin.css" />
     <link rel="stylesheet" href="/hairball/css/procedure.css" />
     <link rel="stylesheet" href="/hairball/css/webchat.css" />
+    <link rel="stylesheet" href="/hairball/css/terms.css" />
     <link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+   href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+   <script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
+   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <title>유기견/유기묘 입양 사이트</title>
 </head>
-<%
 
-  
-  String msg = (String) session.getAttribute("msg"); 
-   if(msg != null){ 
-      session.removeAttribute("msg"); // msg해야 로그인필터 거쳐서 "로그인 후 이용해주세요"가 뜹니다 아시겠죠
-   }
-  Member loginMember = (Member)session.getAttribute("loginMember");
-      
-  Cookie[] cookies = request.getCookies(); 
-   String saveId = null;
-   if(cookies != null){                 
-      for(Cookie cookie : cookies){
-         String name = cookie.getName();  
-         String value = cookie.getValue();
-         if("saveId".equals(name))
-            saveId = value;   
-      }
-   }
-%>
 
    
 <body>
 
 <script>
-  window.onload = () => {
-  <% 	if(msg != null) { %>
-	alert('<%= msg %>');
-  <% 	} %>
-}
+window.onload = () => {
+		
+	<% 	if(msg != null) { %>
+		alert('<%= msg %>');
+	<% 	} %>	
+		
+	<% 	if(loginMember == null) { %>	
+		document.loginFrm.onsubmit = (e) => {
+			// 아이디
+			console.log(memberId);
+			console.log(memberId.value);
+			const memberId = e.target.memberId;
+			if(!/^\w{4,}$/.test(memberId.value)) {
+				alert(" 아이디 또는 비밀번호를 잘못 입력했습니다.");
+				e.preventDefault();
+				return;
+			}
+			
+			// 비밀번호
+			const password = e.target.password;
+			if(!/^.{4,}$/.test(password.value)) {
+				alert(" 아이디 비밀번호를 잘못 입력했습니다.");
+				e.preventDefault();
+				return;
+			}
+		}
+	<% 	} %>
+	};
+
 </script>
 
 <header>
@@ -65,13 +94,13 @@
             <a href="<%= request.getContextPath() %>"><img src="/hairball/images/로고/메뉴바_로고.png" alt=""/></a>
         </div>
         <ul class="utility">
-				<% 
-				    if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) {
-				%>
-			    <li class="admin_li">
-			        <a href="<%= request.getContextPath() %>/animal/enroll">관리자</a>
-			    </li>
-			<% } %>
+            <% 
+                if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) {
+            %>
+             <li class="admin_li">
+                 <a href="<%= request.getContextPath() %>/animal/enroll">관리자</a>
+             </li>
+         <% } %>
             <%if(loginMember == null){ %>
             <li class="login_li">
                 <a href="<%= request.getContextPath() %>/member/login">로그인</a>
@@ -84,7 +113,7 @@
             %>
             <%if(loginMember == null){ %>
             <li class="signup_li">
-                <a href="<%= request.getContextPath() %>/member/memberEnroll">회원가입</a>
+                <a href="<%= request.getContextPath() %>/member/terms">회원가입</a>
             </li>
             <% } %>
 			<% if (loginMember != null) { %>

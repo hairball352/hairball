@@ -7,6 +7,7 @@
 <%
 List<EnrollBoardDto> animalBoardList= (List<EnrollBoardDto>) request.getAttribute("EnrollBaordList");
 %>
+<section>
 <div class="animal-section" >
     <div class="introduce01-container">
 		<div class="introduce01-bar">
@@ -25,25 +26,29 @@ List<EnrollBoardDto> animalBoardList= (List<EnrollBoardDto>) request.getAttribut
 		<hr class="section-hr" />
 		<div>
 		<% if(animalBoardList.size()==0){ %>
-		<h1 id="canNotFindAnimal">등록 유기동물을 찾을 수 없습니다 !</h1>
+		<h1 id="canNotFindAnimal">등록된 동물이 없습니다.</h1>
 		<%} %>
-    <%for(int i = 0 ; i<animalBoardList.size(); i++){
+    	<%for(int i = 0 ; i<animalBoardList.size(); i++){
     	if(i%3==0){
     		%>
     		<ul>
     		<%
     	}%>
     	<a href="<%= request.getContextPath() %>/animal/animalDetail?no=<%= animalBoardList.get(i).getAnimalId()%>">
-	    	<li>
+	    	<li class="animal-card">
 		    	<img src="<%= request.getContextPath() %>/upload/animal/<%= animalBoardList.get(i).getRenamedFileName() %>" style="width:100px"/>
-		    	<p>고유번호 : <%= animalBoardList.get(i).getPbl_id() %></p>
-		    	<p>성별 : <%= animalBoardList.get(i).getSex() %></p>
-		    	<p>나이 : <%= animalBoardList.get(i).getAge() %></p>
+		    	<p><span>고유번호</span> : <%= animalBoardList.get(i).getPbl_id() %></p>
+		    	<p><span>성별</span> : <%= animalBoardList.get(i).getSex() %></p>
+		    	<p><span>나이</span> : <%= animalBoardList.get(i).getAge() %></p>
+		    	<% if(animalBoardList.get(i).getState().equals("0")) { %>
+		    	<span class="state">보호중</span>
+		    	<% } else { %>
+		    	<span class="state">입양완료</span>
+		    	<% } %>
 	    	</li>
     	</a>
     	<%if(i%3==2){%>
     		</ul>
-    		
     		<%}%>
     <%} %>
     </div>
@@ -51,9 +56,15 @@ List<EnrollBoardDto> animalBoardList= (List<EnrollBoardDto>) request.getAttribut
 		<%= request.getAttribute("AnimalListPageBar") %>
 	</div>
 </div>
-
 </div>
-
+</section>
 <script>
+window.addEventListener('load', () => {
+	const state = document.querySelector(".state");
+	console.log(state);
+	if(state && state.innerHTML == '입양완료') {
+		state.style.backgroundColor = '#5fab95';
+	}
+});
 </script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp" %>

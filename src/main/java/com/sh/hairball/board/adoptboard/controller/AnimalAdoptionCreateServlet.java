@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sh.hairball.animal.model.service.AnimalService;
 import com.sh.hairball.animal.model.vo.Animal;
@@ -26,8 +27,8 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		if(request.getParameter("animalId") != null) {
-			int animalId = Integer.parseInt(request.getParameter("animalId"));
+		if(request.getParameter("no") != null) {
+			int animalId = Integer.parseInt(request.getParameter("no"));
 			Animal animal = animalService.findById(animalId);
 			request.setAttribute("animal", animal);
 		}
@@ -37,9 +38,16 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String animalPblId = request.getParameter("animalPblId");
+		HttpSession session = request.getSession(); 
 		
-		List<Animal> animal = animalService.findByPblId(animalPblId);
+		String animalPblId = request.getParameter("animalPblId");
+		Animal animal = animalService.findByPblId(animalPblId);
+		
+		if(animal == null) {
+			session.setAttribute("msg", "해당 번호로 등록된 동물이 없습니다. 등록 번호를 다시 한번 확인해주세요.");
+			response.sendRedirect(request.getContextPath() + "/animal/animalAdoptionBoardCreate");
+			return;
+		}
 		
 		int memberId = Integer.parseInt(request.getParameter("memberId"));
 		String _visitDate = request.getParameter("visitDate");
@@ -47,10 +55,9 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
 		
 		AdopBoard adopBoard = new AdopBoard();
 		
-		adopBoard.setAnimalId(animal.get(0).getId());
+		adopBoard.setAnimalId(animal.getId());
 		adopBoard.setMemberId(memberId);
 		adopBoard.setVisitDate(visitDate);
-		
 		int result = adoptionService.insertBoard(adopBoard);
 	
 		response.sendRedirect(request.getContextPath() + "/animal/animalAdoptionBoardDetail?no=" + adopBoard.getId());

@@ -1,5 +1,5 @@
-<%@page import="com.sh.hairball.animal.model.vo.Animal"%>
 <%@page import="com.sh.hairball.attachment.model.vo.Attachment"%>
+<%@page import="com.sh.hairball.animal.model.vo.Animal"%>
 <%@ page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -30,7 +30,7 @@
 				<table id="detail-table">
 					<thead>
 					<tr>
-						<img src="<%= request.getContextPath() %>/upload/animal/<%= animal.getRenamedFileName()%>">
+						<img src="<%= request.getContextPath() %>/upload/animal/<%= animal.getRenamedFileName()%>" id="animal-profile-img"/>
 					</tr>
 					</thead>
 					<tbody>
@@ -45,7 +45,7 @@
 							</select>
 							<%} else { %>
 							<th colspan="4">입양상태
-								<td colspan="6" id="state"><%=animal.getState() %></td>
+								<td colspan="6" id="state"><%= stateArr[animal.getState()] %></td>
 							</th>
 							<%} %>
 							<th colspan="4">동물등록번호
@@ -78,8 +78,8 @@
 				<form 
 					name="animalAdopFrm"  method="GET"
 					action="<%= request.getContextPath()%>/animal/animalAdoptionBoardCreate">
-					<input type="hidden" name="animalId" value="<%= animal.getId() %>" />
-					<button type="submit" onclick="adoption();">입양하러가기</button>
+					<input type="hidden" name="no" value="<%= animal.getId() %>" />
+					<button class="btn1" type="submit" onclick="adoption();">입양하러가기</button>
 				</form>
 			</div>
 			<%if (loginMember != null&& loginMember.getMemberRole().name().equals("A")){ %>

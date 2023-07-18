@@ -25,6 +25,8 @@ import java.util.Enumeration;
             String memberId = loginMember.getMemberId();
 
             //2. 서비스로직호출
+            System.out.println("memberId = " + memberId );
+           
             int result = memberService.deleteMember(memberId);
 
             // 세션 속성 삭제

@@ -23,8 +23,7 @@
 #enroll tr{
 	height : 30px;
 }
-#enroll input[type="text"],
-textarea {
+#enroll input[type="text"] {
   width: 70%; /* 너비를 100%로 지정 */
   box-sizing: border-box; /* 패딩과 테두리를 포함한 전체 너비로 계산 */
 }
@@ -61,7 +60,7 @@ textarea {
 }
 
 .section-hr {
-	border: 0;
+   border: 0;
     background: #e3e3e3;
     height: 3px;
     width: 1000px;
@@ -69,7 +68,7 @@ textarea {
 }
 
 .section-hr2 {
-	border: 0;
+   border: 0;
     background: #e3e3e3;
     height: 3px;
     width: 1000px;
@@ -84,7 +83,7 @@ textarea {
 }
 
 .introduce01-detail-section {
-	margin-top: 20px;
+   margin-top: 20px;
     margin-left: 100px;
     display:flex;
     flex-direction: column;
@@ -98,23 +97,23 @@ textarea {
 }
 
 .introduce-section {
-	display: flex;
-	flex-direction: row;
+   display: flex;
+   flex-direction: row;
 }
 
 .introduce-board {
-	margin-left: 550px;
-	
+   margin-left: 550px;
+   
 }
 
-.vertical-line {
+.vertical-line3 {
     position: absolute;
     width: 5px; /* 세로 선의 너비 */
     height: 150px; /* 세로 선의 높이 */
     background-color: rgb(172, 172, 172); /* 세로 선의 색상 */
     border: 0;
     margin-left: -520px;
-    margin-top: 130px;
+    margin-top: -380px;
   }
   
  .vertical-line2 {
@@ -130,21 +129,12 @@ textarea {
 
 /* 테이블 영역 */
 
-#table-img {
+#table-img2 {
     width: 400px;
-    float: right; /* 오른쪽으로 띄움 */
     margin-right: 300px;
     margin-bottom: 100px;
 }
 
-.table-container2 {
-    justify-content: center; /* 가로 방향 가운데 정렬 */
-    align-items: center; /* 세로 방향 가운데 정렬 */
-    width: 400px;
-    margin-top: -135px;
-    
-  }
-  
   
 .table-container4 {
     justify-content: center; /* 가로 방향 가운데 정렬 */
@@ -154,33 +144,32 @@ textarea {
     
  }
   
-.table-container2 p {
+.table-container5 p {
     font-size: 20px;
     margin-left: -480px;
-    margin-top: 265px;
-    margin-bottom: 170px;
-	
+    margin-top: -380px;
+
   }
   
-  .table-container4 p {
+.table-container4 p {
     font-size: 20px;
     margin-left: -480px;
     margin-top: 60px;
     margin-bottom: 170px;
-	
+   
   }
   
   
 .table-container3{
-	font-size : 35px;
-	font-family: 'PyeongChangPeace-Bold';
+   font-size : 35px;
+   font-family: 'PyeongChangPeace-Bold';
     margin-top: 150px;
     margin-left: -220px;
 }
 
 .table-container3 span {
-	color: #5fab95;
-	font-weight: 500;
+   color: #5fab95;
+   font-weight: 500;
 }
 
 

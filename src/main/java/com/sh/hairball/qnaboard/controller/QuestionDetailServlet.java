@@ -32,8 +32,6 @@ public class QuestionDetailServlet extends HttpServlet {
 		// 2. 업무로직
 		QuestionVo question = questionService.findById(id); // 
 		List<AnswerVo> answers = questionService.findAnswerByQuestionId(id);
-		System.out.println("question = " + question);
-		System.out.println("answers = " + answers);
 		
 		// secure coding처리
 		String unsecureTitle = question.getTitle();

@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sh.hairball.common.util.AnimalUtil;
 import com.sh.hairball.member.model.service.MemberService;
 import com.sh.hairball.member.model.vo.Member;
+import com.sh.hairball.member.model.vo.MemberRole;
 
 @WebServlet("/member/login")
 public class MemberLoginServlet extends HttpServlet {
@@ -26,8 +28,8 @@ public class MemberLoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
 		String memberId = request.getParameter("memberId");
+		String password = AnimalUtil.getEncryptedPassword(request.getParameter("password"), memberId);
 
 		String saveId = request.getParameter("saveId");
 		System.out.println("memberId = " + memberId);
@@ -37,9 +39,8 @@ public class MemberLoginServlet extends HttpServlet {
 
 		HttpSession session = request.getSession(); // request.getSession(true)와 동일.
 
-		if (member != null) {
+		if (member != null && password.equals(member.getPassword())) {
 			session.setAttribute("loginMember", member);
-
 			Cookie cookie = new Cookie("saveId", memberId);
 			cookie.setPath(request.getContextPath()); // 쿠키를 사용할 url
 			if (saveId != null) {
@@ -52,11 +53,11 @@ public class MemberLoginServlet extends HttpServlet {
 
 		} else {
 			// 로그인 실패
-//                session.setAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
+			session.setAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
 		}
 
 		System.out.println("memberServlet@member = " + member);
-
+		// member.setMemberRole(MemberRole.A); 권한을 전부 관리자로 변경해서
 		// 3. 응답처리
 		response.sendRedirect(request.getContextPath() + "/"); // redirect를 통한 url변경
 

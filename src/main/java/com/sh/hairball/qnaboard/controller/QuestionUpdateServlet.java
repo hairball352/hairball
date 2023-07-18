@@ -47,7 +47,6 @@ public class QuestionUpdateServlet extends HttpServlet {
 		question.setTitle(title);
 		question.setMemberId(memberId);
 		question.setContent(content);
-		System.out.println(question);
 
 
 		// 2. 업무로직
