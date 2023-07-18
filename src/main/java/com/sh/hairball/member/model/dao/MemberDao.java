@@ -91,11 +91,10 @@ public class MemberDao {
         // update member set name = ?, gender = ?, birthday = ?, email = ?, phone = ?,
         // hobby = ? where member_id = ?
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, member.getMemberId());
-            pstmt.setString(2, member.getName());
-            pstmt.setString(3, member.getEmail());
-            pstmt.setString(4, member.getPhone());
-            pstmt.setString(5, member.getAddress());
+            pstmt.setString(1, member.getEmail());
+            pstmt.setString(2, member.getPhone());
+            pstmt.setString(3, member.getAddress());
+            pstmt.setString(4, member.getMemberId());
             result = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new MemberException(e);
@@ -107,7 +106,7 @@ public class MemberDao {
         int result = 0;
         String sql = prop.getProperty("deleteMember");
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(2, memberId);
+            pstmt.setString(1, memberId);
             result = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new MemberException(e);
