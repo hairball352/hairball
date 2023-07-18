@@ -72,7 +72,13 @@
 	};
 	
 	const adoptionFrmSubmit = (e) => {
-		const frm = document.forms.adoptionFrm;;
+		
+		<% if(loginMember == null) { %>
+			alert('로그인 후 이용이 가능합니다.');
+			return false;
+		<% } %>
+		
+		const frm = document.forms.adoptionFrm;
 		if(confirm('정말 신청하시겠습니까?')) {
 			frm.submit();
 			return true;

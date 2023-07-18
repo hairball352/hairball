@@ -60,7 +60,11 @@ List<EnrollBoardDto> animalBoardList= (List<EnrollBoardDto>) request.getAttribut
 </section>
 <script>
 window.addEventListener('load', () => {
-
+	const state = document.querySelector(".state");
+	console.log(state);
+	if(state && state.innerHTML == '입양완료') {
+		state.style.backgroundColor = '#5fab95';
+	}
 });
 </script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp" %>
