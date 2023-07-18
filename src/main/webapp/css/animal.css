@@ -88,7 +88,7 @@ table#tbl-adopboard tr td {
 
 /* 입양신청 게시글 작성 페이지 */
 .adoption-board {
-	
+	text-align: center;
 }
 
 .adoption-board-section {
@@ -109,7 +109,9 @@ table#tbl-adopboard tr td {
 .adoption-board-table {
 	width: 630px;
 	table-layout: fixed;
-	margin: 30px;
+	margin-left: 200px;
+	margin-top: 20px;
+	margin-bottom: 50px;
 	text-align: center;
 }
 
@@ -138,6 +140,8 @@ table#tbl-adopboard tr td {
 	border-style: solid;
 	border-color: rgb(80, 152, 131);
 	border-image: initial;
+	margin-bottom: 10px;
+	margin-left: 200px;
 }
 
 /* 마우스 오버 시 글자색 바꾸기 효과*/
@@ -250,4 +254,37 @@ table#tbl-adopboard tr td {
 #adoption-detail-table a {
 	text-decoration: none;
 	color: #337ab7;
+}
+
+/* 동물 상세페이지의 프로필 이미지 */
+#animal-profile-img {
+	width: 250px;
+}
+
+#adopt-img {
+	width: 200px;
+	border-radius: 30%;
+}
+
+.animal-card {
+	width: 200px;
+	margin: 10px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+.animal-card:hover {
+	background-color: #e5e5e5;
+}
+.animal-card img{
+	margin-bottom: 5px;
+}
+.animal-card p span {
+	color: #3b3b3b;
+}
+
+.state {
+	background-color: #fba94f;
 }

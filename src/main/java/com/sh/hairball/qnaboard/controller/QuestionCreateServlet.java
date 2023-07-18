@@ -27,9 +27,6 @@ public class QuestionCreateServlet extends HttpServlet {
         String memberId = request.getParameter("memberId");
         String content = request.getParameter("content");
         
-        System.out.println("타이틀" + title);
-        System.out.println("타이틀3" + content);
-        System.out.println("타이틀2" + memberId);
         // insert into board (no,title,writer,content) values (seq_board_no.nextval, ?, ?, ?)
         QuestionVo question = new QuestionVo();
         question.setTitle(title);

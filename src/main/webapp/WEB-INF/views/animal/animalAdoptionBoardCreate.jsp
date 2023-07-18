@@ -26,9 +26,11 @@
 			<div id="guide-text">
 				<p>게시글 작성해주시면 순차적으로 연락드리겠습니다.</p>
 			</div>
-			<div>
-				<img src="/hairball/images/1687851928029.png" alt=""
+			<div class="adoption-div">
+				<div>
+					<img src="/hairball/images/5527154.jpg" alt="" id="adopt-img"
 					style="width: 500px" />
+				</div>
 				<form name="adoptionFrm"
 					action="<%=request.getContextPath()%>/animal/animalAdoptionBoardCreate"
 					method="post">
@@ -37,7 +39,11 @@
 							<td>등록 동물 번호</td>
 							<td>
 								<div class="ui-widget">
+								<% if(animal == null) { %>
 									<label for="animalList"></label><input id="animalList" name="animalPblId" value="">
+								<% } else { %>
+									<label for="animalList"></label><input id="animalList" name="animalPblId" value="<%= animal.getPblId() %>">
+								<% } %>
 								</div>
 							</td>
 						</tr>
@@ -66,7 +72,13 @@
 	};
 	
 	const adoptionFrmSubmit = (e) => {
-		const frm = document.forms.adoptionFrm;;
+		
+		<% if(loginMember == null) { %>
+			alert('로그인 후 이용이 가능합니다.');
+			return false;
+		<% } %>
+		
+		const frm = document.forms.adoptionFrm;
 		if(confirm('정말 신청하시겠습니까?')) {
 			frm.submit();
 			return true;

@@ -112,7 +112,37 @@ const loginBtn = () => {
 };
 
 const enrollBtn = () => {
-   location.href='<%=request.getContextPath()%>/member/memberEnroll';
+   location.href='<%=request.getContextPath()%>/member/terms';
 };
+
+window.onload = () => {
+    
+	   <%if (msg != null) {%>
+	      alert('<%=msg%>');
+	   <%}%>   
+	      
+	   <%if (loginMember == null) {%>   
+	      document.loginFrm.onsubmit = (e) => {
+	         // 아이디
+	         console.log(memberId);
+	         console.log(memberId.value);
+	         const memberId = e.target.memberId;
+	         if(!/^\w{4,}$/.test(memberId.value)) {
+	            alert(" 아이디 또는 비밀번호를 잘못 입력했습니다.");
+	            e.preventDefault();
+	            return;
+	         }
+	         
+	         // 비밀번호
+	         const password = e.target.password;
+	         if(!/^.{4,}$/.test(password.value)) {
+	            alert(" 아이디 비밀번호를 잘못 입력했습니다.");
+	            e.preventDefault();
+	            return;
+	         }
+	      }
+	   <%}%>
+	   };
+
 </script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>

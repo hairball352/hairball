@@ -30,6 +30,7 @@ public class MemberLoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String memberId = request.getParameter("memberId");
 		String password = AnimalUtil.getEncryptedPassword(request.getParameter("password"), memberId);
+
 		String saveId = request.getParameter("saveId");
 		System.out.println("memberId = " + memberId);
 		System.out.println("saveId = " + saveId);
@@ -41,7 +42,6 @@ public class MemberLoginServlet extends HttpServlet {
 
 		if(member != null && password.equals(member.getPassword())) {
 			session.setAttribute("loginMember", member);
-
 			Cookie cookie = new Cookie("saveId", memberId);
 			cookie.setPath(request.getContextPath()); // 쿠키를 사용할 url
 			if (saveId != null) {

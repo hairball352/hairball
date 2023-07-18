@@ -62,7 +62,7 @@ public class AnimalDao {
 		animal.setPblId(rset.getString("pbl_id"));
 		animal.setSex(Sex.valueOf(rset.getString("sex")));
 		animal.setSpecies(rset.getString("species"));
-		animal.setState(rset.getString("state"));
+		animal.setState(Integer.parseInt(rset.getString("state")));
 		animal.setWeight(rset.getDouble("weight"));
 		
 		return animal;
@@ -80,7 +80,7 @@ public class AnimalDao {
 			preparedStatement.setString(4, animal.getSpecies());
 			preparedStatement.setFloat(5, (float)animal.getWeight());
 			preparedStatement.setString(6, animal.getPblId());
-			preparedStatement.setString(7, animal.getState());
+			preparedStatement.setInt(7, animal.getState());
 			preparedStatement.setString(8, animal.getSex().name());
 			preparedStatement.setInt(9, animal.getNeutered());
 			preparedStatement.setString(10, animal.getNote());
@@ -183,4 +183,42 @@ public class AnimalDao {
 		}
 		return animals;
 	}
+
+	public Animal findByPblId(Connection conn, String animalPblId) {
+		Animal animal = null;
+		String sql = prop.getProperty("findByPblId");
+		
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, animalPblId);
+			try (ResultSet rset = pstmt.executeQuery()) {
+				if (rset.next()) {
+					animal = handleAnimalResultSet(rset);
+					animal.setRenamedFileName(rset.getString("renamed_filename"));
+				}
+			}
+		} catch (SQLException e) {
+			throw new AnimalException(e);
+		}
+		return animal;
+	}
+
+	public int setAttachmentNumber(Connection conn, int attachmentId, int animalId ) {
+		int result = 0;
+		String sql = prop.getProperty("setAttachmentNumber");
+		//update animal set attachment_id = ? where id = ?
+		try(
+				PreparedStatement preparedStatement = conn.prepareStatement(sql)){
+			preparedStatement.setInt(1, attachmentId);
+			preparedStatement.setInt(2, animalId);
+			
+			result = preparedStatement.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
 }

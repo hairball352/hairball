@@ -73,11 +73,12 @@ public class QuestionDao {
         int result = 0;
         String sql = prop.getProperty("insertQuestion");
 
-//insert into question (id,title,member_id,content) values (seq_question_id.nextval, ?, ?, ?)
+//insert into question (id,member_id,title,content) values (seq_question_id.nextval, ?, ?, ?)
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, question.getTitle());
-            pstmt.setString(2, question.getMemberId());
+            pstmt.setString(1, question.getMemberId());
+            pstmt.setString(2, question.getTitle());
             pstmt.setString(3, question.getContent());
+            pstmt.setDate(4, question.getRegDate());
 
             result = pstmt.executeUpdate(); // 실행
         } catch (SQLException e) {
@@ -195,8 +196,9 @@ public class QuestionDao {
         String sql = prop.getProperty("insertAnswer");
         // insert into answer values(seq_answer_id.nextval, default, ?, ?, default)
         try(PreparedStatement pstmt = conn.prepareStatement(sql)){
-            pstmt.setInt(1, answer.getQuestionId());
-            pstmt.setString(2, answer.getContent());
+        	pstmt.setString(1, answer.getAdminName());
+            pstmt.setInt(2, answer.getQuestionId());
+            pstmt.setString(3, answer.getContent());
             
             result = pstmt.executeUpdate();
 

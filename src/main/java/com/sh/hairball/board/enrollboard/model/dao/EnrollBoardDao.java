@@ -139,18 +139,20 @@ public class EnrollBoardDao {
 		return attach;
 	}
 
-	public int deleteBoard(Connection connection, int enrollBoardId) {
+	public int deleteBoard(Connection connection, int animalId) {
 		int result = 0;
 		String sql = prop.getProperty("deleteBoard");
 		try(
 				PreparedStatement preparedStatement = connection.prepareStatement(sql)){
-			preparedStatement.setInt(1, enrollBoardId);
+			preparedStatement.setInt(1, animalId);
 			result = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+		System.out.println("result in dao"+result);
 		return result;
 	}
+
+
 	
 }

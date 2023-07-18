@@ -37,18 +37,26 @@ public class AnimalService {
 		return animal;
 	}
 
-	public List<Animal> findByPblId(String term) {
+	public List<Animal> ListByPblId(String term) {
 		Connection conn = getConnection();
-		List<Animal> animals = animalDao.findAll(conn); 
+		List<Animal> animals = animalDao.findAll(conn); //  findAll메소드를 사용해서 전체 조회된 값을 classmates변수에 담음
+		List<Animal> result = new ArrayList<>(); // 검색 결과값을 저장할 새로운 ArrayList 객체 생성
 		
-		List<Animal> result = new ArrayList<>(); 
-		
+		// findAll 메소드를 통해서 가져온 classmates 배열 순회
 		for(Animal animal : animals) {
-			if(animal.getPblId().contains(term)) { 
-				result.add(animal); 
+			// String#contains : boolean 문자열 포함 여부
+			if(animal.getPblId().contains(term)) { // classmate에서 이름을 가져오고, 검색한 문자열(term)을 포함하고 있으면
+				result.add(animal); // 위에 선언간 결과값 List에 담기
 			}
 		}
 		return result;
+	}
+	
+	public Animal findByPblId(String animalPblId) {
+		Connection conn = getConnection();
+		Animal animal = animalDao.findByPblId(conn, animalPblId); //  findAll메소드를 사용해서 전체 조회된 값을 classmates변수에 담음
+		close(conn);
+		return animal;
 	}
 
 }

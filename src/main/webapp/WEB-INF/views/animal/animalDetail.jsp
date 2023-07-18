@@ -1,5 +1,5 @@
-<%@page import="com.sh.hairball.animal.model.vo.Animal"%>
 <%@page import="com.sh.hairball.attachment.model.vo.Attachment"%>
+<%@page import="com.sh.hairball.animal.model.vo.Animal"%>
 <%@ page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -33,13 +33,13 @@
 				<table id="detail-table">
 					<thead>
 					<tr>
-						<img src="<%= request.getContextPath() %>/upload/animal/<%= animal.getRenamedFileName()%>">
+						<img src="<%= request.getContextPath() %>/upload/animal/<%= animal.getRenamedFileName()%>" id="animal-profile-img"/>
 					</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<th colspan="4">입양상태
-								<td colspan="6" id="state"><%=animal.getState() %></td>
+								<td colspan="6" id="state"><%= animal.getState() %></td>
 							</th>
 							<th colspan="4">동물등록번호
 								<td colspan="6" id="pblId"><%=animal.getPblId()%></td>
@@ -71,16 +71,21 @@
 				<form 
 					name="animalAdopFrm"  method="GET"
 					action="<%= request.getContextPath()%>/animal/animalAdoptionBoardCreate">
-					<input type="hidden" name="animalId" value="<%= animal.getId() %>" />
+					<input type="hidden" name="no" value="<%= animal.getId() %>" />
 					<button type="submit" onclick="adoption();">입양하러가기</button>
 				</form>
 			</div>
+			<a href="<%=request.getContextPath() %>/animal/delete?animalId=<%= animal.getId()%>">정보삭제하기</a>
 		</div>
 	</div>
 </section>
 <script>
 const adoption = (e) => {
 	
+}
+const delete = (e) => {
+	e.preventDefault();
+	console.log("hi")
 }
 </script>
 

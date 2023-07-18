@@ -35,8 +35,11 @@ public class NotificationService {
 		// 2. 실시간 알림
 		// WebSocket Session 가져오기
 		Session wsSession = QuestionWebSocket.clientMap.get(question.getMemberId());
+		System.out.println("wsSession : "+ wsSession);
 		if(wsSession != null) { // 실시간 접속 여부
 			Basic basic = wsSession.getBasicRemote();
+			System.out.println("basic : " + basic);
+
 			try {
 				Map<String, Object> payload = new HashMap<>();
 				payload.put("messageType", MessageType.NEW_ANSWER);

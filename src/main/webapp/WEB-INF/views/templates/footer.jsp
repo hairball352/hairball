@@ -14,7 +14,7 @@
         />
     </div>
     <div class="copyright_line"></div>
-    <p>카피라이터</p>
+    <p>&lt;Copyright <strong>DoFighting</strong>. All rights reserved.&gt;</p>
 </footer>
 <script src="/hairball/js/jquery-3.7.0.js"></script>
 <script src="/hairball/js/main.js"></script>
