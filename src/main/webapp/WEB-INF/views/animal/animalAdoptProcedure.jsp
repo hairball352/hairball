@@ -6,11 +6,11 @@
 	<div class="introduce01-container">
 		<div class="introduce01-bar">
 			<div class="side-menu-title">
-				<a href="<%=request.getContextPath()%>/animal/animalAdoptionList">보호동물</a>
+				<a href="<%= request.getContextPath() %>/animal/procedure">보호동물</a>
 			</div>
 			<hr class="side-hr" />
 			<div class="side-menu">
-				<a href="<%=request.getContextPath()%>/animal/animalAdoptionList">입양절차</a>
+				<a href="<%= request.getContextPath() %>/animal/procedure">입양절차</a>
 			</div>
 			<hr class="side-hr" />
 			<div class="side-menu">
