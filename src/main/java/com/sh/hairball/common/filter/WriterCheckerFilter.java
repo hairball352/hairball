@@ -55,9 +55,10 @@ public class WriterCheckerFilter extends HttpFilter implements Filter {
 		Member loginMember = (Member) session.getAttribute("loginMember");
 		
 		int id = Integer.parseInt(request.getParameter("id"));
+
 		QuestionVo question = questionService.findById(id);
 		request.setAttribute("question", question);
-		System.out.println("question = " + question.toString());
+//		System.out.println("question = " + question.toString());
 		if(!(loginMember != null && ((question.getMemberId().equals(loginMember.getMemberId())) ||
 				loginMember.getMemberRole() == MemberRole.A ))) {
 			
