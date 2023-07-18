@@ -300,3 +300,12 @@ table#tbl-answer tr:hover button.btn-delete {
 	text-align: center; /* 텍스트를 가운데 정렬 */
 	margin-left: 480px;
 }
+
+.custom-image {
+	position: absolute;
+	width: 40px;
+    height: 40px;
+    margin-left: 550px;
+    margin-top: 34px;
+    cursor: pointer;
+}

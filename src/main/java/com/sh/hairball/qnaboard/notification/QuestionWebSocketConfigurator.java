@@ -31,6 +31,4 @@ public class QuestionWebSocketConfigurator extends Configurator{
 		
 		
 	}
-	
-	
 }

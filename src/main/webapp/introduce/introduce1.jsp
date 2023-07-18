@@ -22,9 +22,9 @@
 		<div class="checked-title2">센터소개</div>
 		<hr class="section-hr2" />
 		<div class="introduce-board">
-			<img id="table-img" src="/hairball/images/강쥐사진모음/몽이3_정사각형.jpg">
-			<div class="vertical-line"></div>
-		<div class="table-container2">
+			<img id="table-img2" src="/hairball/images/강쥐사진모음/몽이3_정사각형.jpg">
+			<div class="vertical-line3"></div>
+		<div class="table-container5">
 			<table>
 				<tbody>
 					<tr>

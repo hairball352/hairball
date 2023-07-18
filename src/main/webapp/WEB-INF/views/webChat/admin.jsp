@@ -64,7 +64,7 @@
 		};
 		
 		// 채팅창을 감싸는 컨테이너 생성
-		var $chatContainer = $("<div class='chat-container'></div>");
+		var $chatContainer = $("<div class='chat-container2'></div>");
 		$("body").append($chatContainer);
 		
 		// 서버로 부터 메시지가 오면
