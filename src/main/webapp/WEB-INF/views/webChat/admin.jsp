@@ -26,7 +26,7 @@
 			<hr class="side-hr" />
 		</div>
 		<div class="introduce01-detail-section">
-			<div class="checked-title2">채팅기록조회</div>
+			<div class="checked-title2">관리자채팅상담</div>
 			<hr class="section-hr" />
 		</div>
 	</div>
