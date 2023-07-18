@@ -107,7 +107,7 @@ window.onload = () => {
             </li>
             <%}else{ %>
             <li class="login_li">
-                <a href="<%= request.getContextPath() %>/member/login">마이페이지</a>
+                <a href="<%= request.getContextPath() %>/member/memberDetail">마이페이지</a>
             </li>
             <%} 
             %>
