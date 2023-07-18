@@ -62,7 +62,7 @@
     
 
     <input class="detail-btn" type="submit" value="적용"/>
-    <input class="detail-btn" type="button" onclick="returnToMain ();" value="취소"/>
+    <input class="detail-btn" type="button" onclick="location.href='/hairball'" value="취소"/>
     <input class="detail-btn" type="button" onclick="deleteMember();" value="탈퇴"/>
 
   </form>
@@ -88,12 +88,6 @@
 
   };
 
-  const returnToMain  = () => {
-	  
-  };
-	  
-
-  
   const deleteMember = () => {
     if(confirm("정말 탈퇴하시겠습니까?"))
       document.memberDelFrm.submit();
