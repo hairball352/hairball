@@ -40,7 +40,6 @@ create table animal(
    id number,
    age number,
    discvry_plc varchar(300),
-   attachment_id number,
    animal_type varchar(20),
    species varchar(20),
    weight number,

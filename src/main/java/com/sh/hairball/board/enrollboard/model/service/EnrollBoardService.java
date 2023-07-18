@@ -9,6 +9,7 @@ import java.util.List;
 import com.sh.hairball.animal.model.dao.AnimalDao;
 import com.sh.hairball.attachment.model.dao.AttachmentDao;
 import com.sh.hairball.attachment.model.vo.Attachment;
+import com.sh.hairball.board.adoptboard.model.dao.AdoptionDao;
 import com.sh.hairball.board.enrollboard.model.dao.EnrollBoardDao;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
 
@@ -16,6 +17,7 @@ public class EnrollBoardService {
 	private final EnrollBoardDao enrollBoardDao = new EnrollBoardDao();
 	private final AnimalDao animalDao = new AnimalDao();
 	private final AttachmentDao attachmentDao = new AttachmentDao();
+	private final AdoptionDao adoptionDao = new AdoptionDao();
 	
 	public List<EnrollBoard> findAll() {
 		Connection connection = getConnection();
@@ -59,6 +61,7 @@ public class EnrollBoardService {
 		int result = 0;
 		try {
 			result = enrollBoardDao.deleteBoard(conn, animalId);
+			result = adoptionDao.deleteBoardByAnimalId(conn, animalId);
 			commit(conn);
 		} catch (Exception e) {
 			rollback(conn);
