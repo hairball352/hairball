@@ -149,7 +149,7 @@
 	    if (!/^[\w!@#$%]{4,}$/.test(password.value)) {
 	        // 입력이 올바르지 않은 경우
 	        password.classList.add("error");
-	        displayErrorMessage(password, "비밀번호는 영문자/숫자/특수문자 4글자 이상이어야 합니다.");
+	        displayErrorMessage(password, "비밀번호는 4글자 이상이어야 합니다.");
 	    } else {
 	        // 입력이 올바른 경우
 	        password.classList.remove("error");
