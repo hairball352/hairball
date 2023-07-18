@@ -57,7 +57,6 @@ public class MemberLoginServlet extends HttpServlet {
 		}
 
 		System.out.println("memberServlet@member = " + member);
-//		member.setMemberRole(MemberRole.A);
 		// 3. 응답처리
 		response.sendRedirect(request.getContextPath() + "/"); // redirect를 통한 url변경
 
