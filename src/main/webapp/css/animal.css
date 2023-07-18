@@ -275,13 +275,15 @@ table#tbl-adopboard tr td {
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	text-align: center;
 }
+.animal-card:hover {
+	background-color: #e5e5e5;
+}
 .animal-card img{
 	margin-bottom: 5px;
 }
 .animal-card p span {
 	color: #3b3b3b;
 }
-
 
 .state {
 	background-color: #fba94f;
