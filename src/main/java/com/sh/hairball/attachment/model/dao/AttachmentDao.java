@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.mysql.cj.protocol.Resultset;
 import com.sh.hairball.attachment.model.vo.Attachment;
 import com.sh.hairball.board.adoptboard.model.dao.AdoptionDao;
 

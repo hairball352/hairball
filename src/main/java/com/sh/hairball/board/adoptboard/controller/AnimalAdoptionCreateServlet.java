@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sh.hairball.animal.model.service.AnimalService;
 import com.sh.hairball.animal.model.vo.Animal;
@@ -37,8 +38,16 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(); 
+		
 		String animalPblId = request.getParameter("animalPblId");
 		Animal animal = animalService.findByPblId(animalPblId);
+		
+		if(animal == null) {
+			session.setAttribute("msg", "해당 번호로 등록된 동물이 없습니다. 등록 번호를 다시 한번 확인해주세요.");
+			response.sendRedirect(request.getContextPath() + "/animal/animalAdoptionBoardCreate");
+			return;
+		}
 		
 		int memberId = Integer.parseInt(request.getParameter("memberId"));
 		String _visitDate = request.getParameter("visitDate");
@@ -49,7 +58,6 @@ public class AnimalAdoptionCreateServlet extends HttpServlet {
 		adopBoard.setAnimalId(animal.getId());
 		adopBoard.setMemberId(memberId);
 		adopBoard.setVisitDate(visitDate);
-		System.out.println("adopBoard@Service : " + adopBoard);
 		int result = adoptionService.insertBoard(adopBoard);
 	
 		response.sendRedirect(request.getContextPath() + "/animal/animalAdoptionBoardDetail?no=" + adopBoard.getId());
