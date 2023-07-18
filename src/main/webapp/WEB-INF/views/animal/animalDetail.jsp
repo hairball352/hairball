@@ -75,12 +75,17 @@
 					<button type="submit" onclick="adoption();">입양하러가기</button>
 				</form>
 			</div>
+			<a href="<%=request.getContextPath() %>/animal/delete?animalId=<%= animal.getId()%>">정보삭제하기</a>
 		</div>
 	</div>
 </section>
 <script>
 const adoption = (e) => {
 	
+}
+const delete = (e) => {
+	e.preventDefault();
+	console.log("hi")
 }
 </script>
 

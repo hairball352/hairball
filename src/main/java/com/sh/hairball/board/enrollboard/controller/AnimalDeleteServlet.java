@@ -22,10 +22,10 @@ public class AnimalDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int enrollBoardId = Integer.parseInt(request.getParameter("enrollBoardId"));
-		System.out.println(enrollBoardId);
+		int animalId = Integer.parseInt(request.getParameter("animalId"));
+		System.out.println(animalId);
 		
-		int result = enrollBoardService.deleteBoard(enrollBoardId);
+		int result = enrollBoardService.deleteBoard(animalId);
 		
 		request.getRequestDispatcher("/WEB-INF/views/animal/animalEnrollFrm.jsp").forward(request, response);
 		

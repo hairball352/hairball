@@ -44,49 +44,49 @@
       <ul class="gallery">
         <li>
           <a href="#">
-            <img src="" alt="호두1" class="indexImg"/>
+            <img src="" class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="" alt="호두2" class="indexImg"/>
+            <img src="" class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="" alt="호두3" class="indexImg"/>
+            <img src="" class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="" alt="호두4" class="indexImg"/>
+            <img src="" class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="" alt="호두5" class="indexImg"/>
+            <img src="" class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="" alt="호두6" class="indexImg"/>
+            <img src="" class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="" alt="호두7" class="indexImg"/>
+            <img src=""  class="indexImg"/>
             <div class="gallery_text">
             </div>
           </a>
