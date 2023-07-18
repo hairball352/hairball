@@ -14,7 +14,7 @@
 %>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/question.css" />
-<section class="question-section2">
+<section class="animal-section">
 	<div class="introduce01-container">
 		<div class="introduce01-bar">
 			<div class="side-menu-title">
@@ -34,7 +34,7 @@
 	<div class="introduce01-detail-section">
 		<div class="checked-title2">Q&A</div>
 		<hr class="section-hr" />
-		<section id="question-container2">
+		<section id="question-container">
 			<h2>Q&A 게시판</h2>
 			<table id="tbl-question-view">
 				<tr>
@@ -61,8 +61,8 @@
 				<tr>
 					<th colspan="2">
 						<%--게시물 수정 --%>
-						<input type="button" value="수정하기" onclick="updateQuestion()">
-						<input type="button" value="삭제하기" onclick="deleteQuestion()">
+						<input type="button" id ="btn-detail" value="수정하기" onclick="updateQuestion()">
+						<input type="button" id ="btn-detail" value="삭제하기" onclick="deleteQuestion()">
 					</th>
 				</tr>
 				<% } %>
@@ -79,7 +79,7 @@
 						name="questionanswerFrm">
 		                <input type="hidden" name="questionId" value="<%= question.getId() %>" />
 		                <input type="hidden" name="adminName" value="<%= loginMember.getName() %>" />
-						<textarea name="content" cols="60" rows="3"></textarea>
+						<textarea name="content" id="answer-content" cols="60" rows="3"></textarea>
 		                <button type="submit" id="btn-answer-enroll1">등록</button>
 		            </form>
 		        </div>
@@ -94,7 +94,7 @@
 								boolean canRemove = 
 										loginMember != null && (MemberRole.A == loginMember.getMemberRole());
 						%>
-									<tr class="level1">
+									<tr class="answer-list">
 										<td>
 											<sub class=answer-adminName><%= as.getAdminName() %></sub>
 											<sub class=answer-date><%= as.getRegDate() %></sub>
@@ -122,6 +122,7 @@
 		</section>
 	</div>
 </section>		
+
 	
 <script>
 document.querySelectorAll(".btn-delete").forEach((button) => {

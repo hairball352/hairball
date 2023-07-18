@@ -26,6 +26,7 @@ import com.sh.hairball.member.model.vo.Member;
 	"/qnaBoard/questionDelete",
 	"/qnaBoard/answerCreate",
 	"/qnaBoard/answerDelete",
+	"/qnaBoard/questionUpdate",
 })
 public class LoginFilter extends HttpFilter implements Filter {
        

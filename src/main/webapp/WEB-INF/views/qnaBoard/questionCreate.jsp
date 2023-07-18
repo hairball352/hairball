@@ -50,8 +50,10 @@
 			</form>
 		</section>
 	</div>
+</section>
 
-	<script>
+
+<script>
 /**
 * questionCreateFrm 유효성 검사
 */
@@ -71,4 +73,4 @@ document.questionCreateFrm.onsubmit = (e) => {
 	}
 };
 </script>
-	<%@ include file="/WEB-INF/views/templates/footer.jsp"%>
+<%@ include file="/WEB-INF/views/templates/footer.jsp"%>
