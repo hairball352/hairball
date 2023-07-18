@@ -20,10 +20,9 @@
 
 %>
 <section id=enroll-container1>
-	<div>
-	<img id="detail-img" src="/hairball/images/login.gif" alt="login">
-	</div>
-  <h2>프로필 수정</h2>
+   <div>
+   <img id="detail-img" src="/hairball/images/procedure/10.gif" alt="">
+   </div>
   <form
           name="memberUpdateFrm"
           action="<%= request.getContextPath() %>/member/memberUpdate"
@@ -61,9 +60,11 @@
       </tr>
     </table>
     
+
     <input class="detail-btn" type="submit" value="적용"/>
     <input class="detail-btn" type="button" onclick="returnToMain ();" value="취소"/>
     <input class="detail-btn" type="button" onclick="deleteMember();" value="탈퇴"/>
+
   </form>
 </section>
 <form name="memberDelFrm" action="<%= request.getContextPath() %>/member/memberDelete" method="post"></form>
@@ -86,11 +87,12 @@
     }
 
   };
-  
+
   const returnToMain  = () => {
 	  
   };
 	  
+
   
   const deleteMember = () => {
     if(confirm("정말 탈퇴하시겠습니까?"))

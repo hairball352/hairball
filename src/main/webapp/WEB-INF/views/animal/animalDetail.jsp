@@ -78,7 +78,7 @@
 					name="animalAdopFrm"  method="GET"
 					action="<%= request.getContextPath()%>/animal/animalAdoptionBoardCreate">
 					<input type="hidden" name="no" value="<%= animal.getId() %>" />
-					<button class="btn1" type="submit" onclick="adoption();">입양하러가기</button>
+					<button class="btn1" type="submit">입양하러가기</button>
 				</form>
 			</div>
 			<%if (loginMember != null&& loginMember.getMemberRole().name().equals("A")){ %>
@@ -96,12 +96,16 @@ window.onload = () => {
 	selector.addEventListener('change', () => {
 		const selectedOption = selector.options[selector.selectedIndex];
 		console.log(selectedOption.value);
+
+		const confirmMessage = "정말 변경하시겠습니까?";
+		if(confirm(confirmMessage)) {
 		$.ajax({
 			url : `<%= request.getContextPath()%>/animal/update?animalId=<%= animal.getId()%>&state=\${selectedOption.value}`,
 			success(resp){
 				console.log(resp)
 			}
 		})
+		}
 	});
 };
 <%} %>
