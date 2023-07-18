@@ -57,7 +57,7 @@ public class MemberLoginServlet extends HttpServlet {
 		}
 
 		System.out.println("memberServlet@member = " + member);
-		// member.setMemberRole(MemberRole.A); 권한을 전부 관리자로 변경해서
+		 member.setMemberRole(MemberRole.A); // 권한을 전부 관리자로 변경해서
 		// 3. 응답처리
 		response.sendRedirect(request.getContextPath() + "/"); // redirect를 통한 url변경
 

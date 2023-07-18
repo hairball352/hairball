@@ -99,11 +99,15 @@ table#tbl-adopboard tr td {
 .adoption-container {
 	display: flex;
 	margin-left: 130px;
+	flex-direction: column;
 }
-
+.adoption-container button {
+	margin: 20px;
+}
 #guide-text {
 	font-size: 17px;
 	margin-bottom: 20px;
+	
 }
 
 .adoption-board-table {

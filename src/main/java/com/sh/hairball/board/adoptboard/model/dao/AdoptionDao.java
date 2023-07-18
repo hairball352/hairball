@@ -78,8 +78,8 @@ public class AdoptionDao {
 		return result;
 	}
 
-	public List<AdopBoardEntity> findAll(Connection conn, int start, int end) {
-		List<AdopBoardEntity> adopBoards = new ArrayList<>();
+	public List<AdopBoard> findAll(Connection conn, int start, int end) {
+		List<AdopBoard> adopBoards = new ArrayList<>();
 		String sql = prop.getProperty("findAll");
 		
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -88,7 +88,7 @@ public class AdoptionDao {
 			
 			try(ResultSet rset = pstmt.executeQuery()) {
 				while(rset.next()) {
-					AdopBoardEntity adopBoard = handleAdopBoardResultSet(rset);
+					AdopBoard adopBoard = handleAdopBoardResultSet(rset);
 					adopBoards.add(adopBoard);
 				}
 			}

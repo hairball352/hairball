@@ -20,8 +20,9 @@ public class AnimalAdoptionDetailServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int no = Integer.parseInt(request.getParameter("no"));
+		System.out.println("No" + no);
 		AdopBoard adopBoard = adoptionService.findById(no);
-		
+		System.out.println("animalAdoptionBoardDetail = " + adopBoard);
 		request.setAttribute("adopBoard", adopBoard);
 		
 		request.getRequestDispatcher("/WEB-INF/views/animal/animalAdoptionBoardDetail.jsp")

@@ -49,12 +49,12 @@
 						</tr>
 						<tr>
 							<td>아이디</td>
-							<td><input type="text" value="<%= loginMember != null ? loginMember.getMemberId() : "" %>"/>
+							<td><input type="text" value="<%= loginMember != null ? loginMember.getMemberId() : "" %>" readonly />
 							<input type="hidden" name="memberId" value="<%= loginMember != null ? loginMember.getId() : "" %>"/></td>
 						</tr>
 						<tr>
-							<td>방문날짜</td>
-							<td><input type="date" name="visitDate" /></td>
+							<td>방문예정날짜</td>
+							<td><input type="date" name="visitDate"/></td>
 						</tr>
 					</table>
 				</form>
@@ -72,17 +72,32 @@
 	};
 	
 	const adoptionFrmSubmit = (e) => {
-		
+
 		<% if(loginMember == null) { %>
 			alert('로그인 후 이용이 가능합니다.');
 			return false;
 		<% } %>
 		
 		const frm = document.forms.adoptionFrm;
-		if(confirm('정말 신청하시겠습니까?')) {
+		const animalListInput = frm.querySelector('#animalList');
+		const memberIdInput = frm.querySelector('input[name="memberId"]');
+		const visitDateInput = frm.querySelector('input[name="visitDate"]');
+		
+		if (animalListInput.value === "") {
+			alert('등록 동물 번호를 입력해주세요.');
+			return false;
+		}
+
+		if (visitDateInput.value === "") {
+			alert('방문날짜를 입력해주세요.');
+			return false;
+		}
+
+		if (confirm('정말 신청하시겠습니까?')) {
 			frm.submit();
 			return true;
 		}
+
 		alert('작성을 취소하였습니다.');
 		return false;
 	};

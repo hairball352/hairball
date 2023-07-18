@@ -1,3 +1,4 @@
+<%@page import="com.sh.hairball.board.adoptboard.model.vo.AdopBoard"%>
 <%@ page contentType="text/html; charset=UTF-8" language="java"%>
 <%@ page
 	import="com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity"%>
@@ -5,7 +6,8 @@
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
 
 <%
-List<AdopBoardEntity> adoptionBoardList = (List<AdopBoardEntity>) request.getAttribute("adoptionBoardList");
+List<AdopBoard> adoptionBoardList = (List<AdopBoard>) request.getAttribute("adoptionBoardList");
+
 %>
 
 <section class="animal-section">
@@ -40,12 +42,12 @@ List<AdopBoardEntity> adoptionBoardList = (List<AdopBoardEntity>) request.getAtt
 					</thead>
 					<tbody>
 						<%
-						for (AdopBoardEntity board : adoptionBoardList) {
+						for (AdopBoard board : adoptionBoardList) {
 						%>
 						<tr>
 							<td><%=board.getId()%></td>
 							<td class="list-title"><a
-								href="<%=request.getContextPath()%>/animal/animalAdoptionBoardDetail?no=<%=board.getId()%>"><%=board.getMemberId()%>님의
+								href="<%=request.getContextPath()%>/animal/animalAdoptionBoardDetail?no=<%=board.getId()%>"><%=board.getMemberName()%>님의
 									입양신청서 💌</a></td>
 							<td><%=board.getMemberId()%></td>
 							<td><%=board.getRegDate()%></td>

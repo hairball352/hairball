@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sh.hairball.board.adoptboard.model.service.AdoptionService;
+import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
 import com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity;
 import com.sh.hairball.common.util.AnimalUtil;
 
@@ -32,7 +33,7 @@ public class AdoptionBoardListServlet extends HttpServlet {
 		int start = (cpage - 1) * LIMIT + 1 ;
 		int end = cpage * LIMIT;
 		 
-		List<AdopBoardEntity> adopBoards = adoptionService.findAll(start, end);
+		List<AdopBoard> adopBoards = adoptionService.findAll(start, end);
 		int totalContent = adoptionService.getTotalContent(); // 전체 게시글 수
 		
 		String url = request.getRequestURI();
