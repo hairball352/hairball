@@ -27,7 +27,7 @@ public class AnimalDeleteServlet extends HttpServlet {
 		
 		int result = enrollBoardService.deleteBoard(animalId);
 		
-		request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/");
 		
 	}
 
