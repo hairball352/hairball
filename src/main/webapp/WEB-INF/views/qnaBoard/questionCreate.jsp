@@ -25,7 +25,7 @@
 		<div class="checked-title2">Q&A</div>
 		<hr class="section-hr" />
 		<section id="question-container">
-			<h2>질문하기</h2>
+			<h2 id="h2-title">Q&A 질문하기</h2>
 			<form name="questionCreateFrm"
 				action="<%=request.getContextPath()%>/qnaBoard/questionCreate"
 				method="POST" enctype="form-data">
@@ -44,7 +44,7 @@
 						<td><textarea rows="5" cols="40" name="content"></textarea></td>
 					</tr>
 					<tr>
-						<th colspan="2"><input type="submit" value="등록하기"></th>
+						<th colspan="2"><input type="submit" id="btn-create"value="등록하기"></th>
 					</tr>
 				</table>
 			</form>

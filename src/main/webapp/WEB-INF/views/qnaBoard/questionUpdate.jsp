@@ -30,7 +30,7 @@ QuestionVo q = (QuestionVo) request.getAttribute("question");
 		<hr class="section-hr" />
 		<section id="question-container">
 		<section id="question-container">
-			<h2>게시판 수정</h2>
+			<h2 id="h2-title">Q&A 수정</h2>
 			<form action="<%=request.getContextPath()%>/qnaBoard/questionUpdate"
 				method="post">
 				<table id="tbl-question-view">
@@ -54,8 +54,8 @@ QuestionVo q = (QuestionVo) request.getAttribute("question");
 						<td><textarea rows="5" cols="50" name="content"><%=q.getContent()%></textarea></td>
 					</tr>
 					<tr>
-						<th colspan="2"><input type="submit" value="수정하기"> <input
-							type="button" value="취소" onclick="history.go(-1);"></th>
+						<th colspan="2"><input type="submit" id="btn-update" value="수정하기"> <input
+							type="button" value="취소" id="btn-cancel" onclick="history.go(-1);"></th>
 					</tr>
 				</table>
 			</form>

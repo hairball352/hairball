@@ -5,6 +5,7 @@ section#question-container {
 	width: 600px;
 	text-align: center;
 	margin-left: 78px;
+	
 }
 
 section#question-container2 {
@@ -28,9 +29,33 @@ table#tbl-question th, table#tbl-question td {
 	border-bottom: 3px solid #e3e3e3;
 }
 
+/*서브타이틀*/
+#h2-title {
+	font-size: 25px;
+    font-weight: 500;
+}
+
+/* qna목록 th글씨두께*/
+table#tbl-question th {
+	font-weight: bold;
+}
+
+/*글쓰기,등록버튼*/
 /*글쓰기버튼*/
 input#btn-add {
-	float: right;
+	float: left;
+	margin: 10px 0 15px;
+	background: #5fab95;
+	color: white;
+	border: none;
+	zoom: 2.0;
+	cursor: pointer;
+	font-size: 5px;
+}
+/*등록,수정하기, 취소버튼*/
+input#btn-create,
+input#btn-update,
+input#btn-cancel {
 	margin: 10px 0 15px;
 	background: #5fab95;
 	color: white;
@@ -40,24 +65,47 @@ input#btn-add {
 	font-size: 5px;
 }
 
-/*페이지바*/
+
+/*글쓰기 폼*/
+textarea[name="content"]{
+	resize: none;
+}
+
+/* 페이지바*/
 div#pagebar2 {
-	width: 800px;
-	display: flex;
-	justify-content: center;
-	margin-bottom: 40px;
-	margin-top: 50px;
-	padding-bottom: 20px;
-	gap: 13px;
+    display: flex;
+    margin: 70px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+div#pagebar2 > a,
+div#pagebar2 > span {
+    background-color: #fff;
+    color: #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin: 0 5px 8px;
+    border-radius: 5px;
+    min-width: 20px;
+    padding: 0 10px;
+    height: 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    position: relative;
+    font-family: Helvetica, Arial, sans-serif;
+}
+div#pagebar2 > span.cpage {
+    background-color: #5fab95;
+    color: #fff;
+}
+div#pagebar2 > a:hover {
+    background-color: #5fab95;
+    color: #fff;
 }
 
-div#pagebar2 span.cPage {
-	margin-right: 5px;
-}
-
-div#pagebar2 a {
-	margin-right: 5px;
-}
 
 /*게시글 작성/상세보기 테이블*/
 table#tbl-question-view {
@@ -146,7 +194,7 @@ table#tbl-answer tr td:first-of-type {
 	padding: 5px 5px 5px 50px;
 }
 
-table#tbl-answer tr td:last-of-type {
+table#tbl-answer tr td:last-child {
 	text-align: right;
 	width: 100px;
 }
@@ -199,6 +247,7 @@ table#tbl-answer tr:hover button.btn-delete {
 	transition: max-height 0.2s ease-out;
 	background-color: #f1f1f1;
 	margin-bottom: 10px;
+	
 }
 
 .content p {
