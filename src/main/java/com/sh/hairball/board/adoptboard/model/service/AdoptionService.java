@@ -85,15 +85,8 @@ public class AdoptionService {
 	public AdopBoard findById(int no) {
 		Connection conn = getConnection();
 		AdopBoard adopBoard = adoptionDao.findById(conn, no);
-		
-		System.out.println(adopBoard);
-		
 		Animal animal = animalDao.findById(conn, adopBoard.getAnimalId()); // 입양 동물 정보 추가
-		//Attachment attach = enrollBoardDao.findById(conn, animal.getAttachmentId());
-		
 		adopBoard.setAnimal(animal);
-		//attach.setAnimalId(no);
-		System.out.println("Adopservice animal : " + animal);
 		close(conn);
 		return adopBoard;
 	}
