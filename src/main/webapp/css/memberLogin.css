@@ -42,6 +42,7 @@
 	zoom: 2.0;
 	cursor: pointer;
 	font-size: 5px;
+	
 }
 
 #btn1:hover {
@@ -99,11 +100,10 @@
 }
 
 /* 회원가입 관련 css*/
-
 .error-message {
-    color: red;
-    font-size: 13px;
-    margin-left: 17px;
+	color: red;
+	font-size: 13px;
+	margin-left: 17px;
 }
 
 .enrollFrm img {
@@ -114,26 +114,23 @@
 
 #enroll-table th {
 	padding: 10px;
-	
 }
 
-#enroll-table input[type="text"],
-#enroll-table input[type="password"],
-#enroll-table input[type="email"],
-#enroll-table input[type="tel"],
-#enroll-table input[type="address"] {
-    width: 220px;
-    padding: 5px;
-    margin: 10px;
-    font-size: 14px;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-bottom: 1px solid #ccc;
+#enroll-table input[type="text"], #enroll-table input[type="password"],
+	#enroll-table input[type="email"], #enroll-table input[type="tel"],
+	#enroll-table input[type="address"] {
+	width: 220px;
+	padding: 5px;
+	margin: 10px;
+	font-size: 14px;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: none;
+	border-bottom: 1px solid #ccc;
 }
 
 sup {
-	color:red;
+	color: red;
 	margin-left: 3px;
 }
 
@@ -159,7 +156,6 @@ sup {
 .sns-btn:last-of-type {
 	margin-bottom: 50px;
 }
-
 
 #login-table {
 	width: 100%;
@@ -188,10 +184,8 @@ sup {
 	border: none;
 	font-size: 16px;
 	display: flex;
-	flex-direction : column;
+	flex-direction: column;
 	justify-content: center;
-	
-	
 }
 
 .enroll-h2 {
@@ -200,8 +194,8 @@ sup {
 	font-size: 16px;
 	margin: 20px;
 	font-weight: 150;
-	
 }
+
 .enroll-btn {
 	display: flex;
 	justify-content: center;
@@ -234,17 +228,17 @@ sup {
 	margin-left: 20px;
 }
 
-.enroll-btn2 input[type="submit"]{
+.enroll-btn2 input[type="submit"] {
 	display: flex;
 	justify-content: center;
 }
+
 .enroll-btn2 input[type="reset"] {
 	display: flex;
 	justify-content: center;
-	
 }
 
-.banner_img{
+.banner_img {
 	margin-bottom: 10px;
 }
 
@@ -253,17 +247,17 @@ sup {
 	display: flex;
 	justify-content: center;
 }
+
 .enroll-Frm {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+
 .enroll-Frm th {
 	margin-right: 30px;
 	margin-left: 30px;
 }
-
-
 
 /* 이용약관 */
 .terms-section {
@@ -271,11 +265,12 @@ sup {
 	justify-content: center;
 }
 
-.checkBoxcheck ul li{
+.checkBoxcheck ul li {
 	float: right;
 }
+
 .checkBoxcheck {
-		margin: 30px;
+	margin: 30px;
 }
 
 .terms-content {
@@ -285,65 +280,86 @@ sup {
 }
 
 /* 마이페이지 */
-.login td{
+.login td {
 	font-size: 16px;
 	margin-bottom: 50px;
 }
-.login input[type="button"]{
+
+.login input[type="button"] {
 	border: none;
 }
 
 /* 내정보보기 */
-
-#enroll-container1{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    align-content: space-around;
-    flex-wrap: nowrap;
-    align-items: center;
+#enroll-container1 {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+	align-content: space-around;
+	flex-wrap: nowrap;
+	align-items: center;
 }
-#enroll-container1 h2{
+
+#enroll-container1 h2 {
 	margin-top: 10px;
 	font-size: 16px;
 	margin-bottom: 10px;
 }
 
-#enroll-container1 th{
+#enroll-container1 th {
 	display: felx;
 }
-.detail-btn{
+
+.detail-btn {
 	width: 200px;
 	height: 49.17px;
 	margin-bottom: 4px;
 	margin-top: 10px;
 	background: #5fab95;
-	color: black;
+	color: white;
 	border-radius: 5px;
 	cursor: pointer;
+	font-size: 16px;
 }
 
-.detail-btn2{
+.detail-btn2 {
 	width: 200px;
 	height: 49.17px;
 	margin-bottom: 4px;
 	margin-top: 10px;
-	background: #5fab95;
+	background: #c8c8c8;
 	color: black;
 	border-radius: 5px;
 	cursor: pointer;
+	font-size: 16px;
 }
 
-#detail-img{
+.detail-btn3 span {
+    color: red;
+}
+
+.detail-btn3{
+	width: 200px;
+	height: 49.17px;
+	margin-bottom: 4px;
+	margin-top: 10px;
+	background: #c8c8c8;
+	color: black;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+#detail-img {
 	width: 140px;
 	margin-bottom: 10px;
 	margin-top: 20px;
 }
-#enroll-container1 input{
+
+#enroll-container1 input {
 	width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-bottom: 1px solid #ccc;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: none;
+	border-bottom: 1px solid #ccc;
 }

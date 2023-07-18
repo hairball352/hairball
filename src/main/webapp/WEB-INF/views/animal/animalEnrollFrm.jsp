@@ -26,13 +26,13 @@
 	    <tr>
 	        <th>등록고유번호</th>
 	        <td>
-	            <input type="text" name="reg_no" id="reg_no">
+	            <input type="text" name="reg_no" id="reg_no" placeholder="D-001">
 	        </td>
 	    </tr>
 	    <tr>
 	        <th>동물타입</th>
 	        <td>
-	            <input type="text" name="type" id="type">
+	            <input type="text" name="type" id="type" placeholder="개 또는 고양이">
 	        </td>
 	    </tr>
 	    <tr>
@@ -56,7 +56,7 @@
 	    <tr>
 	        <th>몸무게</th>
 	        <td>
-	            <input type="text" name="weight" id="weight">
+	            <input type="text" name="weight" id="weight" placeholder="kg는 제외">
 	        </td>
 	    </tr>
 	    <tr>
@@ -86,11 +86,12 @@
 	    <tr>
 	        <th>특이사항</th>
 	        <td>
-	            <textarea name="note" id="note" cols="30" rows="10"></textarea>
+	            <textarea name="note" id="note" cols="79" rows="10"></textarea>
 	        </td>
 	    </tr>
 	</table>
-	<input type="submit" value="등록" style="margin-left:550px; width: 200px; height:35px;" >
+	<input type="submit" value="등록" style="margin-left:550px; width: 150px; height:42px; background: #5fab95; border: none; cursor: pointer;
+	border-radius: 5px; color: white; margin-top: 5px; 	font-size: 16px;">
 	</form>
 </div>
 </div>

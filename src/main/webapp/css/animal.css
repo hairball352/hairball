@@ -66,7 +66,7 @@ table#tbl-adopboard {
 }
 
 table#tbl-adopboard td {
-	border-bottom: 1px solid #e3e3e3;
+	border-bottom: 3px solid #e3e3e3;
 }
 
 table#tbl-adopboard tr td {
@@ -98,7 +98,7 @@ table#tbl-adopboard tr td {
 
 .adoption-container {
 	display: flex;
-	margin-left: 130px;
+	margin-left: 90px;
 	flex-direction: column;
 }
 .adoption-container button {
@@ -140,60 +140,71 @@ table#tbl-adopboard tr td {
 	color: rgb(80, 152, 131);
 }
 
-/* 동물 상세보기 페이지 */
+
+
+
+
 /* 테이블 스타일 */
 #detail-table {
-	width: 100%;
-	border-collapse: collapse;
-		margin-bottom: 20px;
+  width: 300px;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 14px;
 }
 
 /* 테이블 헤더 스타일 */
 #detail-table thead th {
-	padding: 10px;
-	text-align: left;
-	background-color: #f2f2f2;
-	border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
 }
 
 /* 테이블 셀 스타일 */
 #detail-table tbody td {
-	padding: 10px;
-	border: 1px solid #ddd;
+  padding: 10px;
+  border: 1px solid #ddd;
 }
 
 /* 테이블 셀 내부의 이미지 스타일 */
 #detail-table tbody td img {
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 /* 첫 번째 열(입양상태, 동물등록번호, 견종, 성별, 나이, 몸무게, 발견장소) 스타일 */
-#detail-table tbody tr:nth-child(1) th:nth-child(-n+4), #detail-table tbody tr:nth-child(2) th:nth-child(-n+4),
-	#detail-table tbody tr:nth-child(3) th:nth-child(-n+4), #detail-table tbody tr:nth-child(4) th:nth-child(-n+4)
-	{
-	background-color: #f2f2f2;
-	text-align: center;
-	border: 1px solid #ddd;
+#detail-table tbody tr:nth-child(1) th:nth-child(-n+4),
+#detail-table tbody tr:nth-child(2) th:nth-child(-n+4),
+#detail-table tbody tr:nth-child(3) th:nth-child(-n+4),
+#detail-table tbody tr:nth-child(4) th:nth-child(-n+4) {
+  background-color: #f2f2f2;
+  text-align: center;
+  border: 1px solid #ddd;
+  width: 20%;
 }
 
 /* 두 번째 열부터의 내용 스타일 */
 #detail-table tbody tr:nth-child(n+2) td {
-	text-align: center;
-	border: 1px solid #ddd;
+  text-align: center;
+  border: 1px solid #ddd;
+  width: 20%;
 }
 
 /* 첫 번째 열의 내용 스타일 */
-#detail-table tbody tr td:first-child {
-	text-align: center;
-	border: 1px solid #ddd;
+#detail-table tbody tr td:first-child,
+#detail-table tbody tr th:first-child {
+  text-align: center;
+  border: 1px solid #ddd;
+  background-color: #f2f2f2;
+  width: 20%;
 }
 
-/* 테이블 전체의 스타일 */
-#detail-table th, #detail-table td {
-	font-size: 14px;
+.animal-detail-container{
+	text-align: center;
 }
+
+
 
 /* 입양 신청 게시글 상세 테이블 */
 /* 테이블 스타일 */
@@ -201,9 +212,8 @@ table#tbl-adopboard tr td {
 	width: 100%;
 	border-collapse: collapse;
 }
-.animal-detail-container form button{
-	margin-left: 100px;
-}
+
+
 /* 테이블 헤더 스타일 */
 #adoption-detail-table thead td {
 	padding: 10px;

@@ -59,11 +59,9 @@
         </td>
       </tr>
     </table>
-    
-
     <input class="detail-btn" type="submit" value="적용"/>
-    <input class="detail-btn" type="button" onclick="location.href='/hairball'" value="취소"/>
-    <input class="detail-btn" type="button" onclick="deleteMember();" value="탈퇴"/>
+    <input class="detail-btn2" type="button" onclick="location.href='/hairball'" value="취소"/>
+    <input class="detail-btn3" type="button" onclick="deleteMember();" value="탈퇴"/>
 
   </form>
 </section>

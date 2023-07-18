@@ -69,9 +69,10 @@
 		 // 서버로부터 메시지가 도착하면 콘솔 화면에 메시지를 남긴다.
 	    webSocket.onmessage = function(message) {
 	      messageTextArea.value += "\n관리자 : " + message.data + "\n";
+			chatHistoryAll.push("(관리자) " + message.value);
 	    };
 		//채팅 기록을 저장할 배열을 추가
-		var chatHistoryAll = [];
+		let chatHistoryAll = [];
 
 		// 서버로 메시지를 발송하는 함수
 		// Send 버튼을 누르거나 텍스트 박스에서 엔터를 치면 실행
@@ -79,8 +80,9 @@
 			// 텍스트 박스의 객체를 가져옴
 			let message = document.getElementById("textMessage");
 			// 콘솔에 메세지를 남긴다.
+			let temp2 = "<%= loginMember %>";
 			messageTextArea.value += "\n나 : " + message.value + "\n";
-			chatHistoryAll.push(message.value); // 메시지를 채팅 기록에 추가
+			chatHistoryAll.push("(" + temp2 +  ") " + message.value); // 메시지를 채팅 기록에 추가
 			// 소켓으로 보낸다.
 			webSocket.send(message.value);
 			// 텍스트 박스 초기화
