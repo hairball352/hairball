@@ -30,8 +30,10 @@ public class MemberDao {
     }
 
     public Member findById(Connection conn, String memberId) {
+    	Member member = null;
         String sql = prop.getProperty("findById"); // select * from member where member_id = ?
-        Member member = null;
+        System.out.println(sql);
+        
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, memberId);
             try (ResultSet rset = pstmt.executeQuery()) {
@@ -43,6 +45,7 @@ public class MemberDao {
         } catch (SQLException e) {
             throw new MemberException(e);
         }
+        System.out.println("DAO member = " + member);
         return member;
     }
 

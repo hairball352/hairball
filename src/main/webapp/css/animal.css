@@ -66,6 +66,7 @@ table#tbl-adopboard {
 }
 
 table#tbl-adopboard td {
+
 	border-bottom: 1px solid #e3e3e3;
 }
 
@@ -88,7 +89,7 @@ table#tbl-adopboard tr td {
 
 /* 입양신청 게시글 작성 페이지 */
 .adoption-board {
-	
+	text-align: center;
 }
 
 .adoption-board-section {
@@ -99,6 +100,7 @@ table#tbl-adopboard tr td {
 .adoption-container {
 	display: flex;
 	margin-left: 130px;
+
 }
 
 #guide-text {
@@ -109,7 +111,9 @@ table#tbl-adopboard tr td {
 .adoption-board-table {
 	width: 630px;
 	table-layout: fixed;
-	margin: 30px;
+	margin-left: 200px;
+	margin-top: 20px;
+	margin-bottom: 50px;
 	text-align: center;
 }
 
@@ -138,6 +142,8 @@ table#tbl-adopboard tr td {
 	border-style: solid;
 	border-color: rgb(80, 152, 131);
 	border-image: initial;
+	margin-bottom: 10px;
+	margin-left: 200px;
 }
 
 /* 마우스 오버 시 글자색 바꾸기 효과*/
@@ -175,9 +181,10 @@ table#tbl-adopboard tr td {
 }
 
 /* 첫 번째 열(입양상태, 동물등록번호, 견종, 성별, 나이, 몸무게, 발견장소) 스타일 */
-#detail-table tbody tr:nth-child(1) th:nth-child(-n+4), #detail-table tbody tr:nth-child(2) th:nth-child(-n+4),
-	#detail-table tbody tr:nth-child(3) th:nth-child(-n+4), #detail-table tbody tr:nth-child(4) th:nth-child(-n+4)
-	{
+#detail-table tbody tr:nth-child(1) th:nth-child(-n+4),
+#detail-table tbody tr:nth-child(2) th:nth-child(-n+4),
+#detail-table tbody tr:nth-child(3) th:nth-child(-n+4),
+#detail-table tbody tr:nth-child(4) th:nth-child(-n+4) {
 	background-color: #f2f2f2;
 	text-align: center;
 	border: 1px solid #ddd;
@@ -196,7 +203,8 @@ table#tbl-adopboard tr td {
 }
 
 /* 테이블 전체의 스타일 */
-#detail-table th, #detail-table td {
+#detail-table th,
+#detail-table td {
 	font-size: 14px;
 }
 
@@ -250,4 +258,15 @@ table#tbl-adopboard tr td {
 #adoption-detail-table a {
 	text-decoration: none;
 	color: #337ab7;
+}
+
+/* 동물 상세페이지의 프로필 이미지 */
+#animal-profile-img {
+	width: 250px;	
+}
+
+
+#adopt-img {
+	width: 200px;
+	border-radius: 30%;
 }

@@ -8,6 +8,9 @@
 <%@ page import="java.security.SecureRandom" %>
 
 <%
+	// 입양절차 배열
+  String[] stateArr = {"입양가능","센터 방문 대기", "교육 수료중", "입양 확정"};
+
   String msg = (String) session.getAttribute("msg"); 
    if(msg != null){ 
       session.removeAttribute("msg"); 
@@ -41,12 +44,10 @@
     <link rel="stylesheet" href="/hairball/css/memberLogin.css" />
     <link rel="stylesheet" href="/hairball/css/procedure.css" />
     <link rel="stylesheet" href="/hairball/css/webchat.css" />
-    <link rel="stylesheet" href="/hairball/css/question.css" />
     <link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-	<script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-	<script src="<%= request.getContextPath() %>/js/ws.js"></script>		
+   href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+   <script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
+   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 
@@ -91,15 +92,14 @@ window.onload = () => {
         <div class="logo_img">
             <a href="<%= request.getContextPath() %>"><img src="/hairball/images/로고/메뉴바_로고.png" alt=""/></a>
         </div>
-       	<span id="notification"></span>
         <ul class="utility">
-				<% 
-				    if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) {
-				%>
-			    <li class="admin_li">
-			        <a href="<%= request.getContextPath() %>/animal/enroll">관리자</a>
-			    </li>
-			<% } %>
+            <% 
+                if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) {
+            %>
+             <li class="admin_li">
+                 <a href="<%= request.getContextPath() %>/animal/enroll">관리자</a>
+             </li>
+         <% } %>
             <%if(loginMember == null){ %>
             <li class="login_li">
                 <a href="<%= request.getContextPath() %>/member/login">로그인</a>

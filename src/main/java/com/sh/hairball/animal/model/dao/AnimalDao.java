@@ -183,4 +183,22 @@ public class AnimalDao {
 		}
 		return animals;
 	}
+
+	public Animal findByPblId(Connection conn, String animalPblId) {
+		Animal animal = null;
+		String sql = prop.getProperty("findByPblId");
+		
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, animalPblId);
+			try (ResultSet rset = pstmt.executeQuery()) {
+				if (rset.next()) {
+					animal = handleAnimalResultSet(rset);
+					animal.setRenamedFileName(rset.getString("renamed_filename"));
+				}
+			}
+		} catch (SQLException e) {
+			throw new AnimalException(e);
+		}
+		return animal;
+	}
 }

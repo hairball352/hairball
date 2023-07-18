@@ -21,7 +21,7 @@ public class AdoptionService {
 	/**
 	 * 입양 게시글 추가 (INSERT)
 	 */
-	public int insertBoard(AdopBoardEntity adopBoard) {
+	public int insertBoard(AdopBoard adopBoard) {
 		int result = 0;
 		Connection conn = getConnection();
 		try {
@@ -85,7 +85,7 @@ public class AdoptionService {
 		
 		adopBoard.setAnimal(animal);
 		//attach.setAnimalId(no);
-
+		System.out.println("Adopservice animal : " + animal);
 		close(conn);
 		return adopBoard;
 	}
