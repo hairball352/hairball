@@ -1,39 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/header.jsp"%>
 <%@ include file="/WEB-INF/views/templates/aside.jsp"%>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
-<section id="question-container">
-	<h2>질문하기</h2>
-	<form
-		name="questionCreateFrm"
-		action="<%=request.getContextPath() %>/qnaBoard/questionCreate"
-		method="POST"
-		enctype="form-data">
-		<table id="tbl-question-view">
-		<tr>
-			<th>제 목</th>
-			<td><input type="text" name="title" required></td>
-		</tr>
-		<tr>
-			<th>작성자</th>
-			<td>
-				<input type="text" name="memberId" value="<%= loginMember.getMemberId() %>" readonly/>
-			</td>
-		</tr>
-		<tr>
-			<th>내 용</th>
-			<td><textarea rows="5" cols="40" name="content"></textarea></td>
-		</tr>
-		<tr>
-			<th colspan="2">
-				<input type="submit" value="등록하기">
-			</th>
-		</tr>
-	</table>
-	</form>
-</section>
-<script>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/question.css" />
+<section class="animal-section">
+	<div class="introduce01-container">
+		<div class="introduce01-bar">
+			<div class="side-menu-title">
+				<a>참여소통</a>
+			</div>
+			<hr class="side-hr" />
+			<div class="side-menu">
+				<a href="<%=request.getContextPath()%>/qnaBoard/questionIntro">자주하는질문</a>
+			</div>
+			<hr class="side-hr" />
+			<div class="side-menu">
+				<a href="<%=request.getContextPath()%>/qnaBoard/questionList">Q&A</a>
+			</div>
+			<hr class="side-hr" />
+		</div>
+	</div>
+	<div class="introduce01-detail-section">
+		<div class="checked-title2">Q&A</div>
+		<hr class="section-hr" />
+		<section id="question-container">
+			<h2>질문하기</h2>
+			<form name="questionCreateFrm"
+				action="<%=request.getContextPath()%>/qnaBoard/questionCreate"
+				method="POST" enctype="form-data">
+				<table id="tbl-question-view">
+					<tr>
+						<th>제 목</th>
+						<td><input type="text" name="title" required></td>
+					</tr>
+					<tr>
+						<th>작성자</th>
+						<td><input type="text" name="memberId"
+							value="<%=loginMember.getMemberId()%>" readonly /></td>
+					</tr>
+					<tr>
+						<th>내 용</th>
+						<td><textarea rows="5" cols="40" name="content"></textarea></td>
+					</tr>
+					<tr>
+						<th colspan="2"><input type="submit" value="등록하기"></th>
+					</tr>
+				</table>
+			</form>
+		</section>
+	</div>
+
+	<script>
 /**
 * questionCreateFrm 유효성 검사
 */
@@ -53,4 +71,4 @@ document.questionCreateFrm.onsubmit = (e) => {
 	}
 };
 </script>
-<%@ include file="/WEB-INF/views/templates/footer.jsp" %>
+	<%@ include file="/WEB-INF/views/templates/footer.jsp"%>

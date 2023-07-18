@@ -321,14 +321,8 @@ select * from answer where question_id = 38;
 
 select * from member;
 
-insert into answer values(seq_answer_id.nextval, default, 38, '뒤지세요 ㅋㅋㅋㅋ',default );
-insert into answer values(seq_answer_id.nextval, default, ?, ?, default);
-delete answer where id = 4;
--- select * from (select row_number() over (order by q.id desc) rnum, q.* from question q) where rnum between 1 and 10;
-
-select * from (select row_number() over (order by q.id desc) rnum, q.*, (select count(*) from answer where question_id = q.id) answer_cnt from question q) where rnum between 1 and 10;
-
 select * from enroll_board;
 
-
+INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
+VALUES (seq_member_id.nextval, 'admin', 'password3', 'Michael Johnson', 'A', 'michael.johnson@example.com', '1112223333', '789 Example Road', 'N');
 
