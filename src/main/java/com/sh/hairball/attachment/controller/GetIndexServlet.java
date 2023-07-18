@@ -27,7 +27,7 @@ public class GetIndexServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		System.out.println("왔냐?");
+//		System.out.println("왔냐?");
 		List<Attachment> attachments = attachmentService.findAll();
 		System.out.println("photos = " + attachments);
 		
