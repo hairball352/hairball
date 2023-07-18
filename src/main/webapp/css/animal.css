@@ -60,13 +60,13 @@
 }
 
 table#tbl-adopboard {
-	width: 700px;
+	width: 800px;
 	padding: 15px;
 	text-align: center;
 }
 
 table#tbl-adopboard td {
-	border-bottom: 1px solid #e3e3e3;
+	border-bottom: 3px solid #e3e3e3;
 }
 
 table#tbl-adopboard tr td {
@@ -98,7 +98,7 @@ table#tbl-adopboard tr td {
 
 .adoption-container {
 	display: flex;
-	margin-left: 130px;
+	margin-left: 80px;
 	flex-direction: column;
 }
 .adoption-container button {

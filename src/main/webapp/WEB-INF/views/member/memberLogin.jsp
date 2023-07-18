@@ -104,10 +104,20 @@ Cookie[] cookies = request.getCookies();
 				</ul>
 			</nav>
 			<!-- 메인메뉴 끝-->
-		</header>
 </section>
 <script>
 const loginBtn = () => {
+	const id = document.querySelector("input[name=memberId]");
+	const password = document.querySelector("input[name=password]");
+	if(id.value === '') {
+		alert('아이디를 입력해주세요.');
+		return false;		
+	}
+	if(password.value == '') {
+		alert('비밀번호를 입력해주세요.');
+		return false;
+	}
+	
    document.getElementById("loginFrm").submit();
 };
 

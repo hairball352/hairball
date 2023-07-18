@@ -110,11 +110,17 @@
   </div>
 </div>
 
+<div id="pop-info-1" class="pop-wrap" style="display:none;">
+  <div class="pop-inner">
+    <p class="dsc">팝업 안내문구 입니다.</p>
+    <button type="button" class="btn-close">닫기</button>
+  </div>
+</div>
+
 <script>
 window.addEventListener('load', () => {
 	removeBanner();
 });
-
 const removeBanner = () => {
 	const banner = document.querySelector('.banner_img');
 	  if (banner) {
