@@ -23,8 +23,7 @@
 #enroll tr{
 	height : 30px;
 }
-#enroll input[type="text"],
-textarea {
+#enroll input[type="text"] {
   width: 70%; /* 너비를 100%로 지정 */
   box-sizing: border-box; /* 패딩과 테두리를 포함한 전체 너비로 계산 */
 }
