@@ -202,9 +202,10 @@ body {
 
 /* 회원가입, 로그인 버튼 */
 .utility {
-    margin-left: 805px;
+    margin-left: 830px;
     gap: 25px;
 }
+
 
 /* 메뉴 폰트와 utility 컨테이너 */
 .menu-container {
