@@ -161,4 +161,21 @@ public class AdoptionDao {
 		return adopBoard;
 	}
 
+	public boolean findByAnimalId(Connection conn, int animalId) {
+		AdopBoard adopBoard = null;
+		String sql = prop.getProperty("findByAnimalId");
+		
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, animalId);
+			try (ResultSet rset = pstmt.executeQuery()) {
+				if (rset.next())
+					adopBoard = handleAdopBoardResultSet(rset);
+			}
+		} catch (SQLException e) {
+			throw new AdopBoardException("게시글 조회 실패", e);
+		}
+		
+		return adopBoard != null;
+	}
+
 }

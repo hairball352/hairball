@@ -61,6 +61,7 @@ public class EnrollBoardService {
 		int result = 0;
 		try {
 			result = enrollBoardDao.deleteBoard(conn, animalId);
+			if(adoptionDao.findByAnimalId(conn, animalId))
 			result = adoptionDao.deleteBoardByAnimalId(conn, animalId);
 			commit(conn);
 		} catch (Exception e) {
