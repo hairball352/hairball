@@ -27,9 +27,8 @@
 		<input id="textMessage" type="text" onkeydown="return enter()"
 			style="width: 310px; height: 39px;">
 		<!-- 서버로 메시지를 전송하는 버튼 -->
-		<input onclick="sendMessage()" value="Send" type="button"> <a
-			href="<%=request.getContextPath()%>/admin" type="button">admin</a>
-		<input onclick="endChat()" value="End Chat" type="button">
+		<input onclick="sendMessage()" value="전송" type="button" style="margin-left: 12px;">
+		<input onclick="endChat()" value="채팅종료" type="button" style="margin-top: 5px;">
 	</form>
 	
 	<script type="text/javascript">
