@@ -184,23 +184,5 @@ public class AnimalDao {
 		return animals;
 	}
 
-	public int setAttachmentNumber(Connection conn, int attachmentId, int animalId ) {
-		int result = 0;
-		String sql = prop.getProperty("setAttachmentNumber");
-		//update animal set attachment_id = ? where id = ?
-		try(
-				PreparedStatement preparedStatement = conn.prepareStatement(sql)){
-			preparedStatement.setInt(1, attachmentId);
-			preparedStatement.setInt(2, animalId);
-			
-			result = preparedStatement.executeUpdate();
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return result;
-		
-	}
+	
 }
