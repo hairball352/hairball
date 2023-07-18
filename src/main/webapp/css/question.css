@@ -3,8 +3,14 @@
 /*게시판*/
 section#question-container {
 	width: 600px;
-	margin: 0 auto;
 	text-align: center;
+	margin-left: 78px;
+}
+
+section#question-container2 {
+	width: 600px;
+	text-align: center;
+	margin-left: 700px;
 }
 
 section#question-container h2 {
@@ -12,8 +18,7 @@ section#question-container h2 {
 }
 
 table#tbl-question {
-	width: 100%;
-	margin: 0 auto;
+	width: 800px;
 	clear: both;
 }
 
@@ -30,17 +35,21 @@ input#btn-add {
 }
 
 /*페이지바*/
-div#pagebar {
+div#pagebar2 {
+	width: 800px;
 	display: flex;
-	margin: 15px 15px 15px;
-	justify-content: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin-top: 50px;
+    padding-bottom: 20px;
+    gap: 13px;
 }
 
-div#pagebar span.cPage {
+div#pagebar2 span.cPage {
 	margin-right: 5px;
 }
 
-div#pagebar a {
+div#pagebar2 a {
 	margin-right: 5px;
 }
 
