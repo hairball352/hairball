@@ -221,4 +221,20 @@ public class AnimalDao {
 		return result;
 	}
 
+	public void updateState(Connection connection, int animalId, int state) {
+		int result = 0;
+		String sql = prop.getProperty("updateState"); //Update animal set state= ?  where id = ? 
+		try(
+				PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+			preparedStatement.setInt(1, state);
+			preparedStatement.setInt(2, animalId);
+			
+			result = preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("updateState@dao"+result);
+	}
+
 }

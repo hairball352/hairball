@@ -36,12 +36,11 @@
 					<tbody>
 						<tr>
 							<%if (loginMember != null && loginMember.getMemberRole().name().equals("A")){ %>
-							<select>
-							 <option value="0"> gmail.com </option>
-							 <option value="1" selected="selected"> naver.com</option>
-							 <option value="2"> hanmail.net</option>
-							 <option value="3"> hanmail.net</option>
-							 <option value="4"> hanmail.net</option>
+							<select id="procedureState">
+							 <option value="0"> 입양가능 </option>
+							 <option value="1"> 센터 방문 대기 </option>
+							 <option value="2"> 교육 수료중 </option>
+							 <option value="3"> 입양 확정</option>
 							</select>
 							<%} else { %>
 							<th colspan="4">입양상태
@@ -89,13 +88,25 @@
 	</div>
 </section>
 <script>
-const adoption = (e) => {
-	
-}
-const delete = (e) => {
-	e.preventDefault();
-	console.log("hi")
-}
+<%if (loginMember != null&& loginMember.getMemberRole().name().equals("A")){ %>
+window.onload = () => {
+	const selector = document.querySelector('#procedureState');
+	selector.selectedIndex = <%= animal.getState() %>;
+
+	selector.addEventListener('change', () => {
+		const selectedOption = selector.options[selector.selectedIndex];
+		console.log(selectedOption.value);
+		$.ajax({
+			url : `<%= request.getContextPath()%>/animal/update?animalId=<%= animal.getId()%>&state=\${selectedOption.value}`,
+			success(resp){
+				console.log(resp)
+			}
+		})
+	});
+};
+<%} %>
+
+
 </script>
 
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>
