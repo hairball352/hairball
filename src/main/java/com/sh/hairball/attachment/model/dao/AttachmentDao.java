@@ -49,4 +49,19 @@ public class AttachmentDao {
 		return result;
 	}
 
+	public int getLastAttachmentId(Connection conn) throws SQLException {
+		int boardNo = 0;
+		String sql = prop.getProperty("getLastAttachmentId");
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			try (ResultSet rset = pstmt.executeQuery()) {
+				if(rset.next()) {
+					boardNo = rset.getInt(1);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return boardNo;
+	}
 }
