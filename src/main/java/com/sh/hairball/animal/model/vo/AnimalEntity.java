@@ -9,7 +9,7 @@ public class AnimalEntity {
 	String species; // 품종
 	double weight; // 몸무게
 	String pblId; // 등록 고유 번호
-	String state; // 보호중인지 입양완료인지 상태
+	int state; // 보호중인지 입양완료인지 상태
 	Sex sex;
 	int neutered; // 중성화유무 (0-안됨 / 1-됨)
 	String note;
@@ -21,7 +21,7 @@ public class AnimalEntity {
 	
 	// 매개변수 생성자
 	public AnimalEntity(int id, int age, int attachmentId, String discoveryPlace, AnimalType animalType, String species,
-			double weight, String pblId, String state, Sex sex, int neutered) {
+			double weight, String pblId, int state, Sex sex, int neutered) {
 		super();
 		this.id = id;
 		this.age = age;
@@ -48,6 +48,16 @@ public class AnimalEntity {
 
 	public void setNote(String note) {
 		this.note = note;
+	}
+
+
+	public int getState() {
+		return state;
+	}
+
+
+	public void setState(int state) {
+		this.state = state;
 	}
 
 
@@ -96,12 +106,7 @@ public class AnimalEntity {
 	public void setPblId(String pblId) {
 		this.pblId = pblId;
 	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
+	
 	public Sex getSex() {
 		return sex;
 	}

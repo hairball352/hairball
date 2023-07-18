@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.sh.hairball.animal.model.dao.AnimalDao;
+import com.sh.hairball.attachment.model.dao.AttachmentDao;
 import com.sh.hairball.attachment.model.vo.Attachment;
 import com.sh.hairball.board.enrollboard.model.dao.EnrollBoardDao;
 import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
@@ -14,6 +15,7 @@ import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
 public class EnrollBoardService {
 	private final EnrollBoardDao enrollBoardDao = new EnrollBoardDao();
 	private final AnimalDao animalDao = new AnimalDao();
+	private final AttachmentDao attachmentDao = new AttachmentDao();
 	
 	public List<EnrollBoard> findAll() {
 		Connection connection = getConnection();
@@ -42,7 +44,9 @@ public class EnrollBoardService {
 			Attachment attach = enrollBoard.getAttachment();
 			attach.setEnrollBoardid(enrollBoardId);
 			attach.setAnimalId(animalId);
-			result = enrollBoardDao.insertAttachment(conn, attach);					
+			result = enrollBoardDao.insertAttachment(conn, attach);
+			int attachmentId = attachmentDao.getLastAttachmentId(conn);
+			animalDao.setAttachmentNumber(conn, attachmentId , animalId);
 			commit(conn);
 		} catch (Exception e) {
 			e.printStackTrace();
