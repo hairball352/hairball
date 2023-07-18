@@ -19,8 +19,11 @@
 
 
 %>
-<section id=enroll-container>
-  <h2>회원 정보</h2>
+<section id=enroll-container1>
+	<div>
+	<img id="detail-img" src="/hairball/images/login.gif" alt="login">
+	</div>
+  <h2>프로필 수정</h2>
   <form
           name="memberUpdateFrm"
           action="<%= request.getContextPath() %>/member/memberUpdate"
@@ -35,7 +38,7 @@
       <tr>
         <th contenteditable="false" >이름<sup>*</sup></th>
         <td>
-          <input type="text"  name="name" id="name" value="<%= name %>"  readonly><br>
+          <input type="text" name="name" id="name" value="<%= name %>"  readonly><br>
         </td>
       </tr>
       <tr>
@@ -58,8 +61,9 @@
       </tr>
     </table>
     
-    <input type="submit" value="정보수정"/>
-    <input type="button" onclick="deleteMember();" value="탈퇴"/>
+    <input class="detail-btn" type="submit" value="적용"/>
+    <input class="detail-btn" type="button" onclick="cancel();" value="취소"/>
+    <input class="detail-btn" type="button" onclick="deleteMember();" value="탈퇴"/>
   </form>
 </section>
 <form name="memberDelFrm" action="<%= request.getContextPath() %>/member/memberDelete" method="post"></form>
@@ -83,6 +87,10 @@
 
   };
 
+  const cancel = () => {
+	  
+  };
+  
   const deleteMember = () => {
     if(confirm("정말 탈퇴하시겠습니까?"))
       document.memberDelFrm.submit();

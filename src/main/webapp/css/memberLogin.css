@@ -216,6 +216,7 @@ sup {
 	cursor: pointer;
 	font-size: 16px;
 }
+
 .enroll-btn3 {
 	width: 200px;
 	height: 49.17px;
@@ -279,3 +280,48 @@ sup {
 	background: #efefef;
 }
 
+/* 마이페이지 */
+.login td{
+	font-size: 16px;
+	margin-bottom: 50px;
+}
+.login input[type="button"]{
+	border: none;
+}
+
+/* 내정보보기 */
+
+#enroll-container1{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-content: space-around;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+#enroll-container1 h2{
+	margin-top: 10px;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+#enroll-container1 th{
+	display: felx;
+}
+.detail-btn{
+	margin-top: 5px;
+	border: none;
+}
+
+#detail-img{
+	width: 150px;
+}
+#enroll-container1 input{
+	width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+}
