@@ -45,10 +45,14 @@
     <link rel="stylesheet" href="/hairball/css/procedure.css" />
     <link rel="stylesheet" href="/hairball/css/webchat.css" />
     <link rel="stylesheet" href="/hairball/css/terms.css" />
+    <link rel="stylesheet" href="/hairball/css/admin.css" />
+    <link rel="stylesheet" href="/hairball/css/question.css" />
+    
     <link rel="stylesheet"
    href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
    <script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+   <script src="<%= request.getContextPath() %>/js/ws.js"></script>
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 
@@ -57,6 +61,7 @@
 <body>
 
 <script>
+
 window.onload = () => {
 		
 	<% 	if(msg != null) { %>
@@ -93,6 +98,7 @@ window.onload = () => {
         <div class="logo_img">
             <a href="<%= request.getContextPath() %>"><img src="/hairball/images/로고/메뉴바_로고.png" alt=""/></a>
         </div>
+        	<span id="notification"></span>
         <ul class="utility">
             <% 
                 if(loginMember != null && loginMember.getMemberRole() == MemberRole.A) {
