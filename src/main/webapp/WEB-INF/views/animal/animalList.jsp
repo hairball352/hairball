@@ -65,7 +65,7 @@ List<EnrollBoardDto> animalBoardList= (List<EnrollBoardDto>) request.getAttribut
 window.addEventListener('load', () => {
 	const state = document.querySelector(".state");
 	console.log(state);
-	if(state && state.innerHTML == '입양완료') {
+	if(state && state.innerHTML == '입양 확정') {
 		state.style.backgroundColor = '#5fab95';
 	}
 });
