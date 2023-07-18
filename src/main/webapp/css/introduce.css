@@ -190,3 +190,13 @@
 .table-container4 span2 {
    color: #5fab95;
 }
+
+#animal_btn {
+	margin-top: 30px;
+	background: #5fab95;
+	color: white;
+	border: none;
+	zoom: 2.0;
+	cursor: pointer;
+	font-size: 5px;
+}
