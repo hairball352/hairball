@@ -81,7 +81,7 @@ List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions"
 				</tbody>
 			</table>
 
-			<div id='pagebar'>
+			<div id='pagebar2'>
 				<%=request.getAttribute("pagebar")%>
 			</div>
 		</section>

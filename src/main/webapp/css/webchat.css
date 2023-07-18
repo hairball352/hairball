@@ -25,3 +25,6 @@
 	overflow-y: auto; width: 970px; max-height: 500px; padding: 4px; border: 1 solid #000000;
 }
 
+#end-chat-button {
+  margin-top: 10px;
+}

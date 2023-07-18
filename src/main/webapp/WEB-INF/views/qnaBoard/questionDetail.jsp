@@ -13,7 +13,7 @@
 	List<AnswerVo> answers = (List<AnswerVo>) request.getAttribute("answers");
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/question.css" />
-<section class="question-section">
+<section class="question-section2">
 	<div class="introduce01-container">
 		<div class="introduce01-bar">
 			<div class="side-menu-title">
@@ -31,7 +31,7 @@
 		</div>
 	</div>
 	<div class="introduce01-detail-section">
-		<section id="question-container">
+		<section id="question-container2">
 			<h2>Q&A 게시판</h2>
 			<%	if (loginMember != null) { %>
 				<input 

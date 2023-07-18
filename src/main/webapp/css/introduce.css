@@ -87,6 +87,7 @@
     margin-left: 100px;
     display:flex;
     flex-direction: column;
+    
 }
 
 .introduce01-bar {
@@ -182,4 +183,8 @@
     margin-top:50px; 
     padding-bottom: 20px;
     gap: 13px;
+}
+
+.table-container4 span2 {
+   color: #5fab95;
 }
