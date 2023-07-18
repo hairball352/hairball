@@ -32,17 +32,21 @@
 				<table id="adoption-detail-table">
 					<thead>
 						<tr>
-							<td colspan="2"><img src="<%= request.getContextPath() %>/upload/animal/<%= animal.getRenamedFileName()%>"></td>
+							<td colspan="2"><img src="<%= request.getContextPath() %>/upload/animal/<%= animal.getRenamedFileName()%>" id="animal-profile-img"></td>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>진행단계</td>
-							<td>0</td>
+							<td><%= animal.getState() %></td>
 						</tr>
 						<tr>
 							<td>등록번호</td>
 							<td><%= animal.getId() %></td>
+						</tr>
+						<tr>
+							<td>방문 예정 날짜</td>
+							<td><%= adopBoard.getVisitDate() %></td>
 						</tr>
 						<tr>
 							<td colspan="2"><a href="<%= request.getContextPath()%>/animal/animalDetail?no=<%=animal.getId()%>">상세 동물 페이지로 이동하기</a></td>
