@@ -9,14 +9,18 @@ List<EnrollBoardDto> animalBoardList= (List<EnrollBoardDto>) request.getAttribut
 %>
 <section>
 <div class="animal-section" >
-    <div class="introduce01-container">
+    	<div class="introduce01-container">
 		<div class="introduce01-bar">
 			<div class="side-menu-title">
-				<a href="/hairball/animal/animalAdoptionList">입양신청</a>
+				<a href="<%= request.getContextPath() %>/animal/procedure">보호동물</a>
 			</div>
 			<hr class="side-hr" />
 			<div class="side-menu">
-				<a href="/hairball/animal/animalAdoptionList">입양신청</a>
+				<a href="<%= request.getContextPath() %>/animal/procedure">입양절차</a>
+			</div>
+			<hr class="side-hr" />
+			<div class="side-menu">
+				<a href="<%=request.getContextPath()%>/animal/list">보호동물</a>
 			</div>
 			<hr class="side-hr" />
 		</div>
