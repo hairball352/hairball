@@ -8,6 +8,9 @@
 <%@ page import="java.security.SecureRandom" %>
 
 <%
+	// 입양절차 배열
+  String[] stateArr = {"입양가능","센터 방문 대기", "교육 수료중", "입양 확정"};
+
   String msg = (String) session.getAttribute("msg"); 
    if(msg != null){ 
       session.removeAttribute("msg"); 
