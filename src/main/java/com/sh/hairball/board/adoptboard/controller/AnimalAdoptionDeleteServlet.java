@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sh.hairball.board.adoptboard.model.service.AdoptionService;
 
@@ -18,13 +19,15 @@ public class AnimalAdoptionDeleteServlet extends HttpServlet {
 	private final AdoptionService adoptionService = new AdoptionService();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		int no = Integer.parseInt(request.getParameter("no")); // 게시글 번호
 		
 		System.out.println("adoption boardNo = " + no);
 		
 		int result = adoptionService.deleteBoard(no);
+		session.setAttribute("msg", "신청이 취소되었습니다.");
+		response.sendRedirect(request.getContextPath() + "/animal/animalAdoptionList");
 		
-		response.sendRedirect(request.getContextPath() + "/animal/animalAdoptionBoardList");
 		
 	}
 

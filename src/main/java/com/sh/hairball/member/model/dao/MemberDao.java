@@ -10,12 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.sh.hairball.board.adoptboard.model.exception.AdopBoardException;
-import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
 import com.sh.hairball.member.model.exception.MemberException;
 import com.sh.hairball.member.model.vo.Member;
 import com.sh.hairball.member.model.vo.MemberRole;
-import com.sh.hairball.member.model.vo.Provider;
 
 public class MemberDao {
     private Properties prop = new Properties();
@@ -231,5 +228,24 @@ public class MemberDao {
 
         return member;
     }
+
+	// id 시퀀스로 조회하려고 만든 메소드
+	public Member findByNo(Connection conn, int memberId) {
+    	Member member = null;
+        String sql = prop.getProperty("findByNo");
+        
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, memberId);
+            try (ResultSet rset = pstmt.executeQuery()) {
+                while (rset.next()) {
+                    member = handleMemberResultSet(rset);
+                }
+            }
+        } catch (SQLException e) {
+            throw new MemberException(e);
+        }
+
+        return member;
+	}
 
 }

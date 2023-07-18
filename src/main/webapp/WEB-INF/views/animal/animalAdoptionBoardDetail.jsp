@@ -38,7 +38,7 @@
 					<tbody>
 						<tr>
 							<td>진행단계</td>
-							<td><%= animal.getState() %></td>
+							<td><%= stateArr[animal.getState()+1] %></td>
 						</tr>
 						<tr>
 							<td>등록번호</td>
@@ -53,8 +53,20 @@
 						</tr>
 					</tbody>
 				</table>
+				<form id="dopt-cancle-frm" action="<%= request.getContextPath() %>/animal/animalAdoptionDelete" method="POST">
+					<input type="hidden" name="no" value="<%= adopBoard.getId() %>">				
+				</form>
+				<button class="btn1" onclick="adoptCancle();">신청취소</button>
 			</div>
 		</div>
 	</div>
 </section>
+<script>
+	const adoptCancle = () => {
+		const frm = document.querySelector("#dopt-cancle-frm");
+		if(confirm('정말 취소하시겠습니까?')) {
+			frm.submit();
+		}
+	};
+</script>
 <%@ include file="/WEB-INF/views/templates/footer.jsp"%>
