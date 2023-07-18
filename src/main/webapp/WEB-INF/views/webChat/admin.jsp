@@ -34,6 +34,9 @@
 <style>
 </style>
 </head>
+	<%
+	String loginMemberId = (String)request.getAttribute("loginMemberId");
+	%>
 <body>
 	<div class="adminPage-board">
 		<!-- 유저가 접속할 때마다 이 템플릿으로 채팅창을 생성한다. -->
@@ -92,8 +95,8 @@
 				// console영역을 찾는다.
 				let log = $div.find(".console").val();
 				// 아래에 메시지를 추가한다.
-				$div.find(".console")
-						.val(log + "\n회원 : " + node.message + "\n");
+				let temp2 = "<%= loginMemberId %>";
+				$div.find(".console").val(log + temp2 + " : " + node.message + "\n");
 				// bye는 유저가 접속을 끊었을 때 알려주는 메시지이다.
 			} else if (node.status === "bye") {
 				// 해당 키로 div를 찾아서 dom을 제거한다.
