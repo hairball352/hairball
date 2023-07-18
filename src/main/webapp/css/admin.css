@@ -35,9 +35,6 @@ table#tbl-member {
     margin-top: 20px;
 }
 
-#tbl-member th, td {
-    text-align: center;
-}
 
 table#tbl-member th.id, table#tbl-member td.id {
     width: 15%;  /* 아이디 칸 너비 */
@@ -59,4 +56,44 @@ table#tbl-member th.email, table#tbl-member td.email {
     position: absolute; /* 절대적인 위치 지정 */
     left: 600px; /* 왼쪽에서 50% 위치로 이동 */
     top: -90px;
+}
+
+.admin-detail-section {
+   margin-top: 20px;
+    margin-left: 100px;
+    display:flex;
+    flex-direction: column;
+    
+}
+
+/* 카피라이터 */
+.copyright2 {
+    background-color: #ececec;
+    border-top: 1px solid #dcdcdc;
+    padding: 30px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 470px;
+}
+
+.copyright2 img {
+    width: 250px;
+    display: block;
+    margin: 0 auto;
+    color: #4d4d4d;
+}
+
+.copyright2 .copyright_line {
+    width: 700px;
+    border-bottom: 1px solid #9c9c9c;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+.copyright2 p {
+    text-align: center;
+    font-size: 14px;
+    color: #4d4d4d;
+    margin-top: 30px;
 }

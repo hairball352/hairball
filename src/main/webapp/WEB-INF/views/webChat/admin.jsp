@@ -25,7 +25,7 @@
 			</div>
 			<hr class="side-hr" />
 		</div>
-		<div class="introduce01-detail-section">
+		<div class="admin-detail-section">
 			<div class="checked-title2">관리자채팅상담</div>
 			<hr class="section-hr" />
 		</div>
@@ -133,6 +133,18 @@
 					return true;
 				});
 	</script>
+<footer class="copyright2">
+    <div class="copyright_img2">
+        <img
+                src="/hairball/images/로고/메뉴바_로고.png"
+                alt="카피라이터 로고"
+        />
+    </div>
+    <div class="copyright_line2"></div>
+    <p>&lt;Copyright <strong>DoFighting</strong>. All rights reserved.&gt;</p>
+</footer>
+<script src="/hairball/js/jquery-3.7.0.js"></script>
+<script src="/hairball/js/main.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>
-<%@ include file="/WEB-INF/views/templates/footer.jsp" %>

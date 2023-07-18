@@ -184,8 +184,8 @@ table#tbl-answer tr:hover button.btn-delete {
 
 /* 아코디언 */
 .collapsible {
-	background-color: #777;
-	color: white;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
 	cursor: pointer;
 	padding: 18px;
 	width: 100%;
@@ -193,20 +193,32 @@ table#tbl-answer tr:hover button.btn-delete {
 	text-align: left;
 	outline: none;
 	font-size: 15px;
+	box-shadow: 2px 2px 2px 2px #c8c8c8;
+	margin-bottom: 15px;
 }
 
 .active, .collapsible:hover {
-	background-color: #555;
+	background-color: #e3e3e3;
 }
 
 .content {
 	padding: 0 18px;
-	height: 25px;
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.2s ease-out;
 	background-color: #f1f1f1;
+	margin-bottom: 10px;
 }
+
+.content p{
+	padding: 10px;	
+}
+.collapsible span {
+	color: #5fab95;
+	font-weight: 500;
+	font-size: 20px;
+}
+
 
 .collapsible:after {
 	content: '\002B';

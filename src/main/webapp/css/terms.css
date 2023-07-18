@@ -1,21 +1,63 @@
 @charset "UTF-8";
 
 
-
 .checkBoxcheck ul li{
 	float: right;
 }
-.checkBoxcheck {
-	margin: 30px;
+.checkBtn {
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+
+.join_box span{
+	color: red;
+}
+
+.join_box span2{
+	color: #828282;
+}
+
+.terms-title input[type="checkbox"] {
+    width: 15px; /* 원하는 가로 크기로 설정 */
+    height: 15px; /* 원하는 세로 크기로 설정 */
+    margin-right: 8px;
+}
+
+.terms-title label {
+    font-size: 20px; /* 원하는 폰트 크기로 설정 */
+}
+
+.clearfix {
+	margin-top: 10px;
+}
+
+.checkBtn input[type="checkbox"] {
+    margin-right: 10px;
 }
 
 .terms-content {
+	width: 705px;
 	height: 80px;
 	border: 1px solid #b1b1b1;
 	background: #efefef;
 }
 
 .join_box {
-	display: plex;
+	margin-top: 20px;
+	margin-left: 40px;
+}
+
+#disabled-button{
+	width: 200px;
+	height: 49.17px;
+	background: #5fab95;
+	color: #FFF;
+	border: 0 solid #5fab95;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	margin-left: 280px;
+	margin-bottom: 60px;
 	
+
 }
