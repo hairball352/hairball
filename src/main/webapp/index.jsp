@@ -110,6 +110,10 @@
   </div>
 </div>
 
+<form method="get" action="/member/findMemberId">
+<input type="text" name="phone">
+<input type="submit"> 
+</form>
 <script>
 window.addEventListener('load', () => {
 	removeBanner();

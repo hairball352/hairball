@@ -247,4 +247,21 @@ public class MemberDao {
 
         return member;
 	}
+
+	public Member findByPhone(Connection conn, String phone) {
+		Member member = null;
+		String sql = prop.getProperty("findByPhone");
+		
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setString(1, phone);
+			try (ResultSet rset = pstmt.executeQuery()){
+				while (rset.next()) {
+					member = handleMemberResultSet(rset);
+				}
+			}
+		} catch (SQLException e) {
+			throw new MemberException(e);
+		}
+		return member;
+	}
 }

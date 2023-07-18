@@ -45,7 +45,8 @@ public class ChatHistoryServlet extends HttpServlet {
 
 		// 로그인한 사용자의 회원 ID를 가져온다
 		int memberId  = loginMember.getId();
-		System.out.println("memberId : " + memberId);
+		String loginMemberId  = loginMember.getMemberId();
+		System.out.println("loginMemberId : " + loginMemberId);
 
 		// 본문을 JSON 문자열로 파싱
 		String[] chatHistoryAll = gson.fromJson(builder.toString(), String[].class);
@@ -59,6 +60,8 @@ public class ChatHistoryServlet extends HttpServlet {
 			int result = webChatService.insertWebChat(webchat);
 
 		}
+		request.setAttribute("loginMemberId", loginMemberId);
+		request.getRequestDispatcher("/WEB-INF/views/webChat/user.jsp").forward(request, response);
 	}
 
 }

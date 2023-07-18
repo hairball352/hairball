@@ -28,20 +28,20 @@ public class NotificationService {
 	 * 2. 실시간 알림
 	 */
 	
-	public int notifyNewBoardComment(QuestionVo question) {
+	public int notifyNewBoardComment(QuestionVo question) { // 메소드는 새로운 게시글 댓글이 달릴 때 알림을 처리하는 메소드
 		// 1. 저장
 //		NotificationDao notificationDao = new NotificationDao();
 //		int result = notificationDao.insertNotification(conn, notification);
 		// 2. 실시간 알림
 		// WebSocket Session 가져오기
-		Session wsSession = QuestionWebSocket.clientMap.get(question.getMemberId());
+		Session wsSession = QuestionWebSocket.clientMap.get(question.getMemberId()); // QuestionWebSocket.clientMap에서 해당 사용자의 WebSocket 세션을 가져옴.
 		System.out.println("wsSession : "+ wsSession);
 		if(wsSession != null) { // 실시간 접속 여부
-			Basic basic = wsSession.getBasicRemote();
+			Basic basic = wsSession.getBasicRemote(); // Basic 객체를 사용하여 실시간 알림 메시지를 보냄
 			System.out.println("basic : " + basic);
 
 			try {
-				Map<String, Object> payload = new HashMap<>();
+				Map<String, Object> payload = new HashMap<>(); // payload라는 맵 객체에 필요한 정보를 담아 JSON 형태로 변환
 				payload.put("messageType", MessageType.NEW_ANSWER);
 				payload.put("receiver", question.getMemberId());
 				payload.put("createdAt", System.currentTimeMillis());

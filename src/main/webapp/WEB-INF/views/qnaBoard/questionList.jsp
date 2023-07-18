@@ -31,15 +31,6 @@ List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions"
 		<div class="checked-title2">Q&A</div>
 		<hr class="section-hr" />
 		<section id="question-container">
-			<%
-			if (loginMember != null) {
-			%>
-			<input type="button" id="btn-add" value="글쓰기"
-				onclick="location.href = '<%=request.getContextPath()%>/qnaBoard/questionCreate';" />
-			<%
-			}
-			%>
-
 			<table id="tbl-question">
 				<thead>
 					<tr>
@@ -80,7 +71,10 @@ List<QuestionVo> questions = (List<QuestionVo>) request.getAttribute("questions"
 					%>
 				</tbody>
 			</table>
-
+			<% if (loginMember != null) { %>
+			<input type="button" id="btn-add" value="글쓰기"
+				onclick="location.href = '<%=request.getContextPath()%>/qnaBoard/questionCreate';" />
+			<% } %>
 			<div id='pagebar2'>
 				<%=request.getAttribute("pagebar")%>
 			</div>

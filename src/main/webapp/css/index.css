@@ -184,9 +184,6 @@ body {
     z-index: 999;
 }
 
-.nav ul li.on a {
-    color: #77ccb3;
-}
 
 /* 메뉴 폰트 */
 .nav ul,
@@ -205,7 +202,6 @@ body {
     margin-left: 830px;
     gap: 25px;
 }
-
 
 /* 메뉴 폰트와 utility 컨테이너 */
 .menu-container {
@@ -396,9 +392,9 @@ footer p {
  .animal_cards {
     display: flex;
 }
+
  main{
-     display: flex;
+     display: flex; 
      justify-content: center;
  }
  
-

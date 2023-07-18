@@ -52,13 +52,6 @@ $(document).ready(function () {
       imgs.css("transform", `translateX(${-img_position * 290}px)`); // translateX를 사용하여 이미지 이동
     }
   }
-  
-  
-});
 
-$(document).ready(function() {
-    $('.font').click(function() {
-        $('.font-selected').removeClass('font-selected');
-        $(this).addClass('font-selected');
-    });
+  
 });

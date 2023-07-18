@@ -11,9 +11,12 @@
 	// 검색관련 
 	String searchType = request.getParameter("searchType");
 	String searchKeyword = request.getParameter("searchKeyword");
+	
+	String pagebar = (String) request.getAttribute("pagebar");
+	System.out.println("memberList@jsp"+pagebar);
+	
+	%>
 
-
-%>
 <!-- 관리자용 admin.css link -->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/admin.css" />
 <style>
@@ -117,9 +120,10 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 				%>
 			</tbody>
 		</table>
-		<div id='pagebar'>
-			<%=request.getAttribute("pagebar")%>
-		</div>
+		    <div id='pagebar'>
+		        <%= pagebar %>
+		    </div>
+		
 	</div>
 </section>
 <form 

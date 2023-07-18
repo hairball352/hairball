@@ -126,4 +126,11 @@ public class MemberService {
         close(conn);
         return member;
     }
+
+	public Member findByPhone(String phone) {
+		Connection conn = getConnection();
+		Member member = memberDao.findByPhone(conn, phone);
+		close(conn);
+		return member;
+	}
 }
