@@ -10,12 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.sh.hairball.board.adoptboard.model.exception.AdopBoardException;
-import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
 import com.sh.hairball.member.model.exception.MemberException;
 import com.sh.hairball.member.model.vo.Member;
 import com.sh.hairball.member.model.vo.MemberRole;
-import com.sh.hairball.member.model.vo.Provider;
 
 public class MemberDao {
     private Properties prop = new Properties();
@@ -92,11 +89,10 @@ public class MemberDao {
         // update member set name = ?, gender = ?, birthday = ?, email = ?, phone = ?,
         // hobby = ? where member_id = ?
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, member.getMemberId());
-            pstmt.setString(2, member.getName());
-            pstmt.setString(3, member.getEmail());
-            pstmt.setString(4, member.getPhone());
-            pstmt.setString(5, member.getAddress());
+            pstmt.setString(1, member.getEmail());
+            pstmt.setString(2, member.getPhone());
+            pstmt.setString(3, member.getAddress());
+            pstmt.setString(4, member.getMemberId());
             result = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new MemberException(e);
@@ -108,7 +104,7 @@ public class MemberDao {
         int result = 0;
         String sql = prop.getProperty("deleteMember");
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(2, memberId);
+            pstmt.setString(1, memberId);
             result = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new MemberException(e);
@@ -232,5 +228,24 @@ public class MemberDao {
 
         return member;
     }
+
+	// id 시퀀스로 조회하려고 만든 메소드
+	public Member findByNo(Connection conn, int memberId) {
+    	Member member = null;
+        String sql = prop.getProperty("findByNo");
+        
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, memberId);
+            try (ResultSet rset = pstmt.executeQuery()) {
+                while (rset.next()) {
+                    member = handleMemberResultSet(rset);
+                }
+            }
+        } catch (SQLException e) {
+            throw new MemberException(e);
+        }
+
+        return member;
+	}
 
 }

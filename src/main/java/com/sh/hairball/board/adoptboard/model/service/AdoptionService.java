@@ -12,11 +12,14 @@ import com.sh.hairball.board.adoptboard.model.dao.AdoptionDao;
 import com.sh.hairball.board.adoptboard.model.vo.AdopBoard;
 import com.sh.hairball.board.adoptboard.model.vo.AdopBoardEntity;
 import com.sh.hairball.board.enrollboard.model.dao.EnrollBoardDao;
+import com.sh.hairball.member.model.dao.MemberDao;
+import com.sh.hairball.member.model.vo.Member;
 
 public class AdoptionService {
 	private final AdoptionDao adoptionDao = new AdoptionDao();
 	private final AnimalDao animalDao = new AnimalDao();
 	private final EnrollBoardDao enrollBoardDao = new EnrollBoardDao();
+	private final MemberDao memberDao = new MemberDao();
 	
 	/**
 	 * 입양 게시글 추가 (INSERT)
@@ -57,9 +60,14 @@ public class AdoptionService {
 		return result;
 	}
 
-	public List<AdopBoardEntity> findAll(int start, int end) {
+	public List<AdopBoard> findAll(int start, int end) {
 		Connection conn = getConnection();
-		List<AdopBoardEntity> boardList = adoptionDao.findAll(conn, start, end);
+		List<AdopBoard> boardList = adoptionDao.findAll(conn, start, end);
+		
+		for(AdopBoard b : boardList) {
+			Member member = memberDao.findByNo(conn, b.getMemberId());
+			b.setMemberName(member.getName());
+		}
 		close(conn);
 		return boardList;
 	}

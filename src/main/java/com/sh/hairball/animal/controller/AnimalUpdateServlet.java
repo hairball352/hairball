@@ -1,4 +1,4 @@
-package com.sh.hairball.board.enrollboard.controller;
+package com.sh.hairball.animal.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,28 +7,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sh.hairball.board.enrollboard.model.service.EnrollBoardService;
-import com.sh.hairball.board.enrollboard.model.vo.EnrollBoard;
+import com.sh.hairball.animal.model.service.AnimalService;
+
+import oracle.security.o3logon.a;
 
 /**
- * Servlet implementation class AnimalDeleteServlet
+ * Servlet implementation class AnimalUpdateServlet
  */
-@WebServlet("/animal/delete")
-public class AnimalDeleteServlet extends HttpServlet {
+@WebServlet("/animal/update")
+public class AnimalUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final EnrollBoardService enrollBoardService = new EnrollBoardService();
+	private AnimalService animalService = new AnimalService();
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int animalId = Integer.parseInt(request.getParameter("animalId"));
-		System.out.println(animalId);
+		int state = Integer.parseInt(request.getParameter("state"));
 		
-		int result = enrollBoardService.deleteBoard(animalId);
-		
-		request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
-		
+		animalService.updateState(animalId , state);
 	}
 
 }

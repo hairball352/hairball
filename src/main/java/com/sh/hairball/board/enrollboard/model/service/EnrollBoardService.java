@@ -45,8 +45,6 @@ public class EnrollBoardService {
 			attach.setEnrollBoardid(enrollBoardId);
 			attach.setAnimalId(animalId);
 			result = enrollBoardDao.insertAttachment(conn, attach);
-			int attachmentId = attachmentDao.getLastAttachmentId(conn);
-			animalDao.setAttachmentNumber(conn, attachmentId , animalId);
 			commit(conn);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -56,11 +54,11 @@ public class EnrollBoardService {
 		}
 		return result;
 	}
-	public int deleteBoard(int enrollBoardId) { 
+	public int deleteBoard(int animalId) { 
 		Connection conn = getConnection();
 		int result = 0;
 		try {
-			result = enrollBoardDao.deleteBoard(conn, enrollBoardId);
+			result = enrollBoardDao.deleteBoard(conn, animalId);
 			commit(conn);
 		} catch (Exception e) {
 			rollback(conn);
