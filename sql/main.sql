@@ -152,71 +152,71 @@ drop sequence seq_adopt_board_id;
 -- 테스트 쿼리문 생성
 --===========================================
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member1', 'password1', 'John Doe', 'U', 'john.doe@example.com', '1234567890', '123 Example Street', 'K');
+VALUES (seq_member_id.nextval, 'member1', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'John Doe', 'U', 'john.doe@example.com', '1234567890', '123 Example Street', 'K');
 
 -- 2번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member2', 'password2', 'Jane Smith', 'U', 'jane.smith@example.com', '9876543210', '456 Example Avenue', '');
+VALUES (seq_member_id.nextval, 'member2', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'Jane Smith', 'U', 'jane.smith@example.com', '9876543210', '456 Example Avenue', '');
 
 -- 3번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member3', 'password3', 'Michael Johnson', 'A', 'michael.johnson@example.com', '1112223333', '789 Example Road', 'N');
+VALUES (seq_member_id.nextval, 'member3', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'Michael Johnson', 'A', 'michael.johnson@example.com', '1112223333', '789 Example Road', 'N');
 
 -- 4번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member4', 'password4', 'Emily Davis', 'U', 'emily.davis@example.com', '4445556666', '987 Example Boulevard', 'K');
+VALUES (seq_member_id.nextval, 'member4', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'Emily Davis', 'U', 'emily.davis@example.com', '4445556666', '987 Example Boulevard', 'K');
 
 -- 5번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member5', 'password5', 'Robert Wilson', 'U', 'robert.wilson@example.com', '7778889999', '321 Example Lane', '');
+VALUES (seq_member_id.nextval, 'member5', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'Robert Wilson', 'U', 'robert.wilson@example.com', '7778889999', '321 Example Lane', '');
 
 -- 6번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member6', 'password6', 'Sophia Lee', 'A', 'sophia.lee@example.com', '2223334444', '654 Example Court', 'N');
+VALUES (seq_member_id.nextval, 'member6', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'Sophia Lee', 'A', 'sophia.lee@example.com', '2223334444', '654 Example Court', 'N');
 
 -- 7번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member7', 'password7', 'David Brown', 'U', 'david.brown@example.com', '5556667777', '987 Example Drive', 'K');
+VALUES (seq_member_id.nextval, 'member7', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'David Brown', 'U', 'david.brown@example.com', '5556667777', '987 Example Drive', 'K');
 
 -- 8번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member8', 'password8', 'Olivia Johnson', 'U', 'olivia.johnson@example.com', '8889990000', '789 Example Circle', '');
+VALUES (seq_member_id.nextval, 'member8', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'Olivia Johnson', 'U', 'olivia.johnson@example.com', '8889990000', '789 Example Circle', '');
 
 -- 9번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member9', 'password9', 'William Davis', 'A', 'william.davis@example.com', '3334445555', '987 Example Court', 'N');
+VALUES (seq_member_id.nextval, 'member9', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'William Davis', 'A', 'william.davis@example.com', '3334445555', '987 Example Court', 'N');
 
 -- 10번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member10', 'password10', 'Ava Wilson', 'U', 'ava.wilson@example.com', '6667778888', '321 Example Lane', '');
+VALUES (seq_member_id.nextval, 'member10', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'Ava Wilson', 'U', 'ava.wilson@example.com', '6667778888', '321 Example Lane', '');
 
 -- 11번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member11', 'password11', 'James Smith', 'U', 'james.smith@example.com', '9990001111', '987 Example Drive', 'K');
+VALUES (seq_member_id.nextval, 'member11', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'James Smith', 'U', 'james.smith@example.com', '9990001111', '987 Example Drive', 'K');
 
 -- 12번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member12', 'password12', 'Mia Johnson', 'A', 'mia.johnson@example.com', '4445556666', '789 Example Circle', '');
+VALUES (seq_member_id.nextval, 'member12', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'Mia Johnson', 'A', 'mia.johnson@example.com', '4445556666', '789 Example Circle', '');
 
 -- 13번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member13', 'password13', 'Benjamin Davis', 'U', 'benjamin.davis@example.com', '1112223333', '987 Example Boulevard', 'N');
+VALUES (seq_member_id.nextval, 'member13', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'Benjamin Davis', 'U', 'benjamin.davis@example.com', '1112223333', '987 Example Boulevard', 'N');
 
 -- 14번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member14', 'password14', 'Charlotte Wilson', 'U', 'charlotte.wilson@example.com', '8889990000', '321 Example Street', '');
+VALUES (seq_member_id.nextval, 'member14', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'Charlotte Wilson', 'U', 'charlotte.wilson@example.com', '8889990000', '321 Example Street', '');
 
 -- 15번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'member15', 'password15', 'Henry Brown', 'A', 'henry.brown@example.com', '5556667777', '987 Example Avenue', 'K');
+VALUES (seq_member_id.nextval, 'member15', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', 'Henry Brown', 'A', 'henry.brown@example.com', '5556667777', '987 Example Avenue', 'K');
 
 -- 16번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'honggd', '1234', '홍드래곤', 'U', 'honggd@example.com', '5156669777', '역삼동 KH본관', '');
+VALUES (seq_member_id.nextval, 'honggd', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', '홍드래곤', 'U', 'honggd@example.com', '5156669777', '역삼동 KH본관', '');
 
 -- 17번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
-VALUES (seq_member_id.nextval, 'admin', '1234', '관리자', 'A', 'admin@example.com', '5656669771', '역삼동 KH본관', '');
+VALUES (seq_member_id.nextval, 'admin', 'r/lpy3weFrBOAzoMq0PgNRgcRrku6PCb4gvZDflaPGQohVWcKrwMGLE7+yChRH8j4Lmd7E1VBXpqhEOEVAPjEQ==', '관리자', 'A', 'admin@example.com', '5656669771', '역삼동 KH본관', '');
 
 select * from member;
 
