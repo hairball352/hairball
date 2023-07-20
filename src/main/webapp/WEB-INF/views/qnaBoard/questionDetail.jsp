@@ -51,7 +51,7 @@ List<AnswerVo> answers = (List<AnswerVo>) request.getAttribute("answers");
 				</tr>
 				<tr>
 					<th>내 용</th>
-					<td><textarea readonly style="resize: none;" rows="10"><%=question.getContent()%></textarea>
+					<td><textarea readonly style="resize: none; margin-top:20px;" rows="10" cols="45"><%=question.getContent()%></textarea>
 					</td>
 				</tr>
 				<%-- 작성자와 관리자만 마지막행 수정/삭제버튼이 보일수 있게 할 것 --%>
@@ -60,7 +60,7 @@ List<AnswerVo> answers = (List<AnswerVo>) request.getAttribute("answers");
 						&& (loginMember.getMemberRole() == MemberRole.A || loginMember.getMemberId().equals(question.getMemberId()))) {
 				%>
 				<tr>
-					<th colspan="2">
+					<th colspan="2"">
 						<%--게시물 수정 --%> <input type="button" id="btn-detail" value="수정하기"
 						onclick="updateQuestion()"> <input type="button"
 						id="btn-detail" value="삭제하기" onclick="deleteQuestion()">
@@ -83,8 +83,9 @@ List<AnswerVo> answers = (List<AnswerVo>) request.getAttribute("answers");
 						<input type="hidden" name="questionId"
 							value="<%=question.getId()%>" /> <input type="hidden"
 							name="adminName" value="<%=loginMember.getName()%>" />
-						<textarea name="content" id="answer-content" cols="60" rows="3"></textarea>
-						<button type="submit" id="btn-answer-enroll1">등록</button>
+						<textarea name="content" id="answer-content" cols="55" rows="3"></textarea>
+						<div class="btn-answer">
+							<button type="submit" id="btn-answer-enroll1">등록</button></div>
 					</form>
 				</div>
 				<%

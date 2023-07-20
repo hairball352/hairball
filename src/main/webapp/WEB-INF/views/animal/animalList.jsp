@@ -55,7 +55,7 @@ List<EnrollBoardDto> animalBoardList= (List<EnrollBoardDto>) request.getAttribut
     		<%}%>
     <%} %>
     </div>
-    <div id='pagebar'>
+    <div id='pagebar3'>
 		<%= request.getAttribute("AnimalListPageBar") %>
 	</div>
 </div>

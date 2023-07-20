@@ -4,7 +4,7 @@
 section#question-container {
 	width: 600px;
 	text-align: center;
-	margin-left: 78px;
+	margin-left: 140px;
 	
 }
 
@@ -44,25 +44,35 @@ table#tbl-question th {
 /*글쓰기버튼*/
 input#btn-add {
 	float: left;
-	margin: 10px 0 15px;
+	margin-top:20px;
 	background: #5fab95;
 	color: white;
 	border: none;
-	zoom: 2.0;
 	cursor: pointer;
-	font-size: 5px;
+	height:32px;
+	font-size:14px;
+	border-radius: 4px;
+	padding: 0 15px;
 }
+
+input#btn-add:hover {
+background-color: rgb(79, 151, 130);
+}
+
 /*등록,수정하기, 취소버튼*/
 input#btn-create,
 input#btn-update,
 input#btn-cancel {
-	margin: 10px 0 15px;
-	background: #5fab95;
-	color: white;
-	border: none;
-	zoom: 2.0;
+	color: #FFF;
+	background-color: #5fab95;
+	border: 1px solid;;
+	border-radius: 4px;
+	padding: 0 15px;
 	cursor: pointer;
-	font-size: 5px;
+	height:32px;
+	font-size:14px;
+	transition: all 0.2s ease-in-out;
+	margin-bottom: 50px;
 }
 
 
@@ -74,10 +84,11 @@ textarea[name="content"]{
 /* 페이지바*/
 div#pagebar2 {
     display: flex;
-    margin: 70px;
+    margin: 100px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    cursor: pointer;
 }
 div#pagebar2 > a,
 div#pagebar2 > span {
@@ -86,23 +97,22 @@ div#pagebar2 > span {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 14px;
     margin: 0 5px 8px;
     border-radius: 5px;
-    min-width: 20px;
+    min-width: 18px;
     padding: 0 10px;
-    height: 40px;
+    height: 30px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
     text-decoration: none;
     position: relative;
-    font-family: Helvetica, Arial, sans-serif;
 }
 div#pagebar2 > span.cpage {
     background-color: #5fab95;
     color: #fff;
 }
 div#pagebar2 > a:hover {
-    background-color: #5fab95;
+    background-color: rgb(79, 151, 130);
     color: #fff;
 }
 
@@ -145,34 +155,45 @@ span#fname {
 }
 
 input#btn-detail {
-	float: none;
-	margin: 10px 0 15px;
-	background: #5fab95;
-	color: white;
-	border: none;
-	zoom: 2.0;
+	margin-top: 10px;
+	color: #FFF;
+	background-color: #5fab95;
+	border: 1px solid;;
+	border-radius: 4px;
+	padding: 0 15px;
 	cursor: pointer;
-	font-size: 4px;
+	height:32px;
+	font-size:14px;
+	transition: all 0.2s ease-in-out;
+
+}
+
+[name=questionanswerFrm] {
+	margin-bottom: 60px;
 }
 
 textarea#answer-content {
 	display: inline-block;
 	margin-left: 10px;
-	margin-bottom: 15px;
+	margin-top: 20px;
 	position: relative;
 	resize: none;
 }
 
+.btn-answer {
+	margin-top: 10px;
+}
 
 /* 댓글등록버튼 */
 div.answer-container button#btn-answer-enroll1 {
-	margin: 0 0 10px;
+	margin-left: 12px;
 	background: #5fab95;
 	color: white;
 	border: none;
 	zoom: 2.0;
 	cursor: pointer;
 	font-size: 8px;
+	
 }
 
 /* 댓글테이블 */

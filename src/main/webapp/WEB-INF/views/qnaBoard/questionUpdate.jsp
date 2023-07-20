@@ -29,7 +29,6 @@ QuestionVo q = (QuestionVo) request.getAttribute("question");
 		<div class="checked-title2">Q&A</div>
 		<hr class="section-hr" />
 		<section id="question-container">
-		<section id="question-container">
 			<h2 id="h2-title">Q&A 수정</h2>
 			<form action="<%=request.getContextPath()%>/qnaBoard/questionUpdate"
 				method="post">
@@ -59,7 +58,6 @@ QuestionVo q = (QuestionVo) request.getAttribute("question");
 					</tr>
 				</table>
 			</form>
-		</section>
 	</div>
 </section>
 <script>

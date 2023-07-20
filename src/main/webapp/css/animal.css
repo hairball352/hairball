@@ -295,16 +295,52 @@ table#tbl-adopboard tr td {
 
 .btn1 {
 color: #FFF;
-background-color: #4f9580;
-border: 1px solid #478975;
+background-color: #5fab95;
+border: 1px solid;;
 border-radius: 4px;
 padding: 0 15px;
 cursor: pointer;
 height:32px;
 font-size:14px;
 transition: all 0.2s ease-in-out;
-opacity: 0.6;
 }
+
 .btn1:hover {
-opacity: 1;
+background-color: rgb(79, 151, 130);
+}
+
+#pagebar3{
+	display: flex;
+    margin-top: 88px;
+    margin-left: -190px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    cursor: pointer;	
+}
+
+div#pagebar3 > a,
+div#pagebar3 > span {
+    background-color: #fff;
+    color: #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    margin: 0 5px 8px;
+    border-radius: 5px;
+    min-width: 18px;
+    padding: 0 10px;
+    height: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    position: relative;
+}
+
+div#pagebar3 > span.cpage {
+    background-color: #5fab95;
+    color: #fff;
+}
+div#pagebar3 > a:hover {
+    color: rgb(79, 151, 130);
 }
