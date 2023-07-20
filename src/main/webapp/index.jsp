@@ -29,9 +29,8 @@
     </h2>
     <h3 class="sub_title">사랑스러운 아이들이 기다리고 있어요</h3>
     <div class="go_click">
-      <a href="#">
-        <img
-                src="/hairball/images/홈/만나러가기.png"
+      <a href="<%= request.getContextPath() %>/animal/list">
+        <img src="/hairball/images/홈/만나러가기.png"
                 alt="만나러 가기"
         />
       </a>
