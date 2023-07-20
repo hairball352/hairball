@@ -135,6 +135,7 @@ window.onload = () => {
 	   <%if (loginMember == null) {%>   
 	      document.loginFrm.onsubmit = (e) => {
 	         // 아이디
+	         console.log(e);
 	         console.log(memberId);
 	         console.log(memberId.value);
 	         const memberId = e.target.memberId;
