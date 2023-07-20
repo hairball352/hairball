@@ -75,7 +75,7 @@
 <h3>김상훈</h3>
 <ul> 
   <li><a href="http://localhost:8080/hairball/member/login">로그인 페이지</a></li>
-  <li><a href="[http://localhost:8080/hairball/member/login](http://localhost:8080/hairball/member/terms)">약관동의 페이지</a></li>
+  <li><a href="http://localhost:8080/hairball/member/terms">약관동의 페이지</a></li>
   <li><a href="http://localhost:8080/hairball/member/memberEnroll">회원가입 페이지</a></li>   
 </ul>
 
