@@ -68,8 +68,8 @@
 		};
 		 // 서버로부터 메시지가 도착하면 콘솔 화면에 메시지를 남긴다.
 	    webSocket.onmessage = function(message) {
-	      messageTextArea.value += "\n관리자 : " + message.data + "\n";
-			chatHistoryAll.push("(관리자) " + message.value);
+	    messageTextArea.value += "\n관리자 : " + message.data + "\n";
+		chatHistoryAll.push("(관리자) " + message.data);
 	    };
 		//채팅 기록을 저장할 배열을 추가
 		let chatHistoryAll = [];

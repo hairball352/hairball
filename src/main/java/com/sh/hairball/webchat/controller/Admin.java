@@ -27,29 +27,31 @@ public class Admin {
 
 			}
 		}
-		// 운영자 유저의 세션을 바꾼다.
+		// 새로 접속한 운영자 클라이언트의 세션을 저장
 		admin = userSession;
 		// 기존에 접속해 있는 유저의 정보를 운영자 client로 보낸다.
 		for(String key : BroadSocket.getUserKeys()) {
-			// 전송.. 전송
+			// 전송
 			visit(key);
 		}
 	}
 	// 운영자 유저가 메시지를 보내면 발생하는 이벤트
 	@OnMessage
 	public void handleMessage(String message, Session userSession) throws IOException {
-		// key와 메시지 구분키를 #####를 넣었다. (json으로 해도 되는데 Gson 연결까지 하면 귀찮아져서...)
+		// 메시지 형식은 "key#####message"로 가정
 		String[] split = message.split("#####", 2);
-		// 앞은 key 데이터
+		// 앞은 유저의 key 데이터
 		String key = split[0];
 		// 뒤 정보는 메시지
 		String msg = split[1];
-		// 일반 유저의 key로 탐색후 메시지 전송
+		// 해당 키를 가지는 일반 사용자에게 메시지를 전달
 		BroadSocket.sendMessage(key, msg);
+		// 사용자의 대화는 키로 고유하게 식별되는 별도의 영역에서 처리된다
 	}
 	// 접속이 끊기면 위 운영자 세션을 null 처리한다.
 	@OnClose
 	public void handleClose(Session userSession) {
+		// 운영자 세션을 null로 초기화하여 운영자가 접속을 종료했음을 표시
 		admin = null;
 	}
 	// 운영자 유저로 메시지를 보내는 함수
