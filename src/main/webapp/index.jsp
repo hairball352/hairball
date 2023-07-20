@@ -11,10 +11,10 @@
           <img src="/hairball/images/홈/home_2.jpg" alt="홈 배경" />
         </div>
         <div class="swiper-slide">
-          <img src="/hairball/images/홈/home_1.jpg" alt="홈 배경3" />
+          <img src="/hairball/images/홈/몽이2.jpg" alt="홈 배경3" />
         </div>
         <div class="swiper-slide">
-          <img src="/hairball/images/홈/home_3.jpg" alt="홈 배경4" />
+          <img src="/hairball/images/홈/몽이1.jpg" alt="홈 배경4" />
         </div>
         <div class="swiper-slide">
           <img src="/hairball/images/홈/home_4.jpg" alt="홈 배경2" />
@@ -110,10 +110,7 @@
   </div>
 </div>
 
-<form method="get" action="/member/findMemberId">
-<input type="text" name="phone">
-<input type="submit"> 
-</form>
+
 <script>
 window.addEventListener('load', () => {
 	removeBanner();
