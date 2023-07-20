@@ -21,7 +21,7 @@ import com.sh.hairball.qnaboard.notification.model.MessageType;
  *
  * honggd 게시글 작성 - sinsa 해당 게시글에 댓글 작성 - honggd 게시글 댓글 알림
  */
-public class NotificationService {
+public class NotificationService { // NotificationService클래스는 알림처리 미 실시간알림메세지 전송기능을 한다. 
 	
 	/**
 	 * 1. db저장
