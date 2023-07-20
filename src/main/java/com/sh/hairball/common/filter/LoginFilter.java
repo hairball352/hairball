@@ -19,7 +19,7 @@ import com.sh.hairball.member.model.vo.Member;
  * Servlet Filter implementation class LoginFilter
  */
 @WebFilter({ 
-	"/member/memberDetail", 
+	"/member/memberDetail",
 	"/member/memberUpdate", 
 	"/member/memberDelete",
 	"/qnaBoard/questionCreate",

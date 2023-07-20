@@ -127,6 +127,7 @@ const removeBanner = () => {
 }
 
 window.onload = () => {
+	
 	$.ajax({
 		url : "<%= request.getContextPath()%>/getindex",
 		success(files){

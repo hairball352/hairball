@@ -14,7 +14,7 @@ import javax.websocket.server.ServerEndpoint;
 
 
 @ServerEndpoint(value = "/QuestionWebSocket", configurator = QuestionWebSocketConfigurator.class) 
-public class QuestionWebSocket {
+public class QuestionWebSocket { // QuestionWebSocket클래스는 ClientMap 
 	
 	// WebSocket 세션을 관리할 맵(멀티스레드에 사용하므로 동기화처리 필수)
 	// (키:벨류) memberId : String = websocketSession : Session

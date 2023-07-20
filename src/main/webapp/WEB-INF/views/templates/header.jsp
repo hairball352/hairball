@@ -1,3 +1,4 @@
+<%@page import="org.apache.catalina.filters.ExpiresFilter.XServletOutputStream"%>
 <%@page import="com.sh.hairball.member.model.vo.MemberRole"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -13,6 +14,7 @@
 
   String msg = (String) session.getAttribute("msg"); 
    if(msg != null){ 
+	  
       session.removeAttribute("msg"); 
    }
   Member loginMember = (Member)session.getAttribute("loginMember");
@@ -52,7 +54,9 @@
    href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
    <script src="<%= request.getContextPath() %>/js/jquery-3.7.0.js"></script>
    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+   <%if(loginMember != null) { %>
    <script src="<%= request.getContextPath() %>/js/ws.js"></script>
+   <%} %>
     <title>유기견/유기묘 입양 사이트</title>
 </head>
 
@@ -64,31 +68,12 @@
 
 window.onload = () => {
 		
-	<% 	if(msg != null) { %>
-		alert('<%= msg %>');
+	<% 	if(msg != null) {
+		 System.out.print("@@@@@@@@@@@"+msg);
+	%>
+		alert("<%= msg %>");
 	<% 	} %>	
 		
-	<% 	if(loginMember == null) { %>	
-		document.loginFrm.onsubmit = (e) => {
-			// 아이디
-			console.log(memberId);
-			console.log(memberId.value);
-			const memberId = e.target.memberId;
-			if(!/^\w{4,}$/.test(memberId.value)) {
-				alert(" 아이디 또는 비밀번호를 잘못 입력했습니다.");
-				e.preventDefault();
-				return;
-			}
-			
-			// 비밀번호
-			const password = e.target.password;
-			if(!/^.{4,}$/.test(password.value)) {
-				alert(" 아이디 비밀번호를 잘못 입력했습니다.");
-				e.preventDefault();
-				return;
-			}
-		}
-	<% 	} %>
 	};
 
 </script>
