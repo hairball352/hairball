@@ -154,6 +154,9 @@ drop sequence seq_adopt_board_id;
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
 VALUES (seq_member_id.nextval, 'member1', 'password1', 'John Doe', 'U', 'john.doe@example.com', '1234567890', '123 Example Street', 'K');
 
+Insert into WEB.MEMBER (MEMBER_ID,PASSWORD,NAME,MEMBER_ROLE,GENDER,BIRTHDAY,EMAIL,PHONE,HOBBY,POINT,ENROLL_DATE) values ('abcd','kl9Dw8+5VrvjxqqAI7p61c+iHRBBhv/8aedo5VlA2WU7HNNvumFPui4YRPRDbaIPg3UMbsHbNW2hVGkb3XGpsQ==','김준호','U','M',to_date('92/02/02','RR/MM/DD'),'abcd@naver.com','01012345678','운동,등산,독서',1000,to_date('18/02/01','RR/MM/DD'));
+Insert into WEB.MEMBER (MEMBER_ID,PASSWORD,NAME,MEMBER_ROLE,GENDER,BIRTHDAY,EMAIL,PHONE,HOBBY,POINT,ENROLL_DATE) values ('hihiroo','tVVKLkAaPExiMPG+61kg/Sa3zwUjBDn+d/t9+5Mzayxk/nX1ejPD51En+Dp3d2tsOFdfwhYtDLHwXur7x2WRow==','김안녕','U','F',to_date('01/10/18','RR/MM/DD'),'hihiroo@naver.com','01023454635','운동,여행',1000,to_date('18/02/05','RR/MM/DD'));
+
 -- 2번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
 VALUES (seq_member_id.nextval, 'member2', 'password2', 'Jane Smith', 'U', 'jane.smith@example.com', '9876543210', '456 Example Avenue', '');
@@ -326,3 +329,4 @@ select * from enroll_board;
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
 VALUES (seq_member_id.nextval, 'admin', 'password3', 'Michael Johnson', 'A', 'michael.johnson@example.com', '1112223333', '789 Example Road', 'N');
 
+update member set member_role = 'A' where name='관리자';
