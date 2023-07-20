@@ -43,7 +43,7 @@
    <li>카카오 로그인 API</li>
    <li>네이버 로그인 API</li>
 </ul>
-
+<br>
 ## 팀원별 구현코드
 
 <h3>정건룡</h3>
@@ -54,14 +54,14 @@
 
 <h3>전예라</h3>
 <ul>
-  <li><a href="[http://localhost:8080/hairball/qnaBoard/questionIntro](http://localhost:8080/hairball/)">메인 페이지</a></li>
-  <li><a href="[http://localhost:8080/hairball/qnaBoard/questionIntro](http://localhost:8080/hairball/introduce/introduce1.jsp)">센터 소개페이지</a></li>
-  <li><a href="[http://localhost:8080/hairball/qnaBoard/questionList](http://localhost:8080/hairball/introduce/introduce2.jsp)">팀원 소개페이지</a></li>   
+  <li><a href="http://localhost:8080/hairball/">메인 페이지</a></li>
+  <li><a href="http://localhost:8080/hairball/introduce/introduce1.jsp">센터 소개페이지</a></li>
+  <li><a href="http://localhost:8080/hairball/introduce/introduce2.jsp">팀원 소개페이지</a></li>   
 </ul>
 
 <h3>김담희</h3>
 <ul>
-  <li><a href="[http://localhost:8080/hairball/qnaBoard/questionIntro](http://localhost:8080/hairball/)">메인 페이지</a></li>
+  <li><a href="http://localhost:8080/hairball/">메인 페이지</a></li>
   <li><a href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8080%252Fhairball%252Foauth%252Fkakao%26through_account%3Dtrue%26client_id%3Da7b86ff96d50db1785b75938758aeb44#login">네이버 로그인</a></li>
   <li><a href="http://localhost:8080/hairball/animal/animalAdoptionList">입양신청 게시판</a></li>   
 </ul>
