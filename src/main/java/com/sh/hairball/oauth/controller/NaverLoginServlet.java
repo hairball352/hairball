@@ -24,11 +24,12 @@ public class NaverLoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String code = req.getParameter("code");
+        String code = req.getParameter("code"); // 인증 과정에 대한 내부 구분값으로 'code'로 전달받음
+        										// 네이버 API를 사용할 수 있는지 인증에 대한 코드임
         String state = req.getParameter("state");
         System.out.println("naverLoginServlet code = " + code);
         try {
-            member = oauth2ServiceNaver.naverLogin(code, state);
+            member = oauth2ServiceNaver.naverLogin(code, state); // focus
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }

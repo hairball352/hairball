@@ -95,16 +95,14 @@
 				// console영역을 찾는다.
 				let log = $div.find(".console").val();
 				// 아래에 메시지를 추가한다.
-				let temp3 = "<%= loginMemberId %>";
-				console.log(temp3);
-				$div.find(".console").val("\n" + temp3 + " : " + node.message + "\n");
+				let temp2 = "<%= loginMemberId %>";
+				$div.find(".console").val(log + "\n" +node.message + "\n");
 				// bye는 유저가 접속을 끊었을 때 알려주는 메시지이다.
 			} else if (node.status === "bye") {
 				// 해당 키로 div를 찾아서 dom을 제거한다.
 				$("[data-key='" + node.key + "']").remove();
 			}
 		};
-		
 		// 전송 버튼을 클릭하면 발생하는 이벤트
 		$(document).on("click", ".sendBtn", function() {
 			// div 태그를 찾는다.
@@ -137,7 +135,6 @@
 					}
 					return true;
 				});
-		
 	</script>
 <footer class="copyright2">
     <div class="copyright_img2">

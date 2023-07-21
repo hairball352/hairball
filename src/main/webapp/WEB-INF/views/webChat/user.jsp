@@ -84,7 +84,8 @@
 			messageTextArea.value += "\n나 : " + message.value + "\n";
 			chatHistoryAll.push("(" + temp2 +  ") " + message.value); // 메시지를 채팅 기록에 추가
 			// 소켓으로 보낸다.
-			webSocket.send(message.value);
+			let messageVal = temp2 + " : " + message.value;
+			webSocket.send(messageVal);
 			// 텍스트 박스 초기화
 			message.value = "";
 		}

@@ -40,8 +40,8 @@ public class OAuth2ServiceNaver {
         requestHeaders.put("Content-type", "application/x-www-form-urlencoded"); 
         
         
-        // 인증 성공시에 네이버에서 받은 인증 토큰을 String 형태로 저장
-        String responseBody = get(reqURL, requestHeaders, code);
+        // API 이용 인증 성공시에 네이버에서 받은 인증 토큰을 String 형태로 저장
+        String responseBody = get(reqURL, requestHeaders, code); // @@@@@@@@@@focus@@@@@@@@@@@@@
         System.out.println("Naver responseBody : " + responseBody);
         
         int result = 0;
@@ -63,12 +63,12 @@ public class OAuth2ServiceNaver {
         requestHeaders.put("Authorization", "Bearer "+access_token);
 
         // 사용자 정보를 받아 저장
-        String responseUserInfo = getUserInfo("https://openapi.naver.com/v1/nid/me",requestHeaders);
+        String responseUserInfo = getUserInfo("https://openapi.naver.com/v1/nid/me",requestHeaders); // @@@@@@@@@@focus@@@@@@@@@@@@@
         System.out.println("responseUserInfo : " + responseUserInfo);
 
         
         // 받은 정보 String을 json으로 변경
-        Object obj = parsing.parse(responseUserInfo);
+        Object obj = parsing.parse(responseUserInfo);            // @@@@@@@@@@focus@@@@@@@@@@@@@
         JSONObject _jsonObj = (JSONObject)obj;
         JSONObject resObj = (JSONObject)_jsonObj.get("response");
 
@@ -97,7 +97,7 @@ public class OAuth2ServiceNaver {
         HttpURLConnection conn = connect(apiUrl);
         System.out.println("requestHeaders : " + requestHeaders);
         try {
-            conn.setRequestMethod("GET");
+            conn.setRequestMethod("POST");
             for (Map.Entry<String, String> header : requestHeaders.entrySet()) {
                 conn.setRequestProperty(header.getKey(), header.getValue());
             }
