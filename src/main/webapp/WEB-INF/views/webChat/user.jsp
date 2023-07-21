@@ -32,12 +32,12 @@
 	
 	<script type="text/javascript">
 		// 서버의 broadsocket의 서블릿으로 웹 소켓을 한다.
-		var webSocket = new WebSocket(
+		let webSocket = new WebSocket(
 				"ws://localhost:8080/hairball/broadsocket");
 		// 콘솔 텍스트 영역
-		var messageTextArea = document.getElementById("messageTextArea");
+		let messageTextArea = document.getElementById("messageTextArea");
 		// 메시지 컨테이너
-		var messageContainer = document.getElementById("messageContainer");
+		let messageContainer = document.getElementById("messageContainer");
 		// 접속이 완료되면
 		webSocket.onopen = function(message) {
 			// 콘솔에 메시지를 남긴다.
@@ -61,6 +61,7 @@
 			event.returnValue = '정말로 채팅을 종료하시겠습니까?';
 		  endChat();
 		});
+		
 		// 에러가 발생하면
 		webSocket.onerror = function(message) {
 		// 콘솔에 메시지를 남긴다.
@@ -69,7 +70,7 @@
 		 // 서버로부터 메시지가 도착하면 콘솔 화면에 메시지를 남긴다.
 	    webSocket.onmessage = function(message) {
 	    messageTextArea.value += "\n관리자 : " + message.data + "\n";
-		chatHistoryAll.push("(관리자) " + message.data);
+		chatHistoryAll.push("(관리자) " + message.data); // chatHistoryAll이라는 배열에 관리자의 메세지를 추가하는 부분
 	    };
 		//채팅 기록을 저장할 배열을 추가
 		let chatHistoryAll = [];
@@ -82,7 +83,7 @@
 			// 콘솔에 메세지를 남긴다.
 			let temp2 = "<%= loginMember %>";
 			messageTextArea.value += "\n나 : " + message.value + "\n";
-			chatHistoryAll.push("(" + temp2 +  ") " + message.value); // 메시지를 채팅 기록에 추가
+			chatHistoryAll.push("(" + temp2 +  ") " + message.value); // chatHistoryAll이라는 배열에 유저의 메세지를 추가하는 부분
 			// 소켓으로 보낸다.
 			let messageVal = temp2 + " : " + message.value;
 			webSocket.send(messageVal);
@@ -100,7 +101,7 @@
 			}
 			return true;
 		}
-		// chatHistory 배열을 서버에 전송하고, 서버는 이 배열을 데이터베이스에 저장하는 함수
+		// chatHistoryAll 배열을 ajax를 이용하여 비동기 처리로 서버에 전송하고, 서버는 이 배열을 데이터베이스에 저장한다
 		function saveChatHistoryToDB() {
 			$.ajax({
 				url: "/hairball/saveChatHistory",

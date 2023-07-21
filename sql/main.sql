@@ -331,6 +331,10 @@ select * from chatlog;
 select * from adopt_board;
 
 delete from animal;
+delete from chatlog;
+
+delete from member where member_id = 'KaKao예라';
+delete from member where member_id = 'Naver@전예라';
 
 select * from enroll_board;
 

@@ -19,12 +19,12 @@ import javax.websocket.server.ServerEndpoint;
 public class BroadSocket {
 	// searchUser 함수의 filter 표현식을 위한 인터페이스
 	private interface SearchExpression {
-		// 람다식을 위한 함수
+
 		boolean expression(User user);
 	}
-	// 서버와 유저간의 접속을 key로 구분하기 위한 인라인 클래스
-	// 각 사용자는 고유한 세션과 키를 가진다. 그걸로 1:1 채팅을 구분할 수 있음
 	
+	// 각 사용자는 고유한 세션과 키를 가진다. 그걸로 1:1 채팅을 구분할 수 있음
+
 	// Client의 키와 세션을 매핑하는 내부 클래스
 	private class User {
 		Session session; // WebSocket 세션
@@ -66,7 +66,7 @@ public class BroadSocket {
 		user.session = userSession;
 		// 생성된 User 인스턴스를 접속 리스트에 추가
 		sessionUsers.add(user);
-		// 운영자 Client에 유저가 접속한 것을 알린다.
+		// 관리자 Client에 유저가 접속한 것을 알린다.
 		Admin.visit(user.key);
 	}
 	// browser에서 웹 소켓을 통해 메시지가 오면 호출되는 함수
@@ -76,11 +76,11 @@ public class BroadSocket {
 		User user = getUser(userSession);
 		// 접속 리스트에 User가 있으면
 		if (user != null) {
-			// 운영자 Client에 유저 key와 메시지를 보낸다.
+			// 관리자 Client에 유저 key와 메시지를 보낸다.
 			Admin.sendMessage(user.key, message);
 		}
 	}
-	// 운영자 client가 유저에게 메시지를 보내는 함수
+	// 관리자 client가 유저에게 메시지를 보내는 함수
 	public static void sendMessage(String key, String message) {
 		// key로 접속 리스트에서 User 클래스를 탐색
 		User user = getUser(key);
@@ -102,7 +102,7 @@ public class BroadSocket {
 		User user = getUser(userSession);
 		// 접속 리스트에 User가 있으면
 		if (user != null) {
-			// 운영자 Client에 유저 key로 접속 종료를 알린다.
+			// 관리자 Client에 유저 key로 접속 종료를 알린다.
 			Admin.bye(user.key);
 			// 위 유저 접속 리스트에서 유저를 삭제한다.
 			sessionUsers.remove(user);
