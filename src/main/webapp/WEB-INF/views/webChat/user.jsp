@@ -57,7 +57,17 @@
 		  // 채팅 기록을 서버에 저장
 		  saveChatHistoryToDB();
 		}
+<<<<<<< Updated upstream
 
+=======
+		
+		// beforeunload 이벤트 핸들러 등록
+		window.addEventListener('beforeunload', function(event) {
+			event.returnValue = '정말로 채팅을 종료하시겠습니까?';
+		  endChat();
+		});
+		
+>>>>>>> Stashed changes
 		// 에러가 발생하면
 		webSocket.onerror = function(message) {
 		// 콘솔에 메시지를 남긴다.
@@ -65,10 +75,19 @@
 		};
 		 // 서버로부터 메시지가 도착하면 콘솔 화면에 메시지를 남긴다.
 	    webSocket.onmessage = function(message) {
+<<<<<<< Updated upstream
 	      messageTextArea.value += "\n관리자 : " + message.data + "\n";
 	    };
 		//채팅 기록을 저장할 배열을 추가
 		var chatHistoryAll = [];
+=======
+	    messageTextArea.value += "\n관리자 : " + message.data + "\n";
+		chatHistoryAll.push("(관리자) " + message.data); // chatHistoryAll이라는 배열에 관리자의 메세지를 추가하는 부분
+	    };
+	    
+		// 채팅 기록을 저장할 배열을 추가
+		let chatHistoryAll = [];
+>>>>>>> Stashed changes
 
 		// 서버로 메시지를 발송하는 함수
 		// Send 버튼을 누르거나 텍스트 박스에서 엔터를 치면 실행
@@ -77,7 +96,11 @@
 			let message = document.getElementById("textMessage");
 			// 콘솔에 메세지를 남긴다.
 			messageTextArea.value += "\n나 : " + message.value + "\n";
+<<<<<<< Updated upstream
 			chatHistoryAll.push(message.value); // 메시지를 채팅 기록에 추가
+=======
+			chatHistoryAll.push("(" + temp2 +  ") " + message.value); // chatHistoryAll이라는 배열에 유저의 메세지를 추가하는 부분
+>>>>>>> Stashed changes
 			// 소켓으로 보낸다.
 			webSocket.send(message.value);
 			// 텍스트 박스 초기화
@@ -94,7 +117,7 @@
 			}
 			return true;
 		}
-		// chatHistory 배열을 서버에 전송하고, 서버는 이 배열을 데이터베이스에 저장하는 함수
+		// chatHistoryAll 배열을 서버에 비동기 처리를 해서 전송하고, 서버는 이 배열을 데이터베이스에 저장하는 함수
 		function saveChatHistoryToDB() {
 			$.ajax({
 				url: "/hairball/saveChatHistory",

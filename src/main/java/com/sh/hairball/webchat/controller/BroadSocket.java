@@ -19,7 +19,7 @@ import javax.websocket.server.ServerEndpoint;
 public class BroadSocket {
 	// searchUser 함수의 filter 표현식을 위한 인터페이스
 	private interface SearchExpression {
-		// 람다식을 위한 함수
+
 		boolean expression(User user);
 	}
 	// 서버와 유저간의 접속을 key로 구분하기 위한 인라인 클래스
@@ -34,6 +34,10 @@ public class BroadSocket {
 		return searchUser(x -> x.session == session);
 	}
 	// Key로 접속 리스트에서 User 클래스를 탐색
+<<<<<<< Updated upstream
+=======
+	// 접속 리스트에 key가지는 유저가 있으면 해당 유저를 반환한다
+>>>>>>> Stashed changes
 	private static User getUser(String key) {
 		return searchUser(x -> x.key.equals(key));
 	}
@@ -60,7 +64,7 @@ public class BroadSocket {
 		// 유저 리스트에 등록한다.
 		sessionUsers.add(user);
 		// 운영자 Client에 유저가 접속한 것을 알린다.
-		Admin.visit(user.key);
+		Admin.visit(user.key); // visit이라는 함수에는 유저의 정보, 즉 키가 들어있다
 	}
 	// browser에서 웹 소켓을 통해 메시지가 오면 호출되는 함수
 	@OnMessage
