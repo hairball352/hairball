@@ -171,7 +171,7 @@
 }
 
 .table-container3 span {
-   color: #5fab95;
+   color: #77ccb3;
    font-weight: 500;
 }
 
@@ -180,12 +180,40 @@
 /*페이지바*/
 #pagebar {
     display: flex;
+    margin-top: 88px;
+    margin-left: -243px;
     justify-content: center;
-    margin-bottom: 40px;
-    margin-top:50px; 
-    padding-bottom: 20px;
-    gap: 13px;
+    align-items: center;
+    flex-wrap: wrap;
+    cursor: pointer;
 }
+
+div#pagebar > a,
+div#pagebar > span {
+    background-color: #fff;
+    color: #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    margin: 0 5px 8px;
+    border-radius: 5px;
+    min-width: 18px;
+    padding: 0 10px;
+    height: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    position: relative;
+}
+
+div#pagebar > span.cpage {
+    background-color: #5fab95;
+    color: #fff;
+}
+div#pagebar > a:hover {
+    color: rgb(79, 151, 130);
+}
+
 
 .table-container4 span2 {
    color: #5fab95;

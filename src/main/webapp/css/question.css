@@ -4,7 +4,8 @@
 section#question-container {
 	width: 600px;
 	text-align: center;
-	margin-left: 78px;
+	margin-left: 140px;
+	
 }
 
 section#question-container2 {
@@ -28,30 +29,93 @@ table#tbl-question th, table#tbl-question td {
 	border-bottom: 3px solid #e3e3e3;
 }
 
+/*서브타이틀*/
+#h2-title {
+	font-size: 25px;
+    font-weight: 500;
+}
+
+/* qna목록 th글씨두께*/
+table#tbl-question th {
+	font-weight: bold;
+}
+
+/*글쓰기,등록버튼*/
 /*글쓰기버튼*/
 input#btn-add {
-	float: right;
-	margin: 0 0 15px;
+	float: left;
+	margin-top:20px;
+	background: #5fab95;
+	color: white;
+	border: none;
+	cursor: pointer;
+	height:32px;
+	font-size:14px;
+	border-radius: 4px;
+	padding: 0 15px;
 }
 
-/*페이지바*/
+input#btn-add:hover {
+background-color: rgb(79, 151, 130);
+}
+
+/*등록,수정하기, 취소버튼*/
+input#btn-create,
+input#btn-update,
+input#btn-cancel {
+	color: #FFF;
+	background-color: #5fab95;
+	border: 1px solid;;
+	border-radius: 4px;
+	padding: 0 15px;
+	cursor: pointer;
+	height:32px;
+	font-size:14px;
+	transition: all 0.2s ease-in-out;
+	margin-bottom: 50px;
+}
+
+
+/*글쓰기 폼*/
+textarea[name="content"]{
+	resize: none;
+}
+
+/* 페이지바*/
 div#pagebar2 {
-	width: 800px;
-	display: flex;
+    display: flex;
+    margin: 100px;
     justify-content: center;
-    margin-bottom: 40px;
-    margin-top: 50px;
-    padding-bottom: 20px;
-    gap: 13px;
+    align-items: center;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+div#pagebar2 > a,
+div#pagebar2 > span {
+    background-color: #fff;
+    color: #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    margin: 0 5px 8px;
+    border-radius: 5px;
+    min-width: 18px;
+    padding: 0 10px;
+    height: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    position: relative;
+}
+div#pagebar2 > span.cpage {
+    background-color: #5fab95;
+    color: #fff;
+}
+div#pagebar2 > a:hover {
+    background-color: rgb(79, 151, 130);
+    color: #fff;
 }
 
-div#pagebar2 span.cPage {
-	margin-right: 5px;
-}
-
-div#pagebar2 a {
-	margin-right: 5px;
-}
 
 /*게시글 작성/상세보기 테이블*/
 table#tbl-question-view {
@@ -90,17 +154,49 @@ span#fname {
 	top: -3px;
 }
 
-/*댓글등록버튼*/
-div.answer-container button#btn-answer-enroll1 {
-	width: 60px;
-	height: 50px;
-	color: white;
-	background: #3300ff;
-	position: relative;
-	top: -20px;
+input#btn-detail {
+	margin-top: 10px;
+	color: #FFF;
+	background-color: #5fab95;
+	border: 1px solid;;
+	border-radius: 4px;
+	padding: 0 15px;
+	cursor: pointer;
+	height:32px;
+	font-size:14px;
+	transition: all 0.2s ease-in-out;
+
 }
 
-/*댓글테이블*/
+[name=questionanswerFrm] {
+	margin-bottom: 60px;
+}
+
+textarea#answer-content {
+	display: inline-block;
+	margin-left: 10px;
+	margin-top: 20px;
+	position: relative;
+	resize: none;
+}
+
+.btn-answer {
+	margin-top: 10px;
+}
+
+/* 댓글등록버튼 */
+div.answer-container button#btn-answer-enroll1 {
+	margin-left: 12px;
+	background: #5fab95;
+	color: white;
+	border: none;
+	zoom: 2.0;
+	cursor: pointer;
+	font-size: 8px;
+	
+}
+
+/* 댓글테이블 */
 table#tbl-answer {
 	width: 580px;
 	margin: 0 auto;
@@ -119,77 +215,32 @@ table#tbl-answer tr td:first-of-type {
 	padding: 5px 5px 5px 50px;
 }
 
-table#tbl-answer tr td:last-of-type {
+table#tbl-answer tr td:last-child {
 	text-align: right;
 	width: 100px;
-}
-
-table#tbl-answer button.btn-reply {
-	display: none;
 }
 
 table#tbl-answer tr:hover {
 	background: lightgray;
 }
 
-table#tbl-answer tr:hover button.btn-reply {
-	display: inline;
-}
-
-table#tbl-answer sub.comment-writer {
-	color: navy;
-	font-size: 14px
-}
-
-table#tbl-answer sub.comment-date {
-	color: tomato;
-	font-size: 10px
-}
-
-table#tbl-answer tr.level2 {
-	color: gray;
-	font-size: 14px;
-}
-
-table#tbl-answer tr.level2 td:first-of-type {
-	padding-left: 100px;
-}
-
-table#tbl-answer tr.level2 sub.comment-writer {
-	color: #8e8eff;
-	font-size: 14px
-}
-
-table#tbl-answer tr.level2 sub.comment-date {
-	color: #ff9c8a;
-	font-size: 10px
-}
-
-/*답글관련*/
-table#tbl-answer textarea {
-	margin: 4px 0 0 0;
-}
-
-table#tbl-answer button.btn-comment-enroll2 {
-	width: 60px;
-	height: 23px;
-	color: white;
-	background: #3300ff;
-	position: relative;
-	top: -5px;
-	left: 10px;
-}
-
-/* 삭제버튼관련 */
+/* 답변삭제버튼관련 */
 table#tbl-answer button.btn-delete {
 	background: red;
 	color: white;
 	display: none;
+	border: none;
+	margin: 0 0 10px;
+	zoom: 1.5;
+	cursor: pointer;
+	font-size: 12px;
 }
 
 table#tbl-answer tr:hover button.btn-delete {
 	display: inline;
 }
+
+
 
 /* 아코디언 */
 .collapsible {
@@ -217,17 +268,18 @@ table#tbl-answer tr:hover button.btn-delete {
 	transition: max-height 0.2s ease-out;
 	background-color: #f1f1f1;
 	margin-bottom: 10px;
+	
 }
 
-.content p{
-	padding: 10px;	
+.content p {
+	padding: 10px;
 }
+
 .collapsible span {
 	color: #5fab95;
 	font-weight: 500;
 	font-size: 20px;
 }
-
 
 .collapsible:after {
 	content: '\002B';
@@ -273,8 +325,8 @@ table#tbl-answer tr:hover button.btn-delete {
 .custom-image {
 	position: absolute;
 	width: 40px;
-    height: 40px;
-    margin-left: 560px;
-    margin-top: 34px;
-    cursor: pointer;
+	height: 40px;
+	margin-left: 560px;
+	margin-top: 34px;
+	cursor: pointer;
 }

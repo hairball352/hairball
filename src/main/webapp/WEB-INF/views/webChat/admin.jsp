@@ -57,8 +57,8 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript">
 		// 서버의 admin의 서블릿으로 웹 소켓을 한다.
-		var webSocket = new WebSocket("ws://localhost:8080/hairball/admin");
-		// 운영자에서의 open, close, error는 의미가 없어서 형태만 선언
+		let webSocket = new WebSocket("ws://localhost:8080/hairball/admin");
+		// 관리자에서의 open, close, error는 의미가 없어서 형태만 선언
 		webSocket.onopen = function(message) {
 		};
 		webSocket.onclose = function(message) {
@@ -67,7 +67,7 @@
 		};
 		
 		// 채팅창을 감싸는 컨테이너 생성
-		var $chatContainer = $("<div class='chat-container2'></div>");
+		let $chatContainer = $("<div class='chat-container2'></div>");
 		$("body").append($chatContainer);
 		
 		// 서버로 부터 메시지가 오면
@@ -96,7 +96,7 @@
 				let log = $div.find(".console").val();
 				// 아래에 메시지를 추가한다.
 				let temp2 = "<%= loginMemberId %>";
-				$div.find(".console").val(log + temp2 + " : " + node.message + "\n");
+				$div.find(".console").val(log + "\n" +node.message + "\n");
 				// bye는 유저가 접속을 끊었을 때 알려주는 메시지이다.
 			} else if (node.status === "bye") {
 				// 해당 키로 div를 찾아서 dom을 제거한다.

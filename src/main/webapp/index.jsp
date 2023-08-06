@@ -11,10 +11,10 @@
           <img src="/hairball/images/홈/home_2.jpg" alt="홈 배경" />
         </div>
         <div class="swiper-slide">
-          <img src="/hairball/images/홈/home_1.jpg" alt="홈 배경3" />
+          <img src="/hairball/images/홈/몽이2.jpg" alt="홈 배경3" />
         </div>
         <div class="swiper-slide">
-          <img src="/hairball/images/홈/home_3.jpg" alt="홈 배경4" />
+          <img src="/hairball/images/홈/몽이1.jpg" alt="홈 배경4" />
         </div>
         <div class="swiper-slide">
           <img src="/hairball/images/홈/home_4.jpg" alt="홈 배경2" />
@@ -29,9 +29,8 @@
     </h2>
     <h3 class="sub_title">사랑스러운 아이들이 기다리고 있어요</h3>
     <div class="go_click">
-      <a href="#">
-        <img
-                src="/hairball/images/홈/만나러가기.png"
+      <a href="<%= request.getContextPath() %>/animal/list">
+        <img src="/hairball/images/홈/만나러가기.png"
                 alt="만나러 가기"
         />
       </a>
@@ -110,10 +109,7 @@
   </div>
 </div>
 
-<form method="get" action="/member/findMemberId">
-<input type="text" name="phone">
-<input type="submit"> 
-</form>
+
 <script>
 window.addEventListener('load', () => {
 	removeBanner();

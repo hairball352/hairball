@@ -121,7 +121,7 @@ div#search-name			{display: <%= "name".equals(searchType) ? "inline-block" : "no
 					<td colspan="5">
 						<div class="chat-container"
 							data-member-id="<%=member.getMemberId()%>"
-							style="overflow-y: auto; width: 970px; max-height: 500px; padding: 4px; border: 1 solid #000000;">
+							style="overflow-y: auto; width: 970px; max-height: 280px; padding: 4px; border: 1 solid #000000;">
 						</div>
 					</td>
 				</tr>

@@ -126,24 +126,24 @@ create sequence seq_adopt_board_id;
 --=========================================
 -- 테이블, 시퀀스 DROP
 --=========================================
---drop table member;
---drop table answer;
---drop table question;
---drop table animal;
---drop table enroll_board;
---drop table attachment;
---drop table shelter;
---drop table chatlog;
---drop table adopt_board;
+drop table member;
+drop table answer;
+drop table question;
+drop table animal;
+drop table enroll_board;
+drop table attachment;
+drop table shelter;
+drop table chatlog;
+drop table adopt_board;
 --
---drop sequence seq_member_id;
---drop sequence seq_animal_id;
---drop sequence seq_answer_id;
---drop sequence seq_question_id;
---drop sequence seq_attachment_id;
---drop sequence seq_enroll_board_id;
---drop sequence seq_chatlog_id;
---drop sequence seq_adopt_board_id;
+drop sequence seq_member_id;
+drop sequence seq_animal_id;
+drop sequence seq_answer_id;
+drop sequence seq_question_id;
+drop sequence seq_attachment_id;
+drop sequence seq_enroll_board_id;
+drop sequence seq_chatlog_id;
+drop sequence seq_adopt_board_id;
 
 --===========================================
 
@@ -153,6 +153,9 @@ create sequence seq_adopt_board_id;
 --===========================================
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
 VALUES (seq_member_id.nextval, 'member1', 'password1', 'John Doe', 'U', 'john.doe@example.com', '1234567890', '123 Example Street', 'K');
+
+Insert into WEB.MEMBER (MEMBER_ID,PASSWORD,NAME,MEMBER_ROLE,GENDER,BIRTHDAY,EMAIL,PHONE,HOBBY,POINT,ENROLL_DATE) values ('abcd','kl9Dw8+5VrvjxqqAI7p61c+iHRBBhv/8aedo5VlA2WU7HNNvumFPui4YRPRDbaIPg3UMbsHbNW2hVGkb3XGpsQ==','김준호','U','M',to_date('92/02/02','RR/MM/DD'),'abcd@naver.com','01012345678','운동,등산,독서',1000,to_date('18/02/01','RR/MM/DD'));
+Insert into WEB.MEMBER (MEMBER_ID,PASSWORD,NAME,MEMBER_ROLE,GENDER,BIRTHDAY,EMAIL,PHONE,HOBBY,POINT,ENROLL_DATE) values ('hihiroo','tVVKLkAaPExiMPG+61kg/Sa3zwUjBDn+d/t9+5Mzayxk/nX1ejPD51En+Dp3d2tsOFdfwhYtDLHwXur7x2WRow==','김안녕','U','F',to_date('01/10/18','RR/MM/DD'),'hihiroo@naver.com','01023454635','운동,여행',1000,to_date('18/02/05','RR/MM/DD'));
 
 -- 2번째 쿼리
 INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
@@ -223,74 +226,74 @@ select * from member;
 --==========================
 -- QnA테스트쿼리
 --==========================
-INSERT INTO question VALUES (seq_question_id.nextval, 'member10', '질문있습니다', '요ㅚ르ㅏ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member1', '입양어케해요', '요ㅂㅂ거요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member13', '강아지가 물어요', '요바요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '고양이가 밥을 안먹어요', '요ㅂ비ㅣ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member5', '호랑이 입양절차', '요ㄴㄹㅇ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member7', '코끼리 vs 하마', 'ㄴㅇㄹㅇㄹ', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member8', '시베리안허스키 없어요?', '요ㅎㄴㅇ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '고양이 vs 개', '요ㅁㅁㅁ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member4', '가입하는법', '요5ㅎㅎ5요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member11', '결제 오류입니다', '요555요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member12', '강아지가 밥을 안먹어요', '요132231요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member6', '아이디 변경해주세요', '요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '질문있습니다', '요ㅚ르ㅏ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '입양어케해요', '요ㅂㅂ거요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '강아지가 물어요', '요바요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '고양이가 밥을 안먹어요', '요ㅂ비ㅣ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '호랑이 입양절차', '요ㄴㄹㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '코끼리 vs 하마', 'ㄴㅇㄹㅇㄹ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '시베리안허스키 없어요?', '요ㅎㄴㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '고양이 vs 개', '요ㅁㅁㅁ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '가입하는법', '요5ㅎㅎ5요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '결제 오류입니다', '요555요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '강아지가 밥을 안먹어요', '요132231요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '아이디 변경해주세요', '요', default);
 --
-INSERT INTO question VALUES (seq_question_id.nextval, 'member10', '있습니다', '요ㅚ르ㅏ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member1', '입양어케함', '요ㅂㅂ거요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member13', '강아지좋아여', '요바요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '고양이가물어요', '요ㅂ비ㅣ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member5', '김상훈 입양절차', '요ㄴㄹㅇ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member7', '김상훈 vs 김담희', 'ㄴㅇㄹㅇㄹ', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member8', '김상훈이 밥을 안먹어요', '요ㅎㄴㅇ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '전예라 vs 정건룡', '요ㅁㅁㅁ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member4', '결제가 안돼요', '요5ㅎㅎ5요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member11', '결제 오류?', '요555요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member12', '킹킹킹', '요132231요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member6', '아이디 변경요청', '요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '김다미가 안알려줘요', 'ㅡ ㅡ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '있습니다', '요ㅚ르ㅏ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '입양어케함', '요ㅂㅂ거요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '강아지좋아여', '요바요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '고양이가물어요', '요ㅂ비ㅣ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김상훈 입양절차', '요ㄴㄹㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김상훈 vs 김담희', 'ㄴㅇㄹㅇㄹ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김상훈이 밥을 안먹어요', '요ㅎㄴㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '전예라 vs 정건룡', '요ㅁㅁㅁ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '결제가 안돼요', '요5ㅎㅎ5요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '결제 오류?', '요555요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '킹킹킹', '요132231요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '아이디 변경요청', '요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김다미가 안알려줘요', 'ㅡ ㅡ', default);
 --
-INSERT INTO question VALUES (seq_question_id.nextval, 'member10', '있다', '요ㅚ르ㅏ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member1', '입양케함', '요ㅂㅂ거요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member13', '강아지', '요바요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '고양이', '요ㅂ비ㅣ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member5', '김담희 입양절차', '요ㄴㄹㅇ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member7', '김상훈 vs 전예라', 'ㄴㅇㄹㅇㄹ', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member8', '김상훈파양절차', '요ㅎㄴㅇ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '전예라입양절차', '요ㅁㅁㅁ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member4', '결제문의', '요5ㅎㅎ5요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member11', '결제 오류?', '요555요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member12', '문의문의', '요132231요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member6', '고양이 문의합니다', '요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '답변해주세요ㅡㅡ', 'ㅡ ㅡ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '있다', '요ㅚ르ㅏ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '입양케함', '요ㅂㅂ거요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '강아지', '요바요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '고양이', '요ㅂ비ㅣ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김담희 입양절차', '요ㄴㄹㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김상훈 vs 전예라', 'ㄴㅇㄹㅇㄹ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김상훈파양절차', '요ㅎㄴㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '전예라입양절차', '요ㅁㅁㅁ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '결제문의', '요5ㅎㅎ5요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '결제 오류?', '요555요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '문의문의', '요132231요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '고양이 문의합니다', '요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '답변해주세요ㅡㅡ', 'ㅡ ㅡ', default);
 --
-INSERT INTO question VALUES (seq_question_id.nextval, 'member10', '호호호', '요ㅚ르ㅏ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member1', '입양하하하함', '요ㅂㅂ거요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member13', '강아지멍멍이', '요바요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '고양이야옹이', '요ㅂ비ㅣ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member5', '김담희 파양절차', '요ㄴㄹㅇ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member7', '김상훈파양좀 제발', 'ㄴㅇㄹㅇㄹ', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member8', '김상훈파양절차', '요ㅎㄴㅇ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '전예라파양절차', '요ㅁㅁㅁ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member4', '결제문의입니다요', '요5ㅎㅎ5요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member11', '젤리사주세요', '요555요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member12', '문의 나문의', '요132231요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member6', '고양이 나눔합니다', '요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '강아지 무료나눔합니다', 'ㅡ ㅡ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '호호호', '요ㅚ르ㅏ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '입양하하하함', '요ㅂㅂ거요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '강아지멍멍이', '요바요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '고양이야옹이', '요ㅂ비ㅣ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김담희 파양절차', '요ㄴㄹㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김상훈파양좀 제발', 'ㄴㅇㄹㅇㄹ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김상훈파양절차', '요ㅎㄴㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '전예라파양절차', '요ㅁㅁㅁ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '결제문의입니다요', '요5ㅎㅎ5요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '젤리사주세요', '요555요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '문의 나문의', '요132231요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '고양이 나눔합니다', '요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '강아지 무료나눔합니다', 'ㅡ ㅡ', default);
 --
-INSERT INTO question VALUES (seq_question_id.nextval, 'member10', '키키키', '요ㅚ르ㅏ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member1', '헤헤헤하하하함', '요ㅂㅂ거요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member13', '멍멍이', '요바요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '야옹이', '요ㅂ비ㅣ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member5', '강아지 파양절차', '요ㄴㄹㅇ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member7', '고양이파양좀 제발', 'ㄴㅇㄹㅇㄹ', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member8', '호랑이파양절차', '요ㅎㄴㅇ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '파양파파양절차', '요ㅁㅁㅁ요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member4', '젤리입니다요', '요5ㅎㅎ5요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member11', '표범사주세요', '요555요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member12', '개구리 입양절차', '요132231요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member6', '작은소피참진드기 입양절차', '요', default);
-INSERT INTO question VALUES (seq_question_id.nextval, 'member2', '작은소피참진드기한테 물렸어요', 'ㅡ ㅡ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '키키키', '요ㅚ르ㅏ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '헤헤헤하하하함', '요ㅂㅂ거요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '멍멍이', '요바요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '야옹이', '요ㅂ비ㅣ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '강아지 파양절차', '요ㄴㄹㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '고양이파양좀 제발', 'ㄴㅇㄹㅇㄹ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '호랑이파양절차', '요ㅎㄴㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '파양파파양절차', '요ㅁㅁㅁ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '젤리입니다요', '요5ㅎㅎ5요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '표범사주세요', '요555요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '개구리 입양절차', '요132231요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '작은소피참진드기 입양절차', '요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '작은소피참진드기한테 물렸어요', 'ㅡ ㅡ', default);
 
 select * from question;
 
@@ -316,19 +319,99 @@ select * from animal;
 --===========================================
 -- 연습장입니다
 --===========================================
-select * from question;
-select * from answer where question_id = 38;
 
 select * from member;
+select * from answer;
+select * from question;
+select * from animal;
+select * from enroll_board;
+select * from attachment;
+select * from shelter;
+select * from chatlog;
+select * from adopt_board;
 
-insert into answer values(seq_answer_id.nextval, default, 38, '뒤지세요 ㅋㅋㅋㅋ',default );
-insert into answer values(seq_answer_id.nextval, default, ?, ?, default);
-delete answer where id = 4;
--- select * from (select row_number() over (order by q.id desc) rnum, q.* from question q) where rnum between 1 and 10;
+delete from animal;
+delete from chatlog;
 
-select * from (select row_number() over (order by q.id desc) rnum, q.*, (select count(*) from answer where question_id = q.id) answer_cnt from question q) where rnum between 1 and 10;
+delete from member where member_id = 'KaKao예라';
+delete from member where member_id = 'Naver@전예라';
 
 select * from enroll_board;
 
+INSERT INTO member (id, member_id, password, name, member_role, email, phone, address, provider)
+VALUES (seq_member_id.nextval, 'admin', 'password3', 'Michael Johnson', 'A', 'michael.johnson@example.com', '1112223333', '789 Example Road', 'N');
+
+update member set member_role = 'A' where name='관리자';
 
 
+
+
+--==========================
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '질문있습니다', '요ㅚ르ㅏ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '입양어케해요', '요ㅂㅂ거요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '강아지가 물어요', '요바요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '고양이가 밥을 안먹어요', '요ㅂ비ㅣ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '호랑이 입양절차', '요ㄴㄹㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '코끼리 vs 하마', 'ㄴㅇㄹㅇㄹ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '시베리안허스키 없어요?', '요ㅎㄴㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '고양이 vs 개', '요ㅁㅁㅁ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '가입하는법', '요5ㅎㅎ5요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '결제 오류입니다', '요555요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '강아지가 밥을 안먹어요', '요132231요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '아이디 변경해주세요', '요', default);
+--
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '있습니다', '요ㅚ르ㅏ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '입양어케함', '요ㅂㅂ거요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '강아지좋아여', '요바요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '고양이가물어요', '요ㅂ비ㅣ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김상훈 입양절차', '요ㄴㄹㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '김상훈 vs 김담희', 'ㄴㅇㄹㅇㄹ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '김상훈이 밥을 안먹어요', '요ㅎㄴㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '전예라 vs 정건룡', '요ㅁㅁㅁ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '결제가 안돼요', '요5ㅎㅎ5요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '결제 오류?', '요555요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '킹킹킹', '요132231요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '아이디 변경요청', '요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '김다미가 안알려줘요', 'ㅡ ㅡ', default);
+--
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '있다', '요ㅚ르ㅏ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '입양케함', '요ㅂㅂ거요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '강아지', '요바요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '고양이', '요ㅂ비ㅣ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '김담희 입양절차', '요ㄴㄹㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김상훈 vs 전예라', 'ㄴㅇㄹㅇㄹ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '김상훈파양절차', '요ㅎㄴㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '전예라입양절차', '요ㅁㅁㅁ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '결제문의', '요5ㅎㅎ5요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '결제 오류?', '요555요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '문의문의', '요132231요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '고양이 문의합니다', '요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '답변해주세요ㅡㅡ', 'ㅡ ㅡ', default);
+--
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '호호호', '요ㅚ르ㅏ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '입양하하하함', '요ㅂㅂ거요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '강아지멍멍이', '요바요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '고양이야옹이', '요ㅂ비ㅣ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '김담희 파양절차', '요ㄴㄹㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김상훈파양좀 제발', 'ㄴㅇㄹㅇㄹ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '김상훈파양절차', '요ㅎㄴㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '전예라파양절차', '요ㅁㅁㅁ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '결제문의입니다요', '요5ㅎㅎ5요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '젤리사주세요', '요555요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '문의 나문의', '요132231요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '고양이 나눔합니다', '요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '강아지 무료나눔합니다', 'ㅡ ㅡ', default);
+--
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '키키키', '요ㅚ르ㅏ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '헤헤헤하하하함', '요ㅂㅂ거요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '멍멍이', '요바요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '야옹이', '요ㅂ비ㅣ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '강아지 파양절차', '요ㄴㄹㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '고양이파양좀 제발', 'ㄴㅇㄹㅇㄹ', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '호랑이파양절차', '요ㅎㄴㅇ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '파양파파양절차', '요ㅁㅁㅁ요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '젤리입니다요', '요5ㅎㅎ5요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '표범사주세요', '요555요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'honggd', '개구리 입양절차', '요132231요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sejong', '작은소피참진드기 입양절차', '요', default);
+INSERT INTO question VALUES (seq_question_id.nextval, 'sinsa', '작은소피참진드기한테 물렸어요', 'ㅡ ㅡ', default);
