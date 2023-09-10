@@ -53,6 +53,7 @@
 </ul>
 
 <h3>전예라</h3>
+<h4>1:1 채팅, 채팅 기록 조회, 회원 조회, 웹 디자인 및 전체적인 CSS</h4>
 <ul>
   <li><a href="http://localhost:8080/hairball/">메인 페이지</a></li>
   <li><a href="http://localhost:8080/hairball/introduce/introduce1.jsp">센터 소개페이지</a></li>
